@@ -1,0 +1,16 @@
+.DS_Store
+/**/.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.mws.*
+!.env.example
+# To check clients servers configs localy via ftp
+# but avoiding to send it on repo ;) (please, 
+# delete it localy too when you have finishig
+# editing and ftp sync ...):
+wp-config.php
+/.vscode

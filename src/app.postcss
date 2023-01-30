@@ -1,0 +1,40 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+
+/* https://github.com/tailwindlabs/tailwindcss/issues/5989 */
+/* @layer components {
+  .text-xl {
+  }
+} */
+
+/* // TIPS ++ : https://tailwindcss.com/docs/adding-custom-styles#removing-unused-custom-css */
+@layer utilities {
+	.mws-text-xl {
+		/* @apply .text-xl; * / // TODO : apply from tailwind...
+        /* https://tailwindcss.com/docs/functions-and-directives#using-apply-with-per-component-css
+        https://github.com/tailwindlabs/tailwindcss/issues/5989
+        https://github.com/tailwindlabs/tailwindcss/issues/8140
+        https://tailwindcss.com/docs/functions-and-directives * /
+        font-size: 14pt; // unknow word...*/
+	}
+
+	/* .vinz-red {
+color: red
+    }
+    .vinz-creme {
+      color: red
+    }
+    .vinz-red {
+      color: red
+    }
+
+    :global(vinz-red) {
+      display: block !important;
+      height: auto !important;
+      width: auto !important;
+      position: static !important;
+    } */
+}
+
+@tailwind utilities;

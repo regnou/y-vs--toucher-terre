@@ -1,0 +1,118 @@
+@use 'sass:color';
+
+// Svelte Colors!
+@use '@material/theme/index' as theme with (
+	$primary: #11589a,
+	$on-primary: #fcc874,
+	$error: #ff7870,
+	// color-palette.$red-900
+	$secondary: #330066,
+	$on-secondary: #87b70e,
+	// $contrast: #05665C,
+	$background: #fff,
+	$surface: #fff,
+	$on-surface: #000
+);
+
+// theme.set('outline-color');
+
+@use '@material/theme/color-palette';
+
+/* CSS file */
+:root {
+	// TODO : more SMUI variables ?
+	//       go check '@material/theme/color-palette' src code...
+	--smui-primary: #{theme.$primary};
+	--smui-on-primary: #{theme.$on-primary};
+	--smui-error: #{theme.$error};
+	--smui-secondary: #{theme.$secondary};
+	--smui-on-secondary: #{theme.$on-secondary};
+	// --smui-contrast: #{theme.$contrast};
+	--smui-background: #{theme.$background};
+
+	// To solve body class param issue in progress for sveltekit :
+	// https://github.com/sveltejs/svelte/issues/3105
+	--smui-surface: #{theme.$surface};
+	--smui-on-surface: #{theme.$on-surface};
+
+	// --smui-outline-color: #{theme.get('outline-color')};
+}
+
+// html,
+// body {
+//   background-color: theme.$surface;
+//   color: theme.$on-surface;
+// }
+
+////////////////////////
+/// BASICS
+////////////////////////
+a {
+	color: #40b3ff;
+}
+a:visited {
+	color: color.scale(#40b3ff, $lightness: -35%);
+}
+
+////////////////////////
+/// SMUI configs
+////////////////////////
+
+// Show bottom app bar above all z-indexed contents => was just missing main theme file ?
+// or missing some config stuff for bottom app bar ?
+.smui-bottom-app-bar.smui-bottom-app-bar--standard {
+	z-index: 1000;
+}
+
+// TODO : should have a theme.$outline config right ? need to rev ing SCSS, hard css set for now
+// .mdc-select__selected-text, .mdc-select__icon, .mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text {
+//   color: var(--smui-on-primary) !important; // TODO : why need !important ? re-style same as framework, framework is loaded after theme file ? switch that ?
+// }
+
+// .mdc-select__anchor, .mdc-select--outlined:not(.mdc-select--disabled) .mdc-select__anchor {
+//   background: var(--smui-primary) !important; // TODO : why need !important ? re-style same as framework, framework is loaded after theme file ? switch that ?
+// }
+
+////////////////////////
+/// Planner Re-Styles
+////////////////////////
+.tz-dropdown [type='search'] {
+	color: white;
+}
+
+////////////////////////
+/// CUSTOM Styles
+////////////////////////
+
+.animate-characters {
+	text-transform: uppercase;
+	background-image: linear-gradient(
+		-225deg,
+		var(--smui-primary) 0%,
+		var(--smui-secondary) 29%,
+		#975e03 67%,
+		#4682b0 100%
+	);
+	background-size: auto auto;
+	background-clip: border-box;
+	background-size: 200% auto;
+	color: #fff;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: textclip 2s linear infinite;
+	animation: textclip 2s linear infinite;
+	display: inline-block;
+}
+
+@-webkit-keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
+}
+@keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
+}

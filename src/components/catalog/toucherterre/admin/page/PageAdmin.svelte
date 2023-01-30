@@ -1,0 +1,95 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import AxInput from '../formcomponent/AxInputAll.svelte';
+	import AxBtnWhite from '../formcomponent/AxBtnWhite.svelte';
+	import AxBtnBlue from '../formcomponent/AxBtnBlue.svelte';
+	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
+	import {
+		service_addIdInput,
+		service_modInput
+	} from '@app/utils/tecnology/firebase/services/adminPageServices';
+	import { upload } from '@app/utils/tecnology/firebase/storageServices';
+
+	export let col;
+	export let store;
+	export let initData;
+	let files_all = [null, null, null, null, null, null, null, null, null, null];
+
+	onMount(() => {
+		// menus.update((n) => data);
+	});
+
+	// $: $site = data.site;
+	$: console.log(files_all);
+
+	const injectScript = async () => {
+		await service_addIdInput(col, 'summaryId', { data: initData });
+	};
+
+	async function save() {
+		console.log('click onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
+		console.log('🟨');
+		// FAST and BAD - upload image now
+		const { STORAGE } = getFirebase();
+		for (let index = 0; index < files_all.length; index++) {
+			const fileList = files_all[index];
+			if (fileList) {
+				const urlStorage = await upload(fileList[0]);
+				// const urlStorage = await upload(fileList[0]);
+
+				$store[index].inputValue = urlStorage;
+				console.log('UPDATE FINAL : ', $store[index].inputValue, ' -- ', urlStorage);
+				console.log('________________________________');
+			}
+		}
+
+		// files_all.forEach(async (fileList, i) => {
+		// 	if (fileList) {
+		// 		const urlStorage = await upload(fileList[0]);
+		// 		// const urlStorage = await upload(fileList[0]);
+
+		// 		$store[i].inputValue = urlStorage;
+		// 		console.log('UPDATE FINAL : ', $store[i].inputValue, ' -- ', urlStorage);
+		// 		console.log('________________________________');
+		// 	}
+		// });
+		console.log('🟨🟨');
+		// SAVE LE STORE VERS FIRESTORE
+		await service_modInput(col, 'summaryId', { data: $store });
+	}
+</script>
+
+<div id="wa--layout-admin" class=" text-black bg-yellow-400">
+	<button on:click={injectScript}>> INJECT DATA !</button>
+
+	<!-- btn -->
+	<div class="grid grid-flow-col gap-2 place-items-center">
+		<AxBtnWhite text="cancel" />
+		<!-- <AxBtnBlue handle={save} /> -->
+		<AxBtnBlue handle={async () => await save()} />
+	</div>
+
+	<div class="p-2 space-y-6">
+		{#if $store}
+			{#each $store as item, i}
+				<AxInput
+					bind:files={files_all[i]}
+					bind:inputValue={item.inputValue}
+					bind:label={item.label}
+					bind:type={item.type}
+				/>
+			{/each}
+		{/if}
+	</div>
+
+	<!-- <button on:click={save}> > SAVE !</button> -->
+</div>
+
+<style>
+	button {
+		@apply p-2 bg-white border-blue-400 border-2 m-2;
+	}
+	button:hover {
+		@apply bg-green-300 border-blue-800;
+	}
+</style>

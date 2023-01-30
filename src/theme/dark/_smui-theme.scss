@@ -1,0 +1,114 @@
+// 🌖🌖 Copyright Monwoo 2022-2023 🌖🌖, build by Miguel Monwoo, service@monwoo.com
+
+@use 'sass:color';
+
+// Svelte Colors!
+@use '@material/theme/index' as theme with (
+	$primary: #11589a,
+	$on-primary: #fcc874,
+	$error: #ff7870,
+	// color-palette.$red-900
+	$secondary: #330066,
+	$on-secondary: #87b70e,
+	// $contrast: #05665C,
+	$background: #000,
+	$surface: #000,
+	$on-surface: #fff
+);
+
+@use '@material/theme/color-palette';
+
+/* CSS file */
+:root {
+	// TODO : more SMUI variables ?
+	//       go check '@material/theme/color-palette' src code...
+	--smui-primary: #{theme.$primary};
+	--on-primary: #{theme.$on-primary};
+	--smui-error: #{theme.$error};
+	--smui-secondary: #{theme.$secondary};
+	--smui-on-secondary: #{theme.$on-secondary};
+	// --smui-contrast: #{theme.$contrast};
+	--smui-background: #{theme.$background};
+
+	// To solve body class param issue in progress for sveltekit :
+	// https://github.com/sveltejs/svelte/issues/3105
+	--smui-surface: #{theme.$surface};
+	--smui-on-surface: #{theme.$on-surface};
+}
+
+.dark-mode {
+	////////////////////////
+	/// BASICS
+	////////////////////////
+
+	// html,
+	// body {
+	// background-color: #000;
+	// color: theme.$on-surface;
+
+	// body > & {
+	//   // Fixing light theme background showing up on light and dark theme switch
+	//   // to avoid blinking interface that preload the light theme before the dark one.
+	//   height: 100%;
+
+	//   // TODO or FEATURE ? : bg bottom bar is having the light BG when dark mode is on since bottomAppBar use padding ? (showing html bg not sizable from inside block ? => need to inject theme class in body tag ?)
+	// }
+
+	a {
+		color: #40b3ff;
+	}
+	a:visited {
+		color: color.scale(#40b3ff, $lightness: -35%);
+	}
+
+	////////////////////////
+	/// SMUI Re-Styles
+	////////////////////////
+
+	// TODO : should have a theme.$outline config right ? need to rev ing SCSS, hard css set for now
+	// .mdc-select__selected-text, .mdc-select__icon, .mdc-select:not(.mdc-select--disabled) .mdc-select__selected-text {
+	//   color: var(--smui-on-primary) !important; // TODO : why need !important ? re-style same as framework, framework is loaded after theme file ? switch that ?
+	// }
+
+	// .mdc-select__anchor, .mdc-select--outlined:not(.mdc-select--disabled) .mdc-select__anchor {
+	//   background: var(--smui-primary) !important; // TODO : why need !important ? re-style same as framework, framework is loaded after theme file ? switch that ?
+	// }
+
+	////////////////////////
+	/// Planner Re-Styles
+	////////////////////////
+	// Planner re-design in dark mode :
+	.ec-button {
+		background-color: black;
+
+		&:not(:disabled) {
+			background-color: black;
+			color: white;
+
+			&:hover {
+				background-color: white;
+				color: black;
+			}
+		}
+
+		&:disabled {
+			background-color: black;
+			color: gray;
+		}
+	}
+
+	.ec-icon.ec-prev,
+	.ec-icon.ec-next {
+		&::after {
+			border-color: white;
+
+			.ec-button:hover & {
+				border-color: black;
+			}
+		}
+	}
+
+	////////////////////////
+	/// CUSTOM Styles
+	////////////////////////
+}
