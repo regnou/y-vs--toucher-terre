@@ -2,7 +2,7 @@
 // Backup of this starter page can be found at :
 // src/routes/mws/core/+layout.ts
 
-// import { browser, dev } from '$app/environment';
+import { browser, dev } from '$app/environment';
 
 // https://github.com/sveltejs/kit/pull/6197
 // export const csr = false; // client side rendering, to avoid JS on fully static content pages

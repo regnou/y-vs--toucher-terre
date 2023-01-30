@@ -6,6 +6,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { base } from '$app/paths';
 	import { browser } from '$app/environment';
+	import LayoutAdmin from '@app/components/catalog/toucherterre/admin/page/LayoutAdmin.svelte';
 	// import { NODE_ENV } from '$env/static/private';
 	// import { addToast } from "./store";
 

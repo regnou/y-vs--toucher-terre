@@ -1,3 +1,27 @@
+	<!--
+    // Below style to solve body class param issue in progress for sveltekit :
+    // https://github.com/sveltejs/svelte/issues/3105
+  -->
+	<style>
+		/* html,
+		body {
+			background-color: var(--smui-surface);
+			color: var(--smui-on-surface);
+		} */
+	</style>
+
+    <!-- </div> -->
+<style>
+	/* @media only screen and (min-width: 768px) {
+		:global(.card-display) {
+			max-width: 80%;
+			margin: auto;
+		}
+	} */
+</style>
+
+
+
 # Use this starter
 
 Build by Miguel Monwoo, copyright Monwoo 2023, tout droits réservé.

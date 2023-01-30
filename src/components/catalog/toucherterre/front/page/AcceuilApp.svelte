@@ -24,6 +24,11 @@
 	});
 </script>
 
+<!-- <svelte:head>
+	<title>Axel Regnoult</title>
+	<meta name="description" content="CV Axel Regnoult ingénieur en informatique" />
+</svelte:head> -->
+
 <!-- {#each $STORE_ACCEUIL as item} -->
 
 <!-- <Item2 /> -->
