@@ -164,7 +164,7 @@
 			<br />
 			<Button on:click={() => (open = !open)}><Label>Toggle Drawer</Label></Button> -->
 			<!-- && SLOT -->
-			<slot name="layout" slot="layout2" />
+			<slot name="layout1" slot="layout2" />
 		</TopAppBar>
 		<!-- <slot slot="layout" /> -->
 	</main>

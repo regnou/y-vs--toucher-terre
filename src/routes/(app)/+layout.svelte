@@ -47,7 +47,8 @@
 
 <!-- <div class="{$theme}-mode"> -->
 <!-- <Toasts /> -->
-
-<LayoutApp>
-	<slot />
-</LayoutApp>
+<Drawer>
+	<!-- <LayoutApp> -->
+	<slot name="layout1" />
+	<!-- </LayoutApp> -->
+</Drawer>

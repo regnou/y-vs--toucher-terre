@@ -3,6 +3,8 @@
 	import AxInput from '../formcomponent/AxInputAll.svelte';
 	import AxBtnWhite from '../formcomponent/AxBtnWhite.svelte';
 	import AxBtnBlue from '../formcomponent/AxBtnBlue.svelte';
+	import Button, { Label } from '@smui/button';
+
 	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 	import {
 		service_addIdInput,
@@ -59,15 +61,11 @@
 	}
 </script>
 
-<div id="wa--layout-admin" class=" text-black bg-yellow-400">
-	<button on:click={injectScript}>> INJECT DATA !</button>
-
-	<!-- btn -->
-	<div class="grid grid-flow-col gap-2 place-items-center">
-		<AxBtnWhite text="cancel" />
-		<!-- <AxBtnBlue handle={save} /> -->
-		<AxBtnBlue handle={async () => await save()} />
-	</div>
+<div id="wa--layout-admin" class=" text-black bg-white">
+	<!-- <button on:click={injectScript}>> INJECT DATA !</button> -->
+	<Button on:click={injectScript} variant="raised" class="button-shaped-round">
+		<Label>INJECT DATA</Label>
+	</Button>
 
 	<div class="p-2 space-y-6">
 		{#if $store}
@@ -80,6 +78,13 @@
 				/>
 			{/each}
 		{/if}
+	</div>
+
+	<!-- btn -->
+	<div class="grid grid-flow-col gap-2 place-items-center">
+		<AxBtnWhite text="cancel" />
+		<!-- <AxBtnBlue handle={save} /> -->
+		<AxBtnBlue callback={async () => await save()} />
 	</div>
 
 	<!-- <button on:click={save}> > SAVE !</button> -->

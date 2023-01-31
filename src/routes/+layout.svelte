@@ -9,7 +9,15 @@
 	// => replaced by Advanced routes :
 	//     Do NOT change this layout, change the root declinaison inside '(app)' or create your own instead
 	// https://kit.svelte.dev/docs/advanced-routing#advanced-layouts
-	// import '@app/app.postcss';
+	import '@app/app.postcss';
+
+	// splide -Default theme
+	import '@splidejs/splide/css';
+	// or other themes
+	// import '@splidejs/splide/css/skyblue';
+	// import '@splidejs/splide/css/sea-green';
+	// or only core styles
+	// import '@splidejs/splide/css/core';
 </script>
 
 <slot />

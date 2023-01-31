@@ -15,23 +15,28 @@
 	let inputId = '0';
 	// export let placeholder;
 	let placeholder = '--';
+	import CharacterCounter from '@smui/textfield/character-counter';
+
+	import Textfield from '@smui/textfield';
+	import Icon from '@smui/textfield/icon';
+	import HelperText from '@smui/textfield/helper-text';
 
 	// $: if (inputValue) console.log("inside : " + inputValue);
 	// 3 replace space
 	// $: labelFormName = labelName.toLowerCase().replace(/\s/g, ""); // 3 to use as the name for the FORM
 </script>
 
-<div class="mx-1 my-4">
+<div>
 	<!-- <label for={inputId} class="block text-sm font-medium text-neutral-600">
     {labelName}
   </label> -->
-	<div class="capitalize  block text-sm font-bold text-neutral-600">
+	<!-- <div class="capitalize  block text-sm font-bold text-neutral-600">
 		{label}
-	</div>
-	<div class="mt-1">
-		<!-- value={inputValue ? inputValue : ""} -->
-		{#if type === 'text'}
-			<input
+	</div> -->
+	<!-- <div class="mt-1"> -->
+	<!-- value={inputValue ? inputValue : ""} -->
+	{#if type === 'text'}
+		<!-- <input
 				type="text"
 				name={inputId}
 				bind:value={inputValue}
@@ -39,35 +44,41 @@
 				{placeholder}
 				autocomplete="off"
 				class="btnInputAx"
-			/>
-		{:else if type === 'file'}
-			<AxFileUpload bind:files bind:urlStorage={inputValue} />
-		{:else if type === 'area'}
-			<AxArea bind:inputValue name={inputId} />
-		{/if}
-	</div>
+			/> -->
+
+		<Textfield style="width: 100%;" helperLine$style="width: 100%;" bind:value={inputValue} {label}>
+			<!-- <HelperText slot="helper">Helper Text</HelperText> -->
+		</Textfield>
+	{:else if type === 'file'}
+		<AxFileUpload bind:files bind:urlStorage={inputValue} />
+	{:else if type === 'area'}
+		<!-- <AxArea bind:inputValue name={inputId} /> -->
+		<!-- -->
+		<!-- input$maxlength={500} -->
+		<Textfield style="width: 100%; height: 200px;" textarea bind:value={inputValue} {label} />
+		<!-- helperLine$style="width: 100%;" -->
+		<!-- <CharacterCounter slot="internalCounter">0 / 100</CharacterCounter> -->
+	{/if}
+	<!-- </div> -->
 </div>
 
 <style>
+	/* 
 	input:hover {
 		@apply bg-blue-50;
-		/* @apply ring-2; */
-		/* @apply ring-black; */
 		outline: 2px solid blue;
 	}
 	input:focus {
 		outline: none;
 		@apply bg-white;
-		/* @apply bg-white; */
 	}
 
-	.btnInputAx {
+.btnInputAx {
 		@apply block;
 		@apply w-full;
 		@apply px-5;
 		@apply py-3;
 		@apply text-base;
-		/* @apply text-neutral-600; */
 		@apply placeholder-gray-300;
 		@apply transition;
 		@apply duration-500;
@@ -82,10 +93,9 @@
 	.btnInputAx:focus {
 		@apply bg-white;
 		@apply outline-none;
-		/* @apply border-transparent; */
 		@apply ring-2;
 		@apply ring-white;
 		@apply ring-offset-2;
 		@apply ring-offset-gray-300;
-	}
+	} */
 </style>

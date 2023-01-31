@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 	import Loader from '../Loader.svelte';
 	import PostEntry from '../PostEntry.svelte';
+	import Slider from '../Slider.svelte';
 
 	let promise = service_getInputs(TABLE_REALISATIONCREATION);
 
@@ -53,17 +54,12 @@
 		<PostEntry title={d9} text={d10} /> -->
 			</div>
 			<div class=" col-span-4 grid grid-rows-3 place-items-center">
-				<img
-					class="  border-4  pr-2 -ml-10"
-					src={$STORE_CREATIONREALISATION[10].inputValue}
-					alt=""
-				/>
-				<img class="  border-4 pr-2" src={$STORE_CREATIONREALISATION[11].inputValue} alt="" />
-				<img
-					class="  border-4 pr-2 -mr-10"
-					src={$STORE_CREATIONREALISATION[12].inputValue}
-					alt=""
-				/>
+				<Slider id="splider-1" imgs={[$STORE_CREATIONREALISATION[10].inputValue]} />
+				<Slider id="splider-2" imgs={[$STORE_CREATIONREALISATION[11].inputValue]} />
+				<Slider id="splider-3" imgs={[$STORE_CREATIONREALISATION[12].inputValue]} />
+				<!-- <img class="  border-4  pr-2 " src={$STORE_CREATIONREALISATION[10].inputValue} alt="" /> -->
+				<!-- <img class="  border-4 pr-2" src={$STORE_CREATIONREALISATION[11].inputValue} alt="" /> -->
+				<!-- <img class="  border-4 pr-2 " src={$STORE_CREATIONREALISATION[12].inputValue} alt="" /> -->
 				<!-- <img class="  border-4  pr-2 -ml-10" src={img1} alt="" />
 		<img class="  border-4 pr-2" src={img2} alt="" />
 		<img class="  border-4 pr-2 -mr-10" src={img3} alt="" /> -->

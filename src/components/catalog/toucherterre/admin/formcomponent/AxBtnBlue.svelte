@@ -1,11 +1,17 @@
 <script>
-	export let handle;
+	export let callback;
+	import Button, { Label } from '@smui/button';
 </script>
 
 <!-- 2 -->
 <!-- BTN OK -->
 <!-- type="submit" -->
-<button
+
+<Button on:click={callback} variant="raised">
+	<Label>ok</Label>
+</Button>
+
+<!-- <button
 	on:click={handle}
 	class="
   w-44
@@ -29,4 +35,4 @@
                                 "
 >
 	OK
-</button>
+</button> -->

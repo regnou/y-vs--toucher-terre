@@ -11,6 +11,8 @@
 	import Twocol from '../Twocol.svelte';
 	import ContactCard from '../ContactCard.svelte';
 	import Paragraph from '../Paragraph.svelte';
+	import Slider from '../Slider.svelte';
+	// import Splide from '../splide.svelte';
 	let promise = service_getInputs(TABLE_ACCEUIL);
 
 	onMount(async () => {
@@ -63,10 +65,12 @@
 					fb={$STORE_ACCEUIL[7].inputValue}
 					tel={$STORE_ACCEUIL[8].inputValue}
 				/>
-				<ContactCard title={''} subtitle={''} mail={''} fb={''} tel={''} />
+				<!-- <ContactCard title={''} subtitle={''} mail={''} fb={''} tel={''} /> -->
+				<div id="catalog-slideshow" class="grid place-items-center border border-purple-500">
+					<Slider id="splider-1" />
+				</div>
 			</Twocol>
 		{/if}
-		<div id="catalog-slideshow" />
 	{:catch error}
 		<p style="color: red">{error.message}</p>
 	{/await}

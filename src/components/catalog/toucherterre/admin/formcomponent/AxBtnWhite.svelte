@@ -1,13 +1,17 @@
 <script>
 	export let text;
 	export let isDisabled = false;
+	import Button, { Label } from '@smui/button';
 </script>
 
+<Button on:click={() => clicked++} variant="outlined">
+	<Label>cancel</Label>
+</Button>
 <!-- 2 -->
 <!-- BTN CLOSE -->
 <!-- <button
     type="submit" -->
-<button
+<!-- <button
 	disabled={isDisabled}
 	class="w-44
        items-center
@@ -33,5 +37,4 @@
       "
 >
 	<span class="justify-self-end uppercase">{text} </span>
-	<!-- </button> -->
-</button>
+</button> -->

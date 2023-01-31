@@ -14,10 +14,7 @@
 
 <!-- this is the main header -->
 <!-- {@debug hjoin} -->
-<div
-	id="catalog-header"
-	class="{hjoin} p-2 border border-black bg-black/10 border border-yellow-500"
->
+<div id="catalog-header" class="{hjoin} p-2  bg-black/10 border border-yellow-500">
 	<HeaderMenu {menus} />
 </div>
 

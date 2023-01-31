@@ -14,16 +14,20 @@
 	import { Image } from '@smui/image-list';
 	import BtnLogin from '../../../front/BtnLogin.svelte';
 	import BtnCart from '../../../front/BtnCart.svelte';
+	import Header from '../../../front/Header.svelte';
+	import ContainerItem1 from '../../../front/ContainerItem1.svelte';
+	import { APP_HEADER_MENU } from '../../../front/page/APP_HEADER_MENU';
 	let clicked = 'nothing yet';
+	const HEADER_H = 16;
 </script>
 
 <!-- &&&&  -->
 <!-- &&&& 2 - top-app-bar -->
 <!-- &&&&  -->
 <!-- top-app-bar--header -->
-<TopAppBar bind:this={topAppBar} variant="fixed" class="bg-wa-0">
+
+<TopAppBar bind:this={topAppBar} variant="fixed" class="bg-transparent">
 	<Row>
-		<!-- && SIDE: left -->
 		<Section>
 			<!--  -->
 			<IconButton
@@ -36,29 +40,22 @@
 			<Button on:click={() => console.log('p')} class="overflow-hidden">
 				<Image
 					class="aspect-square w-10 object-cover"
-					src="/img/logo-min.jpg"
+					src="/media/favicon.png"
 					alt="web agency logo"
 				/>
-				<Label class="text-wa-2" title="Agence Web">Agence Web</Label>
+				<!-- <Label class="text-wa-2" title="Toucher Terre" /> -->
 				<!-- <Title class="text-wa-2" title="Agence Web">Agence Web</Title> -->
 			</Button>
 			<!--  -->
 		</Section>
-		<!-- && SIDE: right -->
-		<Section align="end" toolbar>
-			<BtnCart />
-			<BtnLogin />
-			<!-- &&&! -->
-			<IconButton
-				style="color:var(--wa-color-2)"
-				class="material-icons"
-				aria-label="Bookmark this page">mail</IconButton
-			>
+		<Section>
+			<Header h={HEADER_H} menus={APP_HEADER_MENU} />
 		</Section>
 	</Row>
 </TopAppBar>
 <!-- top-app-bar--content -->
 <AutoAdjust {topAppBar}>
-	<!-- && SLOT -->
-	<slot name="layout2" />
+	<ContainerItem1 hh={'space.' + HEADER_H}>
+		<slot name="layout2" />
+	</ContainerItem1>
 </AutoAdjust>

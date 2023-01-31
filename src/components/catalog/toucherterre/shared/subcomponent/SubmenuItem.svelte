@@ -25,6 +25,12 @@
 	<Menu bind:this={menu}>
 		<List>
 			{#each submenus as item}
+				<!-- <Item> -->
+				<!-- <Text>{item.menu}</Text> -->
+				<!-- <Button color="secondary" class="myClass" href={item.url}>
+					<Label href={item.url}>{item.menu}</Label>
+				</Button> -->
+				<!-- </Item> -->
 				<a href={item.url}>
 					<Item>
 						<Text>{item.menu}</Text>
