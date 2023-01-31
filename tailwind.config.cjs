@@ -15,14 +15,14 @@ const config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: 'var(--smui-primary)',
-				'on-primary': 'var(--smui-on-primary)',
-				secondary: 'var(--smui-secondary)',
-				'on-secondary': 'var(--smui-on-secondary)',
-				background: 'var(--smui-background)',
-				error: 'var(--smui-error)',
-				surface: 'var(--smui-surface)',
-				'on-surface': 'var(--smui-on-surface)'
+				// primary: 'var(--smui-primary)',
+				// 'on-primary': 'var(--smui-on-primary)',
+				// secondary: 'var(--smui-secondary)',
+				// 'on-secondary': 'var(--smui-on-secondary)',
+				// background: 'var(--smui-background)',
+				// error: 'var(--smui-error)',
+				// surface: 'var(--smui-surface)',
+				// 'on-surface': 'var(--smui-on-surface)'
 			}
 		}
 	},
@@ -47,8 +47,8 @@ const config = {
 		// 	})
 		// })
 		// TODO : should prefix load those below ?
-		require('daisyui'),
-		require('tw-elements/dist/plugin')
+		// require('daisyui'),
+		// require('tw-elements/dist/plugin')
 	]
 };
 

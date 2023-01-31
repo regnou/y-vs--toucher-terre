@@ -1,14 +1,4 @@
 <script lang="ts">
-	// @ts-check
-	// 🌖🌖 Copyright Monwoo 2022 🌖🌖, build by Miguel Monwoo, service@monwoo.com
-	// https://stackoverflow.com/questions/71789793/how-to-handle-reset-layout
-	// https://stackoverflow.com/questions/72217145/layout-reset-has-been-removed-in-favour-of-named-layouts
-	// need to change +layout.svelte to _layout.svelte
-	// Have been depreciated, cf :
-	// https://stackoverflow.com/questions/70269348/how-can-i-ignore-default-layout-in-svelte-kit
-	// => replaced by Advanced routes :
-	//     Do NOT change this layout, change the root declinaison inside '(app)' or create your own instead
-	// https://kit.svelte.dev/docs/advanced-routing#advanced-layouts
 	import '@app/app.postcss';
 
 	// splide -Default theme
@@ -19,5 +9,27 @@
 	// or only core styles
 	// import '@splidejs/splide/css/core';
 </script>
+
+<svelte:head>
+	<link rel="stylesheet" href="smui.css?v=4" />
+	<!-- <link rel="stylesheet" href="smui-dark.css?v=4" media="screen" /> -->
+
+	<!-- 
+    https://www.digitalocean.com/community/tutorials/html-preload-prefetch
+    // or preload even if not used ?
+    <link
+  rel="preload"
+  as="style"
+  href='{base}/smui-dark.css?v=4' />
+  <link
+  rel="preload"
+  as="style"
+  href='{base}/smui.css?v=4' /> -->
+
+	<!-- <SeoMetas />
+	<FavIcons /> -->
+</svelte:head>
+
+<svelte:body class:light-mode={true} />
 
 <slot />

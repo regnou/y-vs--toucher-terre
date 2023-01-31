@@ -3,13 +3,14 @@
 	import { browser } from '$app/environment';
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
-	import TopAppBar from '../1-top-app-bar/TopAppBar.svelte';
+	import TopAppBar from '../1-top-app-bar/TopAppBarAx.svelte';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import GridChecker from '../0-grid-checker/GridChecker.svelte';
 	// import Footer from '../3-footer/Footer.svelte--no';
 	import Separator from '@smui/list/src/Separator.svelte';
 	import { mdiTruckRemove } from '@mdi/js';
-	let open = mdiTruckRemove; // cf: annexe reactive 1
+	// let open = mdiTruckRemove; // cf: annexe reactive 1
+	let open = false;
 	let active = 'Gray Kittens';
 	let dynVariant = 'dismissible'; // 'modal', 'dismissible'
 	function setActive(value) {
@@ -150,10 +151,12 @@
 		<Separator />
 	</Content>
 </Drawer>
+
 <!-- scrim -->
 {#if isXs}
 	<Scrim fixed={true} class="opacity-90 backdrop-blur-sm" />
 {/if}
+
 <!-- transition:fade={{ duration: 200 }} class="blur-panel z-40" -->
 <!-- &&& app -->
 <AppContent>

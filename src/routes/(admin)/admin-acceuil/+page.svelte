@@ -4,7 +4,7 @@
 	import AcceuilApp from '@app/components/catalog/toucherterre/front/page/AcceuilApp.svelte';
 	import { TABLE_ACCEUIL } from '@app/entities/COLLECTIONS';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
-	import { DATA_INIT_ACCEUIL } from '@app/stores/STORES_ADMIN_JSON/Acceuil.json';
+	import { DATA_INIT_ACCEUIL } from '@app/data/STORES_ADMIN_JSON/Acceuil.json';
 </script>
 
 <LayoutAdmin>

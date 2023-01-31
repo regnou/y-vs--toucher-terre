@@ -131,7 +131,8 @@
 		visibility: hidden;
 	}
 	.custom-file-input:hover::before {
-		@apply bg-gray-500;
+		/* @apply bg-gray-500; */
+		@apply bg-black/30;
 		@apply text-white;
 	}
 	.custom-file-input::before {

@@ -3,7 +3,7 @@
 	import MenuItem from './MenuItem.svelte';
 	import SubmenuItem from './SubmenuItem.svelte';
 
-	export let menus: any[] = [];
+	export let menus = [];
 </script>
 
 <div class="flex gap-5">

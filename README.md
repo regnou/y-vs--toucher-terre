@@ -1,3 +1,24 @@
+
+	<!-- <SeoMetas />
+	<FavIcons /> -->
+	
+	
+	<!--
+    https://lightrun.com/answers/sveltejs-svelte-change-body-class-via-sveltebody-
+    <svelte:html lang={lang}>
+    <svelte:body class:name={confition} />
+  -->
+
+<!-- https://github.com/sveltejs/svelte/issues/3105 -->
+<!-- => TODO next-v (when implemented in sveltekit ?) -->
+<!-- FORCE LIGHT MODE -->
+
+<!-- => Solved with header raw style injection with css var instead. -->
+
+<!-- <div class="{$theme}-mode"> -->
+<!-- <Toasts /> -->
+
+
 	<!--
     // Below style to solve body class param issue in progress for sveltekit :
     // https://github.com/sveltejs/svelte/issues/3105

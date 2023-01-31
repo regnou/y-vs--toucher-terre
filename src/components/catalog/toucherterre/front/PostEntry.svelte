@@ -1,8 +1,5 @@
 <script>
-	import { base } from '$app/paths';
-	import Paragraph from './Paragraph.svelte';
 	import ParagraphLeft from './ParagraphLeft.svelte';
-
 	export let title = '';
 	export let text = '';
 	let img = '/media/icon/icon-infinity.png';
