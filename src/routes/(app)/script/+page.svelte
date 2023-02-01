@@ -27,7 +27,7 @@
 </script>
 
 <!-- <div class="bg-black h-screen"> -->
-<div class="grid h-screen justify-center bg-black pt-20">
+<div class="bg-brown grid h-screen justify-center pt-20">
 	<div class="w-min">
 		<DataTable table$aria-label="User list" style="width: 100%;">
 			<Head>

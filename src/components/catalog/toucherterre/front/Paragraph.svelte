@@ -9,7 +9,7 @@
 </div>
 
 <style>
-	.po {
+	/* .po {
 		color: #583120;
-	}
+	} */
 </style>

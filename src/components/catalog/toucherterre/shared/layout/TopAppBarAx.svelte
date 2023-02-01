@@ -5,7 +5,6 @@
 	import Button from '@smui/button';
 	import IconButton from '@smui/icon-button';
 	import { Image } from '@smui/image-list';
-	import ContainerItem1 from '../../../front/ContainerItem1.svelte';
 
 	let clicked = 'nothing yet';
 	const DATAJSON__HEADER_APP__HEIGHT = 16;
@@ -21,9 +20,22 @@
 <!-- <Title class="text-wa-2" title="Agence Web">Agence Web</Title> -->
 <!-- </Button> -->
 
-<TopAppBar bind:this={topAppBar} variant="fixed" class="bg-transparent">
+<!--  -->
+<!-- HEADER -->
+<!--  -->
+<TopAppBar
+	bind:this={topAppBar}
+	variant="fixed"
+	class="
+border-4
+border-blue-800 bg-transparent/40 "
+	id="APP_HEADER"
+>
 	<Row>
-		<Section class="demo sm:hidden">
+		<!--  -->
+		<!-- LEFT -->
+		<!-- HAMBURGER - fait partis du chassi -->
+		<Section class="sm:hidden">
 			<IconButton
 				id="hamburger"
 				style="color:var(--wa-color-1)"
@@ -33,22 +45,17 @@
 			</IconButton>
 		</Section>
 
-		<slot name="headerApp2" />
-		<slot name="headerAdmin2" />
+		<!-- CENTER -->
+		<slot name="headerMenusCenter-2" />
 
-		<slot name="headerRightMenus2" />
+		<!-- RIGHT -->
+		<slot name="headerMenusRight-2" />
 	</Row>
 </TopAppBar>
+<!--  -->
+<!--  -->
+<!--  -->
 <!-- top-app-bar--content -->
-<AutoAdjust {topAppBar}>
-	<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
-	<ContainerItem1>
-		<slot name="layout2" />
-	</ContainerItem1>
+<AutoAdjust {topAppBar} class="border-4 border-blue-800" id="APP_BODY">
+	<slot name="layoutMainContent-2" />
 </AutoAdjust>
-
-<style style="">
-	/* .demo {
-		@apply hidden;
-	} */
-</style>

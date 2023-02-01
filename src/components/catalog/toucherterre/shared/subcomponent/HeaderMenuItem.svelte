@@ -1,5 +1,4 @@
 <script>
-	import { base } from '$app/paths';
 	import Button, { Label } from '@smui/button';
 
 	export let menu = 'N/A';
@@ -7,13 +6,13 @@
 	export let img = 'N/A';
 </script>
 
-<div id="catalog-subc--menuitem" class=" border border-blue-500">
-	<!-- class="hover:bg-green-500 cursor-pointer border-black  font-bold  border" -->
-	<Button color="secondary" class="flex gap-2" href={url}>
-		<img class=" w-7  border" src={img} alt="" />
-		<Label style="color:#E5B385">{menu}</Label>
-	</Button>
-</div>
+<!-- class="hover:bg-green-500 cursor-pointer border-black  font-bold  border" -->
+<Button id="headerMenuItem" class="" href={url}>
+	<Label style="color:#E5B385" class="">
+		<img class="hidden h-7  w-7 border lg:inline" src={img} alt="" />
+		{menu}</Label
+	>
+</Button>
 
 <!-- <div id="catalog-subc--menuitem" class="flex place-items-center border">
 	<img class="h-10 w-10 border" src={img} alt="" />

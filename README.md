@@ -1,3 +1,17 @@
+// const hstr = 'h-';
+// let hjoin = 'N/A';
+// $: {
+// hjoin = hstr + h;
+// console.log(hjoin);
+// }
+
+<!-- this is the main header -->
+<!-- {@debug hjoin} -->
+<!-- class="{hjoin}  -->
+<div id="catalog-header" class=" border border-yellow-500" />
+<!-- just to equilibrate the previous absolute... -->
+<!-- <div class=" h-{h} bg-red-200  " /> -->
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

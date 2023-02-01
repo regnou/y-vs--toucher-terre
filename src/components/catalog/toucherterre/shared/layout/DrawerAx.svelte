@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
-	import TopAppBarAx from '../1-top-app-bar/TopAppBarAx.svelte';
+	import TopAppBarAx from './TopAppBarAx.svelte';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
 	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/HEADER_MENU__APP';
@@ -67,7 +67,11 @@
 <!-- <Drawer variant="modal" fixed={false} bind:open> -->
 <!-- Don't include fixed={false} if this is a page wide drawer.
         It adds a style for absolute positioning. -->
-<Drawer bind:this={drawer} variant={dynVariant} bind:open>
+
+<!--  -->
+<!-- DRAWER -->
+<!--  -->
+<Drawer bind:this={drawer} variant={dynVariant} bind:open id="wa--drawerAx">
 	<!-- drawer--header -->
 	<Header>
 		<Title>TOUCHER TERRE</Title>
@@ -89,7 +93,7 @@
 							on:click={() => setActive(item.menu)}
 							activated={active === item.menu}
 						>
-							<a href={item.url} class="w-full">
+							<a href={item.url} class="">
 								<Text>{item.menu}</Text>
 							</a>
 						</Item>
@@ -101,30 +105,35 @@
 	</Content>
 </Drawer>
 
+<!--  -->
 <!-- scrim -->
+<!--  -->
 {#if isXs}
 	<Scrim fixed={true} class="opacity-90 backdrop-blur-sm" />
 {/if}
 
 <!-- transition:fade={{ duration: 200 }} class="blur-panel z-40" -->
-<!-- &&& app -->
-<AppContent>
+
+<!--  -->
+<!-- MAIN CONTENT -->
+<!--  -->
+<AppContent class="">
 	<main>
-		<!-- &&& top-app-bar -->
+		<!--  -->
+		<!-- HEADER + APP -->
+		<!--  -->
 		<TopAppBarAx bind:active bind:open>
-			<!-- <pre class="status">Active: {active}</pre>
-			<br />
-			<Button on:click={() => (open = !open)}><Label>Toggle Drawer</Label></Button> -->
+			<!--  -->
+			<!-- HEADER -->
+			<slot slot="headerMenusCenter-2" name="headerMenusCenter-1" />
+			<slot slot="headerMenusRight-2" name="headerMenusRight-1" />
 
-			<!-- shared -->
-			<slot name="layout1" slot="layout2" />
-			<slot slot="headerRightMenus2" name="headerRightMenus1" />
+			<!--  -->
+			<!-- APP -->
+			<slot name="layoutMainContent-1" slot="layoutMainContent-2" />
 
-			<!-- exclusive -->
-			<slot slot="headerApp2" name="headerApp1" />
-			<slot slot="headerAdmin2" name="headerAdmin1" />
+			<!--  -->
+			<!-- <Footer /> -->
 		</TopAppBarAx>
-		<!-- <slot slot="layout" /> -->
 	</main>
-	<!-- <Footer /> -->
 </AppContent>
