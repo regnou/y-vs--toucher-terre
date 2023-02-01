@@ -1,10 +1,10 @@
 <script>
-	export let text;
-	export let isDisabled = false;
+	// export let text;
+	// export let isDisabled = false;
 	import Button, { Label } from '@smui/button';
 </script>
 
-<Button on:click={() => clicked++} variant="outlined">
+<Button variant="outlined">
 	<Label>cancel</Label>
 </Button>
 <!-- 2 -->

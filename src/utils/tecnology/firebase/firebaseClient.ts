@@ -1,10 +1,10 @@
 // @@@ FIREBASE-CONFIG
-import { config } from './firebase.config';
+import { config } from '../../../data/firebase.config';
 // @@@ FIREBASE CLIENT
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getStorage } from 'firebase/storage';
 import { connectFirestoreEmulator, getFirestore, initializeFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 // !!!
 // !!! GET FIREBASE
 // !!!

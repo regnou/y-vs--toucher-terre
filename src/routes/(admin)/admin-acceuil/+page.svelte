@@ -4,7 +4,7 @@
 	import AcceuilApp from '@app/components/catalog/toucherterre/front/page/AcceuilApp.svelte';
 	import { TABLE_ACCEUIL } from '@app/entities/COLLECTIONS';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
-	import { DATA_INIT_ACCEUIL } from '@app/data/STORES_ADMIN_JSON/Acceuil.json';
+	import { DATAJSON__INJECT_ACCEUIL } from '@app/data/DB-INJECT/Acceuil.json';
 </script>
 
 <LayoutAdmin>
@@ -12,6 +12,6 @@
 		<AcceuilApp />
 	</div>
 	<div slot="admin">
-		<BasePageAdmin col={TABLE_ACCEUIL} store={STORE_ACCEUIL} initData={DATA_INIT_ACCEUIL} />
+		<BasePageAdmin col={TABLE_ACCEUIL} store={STORE_ACCEUIL} initData={DATAJSON__INJECT_ACCEUIL} />
 	</div>
 </LayoutAdmin>

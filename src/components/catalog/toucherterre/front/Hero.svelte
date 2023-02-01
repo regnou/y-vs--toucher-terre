@@ -4,6 +4,6 @@
 </script>
 
 <div id="catalog-hero" class="grid  place-items-center ">
-	<img alt="" class="border  h-56 " src={img} />
-	<img alt="" class="border  h-12 " src={text} />
+	<img alt="" class="h-20  border " src={img} />
+	<img alt="" class="mt-2  h-7 border " src={text} />
 </div>

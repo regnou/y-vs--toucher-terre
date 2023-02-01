@@ -16,7 +16,7 @@
 	<!-- <label for={inputId} class="block text-sm font-medium text-neutral-600">
     {labelName}
   </label> -->
-	<div class="capitalize  block text-sm font-bold text-neutral-600">
+	<div class="block  text-sm font-bold capitalize text-neutral-600">
 		{label}
 	</div>
 	<div class="mt-1">

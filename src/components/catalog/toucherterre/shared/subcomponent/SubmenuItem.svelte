@@ -1,36 +1,46 @@
 <script lang="ts">
 	import Menu from '@smui/menu';
-	import { Anchor } from '@smui/menu-surface';
 	import List, { Item, Separator, Text, PrimaryText, SecondaryText } from '@smui/list';
 	import Button, { Label } from '@smui/button';
+
+	import Select, { Option } from '@smui/select';
+	import Icon from '@smui/select/icon';
+
+	let fruits = ['Apple', 'Orange', 'Banana', 'Mango'];
+
+	let value = '';
+	let valueHelperText = '';
+	let valueLeadingIcon = '';
+	let valueInvalid = '';
 
 	let menuMD: Menu;
 	let anchor: HTMLDivElement;
 	let anchorClasses: { [k: string]: boolean } = {};
 	let clicked = 'nothing yet';
 
-	import { base } from '$app/paths';
-	import { goto } from '$app/navigation';
 	export let submenus = [];
-	export let menu = 'N/A';
-	export let url = '/acceuil';
-	export let img = 'N/A';
+	// export let menu = 'N/A';
+	// export let url = '/acceuil';
+	// export let img = 'N/A';
 </script>
 
-<div style="min-width: 100px;">
-	<Button on:click={() => menu.setOpen(true)}>
-		<Label>Gestion des pages</Label>
-	</Button>
+<!-- style="min-width: 100px;" -->
+<div>
+	<Select variant="outlined" bind:value label="MODIFIER PAGE">
+		<Option value="" />
+		{#each submenus as item}
+			<a href={item.url}>
+				<Option value={item.menu}>{item.menu}</Option>
+			</a>
+		{/each}
+	</Select>
 
+	<!-- <Button on:click={() => menu.setOpen(true)}>
+		<Label class="text-black">Contenu Site</Label>
+	</Button>
 	<Menu bind:this={menu}>
 		<List>
 			{#each submenus as item}
-				<!-- <Item> -->
-				<!-- <Text>{item.menu}</Text> -->
-				<!-- <Button color="secondary" class="myClass" href={item.url}>
-					<Label href={item.url}>{item.menu}</Label>
-				</Button> -->
-				<!-- </Item> -->
 				<a href={item.url}>
 					<Item>
 						<Text>{item.menu}</Text>
@@ -38,9 +48,14 @@
 				</a>
 			{/each}
 		</List>
-	</Menu>
+	</Menu> -->
 </div>
-
+<!-- <Item> -->
+<!-- <Text>{item.menu}</Text> -->
+<!-- <Button color="secondary" class="myClass" href={item.url}>
+					<Label href={item.url}>{item.menu}</Label>
+				</Button> -->
+<!-- </Item> -->
 <!-- on:SMUI:action={() => goto(item.url)} -->
 
 <!-- <div id="catalog-subc--menuitem" class="flex place-items-center border">

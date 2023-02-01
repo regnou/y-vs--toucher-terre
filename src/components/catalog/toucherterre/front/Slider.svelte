@@ -2,7 +2,17 @@
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { onMount } from 'svelte';
 
-	export let id = '.splide';
+	// Default theme
+	import '@splidejs/svelte-splide/css';
+
+	// or other themes
+	// import '@splidejs/svelte-splide/css/skyblue';
+	// import '@splidejs/svelte-splide/css/sea-green';
+
+	// or only core styles
+	// import '@splidejs/svelte-splide/css/core';
+
+	// export let id = '.splide';
 
 	onMount(() => {
 		// new Splide(id).mount();
@@ -16,7 +26,7 @@
 
 <Splide aria-label="My Favorite Images">
 	{#each imgs as url}
-		<SplideSlide>
+		<SplideSlide class="h-60">
 			<img src={url} alt="" />
 		</SplideSlide>
 	{/each}

@@ -3,7 +3,7 @@
 </script>
 
 <div id="catalog-paragraph" class="grid place-items-center">
-	<div class=" text-amber-900 text-xl   border" style="">
+	<div class=" border text-xl   text-amber-900" style="">
 		{@html text}
 	</div>
 </div>

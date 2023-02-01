@@ -1,0 +1,1 @@
+export const DATAJSON__HEADER_APP__HEIGHT = 16;

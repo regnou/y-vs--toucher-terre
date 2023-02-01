@@ -54,9 +54,9 @@
 		<PostEntry title={d9} text={d10} /> -->
 			</div>
 			<div class=" col-span-4 grid grid-rows-3 place-items-center">
-				<Slider id="splider-1" imgs={[$STORE_CREATIONREALISATION[10].inputValue]} />
-				<Slider id="splider-2" imgs={[$STORE_CREATIONREALISATION[11].inputValue]} />
-				<Slider id="splider-3" imgs={[$STORE_CREATIONREALISATION[12].inputValue]} />
+				<Slider imgs={[$STORE_CREATIONREALISATION[10].inputValue]} />
+				<Slider imgs={[$STORE_CREATIONREALISATION[11].inputValue]} />
+				<Slider imgs={[$STORE_CREATIONREALISATION[12].inputValue]} />
 				<!-- <img class="  border-4  pr-2 " src={$STORE_CREATIONREALISATION[10].inputValue} alt="" /> -->
 				<!-- <img class="  border-4 pr-2" src={$STORE_CREATIONREALISATION[11].inputValue} alt="" /> -->
 				<!-- <img class="  border-4 pr-2 " src={$STORE_CREATIONREALISATION[12].inputValue} alt="" /> -->

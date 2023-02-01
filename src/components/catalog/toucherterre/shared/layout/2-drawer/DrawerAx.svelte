@@ -1,17 +1,14 @@
-<!-- </div> -->
 <script>
 	import { browser } from '$app/environment';
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
-	import TopAppBar from '../1-top-app-bar/TopAppBarAx.svelte';
+	import TopAppBarAx from '../1-top-app-bar/TopAppBarAx.svelte';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
-	import GridChecker from '../0-grid-checker/GridChecker.svelte';
-	// import Footer from '../3-footer/Footer.svelte--no';
 	import Separator from '@smui/list/src/Separator.svelte';
-	import { mdiTruckRemove } from '@mdi/js';
-	// let open = mdiTruckRemove; // cf: annexe reactive 1
+	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/HEADER_MENU__APP';
+
 	let open = false;
-	let active = 'Gray Kittens';
+	let active = 'acceuil';
 	let dynVariant = 'dismissible'; // 'modal', 'dismissible'
 	function setActive(value) {
 		active = value;
@@ -60,12 +57,11 @@
 			open = !open;
 		}
 	}
+
+	const DATAJSON__HEADER_APP__HEIGHT = 16;
 </script>
 
 <svelte:window on:resize={handleResize} on:keydown={handleNavWithKey} />
-<!--  &&& -->
-<!--  &&& 1 - drawer -->
-<!--  &&& -->
 <!-- <div class="drawer-container"> -->
 <!-- <Drawer variant="dismissible" bind:open> -->
 <!-- <Drawer variant="modal" fixed={false} bind:open> -->
@@ -74,81 +70,34 @@
 <Drawer bind:this={drawer} variant={dynVariant} bind:open>
 	<!-- drawer--header -->
 	<Header>
-		<Title>AGENCE WEB</Title>
-		<Subtitle>version 0.3.0</Subtitle>
+		<Title>TOUCHER TERRE</Title>
+		<Subtitle>version 0.0.1</Subtitle>
 	</Header>
 	<!-- drawer--content (les mens du drawer) -->
 	<Content>
 		<Separator />
 		<Group>
-			<Subheader>Page</Subheader>
+			<!-- <Subheader>Sommaire</Subheader> -->
 			<List>
-				<Item
-					href="javascript:void(0)"
-					on:click={() => setActive('Nos prix')}
-					activated={active === 'Nos prix'}
-				>
-					<Text>Nos prix et services</Text>
-				</Item>
-				<Item
-					href="javascript:void(0)"
-					on:click={() => setActive('Nos prix')}
-					activated={active === 'Nos prix'}
-				>
-					<Text>Nos tecnologies</Text>
-				</Item>
-				<Item
-					href="javascript:void(0)"
-					on:click={() => setActive('Nos prix')}
-					activated={active === 'Nos prix'}
-				>
-					<Text>Notre équipe</Text>
-				</Item>
+				{#each DATAJSON__HEADERMENU__APP as item}
+					{#if item.submenus}
+						<!-- FOR THE ADMIN -->
+						<!-- <SubmenuItem menu= submenus={item.submenus} /> -->
+					{:else}
+						<Item
+							href="javascript:void(0)"
+							on:click={() => setActive(item.menu)}
+							activated={active === item.menu}
+						>
+							<a href={item.url} class="w-full">
+								<Text>{item.menu}</Text>
+							</a>
+						</Item>
+						<!-- <MenuItem img={item.img} url={item.url} menu={item.menu} /> -->
+					{/if}
+				{/each}
 			</List>
 		</Group>
-		<Separator />
-		<Group>
-			<Subheader />
-			<Subheader>Page tmp</Subheader>
-			<List>
-				<Item
-					href="javascript:void(0)"
-					on:click={() => setActive('Passer a la caisse')}
-					activated={active === 'Passer a la caisse'}
-				>
-					<Text>product-detail</Text>
-				</Item>
-				<Item
-					href="javascript:void(0)"
-					on:click={() => setActive('Page product-detail')}
-					activated={active === 'Page product-detail'}
-				>
-					<Text>commande confirmée</Text>
-				</Item>
-			</List>
-		</Group>
-		<Separator />
-		<Group>
-			<Subheader />
-			<Subheader>Menu</Subheader>
-			<List>
-				<Item
-					href="javascript:void(0)"
-					on:click={() => setActive('Nos prix')}
-					activated={active === 'Mon panier'}
-				>
-					<Text>Mon panier</Text>
-				</Item>
-				<Item
-					href="javascript:void(0)"
-					on:click={() => setActive('Validation de la commande')}
-					activated={active === 'Validation de la commande'}
-				>
-					<Text>Se connecter</Text>
-				</Item>
-			</List>
-		</Group>
-		<Separator />
 	</Content>
 </Drawer>
 
@@ -162,13 +111,19 @@
 <AppContent>
 	<main>
 		<!-- &&& top-app-bar -->
-		<TopAppBar bind:active bind:open>
+		<TopAppBarAx bind:active bind:open>
 			<!-- <pre class="status">Active: {active}</pre>
 			<br />
 			<Button on:click={() => (open = !open)}><Label>Toggle Drawer</Label></Button> -->
-			<!-- && SLOT -->
+
+			<!-- shared -->
 			<slot name="layout1" slot="layout2" />
-		</TopAppBar>
+			<slot slot="headerRightMenus2" name="headerRightMenus1" />
+
+			<!-- exclusive -->
+			<slot slot="headerApp2" name="headerApp1" />
+			<slot slot="headerAdmin2" name="headerAdmin1" />
+		</TopAppBarAx>
 		<!-- <slot slot="layout" /> -->
 	</main>
 	<!-- <Footer /> -->

@@ -1,5 +1,5 @@
 import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
-import { ref, uploadBytes, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
 import { TABLE_IMG } from '../../../entities/COLLECTIONS';
 import { dao_add } from './services/firestoreServices';
 

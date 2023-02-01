@@ -8,7 +8,7 @@ import { base } from '$app/paths';
 //     inputValue: ''
 // },
 
-export const DATA_INIT_CREATIONREALISATION = [
+export const DATAJSON__INJECT_CREATIONREALISATION = [
 	{
 		id: '',
 		index: 1,

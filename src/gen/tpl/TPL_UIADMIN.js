@@ -5,7 +5,7 @@ export const TPL_UIADMIN = `
 	import BasePageAdmin from '@app/components/catalog/toucherterre/admin/pagecomponent/BasePageAdmin.svelte'; 
 	import { TABLE_YYY } from '@app/domain/2dao/firebase/COLLECTIONS'; 
 	import { STORE_YYY } from '@app/stores/stores'; 
-	import { DATA_INIT_YYY } from '@app/components/catalog/toucherterre/admin/pagecomponent/JSON/XXX.json'; 
+	import { DATAJSON__INJECT_YYY } from '@app/components/catalog/toucherterre/admin/pagecomponent/JSON/XXX.json'; 
 </script> 
 
 <LayoutAdmin> 
@@ -13,7 +13,7 @@ export const TPL_UIADMIN = `
 		<XXXApp /> 
 	</div> 
 	<div slot='admin'> 
-		<BasePageAdmin col={TABLE_YYY} store={STORE_YYY} initData={DATA_INIT_YYY} /> 
+		<BasePageAdmin col={TABLE_YYY} store={STORE_YYY} initData={DATAJSON__INJECT_YYY} /> 
 	</div> 
 </LayoutAdmin> 
 `;

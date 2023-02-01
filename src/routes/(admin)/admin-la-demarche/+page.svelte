@@ -4,7 +4,7 @@
 	import LaDemarcheApp from '@app/components/catalog/toucherterre/front/page/LaDemarcheApp.svelte';
 	import { TABLE_LADEMARCHE } from '@app/entities/COLLECTIONS';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';
-	import { DATA_INIT_LADEMARCHE } from '@app/data/STORES_ADMIN_JSON/LaDemarche.json';
+	import { DATAJSON__INJECT_LADEMARCHE } from '@app/data/DB-INJECT/LaDemarche.json';
 </script>
 
 <LayoutAdmin>
@@ -15,7 +15,7 @@
 		<BasePageAdmin
 			col={TABLE_LADEMARCHE}
 			store={STORE_LADEMARCHE}
-			initData={DATA_INIT_LADEMARCHE}
+			initData={DATAJSON__INJECT_LADEMARCHE}
 		/>
 	</div>
 </LayoutAdmin>

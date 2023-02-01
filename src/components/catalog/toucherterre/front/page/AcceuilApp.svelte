@@ -9,6 +9,7 @@
 	import SeparatorMedium from '../SeparatorMedium.svelte';
 	import Title from '../Title.svelte';
 	import Twocol from '../Twocol.svelte';
+
 	import ContactCard from '../ContactCard.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
@@ -42,7 +43,7 @@
 	<p style="color: red">{error.message}</p>
 {/await} -->
 
-<div id="wa--layout-admin">
+<div id="wa--acceuilApp">
 	{#await promise}
 		<!-- <p class="animate-spin">...waiting</p> -->
 		<Loader />
@@ -66,8 +67,8 @@
 					tel={$STORE_ACCEUIL[8].inputValue}
 				/>
 				<!-- <ContactCard title={''} subtitle={''} mail={''} fb={''} tel={''} /> -->
-				<div id="catalog-slideshow" class="grid place-items-center border border-purple-500">
-					<Slider id="splider-1" />
+				<div id="catalog-slideshow" class="grid place-items-center border-4 border-white ">
+					<Slider />
 				</div>
 			</Twocol>
 		{/if}

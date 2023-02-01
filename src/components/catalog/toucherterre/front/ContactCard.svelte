@@ -10,21 +10,17 @@
 	export let tel = 'N/A';
 </script>
 
-<div id="catalog-contact-card" class="border">
-	<div class="grid grid-flow-col place-items-center">
+<div id="catalog-contact-card" class="rounded-3xl border bg-white/20 p-2">
+	<div class="grid grid-flow-col place-content-center">
+		<img class="h-8 justify-self-end " src="media/icon/icon-contact-decom--creme.png" alt="" />
+		<div class=" text-3xl" style="color:#f4b994">{title}</div>
 		<img
-			class="h-10 justify-self-end "
-			src="{base}/media/icon/icon-contact-decom--creme.png"
-			alt=""
-		/>
-		<div class=" text-5xl" style="color:#f4b994">{title}</div>
-		<img
-			class="justify-self-start h-10 rotate-180"
-			src="{base}/media/icon/icon-contact-decom--creme.png"
+			class="h-8 rotate-180  justify-self-start"
+			src="media/icon/icon-contact-decom--creme.png"
 			alt=""
 		/>
 	</div>
-	<div class="text-2xl text-center" style="color:#f4b994">{subtitle}</div>
+	<div class="text-center text-xl" style="color:#f4b994">{subtitle}</div>
 	<Separator />
 	<ContactItem name={mail} img="{base}/media/icon/icon-contact-mail.png" />
 	<ContactItem name={fb} img="{base}/media/icon/icon-contact-fb.png" />

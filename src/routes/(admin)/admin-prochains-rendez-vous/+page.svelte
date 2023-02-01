@@ -4,7 +4,7 @@
 	import ProchainsRdvApp from '@app/components/catalog/toucherterre/front/page/ProchainsRdvApp.svelte';
 	import { TABLE_PROCHAINSRDV } from '@app/entities/COLLECTIONS';
 	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
-	import { DATA_INIT_PROCHAINSRDV } from '@app/data/STORES_ADMIN_JSON/ProchainsRdv.json';
+	import { DATAJSON__INJECT_PROCHAINSRDV } from '@app/data/DB-INJECT/ProchainsRdv.json';
 </script>
 
 <LayoutAdmin>
@@ -15,7 +15,7 @@
 		<BasePageAdmin
 			col={TABLE_PROCHAINSRDV}
 			store={STORE_PROCHAINSRDV}
-			initData={DATA_INIT_PROCHAINSRDV}
+			initData={DATAJSON__INJECT_PROCHAINSRDV}
 		/>
 	</div>
 </LayoutAdmin>

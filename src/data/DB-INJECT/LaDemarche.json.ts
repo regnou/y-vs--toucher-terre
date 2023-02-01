@@ -1,4 +1,4 @@
-export const DATA_INIT_LADEMARCHE = [
+export const DATAJSON__INJECT_LADEMARCHE = [
 	{
 		id: '',
 		index: 1,

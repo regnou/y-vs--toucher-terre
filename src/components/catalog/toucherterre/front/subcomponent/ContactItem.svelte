@@ -6,10 +6,7 @@
 
 <div id="catalog-subc--contactitem" class="flex place-items-center border">
 	<img class="h-10 w-10 border" src={img} alt="" />
-	<div
-		style="color:#E5A782"
-		class="hover:bg-green-500 cursor-pointer border-black  font-bold  border"
-	>
+	<div style="color:#583120" class="ml-2 cursor-pointer border border-black  hover:bg-green-500">
 		{name}
 	</div>
 </div>

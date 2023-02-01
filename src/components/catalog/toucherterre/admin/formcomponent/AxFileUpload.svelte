@@ -37,29 +37,29 @@
 
 <!-- 2 -->
 <!-- uploader -->
-<section class="flex flex-col w-full h-full p-1 overflow-auto">
+<section class="flex h-full w-full flex-col overflow-auto p-1">
 	<header
-		class="h-44
-            flex flex-col
+		class="text-blueGray-500
+            focus:shadow-outline relative
+            flex
+            h-44
+            transform
+            flex-col
             items-center
             justify-center
+            overflow-hidden
+            rounded-lg
+            border border-dashed
+            bg-white
             text-base
+            ring-offset-2
+            ring-offset-current
             transition
             duration-500
             ease-in-out
-            transform
-            bg-white
-            border border-dashed
-            rounded-lg
-            text-blueGray-500
             focus:border-blue-500
             focus:outline-none
-            focus:shadow-outline
             focus:ring-2
-            ring-offset-current
-            ring-offset-2
-            relative
-            overflow-hidden
           "
 	>
 		<input
@@ -68,12 +68,12 @@
 			id="upload-id"
 			name="upload-id"
 			type="file"
-			class="z-10 custom-file-input"
+			class="custom-file-input z-10"
 		/>
 
 		{#if files}
 			{#each Array.from(files) as file}
-				<img src={imgFromElement} alt="" class="z-0 mt-10 absolute inset-0 object-cover" />
+				<img src={imgFromElement} alt="" class="absolute inset-0 z-0 mt-10 object-cover" />
 
 				<!-- <img
 					src={URL.createObjectURL(file)}
@@ -82,7 +82,7 @@
 				/> -->
 			{/each}
 		{:else if urlStorage}
-			<img src={urlStorage} alt="" class="z-0 mt-10 absolute inset-0 object-cover" />
+			<img src={urlStorage} alt="" class="absolute inset-0 z-0 mt-10 object-cover" />
 		{/if}
 	</header>
 </section>

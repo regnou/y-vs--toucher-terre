@@ -1,4 +1,4 @@
-export const DATA_INIT_ACCEUIL = [
+export const DATAJSON__INJECT_ACCEUIL = [
 	{
 		id: 'hero-1',
 		index: 1,

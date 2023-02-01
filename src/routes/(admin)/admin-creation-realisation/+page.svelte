@@ -3,7 +3,7 @@
 	import LayoutAdmin from '@app/components/catalog/toucherterre/admin/page/LayoutAdmin.svelte';
 	import { TABLE_REALISATIONCREATION } from '@app/entities/COLLECTIONS';
 	import { STORE_CREATIONREALISATION, STORE_LADEMARCHE } from '@app/stores/STORES';
-	import { DATA_INIT_CREATIONREALISATION } from '@app/data/STORES_ADMIN_JSON/CreationRealisation.json';
+	import { DATAJSON__INJECT_CREATIONREALISATION } from '@app/data/DB-INJECT/CreationRealisation.json';
 	import CreationRealisationApp from '@app/components/catalog/toucherterre/front/page/CreationRealisationApp.svelte';
 </script>
 
@@ -15,7 +15,7 @@
 		<BasePageAdmin
 			col={TABLE_REALISATIONCREATION}
 			store={STORE_CREATIONREALISATION}
-			initData={DATA_INIT_CREATIONREALISATION}
+			initData={DATAJSON__INJECT_CREATIONREALISATION}
 		/>
 	</div>
 </LayoutAdmin>

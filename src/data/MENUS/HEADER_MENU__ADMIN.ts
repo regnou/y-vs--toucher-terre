@@ -1,4 +1,4 @@
-export const ADMIN_HEADER_MENU = [
+export const DATAJSON__HEADERMENU__ADMIN = [
 	{
 		img: '',
 		url: '',
@@ -30,10 +30,11 @@ export const ADMIN_HEADER_MENU = [
 				menu: 'NEWSLETTER'
 			}
 		]
-	},
-	{
-		img: '',
-		url: '/acceuil',
-		menu: 'go to app'
 	}
+
+	// {
+	// 	img: '',
+	// 	url: '/acceuil',
+	// 	menu: 'go to app'
+	// }
 ];

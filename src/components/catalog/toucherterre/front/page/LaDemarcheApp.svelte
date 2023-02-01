@@ -26,7 +26,7 @@
 	<Loader />
 {:then data}
 	{#if $STORE_LADEMARCHE && $STORE_LADEMARCHE.length}
-		<div class="h-full w-full gap-10 grid grid-cols-3">
+		<div class="grid h-full w-full grid-cols-3 gap-10">
 			<!-- <div class="bg-red-300 mr-10"> -->
 			<div class=" mr-10">
 				<Hero2 title="L'équipe" />
@@ -57,7 +57,7 @@
 						alt=""
 					/>
 					<img
-						class="justify-self-start h-10 rotate-180"
+						class="h-10 rotate-180 justify-self-start"
 						src="{base}/media/icon/icon-contact-decom--creme.png"
 						alt=""
 					/>
@@ -75,7 +75,7 @@
 			<!-- <div class="bg-blue-300 ml-10"> -->
 			<div class=" ml-20">
 				<Hero2 title="formule" />
-				<div class="bg-white/30 rounded-md m-5 p-2">
+				<div class="m-5 rounded-md bg-white/30 p-2">
 					<Paragraph text={$STORE_LADEMARCHE[7].inputValue} />
 					<Separator />
 					<Paragraph text={$STORE_LADEMARCHE[8].inputValue} />

@@ -1,49 +1,75 @@
-<script lang="ts">
+<script lang="js">
 	import ContainerItem1 from '../../front/ContainerItem1.svelte';
-	import HeaderAdmin from '../HeaderAdmin.svelte';
-	import { ADMIN_HEADER_MENU } from '../../../../../data/MENUS/HEADER_MENU__ADMIN';
-	// https://stackoverflow.com/questions/71789793/how-to-handle-reset-layout
-	// https://stackoverflow.com/questions/72217145/layout-reset-has-been-removed-in-favour-of-named-layouts
-	// need to change +layout.svelte to _layout.svelte
-	// Have been depreciated, cf :
-	// https://stackoverflow.com/questions/70269348/how-can-i-ignore-default-layout-in-svelte-kit
-	// => replaced by Advanced routes :
-	//     Do NOT change this layout, change the root declinaison inside '(app)' or create your own instead
-	// https://kit.svelte.dev/docs/advanced-routing#advanced-layouts
-	// import '@app/app.postcss';
-
 	let isAdmin = true;
-	const HEADER_H = 16;
+
+	import { DATAJSON__HEADERMENU__ADMIN } from '@app/data/MENUS/HEADER_MENU__ADMIN';
+	import DrawerAx from '../../shared/layout/2-drawer/DrawerAx.svelte';
+	import { Section } from '@smui/top-app-bar';
+	import HeaderAdmin from '../HeaderAdmin.svelte';
+	import Fab, { Icon } from '@smui/fab';
+	import { DATAJSON__HEADER_APP__HEIGHT } from '@app/data/DATAJSON_HEADER_APP';
+
+	let active = 'acceuil';
+	let menus = [];
+
+	// onMount(() => {
+	// });
 </script>
 
-<div id="wa--page-admin" class="bg-white text-black">
-	<!-- ContainerItem1  -->
-	<HeaderAdmin h={HEADER_H} menus={ADMIN_HEADER_MENU} />
+<DrawerAx>
+	<slot slot="headerRightMenus1" name="headerRightMenus0">
+		<Section>
+			<div class="flexy">
+				<div class="margins">
+					<a href="/acceuil">
+						<Fab mini>
+							<!-- <img src="media/ax/3.jpg" alt="" /> -->
+							<Icon class="material-icons">login</Icon>
+						</Fab>
+					</a>
+				</div>
+			</div>
 
-	<div class="grid grid-flow-col content-start   ">
-		<ContainerItem1 hh={'space.' + HEADER_H}>
-			<slot name="app" />
-		</ContainerItem1>
+			<!-- <IconButton
+				style="color:var(--wa-color-1)"
+				class="material-icons"
+				on:click={() => (open = !open)}
+				>menu
+			</IconButton> -->
+		</Section>
+	</slot>
 
-		<!-- <div class:isAdmin>
-		<slot name="app" />
-	</div> -->
-		<ContainerItem1 hh={'space.' + HEADER_H}>
-			<!-- <div class:isAdmin class="bloc-admin hidden"> -->
-			<slot name="admin">
-				<div class="">bloc d admin</div>
-			</slot>
-			<!-- </div> -->
-		</ContainerItem1>
+	<div slot="layout1" id="wa--page-admin" class="bg-white text-black">
+		<!-- body -->
+		<div class="grid grid-flow-col content-start">
+			<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
+			<ContainerItem1>
+				<slot name="app" />
+			</ContainerItem1>
+			<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
+			<ContainerItem1>
+				<slot name="admin">
+					<div class="">bloc d admin</div>
+				</slot>
+			</ContainerItem1>
+		</div>
 	</div>
-</div>
+
+	<slot slot="headerAdmin1">
+		<Section>
+			<!-- -- -->
+			<!-- -- -->
+			<!-- header -->
+			<!-- h={DATAJSON__HEADER_APP__HEIGHT} -->
+			<HeaderAdmin menus={DATAJSON__HEADERMENU__ADMIN} />
+			<!-- -- -->
+			<!-- -- -->
+		</Section>
+	</slot>
+</DrawerAx>
 
 <style>
-	/* .isAdmin {
-		width: 1024px;
-	} */
-
 	.bloc-admin.isAdmin {
-		@apply w-96 block h-full border-purple-500 border;
+		@apply block h-full w-96 border border-purple-500;
 	}
 </style>

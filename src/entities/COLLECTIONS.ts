@@ -1,5 +1,5 @@
 import type { IInputEntity } from '@app/entities/IInputEntity';
-import { CollectionReference, collection, type DocumentData } from 'firebase/firestore';
+import { collection, CollectionReference, type DocumentData } from 'firebase/firestore';
 import { getFirebase } from '../utils/tecnology/firebase/firebaseClient';
 // ---
 // --- todo - all your collections

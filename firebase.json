@@ -3,6 +3,15 @@
 		"public": "build",
 		"cleanUrls": true,
 		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+
+		"redirects": [
+			{
+				"source": "/",
+				"destination": "/acceuil",
+				"type": 301
+			}
+		],
+
 		"rewrites": [
 			{
 				"source": "**",

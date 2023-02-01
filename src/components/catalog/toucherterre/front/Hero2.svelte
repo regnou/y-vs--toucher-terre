@@ -6,6 +6,6 @@
 </script>
 
 <div id="catalog-hero" class="grid  place-items-center ">
-	<div class="border uppercase text-2xl  ">{title}</div>
-	<img alt="" class="border  h-10 w-20 " src={img} />
+	<div class="border text-2xl uppercase  ">{title}</div>
+	<img alt="" class="h-10  w-20 border " src={img} />
 </div>

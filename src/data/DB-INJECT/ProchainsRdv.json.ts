@@ -1,4 +1,4 @@
-export const DATA_INIT_PROCHAINSRDV = [
+export const DATAJSON__INJECT_PROCHAINSRDV = [
 	// let d1 =
 	// 	'2023_02_21-CP-Construction-d_une-charpente-en-bois-rond-sculpte-+-toiture-vegetalisee.jpg';
 

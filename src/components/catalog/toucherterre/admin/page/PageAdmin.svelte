@@ -1,33 +1,30 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import AxInput from '../formcomponent/AxInputAll.svelte';
-	import AxBtnWhite from '../formcomponent/AxBtnWhite.svelte';
-	import AxBtnBlue from '../formcomponent/AxBtnBlue.svelte';
+	import AxBtnWhite from '../formcomponent/AxBtnCancel.svelte';
+	import AxBtnBlue from '../formcomponent/AxBtnOk.svelte';
 	import Button, { Label } from '@smui/button';
-
 	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 	import {
 		service_addIdInput,
 		service_modInput
 	} from '@app/utils/tecnology/firebase/services/adminPageServices';
 	import { upload } from '@app/utils/tecnology/firebase/storageServices';
+	import { Text } from '@smui/list';
+	import Paper, { Title, Subtitle, Content } from '@smui/paper';
 
 	export let col;
 	export let store;
 	export let initData;
 	let files_all = [null, null, null, null, null, null, null, null, null, null];
-
 	onMount(() => {
 		// menus.update((n) => data);
 	});
-
 	// $: $site = data.site;
 	$: console.log(files_all);
-
 	const injectScript = async () => {
 		await service_addIdInput(col, 'summaryId', { data: initData });
 	};
-
 	async function save() {
 		console.log('click onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
 		console.log('🟨');
@@ -61,13 +58,15 @@
 	}
 </script>
 
-<div id="wa--layout-admin" class=" text-black bg-white">
+<div id="wa--page-admin" class=" bg-white p-5 text-black">
 	<!-- <button on:click={injectScript}>> INJECT DATA !</button> -->
 	<Button on:click={injectScript} variant="raised" class="button-shaped-round">
 		<Label>INJECT DATA</Label>
 	</Button>
 
-	<div class="p-2 space-y-6">
+	<Subtitle>contenu</Subtitle>
+
+	<div class="space-y-6 p-2">
 		{#if $store}
 			{#each $store as item, i}
 				<AxInput
@@ -81,7 +80,7 @@
 	</div>
 
 	<!-- btn -->
-	<div class="grid grid-flow-col gap-2 place-items-center">
+	<div class="grid grid-flow-col place-items-center gap-2">
 		<AxBtnWhite text="cancel" />
 		<!-- <AxBtnBlue handle={save} /> -->
 		<AxBtnBlue callback={async () => await save()} />
@@ -92,9 +91,9 @@
 
 <style>
 	button {
-		@apply p-2 bg-white border-blue-400 border-2 m-2;
+		@apply m-2 border-2 border-blue-400 bg-white p-2;
 	}
 	button:hover {
-		@apply bg-green-300 border-blue-800;
+		@apply border-blue-800 bg-green-300;
 	}
 </style>
