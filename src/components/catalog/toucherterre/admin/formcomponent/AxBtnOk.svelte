@@ -1,4 +1,5 @@
 <script>
+	export let text = 'N/A';
 	export let callback;
 	import Button, { Label } from '@smui/button';
 </script>
@@ -8,7 +9,7 @@
 <!-- type="submit" -->
 
 <Button on:click={callback} variant="raised">
-	<Label>ok</Label>
+	<Label>{text}</Label>
 </Button>
 
 <!-- <button

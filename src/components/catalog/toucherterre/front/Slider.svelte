@@ -1,4 +1,4 @@
-<script lang="js">
+<script lang="ts">
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { onMount } from 'svelte';
 

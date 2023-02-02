@@ -1,34 +1,21 @@
-<script lang="js">
-	let isAdmin = true;
-
+<script lang="ts">
 	import { DATAJSON__HEADERMENU__ADMIN } from '@app/data/MENUS/HEADER_MENU__ADMIN';
 	import DrawerAx from '../../shared/layout/DrawerAx.svelte';
 	import { Section } from '@smui/top-app-bar';
 	import Fab, { Icon } from '@smui/fab';
 	import HeaderMenus from '../../shared/subcomponent/HeaderMenus.svelte';
-
-	let active = 'acceuil';
-	let menus = [];
-
-	// onMount(() => {
-	// });
 </script>
 
-<DrawerAx>
+<DrawerAx isAdmin={true}>
 	<!--  -->
 	<!-- HEADER -->
 	<!--  -->
-
-	<!--  -->
-	<!-- HEADER - CENTER -->
+	<!-- <slot slot="headerMenusLeft-1" name="headerMenusLeft0"></slot> -->
 	<slot slot="headerMenusCenter-1">
 		<Section>
-			<HeaderMenus menus={DATAJSON__HEADERMENU__ADMIN} />
+			<HeaderMenus isAdmin={true} menus={DATAJSON__HEADERMENU__ADMIN} />
 		</Section>
 	</slot>
-
-	<!--  -->
-	<!-- HEADER RIGHT -->
 	<slot slot="headerMenusRight-1" name="headerMenusRight-0">
 		<Section>
 			<div class="flexy">
@@ -54,26 +41,7 @@
 	<!-- BODY -->
 	<!--  -->
 	<div slot="layoutMainContent-1" id="layoutMainContent-1--pageAdmin" class="bg-white text-black">
-		<!-- body -->
-		<!-- <div class="grid grid-flow-col content-start"> -->
-		<!-- <LayoutCenter1> -->
-		<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
-		<!-- <LayoutCenter1> -->
 		<slot name="app" />
-		<!-- </LayoutCenter1> -->
-		<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
-		<!-- <LayoutCenter1> -->
-		<slot name="admin">
-			<div class="">bloc d admin</div>
-		</slot>
-		<!-- </LayoutCenter1> -->
-		<!-- </div> -->
-		<!-- </LayoutCenter1> -->
+		<slot name="admin" />
 	</div>
 </DrawerAx>
-
-<style>
-	.bloc-admin.isAdmin {
-		@apply block h-full w-96 border border-purple-500;
-	}
-</style>

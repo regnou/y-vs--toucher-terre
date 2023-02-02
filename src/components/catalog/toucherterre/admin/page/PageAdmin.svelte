@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import AxInput from '../formcomponent/AxInputAll.svelte';
-	import AxBtnWhite from '../formcomponent/AxBtnCancel.svelte';
-	import AxBtnBlue from '../formcomponent/AxBtnOk.svelte';
+	import AxBtnCancel from '../formcomponent/AxBtnCancel.svelte';
+	import AxBtnOk from '../formcomponent/AxBtnOk.svelte';
 	import Button, { Label } from '@smui/button';
 	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 	import {
@@ -81,9 +81,9 @@
 
 	<!-- btn -->
 	<div class="grid grid-flow-col place-items-center gap-2">
-		<AxBtnWhite text="cancel" />
+		<AxBtnCancel text="cancel" />
 		<!-- <AxBtnBlue handle={save} /> -->
-		<AxBtnBlue callback={async () => await save()} />
+		<AxBtnOk text="ok" callback={async () => await save()} />
 	</div>
 
 	<!-- <button on:click={save}> > SAVE !</button> -->

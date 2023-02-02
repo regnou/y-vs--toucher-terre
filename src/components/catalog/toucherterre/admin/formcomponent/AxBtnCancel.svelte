@@ -1,11 +1,11 @@
 <script>
-	// export let text;
+	export let text = 'N/A';
 	// export let isDisabled = false;
 	import Button, { Label } from '@smui/button';
 </script>
 
 <Button variant="outlined">
-	<Label>cancel</Label>
+	<Label>{text}</Label>
 </Button>
 <!-- 2 -->
 <!-- BTN CLOSE -->

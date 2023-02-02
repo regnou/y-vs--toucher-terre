@@ -1,4 +1,4 @@
-<script lang="js">
+<script lang="ts">
 	import { base } from '$app/paths';
 	import { TABLE_ACCEUIL } from '@app/entities/COLLECTIONS';
 	import { service_getInputs } from '@app/utils/tecnology/firebase/services/adminPageServices';
@@ -13,6 +13,7 @@
 	import ContactCard from '../ContactCard.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
+	import Tmp from '../../shared/tmp.svelte';
 	// import Splide from '../splide.svelte';
 	let promise = service_getInputs(TABLE_ACCEUIL);
 
@@ -44,6 +45,7 @@
 {/await} -->
 
 <div id="wa--acceuilApp">
+	<Tmp />
 	{#await promise}
 		<!-- <p class="animate-spin">...waiting</p> -->
 		<Loader />

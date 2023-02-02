@@ -1,13 +1,16 @@
 <script>
 	import TopAppBar, { Row, Section, AutoAdjust } from '@smui/top-app-bar';
-	let topAppBar;
-	export let open = true;
-	import Button from '@smui/button';
 	import IconButton from '@smui/icon-button';
-	import { Image } from '@smui/image-list';
 
-	let clicked = 'nothing yet';
-	const DATAJSON__HEADER_APP__HEIGHT = 16;
+	let topAppBar;
+	export let isAdmin = false;
+	export let openApp;
+	export let openAdmin;
+
+	const toggleOpen = () => {
+		if (isAdmin) openAdmin = !openAdmin;
+		else openApp = !openApp;
+	};
 </script>
 
 <!-- <Button on:click={() => console.log('p')} class="overflow-hidden">
@@ -26,24 +29,25 @@
 <TopAppBar
 	bind:this={topAppBar}
 	variant="fixed"
-	class="
-border-4
-border-blue-800 bg-transparent/40 "
-	id="APP_HEADER"
+	class="border-4 border-blue-800 bg-transparent/40 "
+	id="HEADER_APP"
 >
 	<Row>
+		<!-- {#if !isAdmin} -->
 		<!--  -->
 		<!-- LEFT -->
+		<!-- <slot name="headerMenusLeft-2" /> -->
 		<!-- HAMBURGER - fait partis du chassi -->
-		<Section class="sm:hidden">
+		<Section class=" md:hidden">
 			<IconButton
 				id="hamburger"
 				style="color:var(--wa-color-1)"
 				class="material-icons"
-				on:click={() => (open = !open)}
+				on:click={toggleOpen}
 				>menu
 			</IconButton>
 		</Section>
+		<!-- {/if} -->
 
 		<!-- CENTER -->
 		<slot name="headerMenusCenter-2" />

@@ -1,17 +1,17 @@
 <script lang="ts">
 	import HeaderMenuItem from './HeaderMenuItem.svelte';
-	import HeaderSubmenuItem from './HeaderSubmenuItem.svelte';
+	// import HeaderSubmenuItem from './HeaderSubmenuItem.svelte';
 
+	export let isAdmin = false;
 	export let menus = [];
 </script>
 
-<!-- <div class="flex gap-5"> -->
-<!-- <div class="flex gap-6" id="headerMenus"> -->
-{#each menus as item}
-	{#if item.submenus}
-		<HeaderSubmenuItem menu={item.menu} submenus={item.submenus} />
-	{:else}
+{#if isAdmin}
+	<!-- <div class="sm:hidden">
+		<HeaderSubmenuItem submenus={menus} />
+	</div> -->
+{:else}
+	{#each menus as item}
 		<HeaderMenuItem img={item.img} url={item.url} menu={item.menu} />
-	{/if}
-{/each}
-<!-- </div> -->
+	{/each}
+{/if}

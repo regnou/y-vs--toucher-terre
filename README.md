@@ -1,3 +1,28 @@
+<!-- <div slot="layoutMainContent-1" id="layoutMainContent-1--pageAdmin" class="bg-white text-black"> -->
+<!-- body -->
+<!-- <div class="grid grid-flow-col content-start"> -->
+<!-- <LayoutCenter1> -->
+<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
+<!-- <LayoutCenter1> -->
+<!-- <slot name="app" /> -->
+<!-- </LayoutCenter1> -->
+<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
+<!-- <LayoutCenter1> -->
+<!-- <slot name="admin">
+		<div class="">bloc d admin</div>
+	</slot> -->
+<!-- </LayoutCenter1> -->
+<!-- </div> -->
+<!-- </LayoutCenter1> -->
+<!-- </div> -->
+
+<!--  -->
+<style>
+	/* .bloc-admin.isAdmin {
+		@apply block h-full w-96 border border-purple-500;
+	} */
+</style>
+
 // const hstr = 'h-';
 // let hjoin = 'N/A';
 // $: {
