@@ -1,54 +1,24 @@
 <script lang="ts">
-	import { DATAJSON__HEADERMENU__ADMIN } from '@app/data/MENUS/HEADER_MENU__ADMIN';
-	import DrawerAx from '../../shared/layout/DrawerAx.svelte';
-	import { Section } from '@smui/top-app-bar';
-	import Fab, { Icon } from '@smui/fab';
-	import HeaderMenus from '../../shared/subcomponent/HeaderMenus.svelte';
+	import DrawerFrame from '../../shared/layout/DrawerFrame.svelte';
+	import HeaderAdmin from '../../shared/layout/HeaderAdmin.svelte';
 </script>
 
-<DrawerAx isAdmin={true}>
+<!--  -->
+<DrawerFrame isAdmin={true}>
 	<!--  -->
 	<!-- HEADER -->
-	<!--  -->
-	<!-- <slot slot="headerMenusLeft-1" name="headerMenusLeft0"></slot> -->
-	<slot slot="headerMenusCenter-1">
-		<Section>
-			<HeaderMenus isAdmin={true} menus={DATAJSON__HEADERMENU__ADMIN} />
-		</Section>
-	</slot>
-	<slot slot="headerMenusRight-1" name="headerMenusRight-0">
-		<Section>
-			<div class="flexy">
-				<div class="margins">
-					<a href="/acceuil">
-						<Fab mini>
-							<!-- <img src="media/ax/3.jpg" alt="" /> -->
-							<Icon class="material-icons">login</Icon>
-						</Fab>
-					</a>
-				</div>
-			</div>
-			<!-- <IconButton
-				style="color:var(--wa-color-1)"
-				class="material-icons"
-				on:click={() => (open = !open)}
-				>menu
-			</IconButton> -->
-		</Section>
+	<slot slot="header-1">
+		<HeaderAdmin />
 	</slot>
 
-	<!--  -->
 	<!-- BODY -->
-	<!--  -->
-	<div
-		slot="layoutMainContent-1"
-		id="layoutMainContent-1--pageAdmin"
-		class="border-8 border-red-500"
-	>
+	<div slot="content-1" id="content-1--pageAdmin" class="border-8 border-red-500">
+		<!-- ADMIN -->
 		<div class="flex justify-center border-4 border-black bg-black p-10">
 			<slot name="admin" />
 		</div>
-
+		<!-- APP -->
 		<slot name="app" />
 	</div>
-</DrawerAx>
+	<!--  -->
+</DrawerFrame>

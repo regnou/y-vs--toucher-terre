@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import AxInput from '../formcomponent/AxInputAll.svelte';
-	import AxBtnCancel from '../formcomponent/AxBtnCancel.svelte';
-	import AxBtnOk from '../formcomponent/AxBtnOk.svelte';
+	import AxInput from '../form/AxInputAll.svelte';
+	import AxBtnCancel from '../form/AxBtnCancel.svelte';
+	import AxBtnOk from '../form/AxBtnOk.svelte';
 	import Button, { Label } from '@smui/button';
 	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 	import {

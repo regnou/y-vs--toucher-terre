@@ -1,4 +1,4 @@
-<!-- <div slot="layoutMainContent-1" id="layoutMainContent-1--pageAdmin" class="bg-white text-black"> -->
+<!-- <div slot="content-1" id="content-1--pageAdmin" class="bg-white text-black"> -->
 <!-- body -->
 <!-- <div class="grid grid-flow-col content-start"> -->
 <!-- <LayoutCenter1> -->

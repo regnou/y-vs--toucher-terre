@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HeaderMenuItem from './HeaderMenuItem.svelte';
+	import HeaderMenusItem from './HeaderMenusItem.svelte';
 	// import HeaderSubmenuItem from './HeaderSubmenuItem.svelte';
 
 	export let isAdmin = false;
@@ -12,6 +12,6 @@
 	</div> -->
 {:else}
 	{#each menus as item}
-		<HeaderMenuItem img={item.img} url={item.url} menu={item.menu} />
+		<HeaderMenusItem img={item.img} url={item.url} menu={item.menu} />
 	{/each}
 {/if}

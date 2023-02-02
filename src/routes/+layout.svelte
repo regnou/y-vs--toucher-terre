@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { navigating } from '$app/stores';
 	import '@app/app.css';
+	import PreloadingIndicator from '@app/components/catalog/toucherterre/shared/PreloadingIndicator.svelte';
 
 	// splide -Default theme
 	import '@splidejs/splide/css';
@@ -45,6 +47,10 @@
 <!-- <svelte:head>
 	<link rel="stylesheet" href="smui.css?v=4" />;
 </svelte:head> -->
+
+{#if $navigating}
+	<PreloadingIndicator />
+{/if}
 
 <slot />
 

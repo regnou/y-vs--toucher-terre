@@ -1,7 +1,7 @@
 <script>
 	import { base } from '$app/paths';
 	import Separator from './Separator.svelte';
-	import ContactItem from './subcomponent/ContactItem.svelte';
+	import ContactCardItem from './ContactCardItem.svelte';
 
 	export let title = 'N/A';
 	export let subtitle = 'N/A';
@@ -22,7 +22,7 @@
 	</div>
 	<div class="text-center text-xl" style="color:#f4b994">{subtitle}</div>
 	<Separator />
-	<ContactItem name={mail} img="{base}/media/icon/icon-contact-mail.png" />
-	<ContactItem name={fb} img="{base}/media/icon/icon-contact-fb.png" />
-	<ContactItem name={tel} img="{base}/media/icon/icon-contact-tel.png" />
+	<ContactCardItem name={mail} img="{base}/media/icon/icon-contact-mail.png" />
+	<ContactCardItem name={fb} img="{base}/media/icon/icon-contact-fb.png" />
+	<ContactCardItem name={tel} img="{base}/media/icon/icon-contact-tel.png" />
 </div>

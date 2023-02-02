@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { AppContent } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
-	import TopAppBarAx from './TopAppBarAx.svelte';
+	import HeaderFrame from './HeaderFrame.svelte';
 	import DrawerApp from './DrawerApp.svelte';
 	import DrawerAdmin from './DrawerAdmin.svelte';
 	import { onMount } from 'svelte';
@@ -109,19 +109,10 @@
 		<!--  -->
 		<!-- HEADER + APP -->
 		<!--  -->
-		<TopAppBarAx bind:openApp bind:openAdmin {isAdmin}>
-			<!--  -->
-			<!-- HEADER -->
-			<!-- <slot slot="headerMenusLeft-2" name="headerMenusLeft-1" /> -->
-			<slot slot="headerMenusCenter-2" name="headerMenusCenter-1" />
-			<slot slot="headerMenusRight-2" name="headerMenusRight-1" />
-
-			<!--  -->
-			<!-- APP -->
-			<slot name="layoutMainContent-1" slot="layoutMainContent-2" />
-
-			<!--  -->
+		<HeaderFrame bind:openApp bind:openAdmin {isAdmin}>
+			<slot slot="header-2" name="header-1" />
+			<slot name="content-1" slot="content-2" />
 			<!-- <Footer /> -->
-		</TopAppBarAx>
+		</HeaderFrame>
 	</main>
 </AppContent>

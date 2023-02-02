@@ -49,11 +49,11 @@
 		</Section>
 		<!-- {/if} -->
 
+		<slot name="header-2" />
 		<!-- CENTER -->
-		<slot name="headerMenusCenter-2" />
-
+		<!-- <slot name="headerMenusCenter-2" /> -->
 		<!-- RIGHT -->
-		<slot name="headerMenusRight-2" />
+		<!-- <slot name="headerMenusRight-2" /> -->
 	</Row>
 </TopAppBar>
 <!--  -->
@@ -61,5 +61,5 @@
 <!--  -->
 <!-- top-app-bar--content -->
 <AutoAdjust {topAppBar} class="border-4 border-blue-800" id="APP_BODY">
-	<slot name="layoutMainContent-2" />
+	<slot name="content-2" />
 </AutoAdjust>

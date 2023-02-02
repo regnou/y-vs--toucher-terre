@@ -13,7 +13,7 @@
 	import ContactCard from '../ContactCard.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
-	import Tmp from '../../shared/tmp.svelte';
+	import Tmp from '../../shared/testing/tmp.svelte';
 	// import Splide from '../splide.svelte';
 	let promise = service_getInputs(TABLE_ACCEUIL);
 
