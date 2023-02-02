@@ -40,8 +40,15 @@
 	<!--  -->
 	<!-- BODY -->
 	<!--  -->
-	<div slot="layoutMainContent-1" id="layoutMainContent-1--pageAdmin" class="bg-white text-black">
+	<div
+		slot="layoutMainContent-1"
+		id="layoutMainContent-1--pageAdmin"
+		class="border-8 border-red-500"
+	>
+		<div class="flex justify-center border-4 border-black bg-black p-10">
+			<slot name="admin" />
+		</div>
+
 		<slot name="app" />
-		<slot name="admin" />
 	</div>
 </DrawerAx>

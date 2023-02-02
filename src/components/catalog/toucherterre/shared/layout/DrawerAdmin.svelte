@@ -30,7 +30,7 @@
 	<!-- drawer--header -->
 	<Header>
 		<Title>TOUCHER TERRE</Title>
-		<Subtitle>admin 0.0.1</Subtitle>
+		<Subtitle>ADMIN 0.0.1</Subtitle>
 	</Header>
 	<!-- drawer--content (les mens du drawer) -->
 	<Content>
@@ -57,6 +57,21 @@
 				{/each}
 			</List>
 		</Group>
+
+		<Separator />
+		<Group>
+			<Subheader tag="h6">Comptes</Subheader>
+			<Item
+				href="javascript:void(0)"
+				on:click={() => setActive('profil')}
+				activated={active === 'profil'}
+			>
+				<a href={'/'} class="">
+					<Text>Profil</Text>
+				</a>
+			</Item>
+		</Group>
+		<Separator />
 	</Content>
 </Drawer>
 

@@ -45,7 +45,7 @@
 {/await} -->
 
 <div id="wa--acceuilApp">
-	<Tmp />
+	<!-- <Tmp /> -->
 	{#await promise}
 		<!-- <p class="animate-spin">...waiting</p> -->
 		<Loader />

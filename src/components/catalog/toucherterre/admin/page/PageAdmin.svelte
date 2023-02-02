@@ -58,35 +58,45 @@
 	}
 </script>
 
-<div id="wa--page-admin" class=" bg-white p-5 text-black">
-	<!-- <button on:click={injectScript}>> INJECT DATA !</button> -->
-	<Button on:click={injectScript} variant="raised" class="button-shaped-round">
-		<Label>INJECT DATA</Label>
-	</Button>
+<!-- ADMIN -->
+<div class="flex w-96 max-w-xl flex-col gap-10">
+	<!-- PANEL: form edit -->
+	<div id="wa--page-admin-panel-2" class=" rounded-xl  border-4 bg-white p-5 text-black">
+		<!-- <button on:click={injectScript}>> INJECT DATA !</button> -->
 
-	<Subtitle>contenu</Subtitle>
+		<div class="mb-10 text-center font-bold">EDITION DE LA PAGE</div>
 
-	<div class="space-y-6 p-2">
-		{#if $store}
-			{#each $store as item, i}
-				<AxInput
-					bind:files={files_all[i]}
-					bind:inputValue={item.inputValue}
-					bind:label={item.label}
-					bind:type={item.type}
-				/>
-			{/each}
-		{/if}
+		<div class="space-y-6 p-2">
+			{#if $store}
+				{#each $store as item, i}
+					<AxInput
+						bind:files={files_all[i]}
+						bind:inputValue={item.inputValue}
+						bind:label={item.label}
+						bind:type={item.type}
+					/>
+				{/each}
+			{/if}
+		</div>
+
+		<!-- btn -->
+		<div class="grid grid-flow-col place-items-center gap-2">
+			<AxBtnCancel text="cancel" />
+			<!-- <AxBtnBlue handle={save} /> -->
+			<AxBtnOk text="ok" callback={async () => await save()} />
+		</div>
+
+		<!-- <button on:click={save}> > SAVE !</button> -->
 	</div>
 
-	<!-- btn -->
-	<div class="grid grid-flow-col place-items-center gap-2">
-		<AxBtnCancel text="cancel" />
-		<!-- <AxBtnBlue handle={save} /> -->
-		<AxBtnOk text="ok" callback={async () => await save()} />
-	</div>
+	<!-- PANEL: inject -->
+	<div id="wa--page-admin-panel-1" class="rounded-xl border-4 bg-white p-5 text-black">
+		<div class="mb-10 text-center font-bold">SCRIPTS DB</div>
 
-	<!-- <button on:click={save}> > SAVE !</button> -->
+		<Button on:click={injectScript} variant="raised" class="button-shaped-round">
+			<Label>INJECT DATA</Label>
+		</Button>
+	</div>
 </div>
 
 <style>
