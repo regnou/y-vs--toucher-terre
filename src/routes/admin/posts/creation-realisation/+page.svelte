@@ -1,5 +1,5 @@
 <script>
-	import BasePageAdmin from '@app/components/catalog/toucherterre/admin/page/Pageadmin.svelte';
+	import BaseAdmin from '@app/components/catalog/toucherterre/admin/page/Admin.svelte';
 	import LayoutAdminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
 	import { TABLE_REALISATIONCREATION } from '@app/entities/COLLECTIONS';
 	import { STORE_CREATIONREALISATION, STORE_LADEMARCHE } from '@app/stores/STORES';
@@ -12,7 +12,7 @@
 		<CreationRealisationApp />
 	</div>
 	<div slot="admin">
-		<BasePageAdmin
+		<BaseAdmin
 			col={TABLE_REALISATIONCREATION}
 			store={STORE_CREATIONREALISATION}
 			initData={DATAJSON__INJECT_CREATIONREALISATION}

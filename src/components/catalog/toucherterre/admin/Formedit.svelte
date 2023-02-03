@@ -49,9 +49,11 @@
 	}
 </script>
 
-<div id="formedit" class=" rounded-xl  border-4 bg-white p-5 text-black">
+<div id="formedit--1" class=" rounded-xl  border-4 bg-white p-5 text-black">
 	<!-- <button on:click={injectScript}>> INJECT DATA !</button> -->
-	<div class="mb-10 text-center font-bold">PAGE: {$page.url.pathname.replace('/admin-', '')}</div>
+	<div class="mb-10 text-center text-2xl font-bold">
+		{$page.url.pathname.replace('/admin/posts/', '')}
+	</div>
 	<div class="space-y-6 p-2">
 		{#if $store}
 			{#each $store as item, i}
@@ -65,7 +67,7 @@
 		{/if}
 	</div>
 	<!-- btn -->
-	<div class="grid grid-flow-col place-items-center gap-2">
+	<div class="mt-10 grid grid-flow-col place-items-center gap-2 p-10">
 		<AxBtnCancel text="cancel" />
 		<!-- <AxBtnBlue handle={save} /> -->
 		<AxBtnOk text="ok" callback={async () => await save()} />

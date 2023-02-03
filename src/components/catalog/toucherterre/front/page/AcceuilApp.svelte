@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { TABLE_ACCEUIL } from '@app/entities/COLLECTIONS';
 	import { service_getInputs } from '@app/utils/tecnology/firebase/services/adminPageServices';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
-	import { afterUpdate, beforeUpdate, createEventDispatcher, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import Hero from '../Hero.svelte';
 	import Loader from '../Loader.svelte';
 	import SeparatorMedium from '../SeparatorMedium.svelte';
@@ -13,7 +12,6 @@
 	import ContactCard from '../Contactcard.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
-	import Tmp from '../../tmp/tmp.svelte';
 	// import Splide from '../splide.svelte';
 	let promise = service_getInputs(TABLE_ACCEUIL);
 
@@ -44,13 +42,13 @@
 	<p style="color: red">{error.message}</p>
 {/await} -->
 
-<div id="acceuilApp--1">
-	<!-- <Loader /> -->
-	<!-- <Tmp /> -->
-	{#await promise}
-		<!-- <p class="animate-spin">...waiting</p> -->
-		<Loader />
-	{:then data}
+<!-- <Loader /> -->
+<!-- <Tmp /> -->
+{#await promise}
+	<!-- <p class="animate-spin">...waiting</p> -->
+	<Loader />
+{:then data}
+	<main id="acceuilApp--1">
 		{#if $STORE_ACCEUIL && $STORE_ACCEUIL.length}
 			<Hero bind:img={$STORE_ACCEUIL[0].inputValue} bind:text={$STORE_ACCEUIL[1].inputValue} />
 			<SeparatorMedium />
@@ -75,10 +73,10 @@
 				</div>
 			</Twocol>
 		{/if}
-	{:catch error}
-		<p style="color: red">{error.message}</p>
-	{/await}
-</div>
+	</main>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
 <!-- // const dispatch = createEventDispatcher();
 // onMount(() => {
 // 	console.log('-- onMount');

@@ -50,7 +50,9 @@
 			<!-- <HelperText slot="helper">Helper Text</HelperText> -->
 		</Textfield>
 	{:else if type === 'file'}
-		<AxFileUpload bind:files bind:urlStorage={inputValue} />
+		<div class="max-w-xs">
+			<AxFileUpload bind:files bind:urlStorage={inputValue} />
+		</div>
 	{:else if type === 'area'}
 		<!-- <AxArea bind:inputValue name={inputId} /> -->
 		<!-- -->

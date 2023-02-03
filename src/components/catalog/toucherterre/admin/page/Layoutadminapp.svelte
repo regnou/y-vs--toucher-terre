@@ -3,7 +3,7 @@
 	import HeaderAdmin from '../../shared/layout/HeaderAdmin.svelte';
 </script>
 
-<div id="layoutadminapp">
+<div id="layoutadminapp--1">
 	<Framedrawer isAdmin={true}>
 		<!--  -->
 		<!-- HEADER -->
@@ -12,17 +12,16 @@
 		</slot>
 
 		<!-- BODY -->
-		<div slot="content-1" id="layoutadminapp-body" class="border-8 border-red-500">
+		<!-- TIP: le flex ci dessous, permet de mettre l admin a cote ou au dessus du viewer -->
+		<div slot="content-1" id="layoutadminapp-body--1" class=" max-w-6xl  ">
+			<!--  -->
 			<!-- SLOT ADMIN -->
-			<div
-				id="layoutadminapp-body-admin"
-				class="flex justify-center border-4 border-black bg-black p-10"
-			>
+			<div id="vieweradmin--1" class=" border-4 border-blue-500 px-10">
 				<slot name="admin" />
 			</div>
-
+			<!--  -->
 			<!-- SLOT APP -->
-			<slot name="app" id="layoutadminapp-body-app" />
+			<slot name="app" id="viewerapp--1" />
 		</div>
 		<!--  -->
 	</Framedrawer>

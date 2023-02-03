@@ -7,20 +7,15 @@
 	export let initData;
 </script>
 
+<!-- tpl form page admin auto gen -->
+<!-- tpl form page admin auto gen -->
+<!-- tpl form page admin auto gen -->
+<!-- tpl form page admin auto gen -->
+
 <!-- ADMIN -->
-<div id="pageadmin" class="flex max-w-xl flex-col gap-10">
+<div id="admin--1" class="  border-4 border-red-300 ">
 	<!-- PANEL: form edit -->
 	<FormEdit {col} {store} {initData} />
 	<!-- PANEL: inject -->
 	<FormInjector {initData} />
 </div>
-
-<!-- tpl form page admin auto gen -->
-<style>
-	button {
-		@apply m-2 border-2 border-blue-400 bg-white p-2;
-	}
-	button:hover {
-		@apply border-blue-800 bg-green-300;
-	}
-</style>

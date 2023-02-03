@@ -1,6 +1,6 @@
 <script>
 	import LayoutAdminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
-	import BasePageAdmin from '@app/components/catalog/toucherterre/admin/page/Pageadmin.svelte';
+	import BaseAdmin from '@app/components/catalog/toucherterre/admin/page/Admin.svelte';
 	import ProchainsRdvApp from '@app/components/catalog/toucherterre/front/page/ProchainsRdvApp.svelte';
 	import { TABLE_PROCHAINSRDV } from '@app/entities/COLLECTIONS';
 	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
@@ -12,7 +12,7 @@
 		<ProchainsRdvApp />
 	</div>
 	<div slot="admin">
-		<BasePageAdmin
+		<BaseAdmin
 			col={TABLE_PROCHAINSRDV}
 			store={STORE_PROCHAINSRDV}
 			initData={DATAJSON__INJECT_PROCHAINSRDV}

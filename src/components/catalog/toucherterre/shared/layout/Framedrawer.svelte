@@ -105,14 +105,12 @@
 <!-- MAIN CONTENT -->
 <!--  -->
 <AppContent class="">
-	<main>
-		<!--  -->
-		<!-- HEADER + APP -->
-		<!--  -->
-		<Frameheaderbody bind:openApp bind:openAdmin {isAdmin}>
-			<slot name="header-1" slot="header-2" />
-			<slot name="content-1" slot="content-2" />
-			<!-- <Footer /> -->
-		</Frameheaderbody>
-	</main>
+	<!--  -->
+	<!-- HEADER + APP -->
+	<!--  -->
+	<Frameheaderbody bind:openApp bind:openAdmin {isAdmin}>
+		<slot name="header-1" slot="header-2" />
+		<slot name="content-1" slot="content-2" />
+		<!-- <Footer /> -->
+	</Frameheaderbody>
 </AppContent>

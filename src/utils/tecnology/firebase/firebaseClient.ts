@@ -22,7 +22,7 @@ export function getFirebase() {
 		// initAllCol(services.FIRESTORE); // todo
 
 		//////////////////////////////////
-		// connectToEmulators(services); // actuellement en local
+		connectToEmulators(services); // actuellement en local
 		//////////////////////////////////
 
 		// enableMultiTabIndexedDbPersistence(services.firestore)

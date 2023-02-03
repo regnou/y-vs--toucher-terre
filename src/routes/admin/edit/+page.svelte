@@ -11,7 +11,7 @@
 	<div slot="admin">
 		<AxDataTable />
 
-		<!-- <PageAdmin col={TABLE_ACCEUIL} store={STORE_ACCEUIL} initData={DATAJSON__INJECT_ACCEUIL} /> -->
+		<!-- <Admin col={TABLE_ACCEUIL} store={STORE_ACCEUIL} initData={DATAJSON__INJECT_ACCEUIL} /> -->
 	</div>
 
 	<!-- <div slot="app">
