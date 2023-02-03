@@ -2,20 +2,20 @@
 	import { Section } from '@smui/top-app-bar';
 	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/HEADER_MENU__APP';
 	import Fab, { Icon } from '@smui/fab';
-	import HeaderMenus from '../../shared/HeaderMenus.svelte';
+	import HeaderMenus from '../Headermenus.svelte';
 </script>
 
 <!--  -->
-<div class="" id="headerApp">
+<div class="" id="headerapp--1">
 	<!-- LEFT + CENTER -->
-	<Section id="headerSectionLeftcenter-app" class="hidden  sm:inline-flex ">
+	<Section id="headerapp-leftcenter--1" class="hidden  sm:inline-flex ">
 		<HeaderMenus isAdmin={false} menus={DATAJSON__HEADERMENU__APP} />
 	</Section>
 	<!-- RIGHT -->
-	<Section id="headerSectionRight-app">
+	<Section id="headeradmin-right--1">
 		<div class="flexy">
 			<div class="margins">
-				<a href="/admin-acceuil">
+				<a href="/admin/edit" rel="prefetch">
 					<Fab mini>
 						<!-- <img src="media/ax/3.jpg" alt="" /> -->
 						<Icon class="material-icons">login</Icon>

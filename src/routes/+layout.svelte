@@ -44,6 +44,7 @@
 	});
 </script>
 
+<!-- BK - si beoin utiliser -->
 <!-- <svelte:head>
 	<link rel="stylesheet" href="smui.css?v=4" />;
 </svelte:head> -->

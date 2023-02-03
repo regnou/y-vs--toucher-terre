@@ -2,18 +2,14 @@
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
-	import { DATAJSON__HEADERMENU__ADMIN } from '@app/data/MENUS/HEADER_MENU__ADMIN';
+	import { onMount } from 'svelte';
+	import Accordeon from '../../tmp/Accordeon.svelte';
+	import DrawerMenuItem from '../DrawerMenuItem.svelte';
 
 	export let open;
 	export let dynVariant; // 'modal', 'dismissible'
 
 	let drawer = null;
-	let active = 'acceuil';
-
-	// UTILS
-	function setActive(value) {
-		active = value;
-	}
 </script>
 
 <!-- <div class="drawer-container"> -->
@@ -26,51 +22,34 @@
 <!-- DRAWER -->
 <!--  -->
 <!-- fixed={false} -->
-<Drawer bind:this={drawer} bind:variant={dynVariant} bind:open id="wa--drawerApp">
+<Drawer bind:this={drawer} bind:variant={dynVariant} bind:open id="draweradmin--1">
 	<!-- drawer--header -->
 	<Header>
-		<Title>TOUCHER TERRE</Title>
-		<Subtitle>ADMIN 0.0.1</Subtitle>
+		<Title>AXELO</Title>
+		<Subtitle>#toucher-terre-1</Subtitle>
 	</Header>
 	<!-- drawer--content (les mens du drawer) -->
 	<Content>
 		<Separator />
-		<Group>
-			<Subheader>Articles</Subheader>
-			<List>
-				{#each DATAJSON__HEADERMENU__ADMIN as item}
-					{#if item.submenus}
-						<!-- FOR THE ADMIN -->
-						<!-- <SubmenuItem menu= submenus={item.submenus} /> -->
-					{:else}
-						<Item
-							href="javascript:void(0)"
-							on:click={() => setActive(item.menu)}
-							activated={active === item.menu}
-						>
-							<a href={item.url} class="">
-								<Text>{item.menu}</Text>
-							</a>
-						</Item>
-						<!-- <MenuItem img={item.img} url={item.url} menu={item.menu} /> -->
-					{/if}
-				{/each}
-			</List>
-		</Group>
+		<DrawerMenuItem url={'/acceuil'} menu={'Aller sur le site'} />
 
 		<Separator />
-		<Group>
-			<Subheader tag="h6">Comptes</Subheader>
-			<Item
-				href="javascript:void(0)"
-				on:click={() => setActive('profil')}
-				activated={active === 'profil'}
-			>
-				<a href={'/'} class="">
-					<Text>Profil</Text>
-				</a>
-			</Item>
-		</Group>
+		<!-- <Group> -->
+		<DrawerMenuItem url={'/admin'} menu={'Tableau de bord'} />
+
+		<Separator />
+		<Subheader>Pages</Subheader>
+		<DrawerMenuItem url={'/admin/edit'} menu={'Toutes les pages'} />
+		<!-- <DrawerMenuItem href={'/admin/post-new'} text={'Ajouter'} /> -->
+		<!-- <DrawerMenuItem href={'/admin/edit-tag'} text={'Catégories'} /> -->
+		<!-- <Accordeon /> -->
+
+		<Separator />
+		<Subheader tag="h6">Comptes</Subheader>
+		<!-- <DrawerMenuItem href={'/admin/users'} text={'Tous les comptes'} /> -->
+		<DrawerMenuItem url={'/admin/profile'} menu={'Profil'} />
+		<!-- </Group> -->
+
 		<Separator />
 	</Content>
 </Drawer>

@@ -65,7 +65,7 @@
 		<input
 			accept="image/png, image/jpeg"
 			bind:files
-			id="upload-id"
+			id="axfileupload"
 			name="upload-id"
 			type="file"
 			class="custom-file-input z-10"

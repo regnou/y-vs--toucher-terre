@@ -10,10 +10,10 @@
 	import Title from '../Title.svelte';
 	import Twocol from '../Twocol.svelte';
 
-	import ContactCard from '../ContactCard.svelte';
+	import ContactCard from '../Contactcard.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
-	import Tmp from '../../shared/testing/tmp.svelte';
+	import Tmp from '../../tmp/tmp.svelte';
 	// import Splide from '../splide.svelte';
 	let promise = service_getInputs(TABLE_ACCEUIL);
 
@@ -44,7 +44,7 @@
 	<p style="color: red">{error.message}</p>
 {/await} -->
 
-<div id="wa--acceuilApp">
+<div id="acceuilApp--1">
 	<!-- <Loader /> -->
 	<!-- <Tmp /> -->
 	{#await promise}
@@ -70,7 +70,7 @@
 					tel={$STORE_ACCEUIL[8].inputValue}
 				/>
 				<!-- <ContactCard title={''} subtitle={''} mail={''} fb={''} tel={''} /> -->
-				<div id="catalog-slideshow" class="grid place-items-center border-4 border-white ">
+				<div id="slider--1" class="grid place-items-center border-4 border-white ">
 					<Slider />
 				</div>
 			</Twocol>

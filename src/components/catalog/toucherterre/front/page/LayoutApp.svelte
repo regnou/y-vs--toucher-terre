@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import LayoutBg1 from '../LayoutBg1.svelte';
-	import DrawerFrame from '../../shared/layout/DrawerFrame.svelte';
+	import Framedrawer from '../../shared/layout/Framedrawer.svelte';
 	import HeaderApp from '../../shared/layout/HeaderApp.svelte';
 
 	let imgBg = 'N/A';
@@ -28,7 +28,8 @@
 <!--  -->
 <LayoutBg1 {imgBg}>
 	<!--  -->
-	<DrawerFrame isAdmin={false}>
+	<Framedrawer isAdmin={false}>
+		<!-- header-0 is necesary or it will put content in both slots -->
 		<slot slot="header-1" name="header-0">
 			<HeaderApp />
 		</slot>
@@ -36,6 +37,6 @@
 		<slot slot="content-1">
 			<slot />
 		</slot>
-	</DrawerFrame>
+	</Framedrawer>
 	<!--  -->
 </LayoutBg1>

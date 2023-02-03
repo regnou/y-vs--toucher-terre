@@ -1,5 +1,5 @@
 <script lang="ts">
-	import HeaderMenusItem from './HeaderMenusItem.svelte';
+	import HeaderMenusItem from './HeadermenusItem.svelte';
 	// import HeaderSubmenuItem from './HeaderSubmenuItem.svelte';
 
 	export let isAdmin = false;

@@ -4,13 +4,21 @@
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
 	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/HEADER_MENU__APP';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import DrawerMenuItem from '../DrawerMenuItem.svelte';
 
 	export let open = false;
-	// export let dynVariant = 'dismissible'; // 'modal', 'dismissible'
 	export let dynVariant = 'N/A'; // 'modal', 'dismissible'
 
 	let drawer = null;
-	let active = 'acceuil';
+	let active = $page.url.pathname;
+
+	//
+	onMount(() => {
+		console.log('mount -- ' + $page.url.pathname);
+	});
+
 	// UTILS
 	function setActive(value) {
 		active = value;
@@ -27,7 +35,7 @@
 <!-- DRAWER -->
 <!--  -->
 <!-- variant="{dynVariant}" -->
-<Drawer bind:this={drawer} bind:variant={dynVariant} bind:open id="wa--drawerApp">
+<Drawer bind:this={drawer} bind:variant={dynVariant} bind:open id="drawer-app">
 	<!-- drawer--header -->
 	<Header>
 		<Title>TOUCHER TERRE</Title>
@@ -35,22 +43,26 @@
 	<!-- drawer--content (les mens du drawer) -->
 	<Content>
 		<Separator />
-		<Group>
-			<!-- <Subheader>Sommaire</Subheader> -->
-			<List>
-				{#each DATAJSON__HEADERMENU__APP as item}
-					<Item
+		<!-- <Group> -->
+		<!-- <Subheader>Sommaire</Subheader> -->
+		<!-- <List> -->
+		{#each DATAJSON__HEADERMENU__APP as item}
+			<DrawerMenuItem url={item.url} menu={item.menu} />
+
+			<!-- <Item
 						href="javascript:void(0)"
-						on:click={() => setActive(item.menu)}
-						activated={active === item.menu}
+						on:click={() => setActive(item.url)}
+						activated={active === item.url}
 					>
-						<a href={item.url} class="">
+						<a href={item.url} class="w-full">
 							<Text>{item.menu}</Text>
 						</a>
-					</Item>
-					<!-- <MenuItem img={item.img} url={item.url} menu={item.menu} /> -->
-				{/each}
-			</List>
-		</Group>
+					</Item> -->
+			<!-- <MenuItem img={item.img} url={item.url} menu={item.menu} /> -->
+		{/each}
+		<!-- </List> -->
+		<!-- </Group> -->
+
+		<Separator />
 	</Content>
 </Drawer>

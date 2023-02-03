@@ -24,9 +24,4 @@ export const DATAJSON__HEADERMENU__APP = [
 		url: '/newsletter',
 		menu: 'NEWSLETTER'
 	}
-	// {
-	// 	img: '',
-	// 	url: '/admin-acceuil',
-	// 	menu: 'go to admin'
-	// }
 ];

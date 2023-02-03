@@ -2,9 +2,9 @@
 	import { browser } from '$app/environment';
 	import { AppContent } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
-	import HeaderFrame from './HeaderFrame.svelte';
-	import DrawerApp from './DrawerApp.svelte';
-	import DrawerAdmin from './DrawerAdmin.svelte';
+	import Frameheaderbody from './Frameheaderbody.svelte';
+	import DrawerApp from './Drawerapp.svelte';
+	import DrawerAdmin from './Draweradmin.svelte';
 	import { onMount } from 'svelte';
 
 	export let isAdmin = false;
@@ -109,10 +109,10 @@
 		<!--  -->
 		<!-- HEADER + APP -->
 		<!--  -->
-		<HeaderFrame bind:openApp bind:openAdmin {isAdmin}>
-			<slot slot="header-2" name="header-1" />
+		<Frameheaderbody bind:openApp bind:openAdmin {isAdmin}>
+			<slot name="header-1" slot="header-2" />
 			<slot name="content-1" slot="content-2" />
 			<!-- <Footer /> -->
-		</HeaderFrame>
+		</Frameheaderbody>
 	</main>
 </AppContent>

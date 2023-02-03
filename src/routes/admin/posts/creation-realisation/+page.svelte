@@ -1,13 +1,13 @@
 <script>
-	import BasePageAdmin from '@app/components/catalog/toucherterre/admin/page/PageAdmin.svelte';
-	import LayoutAdmin from '@app/components/catalog/toucherterre/admin/page/LayoutAdmin.svelte';
+	import BasePageAdmin from '@app/components/catalog/toucherterre/admin/page/Pageadmin.svelte';
+	import LayoutAdminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
 	import { TABLE_REALISATIONCREATION } from '@app/entities/COLLECTIONS';
 	import { STORE_CREATIONREALISATION, STORE_LADEMARCHE } from '@app/stores/STORES';
 	import { DATAJSON__INJECT_CREATIONREALISATION } from '@app/data/DB-INJECT/CreationRealisation.json';
 	import CreationRealisationApp from '@app/components/catalog/toucherterre/front/page/CreationRealisationApp.svelte';
 </script>
 
-<LayoutAdmin>
+<LayoutAdminapp>
 	<div slot="app">
 		<CreationRealisationApp />
 	</div>
@@ -18,4 +18,4 @@
 			initData={DATAJSON__INJECT_CREATIONREALISATION}
 		/>
 	</div>
-</LayoutAdmin>
+</LayoutAdminapp>

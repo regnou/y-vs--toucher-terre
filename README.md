@@ -1,4 +1,35 @@
-<!-- <div slot="content-1" id="content-1--pageAdmin" class="bg-white text-black"> -->
+<script>
+	// export let hh = 'space.0';
+	// let hhh = 'N/A';
+	// $: {
+	// 	hhh = 'h-[calc(100vh-theme(' + hh + '))]';
+	// 	console.log('ici:', hhh);
+	// }
+	// TODO - dj mike, met l interpolation
+</script>
+
+<!-- this is a bg-container widget -->
+<!-- TODO MIKU - il faut automate la var -->
+<div class="grid  justify-center border-4	border-red-500">
+	<!-- pour la div du dessous:  h-[calc(100vh-theme(space.12)-12px)] -->
+	<div
+		id="catalog-layoutCenter-1"
+		class="relative   border-4 border-green-500"
+		style="max-width: 1080px;"
+	>
+		<!-- ajouter le scroll ici change tout -->
+		<!-- <div
+		id="catalog-container-item1"
+		class="relative overflow-y-scroll   border-green-500 border h-[calc(100vh-theme(space.12)-12px)]   "
+		styl
+		e="max-width: 1080px;"
+	> -->
+		<slot />
+	</div>
+</div>
+
+    		<!-- <div slot="content-1" id="content-1--pageAdmin" class="bg-white text-black"> -->
+
 <!-- body -->
 <!-- <div class="grid grid-flow-col content-start"> -->
 <!-- <LayoutCenter1> -->
@@ -75,3 +106,25 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+    import { onMount } from 'svelte';
+    onMount(() => {
+    	// menus.update((n) => data);
+    });
+
+<List class="bg-yellow-500">
+	{#each DATAJSON__PAGES as item}
+		<!-- {#if item.submenus} -->
+		<!-- FOR THE ADMIN -->
+		<!-- <SubmenuItem menu= submenus={item.submenus} /> -->
+		<!-- {:else} -->
+		<!-- href="javascript:void(0)" activated={active === item.menu} -->
+		<Item>
+			<a href={'/admin/posts' + item.url} class="w-full">
+				<Text>{item.page}</Text>
+			</a>
+		</Item>
+		<!-- <MenuItem img={item.img} url={item.url} menu={item.menu} /> -->
+		<!-- {/if} -->
+	{/each}
+</List>

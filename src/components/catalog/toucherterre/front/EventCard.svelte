@@ -6,7 +6,7 @@
 	export let text = 'N/A';
 </script>
 
-<div class="flex flex-col  items-center border text-center" id="catalog-eventcard">
+<div id="eventcard--1" class="flex flex-col  items-center border text-center">
 	<img class="w-40" {src} alt="" />
 	<div class="">{title}</div>
 	<Separator />

@@ -25,11 +25,11 @@
 </script>
 
 <!-- style="min-width: 100px;" -->
-<div id="HeaderSubMenuItem">
+<div id="HeaderMenusSubitem">
 	<Select variant="outlined" bind:value label="MODIFIER PAGE">
 		<Option value="" />
 		{#each submenus as item}
-			<a href={item.url}>
+			<a href={item.url} rel="prefetch">
 				<Option value={item.menu}>{item.menu}</Option>
 			</a>
 		{/each}

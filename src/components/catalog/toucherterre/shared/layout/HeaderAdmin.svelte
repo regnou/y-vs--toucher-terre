@@ -1,23 +1,20 @@
 <script lang="ts">
-	import { DATAJSON__HEADERMENU__ADMIN } from '@app/data/MENUS/HEADER_MENU__ADMIN';
-	import DrawerFrame from '../../shared/layout/DrawerFrame.svelte';
 	import { Section } from '@smui/top-app-bar';
 	import Fab, { Icon } from '@smui/fab';
-	import HeaderMenus from '../../shared/HeaderMenus.svelte';
-	import HeaderAdmin from '../../shared/layout/HeaderAdmin.svelte';
+	import HeaderMenus from '../Headermenus.svelte';
 </script>
 
-<div id="headerAdmin" class="">
+<div id="headeradmin--1" class="">
 	<!-- LEFT + CENTER -->
-	<Section id="headerSectionLeftcenter-admin">
-		<HeaderMenus isAdmin={true} menus={DATAJSON__HEADERMENU__ADMIN} />
+	<Section id="headeradmin-leftcenter--1">
+		<HeaderMenus isAdmin={true} />
 	</Section>
 
 	<!-- RIGHT -->
-	<Section id="headerSectionRight-admin">
+	<Section id="headeradmin-right--1">
 		<div class="flexy">
 			<div class="margins">
-				<a href="/acceuil">
+				<a href="/acceuil" rel="prefetch">
 					<Fab mini>
 						<!-- <img src="media/ax/3.jpg" alt="" /> -->
 						<Icon class="material-icons">login</Icon>

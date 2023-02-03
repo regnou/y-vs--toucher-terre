@@ -1,7 +1,7 @@
 <!-- <svelte:options accessors={true} /> -->
 <script>
 	import AxArea from './AxArea.svelte';
-	import AxFileUpload from './AxFileUpload.svelte';
+	import AxFileUpload from './Axfileupload.svelte';
 
 	export let type = '';
 	export let inputValue = '';

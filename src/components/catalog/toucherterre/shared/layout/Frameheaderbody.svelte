@@ -30,7 +30,7 @@
 	bind:this={topAppBar}
 	variant="fixed"
 	class="border-4 border-blue-800 bg-transparent/40 "
-	id="HEADER_APP"
+	id="frameheaderbody"
 >
 	<Row>
 		<!-- {#if !isAdmin} -->

@@ -3,7 +3,7 @@
 	import { service_getInputs } from '@app/utils/tecnology/firebase/services/adminPageServices';
 	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
-	import EventCard from '../EventCard.svelte';
+	import EventCard from '../Eventcard.svelte';
 	import Loader from '../Loader.svelte';
 	let arrTitle = [];
 	let arrImg = [];
@@ -50,7 +50,7 @@
 	<Loader />
 {:then data}
 	{#if $STORE_PROCHAINSRDV && $STORE_PROCHAINSRDV.length}
-		<div id="catalog-eventcardlist" class="grid grid-flow-col  grid-rows-2  ">
+		<div id="eventcardlist--1" class="grid grid-flow-col  grid-rows-2  ">
 			{#each arrTitle as itm, i}
 				<!-- // TODO : placehoder ? -->
 				<EventCard
