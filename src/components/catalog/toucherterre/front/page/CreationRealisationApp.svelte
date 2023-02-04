@@ -9,6 +9,7 @@
 
 	let promise: Promise<any> = service_getInputs(TABLE_CREATIONREALISATION);
 	let posts = [];
+
 	onMount(async () => {
 		// READ REMOTE STORE -- FIREBASE
 		// const data = readRemoteStore('acceuil');

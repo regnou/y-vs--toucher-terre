@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
-	import BaseAdmin from '@app/components/catalog/toucherterre/admin/page/Admin.svelte';
+	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/layout/Layoutadminapp.svelte';
+	import BaseAdmin from '@app/components/catalog/toucherterre/admin/layout/GenericAdmin.svelte';
 	import LaDemarcheApp from '@app/components/catalog/toucherterre/front/page/LaDemarcheApp.svelte';
 	import { TABLE_LADEMARCHE } from '@app/entities/COLLECTIONS';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';
@@ -14,7 +14,7 @@
 	<div slot="admin">
 		<BaseAdmin
 			col={TABLE_LADEMARCHE}
-			store={STORE_LADEMARCHE}
+			GENERIC_STORE={STORE_LADEMARCHE}
 			initData={DATAJSON__INJECT_LADEMARCHE}
 		/>
 	</div>

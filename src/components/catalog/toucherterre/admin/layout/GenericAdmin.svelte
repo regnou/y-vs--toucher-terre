@@ -1,9 +1,9 @@
 <script lang="ts">
 	import FormInjector from '../Forminjector.svelte';
-	import FormEdit from '../Formedit.svelte';
+	import AxForm from './AxForm.svelte';
 
 	export let col;
-	export let store;
+	export let GENERIC_STORE;
 	export let initData;
 </script>
 
@@ -15,7 +15,7 @@
 <!-- ADMIN -->
 <div id="admin--1" class="  border-4 border-red-300 ">
 	<!-- PANEL: form edit -->
-	<FormEdit {col} {store} />
+	<AxForm {col} {GENERIC_STORE} />
 	<!-- PANEL: inject -->
 	<FormInjector {col} {initData} />
 </div>

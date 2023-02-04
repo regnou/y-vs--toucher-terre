@@ -1,11 +1,23 @@
-<script>
-	// export let hh = 'space.0';
-	// let hhh = 'N/A';
-	// $: {
-	// 	hhh = 'h-[calc(100vh-theme(' + hh + '))]';
-	// 	console.log('ici:', hhh);
-	// }
-	// TODO - dj mike, met l interpolation
+    // files_all.forEach(async (fileList, i) => {
+    	// 	if (fileList) {
+    	// 		const urlStorage = await upload(fileList[0]);
+    	// 		// const urlStorage = await upload(fileList[0]);
+
+    	// 		$store[i].inputValue = urlStorage;
+    	// 		console.log('UPDATE FINAL : ', $store[i].inputValue, ' -- ', urlStorage);
+    	// 		console.log('________________________________');
+    	// 	}
+    	// });
+
+    	<script>
+    // export let hh = 'space.0';
+    // let hhh = 'N/A';
+    // $: {
+    // 	hhh = 'h-[calc(100vh-theme(' + hh + '))]';
+    // 	console.log('ici:', hhh);
+    // }
+    // TODO - dj mike, met l interpolation
+
 </script>
 
 <!-- this is a bg-container widget -->

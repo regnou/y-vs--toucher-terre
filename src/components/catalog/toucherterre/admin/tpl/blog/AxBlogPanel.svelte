@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
-	import AxInputAll from './form/AxInputAll.svelte';
+	import AxInputAll from '../../layout/AxInputAll.svelte';
 
-	export let panelOpens = [false, false, false, false];
+	export let panelOpens = [false, false, false, false, false];
 	export let item;
 	export let i;
-	export let files_all = [null, null, null, null, null, null, null, null, null, null];
 </script>
 
+<!-- ACCORDION -->
 <Panel square variant="outlined" color="primary" extend bind:open={panelOpens[i]}>
 	<!--  -->
 	<Header>
@@ -30,11 +30,7 @@
 	<Content>
 		<div class="space-y-10">
 			{#each item.inputValues as itm, i}
-				<AxInputAll item={itm} bind:files={files_all[i]} />
-				<!-- bind:inputValue={itm.inputValue}
-				bind:label={itm.label}
-				bind:type={itm.type}
-				bind:posts={itm.posts} -->
+				<AxInputAll item={itm} />
 			{/each}
 		</div>
 	</Content>

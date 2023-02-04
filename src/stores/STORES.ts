@@ -1,5 +1,15 @@
 // import { TABLE_ACCEUIL, TABLE_LADEMARCHE, TABLE_NEWSLETTER, TABLE_PROCHAINSRDV, TABLE_CREATIONREALISATION as TABLE_CREATIONREALISATION } from "@app/domain/2dao/firebase/COLLECTIONS";
 import { writable, type Writable } from 'svelte/store';
+
+export const STORE_ACCEUIL = writable<any[]>([]);
+export const STORE_LADEMARCHE = writable<any[]>([]);
+
+// export const STORE_CREATIONREALISATION = writable([]);
+export const STORE_CREATIONREALISATION = writable<T_storeCreationRealisation>([]);
+
+export const STORE_PROCHAINSRDV = writable<any[]>([]);
+export const STORE_NEWSLETTER = writable<any[]>([]);
+
 // import asyncDerivedConsistent from "./utils/consistent";
 
 // export const STORE_ACCEUIL = (async () => { return await startPageStore(TABLE_ACCEUIL) })()
@@ -19,13 +29,6 @@ import { writable, type Writable } from 'svelte/store';
 
 // export const STORE_ACCEUIL:Writable<T_storeAcceuil> = writable([]);
 
-export const STORE_ACCEUIL = writable<any[]>([]);
-
-export const STORE_LADEMARCHE = writable<any[]>([]);
-export const STORE_CREATIONREALISATION = writable([]);
-// export const STORE_CREATIONREALISATION = writable<T_storeCreationRealisation>([]);
-export const STORE_PROCHAINSRDV = writable<any[]>([]);
-export const STORE_NEWSLETTER = writable<any[]>([]);
 
 // export const STORE_ACCEUIL = asyncDerivedConsistent(STORE_ACCEUIL_BASE, startInitStore, [], TABLE_ACCEUIL)
 

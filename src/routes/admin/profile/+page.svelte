@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
+	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/layout/Layoutadminapp.svelte';
 </script>
 
 <Layoutadminapp>

@@ -1,14 +1,7 @@
 <script lang="ts">
 	import DataTable, { Head, Body, Row, Cell, Label, SortValue } from '@smui/data-table';
 	import IconButton from '@smui/icon-button';
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-
-	// onMount(() => {
-	// 	// content here
-	// });
-
-	$: console.log('-------', items);
 
 	export let sortId;
 
@@ -22,6 +15,8 @@
 	// let sort: keyof PageMenus = 'id';
 	let sort = sortId;
 	let sortDirection: Lowercase<keyof typeof SortValue> = 'ascending';
+
+	$: console.log('-------', items);
 
 	// if (typeof fetch !== 'undefined') {
 	// 	fetch(
