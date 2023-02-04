@@ -1,9 +1,9 @@
 <script>
+	import { DATAJSON__PAGES } from '@app/data/MENUS/DATAJSON__PAGES';
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
 	import { onMount } from 'svelte';
-	import Accordeon from '../../tmp/Accordeon.svelte';
 	import DrawerMenuItem from '../DrawerMenuItem.svelte';
 
 	export let open;
@@ -26,20 +26,27 @@
 	<!-- drawer--header -->
 	<Header>
 		<Title>AXELO</Title>
-		<Subtitle>#toucher-terre-1</Subtitle>
+		<Subtitle>1.0.0</Subtitle>
 	</Header>
 	<!-- drawer--content (les mens du drawer) -->
 	<Content>
-		<Separator />
-		<DrawerMenuItem url={'/acceuil'} menu={'Aller sur le site'} />
+		<!-- Aller sur le site -->
+		<!-- <Separator /> -->
+		<DrawerMenuItem url={'/acceuil'} menu={'Visiter le site'} />
 
-		<Separator />
+		<!-- <Separator /> -->
 		<!-- <Group> -->
-		<DrawerMenuItem url={'/admin'} menu={'Tableau de bord'} />
+		<!-- <DrawerMenuItem url={'/admin'} menu={'Tableau de bord'} /> -->
 
 		<Separator />
 		<Subheader>Pages</Subheader>
-		<DrawerMenuItem url={'/admin/edit'} menu={'Toutes les pages'} />
+		<!-- <DrawerMenuItem url={'/admin/edit'} menu={'Toutes les pages'} /> -->
+
+		<!-- QUICK LINKS PAGES EDIT -->
+		{#each DATAJSON__PAGES as item (item.page)}
+			<DrawerMenuItem url={'/admin/pages' + item.url} menu={item.page} />
+		{/each}
+
 		<!-- <DrawerMenuItem href={'/admin/post-new'} text={'Ajouter'} /> -->
 		<!-- <DrawerMenuItem href={'/admin/edit-tag'} text={'Catégories'} /> -->
 		<!-- <Accordeon /> -->

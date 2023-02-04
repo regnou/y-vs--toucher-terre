@@ -1,103 +1,72 @@
 <!-- <svelte:options accessors={true} /> -->
 <script>
-	import AxArea from './AxArea.svelte';
 	import AxFileUpload from './Axfileupload.svelte';
+	import Textfield from '@smui/textfield';
+	import AxDataTable from '../AxDataTable.svelte';
+	import Accordion, { Panel, Header, Content } from '@smui-extra/accordion';
+	import IconButton, { Icon } from '@smui/icon-button';
+	import AxAccordeon from '../AxAccordeon.svelte';
 
 	export let type = '';
 	export let inputValue = '';
 	export let label = '';
 	export let files = null;
+	export let posts = [];
 
-	// hack refresh img
-	// export let storeIndex = 0;
+	let panel1Open = false;
+	let panel2Open = false;
+	let panel3Open = false;
+	let panel4Open = false;
 
-	// export let inputId;
-	let inputId = '0';
-	// export let placeholder;
-	let placeholder = '--';
-	import CharacterCounter from '@smui/textfield/character-counter';
-
-	import Textfield from '@smui/textfield';
-	import Icon from '@smui/textfield/icon';
-	import HelperText from '@smui/textfield/helper-text';
-
-	// $: if (inputValue) console.log("inside : " + inputValue);
-	// 3 replace space
+	// replace space
 	// $: labelFormName = labelName.toLowerCase().replace(/\s/g, ""); // 3 to use as the name for the FORM
 </script>
 
 <div>
-	<!-- <label for={inputId} class="block text-sm font-medium text-neutral-600">
-    {labelName}
-  </label> -->
-	<!-- <div class="capitalize  block text-sm font-bold text-neutral-600">
-		{label}
-	</div> -->
-	<!-- <div class="mt-1"> -->
-	<!-- value={inputValue ? inputValue : ""} -->
 	{#if type === 'text'}
-		<!-- <input
-				type="text"
-				name={inputId}
-				bind:value={inputValue}
-				aria-label="Edit {label}"
-				{placeholder}
-				autocomplete="off"
-				class="btnInputAx"
-			/> -->
-
 		<Textfield style="width: 100%;" helperLine$style="width: 100%;" bind:value={inputValue} {label}>
 			<!-- <HelperText slot="helper">Helper Text</HelperText> -->
 		</Textfield>
 	{:else if type === 'file'}
 		<div class="max-w-xs">
+			<div class="text-xs text-gray-400">{label}</div>
 			<AxFileUpload bind:files bind:urlStorage={inputValue} />
 		</div>
 	{:else if type === 'area'}
-		<!-- <AxArea bind:inputValue name={inputId} /> -->
-		<!-- -->
-		<!-- input$maxlength={500} -->
 		<Textfield style="width: 100%; height: 200px;" textarea bind:value={inputValue} {label} />
+		<!-- input$maxlength={500} -->
 		<!-- helperLine$style="width: 100%;" -->
 		<!-- <CharacterCounter slot="internalCounter">0 / 100</CharacterCounter> -->
+	{:else if type === 'post'}
+		<!-- <AxDataTable items={posts} sortId={'label'} /> -->
+		<AxAccordeon items={posts}>
+			<!-- <Accordion class="demo-small-titles">
+			{#each $store[0].posts as item, i}
+				<Panel square variant="outlined" color="primary" extend bind:open={panel1Open}>
+					<Header>
+						{item.page}
+						<span slot="description">{item.url}</span>
+						<IconButton slot="icon" toggle pressed={panel1Open}>
+							<Icon class="material-icons" on>unfold_less</Icon>
+							<Icon class="material-icons">unfold_more</Icon>
+						</IconButton>
+					</Header>
+					<Content>
+						{#each item.form as itm, i}
+							<AxInputAll
+								bind:files={files_all[i]}
+								bind:inputValue={itm.inputValue}
+								bind:label={itm.label}
+								bind:type={itm.type}
+								bind:posts={itm.posts}
+							/>
+						{/each}
+					</Content>
+				</Panel>
+			{/each}
+		</Accordion> -->
+		</AxAccordeon>
+		<!-- {:else if type === 'accordeon'} -->
+		<!-- <AxAccordeon items={posts} /> -->
 	{/if}
-	<!-- </div> -->
 </div>
-
-<style>
-	/* 
-	input:hover {
-		@apply bg-blue-50;
-		outline: 2px solid blue;
-	}
-	input:focus {
-		outline: none;
-		@apply bg-white;
-	}
-
-.btnInputAx {
-		@apply block;
-		@apply w-full;
-		@apply px-5;
-		@apply py-3;
-		@apply text-base;
-		@apply placeholder-gray-300;
-		@apply transition;
-		@apply duration-500;
-		@apply ease-in-out;
-		@apply transform;
-		@apply border;
-		@apply border-transparent;
-		@apply rounded-lg;
-		@apply bg-gray-50;
-	}
-
-	.btnInputAx:focus {
-		@apply bg-white;
-		@apply outline-none;
-		@apply ring-2;
-		@apply ring-white;
-		@apply ring-offset-2;
-		@apply ring-offset-gray-300;
-	} */
-</style>

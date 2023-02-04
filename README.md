@@ -120,7 +120,7 @@ You can preview the production build with `npm run preview`.
 		<!-- {:else} -->
 		<!-- href="javascript:void(0)" activated={active === item.menu} -->
 		<Item>
-			<a href={'/admin/posts' + item.url} class="w-full">
+			<a href={'/admin/pages' + item.url} class="w-full">
 				<Text>{item.page}</Text>
 			</a>
 		</Item>

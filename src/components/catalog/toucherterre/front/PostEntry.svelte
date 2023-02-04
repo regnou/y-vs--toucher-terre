@@ -1,7 +1,9 @@
 <script>
 	import ParagraphLeft from './ParagraphLeft.svelte';
+
 	export let title = '';
 	export let text = '';
+
 	let img = '/media/icon/icon-infinity.png';
 </script>
 

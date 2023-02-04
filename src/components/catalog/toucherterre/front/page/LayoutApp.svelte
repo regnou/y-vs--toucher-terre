@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import LayoutBg1 from '../LayoutBg1.svelte';
 	import Framedrawer from '../../shared/layout/Framedrawer.svelte';

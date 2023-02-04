@@ -1,15 +1,26 @@
 <script lang="ts">
-	import { DATAJSON__PAGES } from '@app/data/MENUS/DATAJSON__PAGES';
 	import DataTable, { Head, Body, Row, Cell, Label, SortValue } from '@smui/data-table';
 	import IconButton from '@smui/icon-button';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
-	type PageMenus = {
-		id: number;
-		page: string;
-		url: string;
-	};
-	let items: PageMenus[] = DATAJSON__PAGES;
-	let sort: keyof PageMenus = 'id';
+	// onMount(() => {
+	// 	// content here
+	// });
+
+	$: console.log('-------', items);
+
+	export let sortId;
+
+	// type PageMenus = {
+	// 	id: number;
+	// 	page: string;
+	// 	url: string;
+	// };
+	// let items: PageMenus[] = DATAJSON__PAGES;
+	export let items;
+	// let sort: keyof PageMenus = 'id';
+	let sort = sortId;
 	let sortDirection: Lowercase<keyof typeof SortValue> = 'ascending';
 
 	// if (typeof fetch !== 'undefined') {
@@ -73,11 +84,12 @@
 	</Head>
 	<Body>
 		<!-- {#each DATAJSON__PAGES as item (item.id)} -->
-		{#each items as item (item.page)}
+		<!-- {#each items as item (item.page)} -->
+		{#each items as item}
 			<Row>
 				<Cell numeric>{item.id}</Cell>
 				<Cell>
-					<a href={'/admin/posts' + item.url} rel="prefetch">
+					<a href={$page.url.pathname + item.url} rel="prefetch">
 						{item.page}
 					</a>
 				</Cell>

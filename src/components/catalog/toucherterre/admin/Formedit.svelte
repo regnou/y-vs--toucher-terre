@@ -6,10 +6,12 @@
 	import AxInputAll from './form/AxInputAll.svelte';
 	import AxBtnCancel from './form/AxBtnCancel.svelte';
 	import AxBtnOk from './form/AxBtnOk.svelte';
+	//
 
+	//
 	export let col;
 	export let store;
-	export let initData;
+	export let postId = -1; // postId, means the form edit, will only display the fields of the post
 
 	let files_all = [null, null, null, null, null, null, null, null, null, null];
 
@@ -52,18 +54,54 @@
 <div id="formedit--1" class=" rounded-xl  border-4 bg-white p-5 text-black">
 	<!-- <button on:click={injectScript}>> INJECT DATA !</button> -->
 	<div class="mb-10 text-center text-2xl font-bold">
-		{$page.url.pathname.replace('/admin/posts/', '')}
+		{$page.url.pathname.replace('/admin/pages/', '')}
 	</div>
 	<div class="space-y-6 p-2">
-		{#if $store}
+		<!-- {@debug $store} -->
+		{#if $store && $store.length}
+			<!-- {#if postId !== -1} -->
+			<!-- it is a post -->
+			<!-- ACCORDEON TECNIQUE -->
+
+			<!-- {#if $store[0]}
+					{#each $store[0].posts[postId].form as item, i}
+						<AxInputAll
+							bind:files={files_all[i]}
+							bind:inputValue={item.inputValue}
+							bind:label={item.label}
+							bind:type={item.type}
+							bind:posts={item.posts}
+						/>
+					{/each}
+				{/if} -->
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!-- TABLE TECNIQUE -->
+			<!-- {#if $store[0]}
+					{#each $store[0].posts[postId].form as item, i}
+						<AxInputAll
+							bind:files={files_all[i]}
+							bind:inputValue={item.inputValue}
+							bind:label={item.label}
+							bind:type={item.type}
+							bind:posts={item.posts}
+						/>
+					{/each}
+				{/if} -->
+			<!-- {:else} -->
+			<!-- else content here -->
 			{#each $store as item, i}
 				<AxInputAll
 					bind:files={files_all[i]}
 					bind:inputValue={item.inputValue}
 					bind:label={item.label}
 					bind:type={item.type}
+					bind:posts={item.posts}
 				/>
 			{/each}
+			<!-- {/if} -->
+			<!--  -->
 		{/if}
 	</div>
 	<!-- btn -->
@@ -74,3 +112,10 @@
 	</div>
 	<!-- <button on:click={save}> > SAVE !</button> -->
 </div>
+
+<style>
+	* :global(.demo-small-titles .smui-accordion__header__title--with-description) {
+		flex-basis: 20% !important;
+		max-width: 200px !important;
+	}
+</style>

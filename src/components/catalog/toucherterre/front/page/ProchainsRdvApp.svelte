@@ -45,6 +45,7 @@
 	});
 </script>
 
+<!-- <Loader /> -->
 {#await promise}
 	<!-- <p>...waiting</p> -->
 	<Loader />

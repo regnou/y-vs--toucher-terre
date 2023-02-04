@@ -4,6 +4,8 @@
 		service_modInput
 	} from '@app/utils/tecnology/firebase/services/adminPageServices';
 	import Button, { Label } from '@smui/button';
+
+	export let col;
 	export let initData;
 
 	const injectScript = async () => {

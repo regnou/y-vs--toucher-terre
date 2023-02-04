@@ -15,7 +15,7 @@
 <!-- ADMIN -->
 <div id="admin--1" class="  border-4 border-red-300 ">
 	<!-- PANEL: form edit -->
-	<FormEdit {col} {store} {initData} />
+	<FormEdit {col} {store} />
 	<!-- PANEL: inject -->
-	<FormInjector {initData} />
+	<FormInjector {col} {initData} />
 </div>

@@ -1,27 +1,27 @@
 export const DATAJSON__PAGES = [
 	{
 		id: 1,
-		page: 'ACCEUIL',
+		page: 'Acceuil',
 		url: '/acceuil',
 	},
 	{
 		id: 2,
-		page: 'LA DEMARCHE',
+		page: 'La démarche',
 		url: '/la-demarche',
 	},
 	{
 		id: 3,
-		page: 'CREATIONS / REALISATION',
+		page: 'Création / réalisation',
 		url: '/creation-realisation',
 	},
 	{
 		id: 4,
-		page: 'PROCHAINS RDV',
+		page: 'Prochains rdv',
 		url: '/prochains-rendez-vous',
 	},
 	{
 		id: 5,
-		page: 'NEWSLETTER',
+		page: 'Newsletter',
 		url: '/newsletter',
 	}
 ];
