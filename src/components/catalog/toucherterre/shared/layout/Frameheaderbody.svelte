@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import TopAppBar, { Row, Section, AutoAdjust } from '@smui/top-app-bar';
 	import IconButton from '@smui/icon-button';
 

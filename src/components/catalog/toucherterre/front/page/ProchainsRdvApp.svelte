@@ -1,21 +1,29 @@
 <script lang="ts">
 	import { TABLE_PROCHAINSRDV } from '@app/entities/COLLECTIONS';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/adminPageServices';
+	import { service_getInputs } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
 	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import EventCard from '../Eventcard.svelte';
 	import Loader from '../Loader.svelte';
-	let arrTitle = [];
-	let arrImg = [];
-	let promise = service_getInputs(TABLE_PROCHAINSRDV);
+
+	// hack-type
+	let arrTitle: any[] = [];
+	let arrImg: any[] = [];
+
+	// Promise<any> => becoz to solve the data[0] a few line below
+	let promise: Promise<any> = service_getInputs(TABLE_PROCHAINSRDV);
+
+	// $: console.log(typeof $STORE_PROCHAINSRDV);
 
 	onMount(async () => {
 		// READ REMOTE STORE -- FIREBASE
 		// const data = readRemoteStore('acceuil');
 		// $STORE_ACCEUIL = data;
 		// READ REMOTE STORE -- WORDPRESS
+		// data[0] => becoz the store is just one document in Firstore
 		const data = await promise;
-		$STORE_PROCHAINSRDV = data[0] ? data[0].data : [];
+		if (data && data.length) $STORE_PROCHAINSRDV = data[0].data ?? [];
+		// $STORE_PROCHAINSRDV = data[0] ? data[0].data : [];
 		console.log('inside mount : ', $STORE_PROCHAINSRDV.length);
 
 		arrImg = [

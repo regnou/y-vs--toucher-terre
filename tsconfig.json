@@ -1,6 +1,10 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
+	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
+	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
+	// from the referenced tscon.fig.json - TypeScript does not merge them in
 	"compilerOptions": {
+		// %%% SOCLE STARTER SVELTE
 		"allowJs": true,
 		"checkJs": true,
 		"esModuleInterop": true,
@@ -8,10 +12,36 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"strict": true
+		"strict": true,
+		// %%% BONUS AXEL
+		// --- USED WITH CV...
+		// "lib": ["es2020", "DOM"],
+		// "moduleResolution": "node",
+		// "module": "es2020",
+		// "target": "es2020",
+		// ---
+		"noImplicitAny": false // RETIRE HAS INPLICITY ANY TYPE
+		// https://firelordjs.com/quick_start
+		// below options are optional, be sure to google what they do!
+		// "noUncheckedIndexedAccess": true, // optional but recommended todo
+		//
+		// "exactOptionalPropertyTypes": true,
+		// singleton
+		// "experimentalDecorators": true,
+		// "emitDecoratorMetadata": true,
+		//
+		// "types": ["gapi", "vitest/globals", "vitest/importMeta"],
+		// "types": ["gapi", "vitest/globals", "vitest/importMeta", "@testing-library/jest-dom"],
+		//
+		// "outDir": ".scrapper-kit"
 	}
-	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
-	//
-	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
-	// from the referenced tsconfig.json - TypeScript does not merge them in
+	// €€€
+	// €€€
+	// €€€
+	// "include": [
+	// "scrap/src/**/*.js",
+	// "scrap/src/**/*.ts",
+	// "dbscript/**/*.js",
+	// "dbscript/**/*.ts"
+	// ]
 }

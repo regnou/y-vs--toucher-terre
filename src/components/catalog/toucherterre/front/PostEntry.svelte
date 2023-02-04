@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ParagraphLeft from './ParagraphLeft.svelte';
 
 	export let title = '';

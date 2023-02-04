@@ -1,5 +1,5 @@
 <!-- <svelte:options accessors={true} /> -->
-<script>
+<script lang="ts">
 	import AxFileUpload from './Axfileupload.svelte';
 	import Textfield from '@smui/textfield';
 	import AxDataTable from '../AxDataTable.svelte';
@@ -52,7 +52,7 @@
 						</IconButton>
 					</Header>
 					<Content>
-						{#each item.form as itm, i}
+						{#each item.inputValues as itm, i}
 							<AxInputAll
 								bind:files={files_all[i]}
 								bind:inputValue={itm.inputValue}

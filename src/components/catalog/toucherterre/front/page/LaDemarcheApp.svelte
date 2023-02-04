@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { TABLE_LADEMARCHE } from '@app/entities/COLLECTIONS';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/adminPageServices';
+	import { service_getInputs } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import Hero2 from '../Hero2.svelte';
 	import Loader from '../Loader.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Separator from '../Separator.svelte';
-	let promise = service_getInputs(TABLE_LADEMARCHE);
+	let promise: Promise<any> = service_getInputs(TABLE_LADEMARCHE);
 
 	onMount(async () => {
 		// READ REMOTE STORE -- FIREBASE

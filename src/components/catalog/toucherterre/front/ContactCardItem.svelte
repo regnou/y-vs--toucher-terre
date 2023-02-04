@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let name = 'N/A';
 	// export let href = '/';
 	export let img = 'N/A';

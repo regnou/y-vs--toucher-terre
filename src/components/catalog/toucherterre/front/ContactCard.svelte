@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 	import Separator from './Separator.svelte';
 	import ContactCardItem from './ContactcardItem.svelte';

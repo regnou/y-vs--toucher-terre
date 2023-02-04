@@ -1,7 +1,7 @@
 import { TABLE_ACCEUIL as col } from '../../../../entities/COLLECTIONS';
 import type { IInput } from '../../../../entities/IInput';
 import type { IInputEntity } from '../../../../entities/IInputEntity';
-import { dao_add, dao_add_id, dao_del, dao_get, dao_gets, dao_modSoft } from './firestoreServices';
+import { dao_add, dao_add_id, dao_del, dao_get, dao_gets, dao_modSoft } from './firestoreCRUDServices';
 // -- gets
 export const service_getInputs = async (col) => {
 	return await dao_gets(col);

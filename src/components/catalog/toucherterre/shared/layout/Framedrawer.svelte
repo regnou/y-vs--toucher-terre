@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { browser } from '$app/environment';
 	import { AppContent } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
@@ -14,7 +14,7 @@
 	let openAdmin = false;
 
 	// let dynVariant = 'N/A'; // 'modal', 'dismissible'
-	let dynVariant = 'N/A'; // 'modal', 'dismissible'
+	let dynVariant: T_dynvar; // 'modal', 'dismissible'
 
 	//xs ??   sm 640 | md 768   |    lg 1024 | xl 1280 | 2xl 1536
 	const xs = '(max-width: 639px)';

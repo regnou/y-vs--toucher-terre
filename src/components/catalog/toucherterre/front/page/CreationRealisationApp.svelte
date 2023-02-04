@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { TABLE_CREATIONREALISATION } from '@app/entities/COLLECTIONS';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/adminPageServices';
+	import { service_getInputs } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
 	import { STORE_CREATIONREALISATION } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import Loader from '../Loader.svelte';
 	import PostEntry from '../PostEntry.svelte';
 	import Slider from '../Slider.svelte';
 
-	let promise = service_getInputs(TABLE_CREATIONREALISATION);
+	let promise: Promise<any> = service_getInputs(TABLE_CREATIONREALISATION);
 
 	onMount(async () => {
 		// READ REMOTE STORE -- FIREBASE
@@ -33,8 +33,8 @@
 			<!--  -->
 			<div class="col-span-8">
 				{#each $STORE_CREATIONREALISATION[0].posts as post}
-					<PostEntry title={post.form[0].inputValue} text={post.form[1].inputValue} />
-					<!-- <PostEntry title={post.form[0].inputValue} text={post.form[1].inputValue} /> -->
+					<PostEntry title={post.inputValues[0].inputValue} text={post.inputValues[1].inputValue} />
+					<!-- <PostEntry title={post.inputValues[0].inputValue} text={post.inputValues[1].inputValue} /> -->
 					:
 				{/each}
 			</div>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let img = 'N/A';
 	export let text = 'N/A';
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Section } from '@smui/top-app-bar';
-	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/HEADER_MENU__APP';
+	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/DATAJSON__HeaderMenuApp.json';
 	import Fab, { Icon } from '@smui/fab';
 	import HeaderMenus from '../Headermenus.svelte';
 </script>

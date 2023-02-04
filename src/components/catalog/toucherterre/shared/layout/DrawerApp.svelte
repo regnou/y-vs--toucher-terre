@@ -1,28 +1,26 @@
-<script>
-	import { browser } from '$app/environment';
+<script lang="ts">
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
-	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
-	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/HEADER_MENU__APP';
+	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/DATAJSON__HeaderMenuApp.json';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import DrawerMenuItem from '../DrawerMenuItem.svelte';
 
 	export let open = false;
-	export let dynVariant = 'N/A'; // 'modal', 'dismissible'
+	export let dynVariant: T_dynvar; // 'modal', 'dismissible'
 
-	let drawer = null;
+	let drawer;
 	let active = $page.url.pathname;
 
 	//
 	onMount(() => {
-		console.log('mount -- ' + $page.url.pathname);
+		// console.log('mount -- ' + $page.url.pathname);
 	});
 
 	// UTILS
-	function setActive(value) {
-		active = value;
-	}
+	// function setActive(value) {
+	// 	active = value;
+	// }
 </script>
 
 <!-- <div class="drawer-container"> -->

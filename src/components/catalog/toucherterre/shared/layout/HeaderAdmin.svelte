@@ -7,7 +7,7 @@
 <div id="headeradmin--1" class="">
 	<!-- LEFT + CENTER -->
 	<Section id="headeradmin-leftcenter--1">
-		<HeaderMenus isAdmin={true} />
+		<HeaderMenus menus={[]} isAdmin={true} />
 	</Section>
 
 	<!-- RIGHT -->

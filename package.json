@@ -26,15 +26,13 @@
 		"emu--toucher-terre": "firebase emulators:start --only auth,firestore --import=./DB_LOCAL/db-bk--y-toucherterre --export-on-exit  --project=y-toucherterre",
 		"emu--exec-vitest": "firebase emulators:exec --only firestore 'npm run test-vitest' ",
 		"LINT----------------------------------------------------------": "",
-		"megacheck": "npm run format && npm run check && npm run lint && npm run build",
-		"check": "svelte-kit sync && svelte-check --threshold error --tsconfig ./tsconfig.json --ignore \"___DROP__,___ENV__,static,public,__CRM__,.svelte-kit,.scrapper-kit\"",
+		"megacheck": " npm run check && npm run lint && npm run build",
+		"megacheck:full": "npm run format && npm run check && npm run lint && npm run build",
+		"check": "svelte-kit sync && svelte-check --threshold warning --tsconfig ./tsconfig.json --ignore \"___DROP__,___ENV__,static,public,__CRM__,.svelte-kit,.scrapper-kit\"",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch --ignore \"___DROP__,___ENV__,static,public,__CRM__,.svelte-kit,.scrapper-kit\"",
-		"check--orig": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check--orig:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint .",
 		"lint--orig": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --write . ",
-		"format--orig": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
 		"firebase": "^9.16.0",

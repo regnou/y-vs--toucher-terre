@@ -1,13 +1,8 @@
-<!-- <pre class="status">Clicked: {clicked}</pre> -->
-<script>
-	//list
+<script lang="ts">
 	import List, { Item, Separator, Text, PrimaryText, SecondaryText } from '@smui/list';
-	//menu surface
 	import MenuSurface from '@smui/menu-surface';
 	import { Anchor } from '@smui/menu-surface';
 	import IconButton from '@smui/icon-button/src/IconButton.svelte';
-	import { Item as ImageListItem } from '@smui/image-list';
-	import ImageList, { ImageAspectContainer, Image, Supporting } from '@smui/image-list';
 	let anchor;
 	let anchorClasses = {};
 	let surface;

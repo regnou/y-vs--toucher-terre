@@ -8,13 +8,10 @@
 </svelte:head>
 <div class=" mx-10 border-2 border-black px-10">
 	<h1 class="text-red-600">{$page.status}</h1>
-	<p class="text-red-600">{$page.error.message}</p>
-	{#if dev && $page.error.stack}
-		<pre>{$page.error.stack}</pre>
-	{/if}
+	<p class="text-red-600">{$page?.error?.message}</p>
 </div>
 
-<style>
+<style lang="postcss">
 	h1,
 	p {
 		margin: 0 auto;

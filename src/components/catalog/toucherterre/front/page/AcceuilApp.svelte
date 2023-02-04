@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { TABLE_ACCEUIL } from '@app/entities/COLLECTIONS';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/adminPageServices';
+	import { service_getInputs } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import Hero from '../Hero.svelte';
@@ -12,18 +12,24 @@
 	import ContactCard from '../Contactcard.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
-	// import Splide from '../splide.svelte';
-	let promise = service_getInputs(TABLE_ACCEUIL);
 
+	// import Splide from '../splide.svelte';
+	let promise: Promise<any> = service_getInputs(TABLE_ACCEUIL);
+	//--------------------------------------------------------------------
 	onMount(async () => {
 		// READ REMOTE STORE -- FIREBASE
 		// const data = readRemoteStore('acceuil');
 		// $STORE_ACCEUIL = data;
 		// READ REMOTE STORE -- WORDPRESS
 		const data = await promise;
+		// if (data && data.length)
 		$STORE_ACCEUIL = data[0] ? data[0].data : [];
+		// TODO
+		// $STORE_ACCEUIL = data[0].data ?? [];
+
 		console.log('inside mount : ', $STORE_ACCEUIL.length);
 	});
+	//--------------------------------------------------------------------
 </script>
 
 <!-- <svelte:head>

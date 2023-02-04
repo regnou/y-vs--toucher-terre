@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Button, { Label } from '@smui/button';
 
 	export let menu = 'N/A';

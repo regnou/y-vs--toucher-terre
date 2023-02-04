@@ -24,7 +24,7 @@
 	<div class="fade" />
 {/if}
 
-<style>
+<style lang="postcss">
 	.progress-container {
 		position: absolute;
 		top: 0;
@@ -50,9 +50,9 @@
 		z-index: 998;
 		animation: fade 0.4s;
 	}
-	:global(html).dark .fade {
+	/* :global(html).dark .fade {
 		background-color: rgba(0, 0, 0, 0.3);
-	}
+	} */
 	@keyframes fade {
 		from {
 			opacity: 0;

@@ -3,7 +3,7 @@
 	// import HeaderSubmenuItem from './HeaderSubmenuItem.svelte';
 
 	export let isAdmin = false;
-	export let menus = [];
+	export let menus: T_headerMenuApp;
 </script>
 
 {#if isAdmin}

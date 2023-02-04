@@ -14,8 +14,8 @@
 	};
 
 	$: {
-		const menu: string = $page.url.pathname.replace(base, '');
-		const menuUrl = GALLERY[menu] ? GALLERY[menu].url : base;
+		const menu: string = $page.url.pathname;
+		const menuUrl = GALLERY[menu] ? GALLERY[menu].url : 'N/A';
 		imgBg = menuUrl;
 	}
 

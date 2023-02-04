@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import {
 		service_addIdInput,
 		service_modInput
-	} from '@app/utils/tecnology/firebase/services/adminPageServices';
+	} from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
 	import Button, { Label } from '@smui/button';
 
 	export let col;

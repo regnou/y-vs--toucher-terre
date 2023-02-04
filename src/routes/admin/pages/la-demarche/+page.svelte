@@ -1,13 +1,13 @@
-<script>
-	import LayoutAdminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
+<script lang="ts">
+	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
 	import BaseAdmin from '@app/components/catalog/toucherterre/admin/page/Admin.svelte';
 	import LaDemarcheApp from '@app/components/catalog/toucherterre/front/page/LaDemarcheApp.svelte';
 	import { TABLE_LADEMARCHE } from '@app/entities/COLLECTIONS';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';
-	import { DATAJSON__INJECT_LADEMARCHE } from '@app/data/DB-INJECT/LaDemarche.json';
+	import { DATAJSON__INJECT_LADEMARCHE } from '@app/data/DB-INJECT/DATAJSON__LaDemarche.json';
 </script>
 
-<LayoutAdminapp>
+<Layoutadminapp>
 	<div slot="app">
 		<LaDemarcheApp />
 	</div>
@@ -18,4 +18,4 @@
 			initData={DATAJSON__INJECT_LADEMARCHE}
 		/>
 	</div>
-</LayoutAdminapp>
+</Layoutadminapp>

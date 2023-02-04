@@ -48,7 +48,7 @@
 <!-- </div> -->
 
 <!--  -->
-<style>
+<style lang="postcss">
 	/* .bloc-admin.isAdmin {
 		@apply block h-full w-96 border border-purple-500;
 	} */

@@ -1,5 +1,5 @@
 <!-- <svelte:options accessors={true} /> -->
-<script>
+<script lang="ts">
 	export let inputValue = '';
 	export let label = '';
 
@@ -21,29 +21,27 @@
 	</div>
 	<div class="mt-1">
 		<!-- value={inputValue ? inputValue : ""} -->
+		<!-- type="text" -->
+		<!-- TODO -->
+		<!-- required="" -->
 		<textarea
-			type="text"
-			name={inputId}
+			name={inputId.toString()}
 			bind:value={inputValue}
 			aria-label="Edit {label}"
 			{placeholder}
-			required=""
 			class="btnInputAx"
 		/>
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	textarea:hover {
 		@apply bg-blue-50;
-		/* @apply ring-2; */
-		/* @apply ring-black; */
 		outline: 2px solid blue;
 	}
 	textarea:focus {
 		outline: none;
 		@apply bg-white;
-		/* @apply bg-white; */
 	}
 
 	.btnInputAx {
@@ -69,7 +67,6 @@
 	.btnInputAx:focus {
 		@apply bg-white;
 		@apply outline-none;
-		/* @apply border-transparent; */
 		@apply ring-2;
 		@apply ring-white;
 		@apply ring-offset-2;

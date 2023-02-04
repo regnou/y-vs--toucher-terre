@@ -5,7 +5,7 @@
 	let hasUploaded_aLocalImg = false;
 
 	// export let storeIndex = 0;
-	export let files = null;
+	export let files: any | null = null;
 	export let urlStorage = '';
 
 	$: (async () => {
@@ -19,7 +19,7 @@
 				console.log(`${file.name}: ${file.size} bytes`);
 				reader.readAsDataURL(file);
 				reader.onload = (e) => {
-					imgFromElement = e.target.result;
+					imgFromElement = e.target?.result;
 					hasUploaded_aLocalImg = true;
 				};
 			}
@@ -122,7 +122,7 @@
     ring-offset-current ring-offset-2
     hover:bg-black
     hover:text-white -->
-<style>
+<style lang="postcss">
 	.custom-file-input {
 		color: transparent;
 		@apply w-full;

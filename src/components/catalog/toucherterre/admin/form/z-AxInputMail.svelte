@@ -3,12 +3,12 @@
 <div>
 	<label for="email" class="block text-sm font-medium text-neutral-600"> Mail </label>
 	<div class="mt-1">
+		<!-- required="" -->
 		<input
 			id="email"
 			name="email"
 			type="email"
 			autocomplete="email"
-			required=""
 			placeholder="Your project name"
 			class="
                         block

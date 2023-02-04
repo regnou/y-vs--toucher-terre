@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import LayoutAdminApp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
 	import AxDataTable from '@app/components/catalog/toucherterre/admin/AxDataTable.svelte';
-	import { DATAJSON__PAGES } from '@app/data/MENUS/DATAJSON__PAGES';
+	import { DATAJSON__PAGES } from '@app/data/MENUS/DATAJSON__Pages.json';
 </script>
 
 <LayoutAdminApp>

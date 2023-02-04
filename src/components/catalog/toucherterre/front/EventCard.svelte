@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Separator from './Separator.svelte';
 
 	export let src = 'N/A';

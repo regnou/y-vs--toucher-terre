@@ -117,5 +117,5 @@ export const DATAJSON__INJECT_LADEMARCHE = [
 		type: 'file',
 		label: 'hero 1',
 		inputValue: '/media/logo-01.png'
-	},
+	}
 ];

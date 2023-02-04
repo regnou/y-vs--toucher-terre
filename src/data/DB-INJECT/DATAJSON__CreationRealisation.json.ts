@@ -1,14 +1,6 @@
-import { base } from '$app/paths';
 
-// {
-//     id: '',
-//     index: 1,
-//     type: 'text',
-//     label: '',
-//     inputValue: ''
-// },
 
-export const DATAJSON__INJECT_CREATIONREALISATION = [
+export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = [
 	{
 		id: '1',
 		index: 1,
@@ -18,9 +10,9 @@ export const DATAJSON__INJECT_CREATIONREALISATION = [
 				id: 1,
 				page: 'Cuisinières en terre crue',
 				url: '/cuisiniere-terre-crue',
-				date_created: "12/12/12",
-				date_modified: "10/10/10",
-				form: [
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
 					{
 						id: '1',
 						index: 1,
@@ -34,17 +26,18 @@ export const DATAJSON__INJECT_CREATIONREALISATION = [
 						type: 'area',
 						label: 'content 1',
 						inputValue:
-							'Une cuisinière en terre crue permet une cuisine efficace sur feu de bois (fagots) dans un contexte convivial. Construction en matériaux locaux et/ou de récupération : terre argileuse, paille, pierre .... Construite en chantier collectif créatif pour tout public : liberté de forme possibles, simplicité de création, de fonctionnement, d’appropriation. Basée sur la technique de «Rocket Stove» de Ianto Evans.'
-					}],
+							'Une cuisinière en terre crue permet une cuisine efficace sur feu de bois (fagots) dans un contexte convivial. Construction en matériaux locaux et/ou de récupération : terre argileuse, paille, pierre .... Construite en chantier collectif créatif pour tout public : liberté de inputValuese possibles, simplicité de création, de fonctionnement, d’appropriation. Basée sur la technique de «Rocket Stove» de Ianto Evans.'
+					}
+				]
 			},
 			// ---------------------
 			{
 				id: 2,
 				page: 'Charpentes réciproques',
 				url: '/charpente-reciproques',
-				date_created: "12/12/12",
-				date_modified: "10/10/10",
-				form: [
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
 					{
 						id: '',
 						index: 3,
@@ -59,17 +52,17 @@ export const DATAJSON__INJECT_CREATIONREALISATION = [
 						label: 'content 2',
 						inputValue:
 							'Structure de charpente autoportante le plus souvent en rond, qui ne nécessite aucun pilier central. Elle permet de créer des toits, des ponts et toutes sortes de structures'
-					},
-				],
+					}
+				]
 			},
 			// ---------------------
 			{
 				id: 3,
 				page: 'Poêles de masse',
 				url: '/poele-de-masse',
-				date_created: "12/12/12",
-				date_modified: "10/10/10",
-				form: [
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
 					{
 						id: '',
 						index: 5,
@@ -83,18 +76,18 @@ export const DATAJSON__INJECT_CREATIONREALISATION = [
 						type: 'area',
 						label: 'content 3',
 						inputValue:
-							'Économe en bois, ce type de poêle auto-construit est basé sur la technique du «Rocket Stove». La chaleur est accumulée dans la masse et ensuite diffusée par rayonnement. Ces poêles font partie des appareils de chauffage au bois les plus performants'
-					},
-				],
+							'Économe en bois, ce type de poêle auto-construit est basé sur la technique du «Rocket Stove». La chaleur est accumulée dans la masse et ensuite diffusée par rayonnement. Ces poêles font partie des appareils de chauffage au bois les plus perinputValuesants'
+					}
+				]
 			},
 			// ---------------------
 			{
 				id: 4,
 				page: 'Habitats réversibles et cabanes',
 				url: '/habitat-reversible-cabannes',
-				date_created: "12/12/12",
-				date_modified: "10/10/10",
-				form: [
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
 					{
 						id: '',
 						index: 7,
@@ -109,17 +102,17 @@ export const DATAJSON__INJECT_CREATIONREALISATION = [
 						label: 'content 4',
 						inputValue:
 							'Biodégradable. Conçu à partir de matériaux naturels, à même de se décomposer naturellement une fois détruit (kerterre, love-shack, maison terre …). Tous ces habitats ont en commun le fait de permettre au terrain de revenir dans son état initial lorsqu’ils sont démontés ou compostés.'
-					},
-				],
+					}
+				]
 			},
 			// ---------------------
 			{
 				id: 5,
 				page: 'Enduits et arts',
 				url: '/enduit-arts',
-				date_created: "12/12/12",
-				date_modified: "10/10/10",
-				form: [
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
 					{
 						id: '',
 						index: 9,
@@ -134,9 +127,9 @@ export const DATAJSON__INJECT_CREATIONREALISATION = [
 						label: 'content 5',
 						inputValue:
 							'Posés sur supports variés (paille, toile de jutte, pierres, parpaings ...); Fabriqués à partir de terre argileuse et au mieux, à partir de matériaux trouvés sur chantier ou alentour (paille, sciure, bouse, foin, tonte etc ...)'
-					},
-				],
-			},
+					}
+				]
+			}
 			// ---------------------
 		]
 	},
@@ -165,3 +158,11 @@ export const DATAJSON__INJECT_CREATIONREALISATION = [
 			'/media/gallery/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_01.jpg'
 	}
 ];
+
+// {
+//     id: '',
+//     index: 1,
+//     type: 'text',
+//     label: '',
+//     inputValue: ''
+// },

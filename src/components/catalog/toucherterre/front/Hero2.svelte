@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 
 	const img = '/media/icon/icon-infinity.png';

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Formedit from '@app/components/catalog/toucherterre/admin/Formedit.svelte';
 	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/page/Layoutadminapp.svelte';
 	import { TABLE_CREATIONREALISATION } from '@app/entities/COLLECTIONS';
@@ -7,7 +7,7 @@
 
 <Layoutadminapp>
 	<div slot="app">
-		<Formedit postId={2} col={TABLE_CREATIONREALISATION} store={STORE_CREATIONREALISATION} />
+		<Formedit postId={4} col={TABLE_CREATIONREALISATION} store={STORE_CREATIONREALISATION} />
 	</div>
 	<!-- <div slot="admin">admin</div> -->
 </Layoutadminapp>

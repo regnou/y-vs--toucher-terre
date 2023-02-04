@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let text = 'N/A';
 </script>
 
@@ -8,7 +8,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	/* .po {
 		color: #583120;
 	} */

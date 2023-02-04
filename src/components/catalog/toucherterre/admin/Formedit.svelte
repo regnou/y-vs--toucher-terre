@@ -1,22 +1,23 @@
-<script>
+<script lang="ts">
 	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 	import { upload } from '@app/utils/tecnology/firebase/storageServices';
 	import { page } from '$app/stores';
-	import { service_modInput } from '@app/utils/tecnology/firebase/services/adminPageServices';
+	import { service_modInput } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
 	import AxInputAll from './form/AxInputAll.svelte';
 	import AxBtnCancel from './form/AxBtnCancel.svelte';
 	import AxBtnOk from './form/AxBtnOk.svelte';
 	//
-
-	//
 	export let col;
-	export let store;
 	export let postId = -1; // postId, means the form edit, will only display the fields of the post
+
+	// hack-type
+	export let store: any = [];
 
 	let files_all = [null, null, null, null, null, null, null, null, null, null];
 
 	// $: $site = data.site;
-	$: console.log(files_all);
+	$: console.log('files_all: ', files_all);
+	$: console.log('todel::', postId);
 
 	async function save() {
 		console.log('click onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
@@ -64,7 +65,7 @@
 			<!-- ACCORDEON TECNIQUE -->
 
 			<!-- {#if $store[0]}
-					{#each $store[0].posts[postId].form as item, i}
+					{#each $store[0].posts[postId].inputValues as item, i}
 						<AxInputAll
 							bind:files={files_all[i]}
 							bind:inputValue={item.inputValue}
@@ -79,7 +80,7 @@
 			<!--  -->
 			<!-- TABLE TECNIQUE -->
 			<!-- {#if $store[0]}
-					{#each $store[0].posts[postId].form as item, i}
+					{#each $store[0].posts[postId].inputValues as item, i}
 						<AxInputAll
 							bind:files={files_all[i]}
 							bind:inputValue={item.inputValue}
@@ -113,7 +114,7 @@
 	<!-- <button on:click={save}> > SAVE !</button> -->
 </div>
 
-<style>
+<style lang="postcss">
 	* :global(.demo-small-titles .smui-accordion__header__title--with-description) {
 		flex-basis: 20% !important;
 		max-width: 200px !important;

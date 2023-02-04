@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	export let text = 'N/A';
 	// export let isDisabled = false;
 	import Button, { Label } from '@smui/button';

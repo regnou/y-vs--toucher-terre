@@ -1,5 +1,5 @@
-<script>
-	import { DATAJSON__PAGES } from '@app/data/MENUS/DATAJSON__PAGES';
+<script lang="ts">
+	import { DATAJSON__PAGES } from '@app/data/MENUS/DATAJSON__Pages.json';
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
@@ -9,7 +9,7 @@
 	export let open;
 	export let dynVariant; // 'modal', 'dismissible'
 
-	let drawer = null;
+	// let drawer = null;
 </script>
 
 <!-- <div class="drawer-container"> -->
@@ -22,7 +22,8 @@
 <!-- DRAWER -->
 <!--  -->
 <!-- fixed={false} -->
-<Drawer bind:this={drawer} bind:variant={dynVariant} bind:open id="draweradmin--1">
+<Drawer bind:variant={dynVariant} bind:open id="draweradmin--1">
+	<!-- <Drawer bind:this={drawer} bind:variant={dynVariant} bind:open id="draweradmin--1"> -->
 	<!-- drawer--header -->
 	<Header>
 		<Title>AXELO</Title>

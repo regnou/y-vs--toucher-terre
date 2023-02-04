@@ -1,5 +1,5 @@
 // @@@ FIREBASE-CONFIG
-import { config } from '../../../data/firebase.config';
+import { config } from '../../../data/TECNOLOGY/DATAJSON__FIREBASE.config.json';
 // @@@ FIREBASE CLIENT
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';

@@ -1,5 +1,5 @@
 <!-- <pre class="status">Clicked: {clicked}</pre> -->
-<script>
+<script lang="ts">
 	let anchor;
 	let anchorClasses = {};
 	//menu

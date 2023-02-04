@@ -3,7 +3,7 @@
 	import IconButton, { Icon } from '@smui/icon-button';
 	import AxInputAll from './form/AxInputAll.svelte';
 
-	export let items = [];
+	export let items: any[] = [];
 
 	$: console.log('items accordeon --->>>', items);
 
@@ -29,7 +29,7 @@
 			</Header>
 			<!--  -->
 			<Content>
-				{#each item.form as itm, i}
+				{#each item.inputValues as itm, i}
 					<AxInputAll
 						bind:files={files_all[i]}
 						bind:inputValue={itm.inputValue}
@@ -56,7 +56,7 @@
 		<Content>The content for panel 1.</Content>
 	</Panel>
 </Accordion> -->
-<style>
+<style lang="postcss">
 	* :global(.demo-small-titles .smui-accordion__header__title--with-description) {
 		flex-basis: 20% !important;
 		max-width: 200px !important;

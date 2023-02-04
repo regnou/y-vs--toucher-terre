@@ -4,7 +4,8 @@
 	import List, { Item, Separator, Text, PrimaryText, SecondaryText } from '@smui/list';
 	import Button, { Label } from '@smui/button';
 
-	let menu: Menu;
+	// let menu: Menu;
+	let menu;
 	let anchor: HTMLDivElement;
 	let anchorClasses: { [k: string]: boolean } = {};
 	let clicked = 'nothing yet';
