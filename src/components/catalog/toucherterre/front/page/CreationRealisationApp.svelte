@@ -8,7 +8,7 @@
 	import Slider from '../Slider.svelte';
 
 	let promise: Promise<any> = service_getInputs(TABLE_CREATIONREALISATION);
-
+	let posts = [];
 	onMount(async () => {
 		// READ REMOTE STORE -- FIREBASE
 		// const data = readRemoteStore('acceuil');
@@ -16,10 +16,24 @@
 		// READ REMOTE STORE -- WORDPRESS
 		const data = await promise;
 		$STORE_CREATIONREALISATION = data[0] ? data[0].data : [];
-		console.log('inside mount : ', $STORE_CREATIONREALISATION.length);
+		posts = $STORE_CREATIONREALISATION[0].posts;
+		console.log(posts);
+		console.log('------------------------------------');
+		// console.log('mount / $STORE_CREATIONREALISATION.length >>>', $STORE_CREATIONREALISATION.length);
 	});
 
-	$: console.log('$STORE_CREATIONREALISATION >>>>> ', $STORE_CREATIONREALISATION);
+	// $: {
+	// 	posts = $STORE_CREATIONREALISATION[0]?.posts ?? [];
+	// 	console.log('posts: ', posts);
+	// }
+	// $: console.log(
+	// 	'$STORE_CREATIONREALISATION[Ø] $$$ ',
+	// 	$STORE_CREATIONREALISATION ?? $STORE_CREATIONREALISATION[0]
+	// 	);
+	// $STORE_CREATIONREALISATION ?? $STORE_CREATIONREALISATION[0].posts,
+	// $STORE_CREATIONREALISATION ?? $STORE_CREATIONREALISATION[0].posts[0].page
+	// $STORE_CREATIONREALISATION[0].posts[0].inputValues[0].inputValue
+	// );
 </script>
 
 <!-- <Loader /> -->
@@ -27,15 +41,15 @@
 	<!-- <p>...waiting</p> -->
 	<Loader />
 {:then data}
-	{#if $STORE_CREATIONREALISATION && $STORE_CREATIONREALISATION.length}
+	{#if posts && posts.length}
 		<!--  -->
 		<div class="grid grid-flow-col grid-cols-12 gap-10 ">
 			<!--  -->
 			<div class="col-span-8">
-				{#each $STORE_CREATIONREALISATION[0].posts as post}
+				<!-- {@debug posts} -->
+				{#each posts as post}
+					<!-- remettre -->
 					<PostEntry title={post.inputValues[0].inputValue} text={post.inputValues[1].inputValue} />
-					<!-- <PostEntry title={post.inputValues[0].inputValue} text={post.inputValues[1].inputValue} /> -->
-					:
 				{/each}
 			</div>
 			<!--  -->

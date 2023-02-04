@@ -17,7 +17,7 @@ export function getFirebase() {
 	const services = initializeServices();
 	if (!services.isConfigured) {
 		console.log('🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
-		console.log('🔥🎉 Initializing FIREBASE <-- [1st time] ');
+		console.log('🎉  Initializing FIREBASE <-- [1st time] ');
 		console.log('🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
 		// initAllCol(services.FIRESTORE); // todo
 
@@ -84,7 +84,7 @@ export function getFirebase() {
 	}
 	function connectToEmulators({ FIRESTORE }: any) {
 		//i f (location.hostname === 'localhost') {
-		console.log('🟡 oooooooooo USING LOCAL EMULATOR oooooooooo 🟡');
+		console.log('🟡 🟡 🟡 🟡 🟡 🟡 USING LOCAL EMULATOR oooooooooo 🟡 🟡 🟡 🟡 🟡');
 		// --- DEBUG local
 		connectFirestoreEmulator(FIRESTORE, 'localhost', 8080);
 		// --- todo

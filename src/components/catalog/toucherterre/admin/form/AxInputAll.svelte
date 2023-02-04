@@ -7,11 +7,14 @@
 	import IconButton, { Icon } from '@smui/icon-button';
 	import AxAccordeon from '../AxAccordeon.svelte';
 
-	export let type = '';
-	export let inputValue = '';
-	export let label = '';
 	export let files = null;
-	export let posts = [];
+
+	export let item;
+
+	// export let type = '';
+	// export let label = '';
+	// export let inputValue = '';
+	// export let posts = [];
 
 	let panel1Open = false;
 	let panel2Open = false;
@@ -23,24 +26,34 @@
 </script>
 
 <div>
-	{#if type === 'text'}
-		<Textfield style="width: 100%;" helperLine$style="width: 100%;" bind:value={inputValue} {label}>
+	{#if item.type === 'text'}
+		<Textfield
+			style="width: 100%;"
+			helperLine$style="width: 100%;"
+			bind:value={item.inputValue}
+			label={item.label}
+		>
 			<!-- <HelperText slot="helper">Helper Text</HelperText> -->
 		</Textfield>
-	{:else if type === 'file'}
+	{:else if item.type === 'file'}
 		<div class="max-w-xs">
-			<div class="text-xs text-gray-400">{label}</div>
-			<AxFileUpload bind:files bind:urlStorage={inputValue} />
+			<div class="text-xs text-gray-400">{item.label}</div>
+			<AxFileUpload bind:files bind:urlStorage={item.inputValue} />
 		</div>
-	{:else if type === 'area'}
-		<Textfield style="width: 100%; height: 200px;" textarea bind:value={inputValue} {label} />
+	{:else if item.type === 'area'}
+		<Textfield
+			style="width: 100%; height: 200px;"
+			textarea
+			bind:value={item.inputValue}
+			label={item.label}
+		/>
 		<!-- input$maxlength={500} -->
 		<!-- helperLine$style="width: 100%;" -->
 		<!-- <CharacterCounter slot="internalCounter">0 / 100</CharacterCounter> -->
-	{:else if type === 'post'}
+	{:else if item.type === 'blog'}
 		<!-- <AxDataTable items={posts} sortId={'label'} /> -->
-		<AxAccordeon items={posts}>
-			<!-- <Accordion class="demo-small-titles">
+		<AxAccordeon items={item.posts} />
+		<!-- <Accordion class="demo-small-titles">
 			{#each $store[0].posts as item, i}
 				<Panel square variant="outlined" color="primary" extend bind:open={panel1Open}>
 					<Header>
@@ -65,7 +78,7 @@
 				</Panel>
 			{/each}
 		</Accordion> -->
-		</AxAccordeon>
+		<!-- </AxAccordeon> -->
 		<!-- {:else if type === 'accordeon'} -->
 		<!-- <AxAccordeon items={posts} /> -->
 	{/if}

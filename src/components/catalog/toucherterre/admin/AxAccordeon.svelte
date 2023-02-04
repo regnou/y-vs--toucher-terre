@@ -1,45 +1,29 @@
 <script lang="ts">
 	import Accordion, { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
+	import AxAccordeonPanel from './AxAccordeonPanel.svelte';
 	import AxInputAll from './form/AxInputAll.svelte';
 
-	export let items: any[] = [];
+	export let items: any = [];
 
 	$: console.log('items accordeon --->>>', items);
 
-	let panel1Open = false;
-	let panel2Open = false;
-	let panel3Open = false;
-	let panel4Open = false;
+	let panelOpens = [false, false, false, false];
 
 	let files_all = [null, null, null, null, null, null, null, null, null, null];
 </script>
 
+<div class="border p-2">
+	<IconButton>
+		<Icon class="material-icons">add</Icon>
+	</IconButton>
+</div>
 <Accordion class="demo-small-titles">
+	<!-- PANEL ADD -->
+
+	<!-- PANEL EDITS -->
 	{#each items as item, i}
-		<Panel square variant="outlined" color="primary" extend bind:open={panel1Open}>
-			<!--  -->
-			<Header>
-				{item.page}
-				<span slot="description">{item.url}</span>
-				<IconButton slot="icon" toggle pressed={panel1Open}>
-					<Icon class="material-icons" on>unfold_less</Icon>
-					<Icon class="material-icons">unfold_more</Icon>
-				</IconButton>
-			</Header>
-			<!--  -->
-			<Content>
-				{#each item.inputValues as itm, i}
-					<AxInputAll
-						bind:files={files_all[i]}
-						bind:inputValue={itm.inputValue}
-						bind:label={itm.label}
-						bind:type={itm.type}
-						bind:posts={itm.posts}
-					/>
-				{/each}
-			</Content>
-		</Panel>
+		<AxAccordeonPanel bind:panelOpens bind:files_all {i} {item} />
 	{/each}
 </Accordion>
 

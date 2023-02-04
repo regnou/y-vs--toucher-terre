@@ -41,7 +41,7 @@
 
 		<Separator />
 		<Subheader>Pages</Subheader>
-		<!-- <DrawerMenuItem url={'/admin/edit'} menu={'Toutes les pages'} /> -->
+		<!-- <DrawerMenuItem url={'/admin/pages'} menu={'Toutes les pages'} /> -->
 
 		<!-- QUICK LINKS PAGES EDIT -->
 		{#each DATAJSON__PAGES as item (item.page)}
@@ -49,7 +49,7 @@
 		{/each}
 
 		<!-- <DrawerMenuItem href={'/admin/post-new'} text={'Ajouter'} /> -->
-		<!-- <DrawerMenuItem href={'/admin/edit-tag'} text={'Catégories'} /> -->
+		<!-- <DrawerMenuItem href={'/admin/pages-tag'} text={'Catégories'} /> -->
 		<!-- <Accordeon /> -->
 
 		<Separator />

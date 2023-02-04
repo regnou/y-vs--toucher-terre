@@ -93,14 +93,17 @@
 			<!-- {:else} -->
 			<!-- else content here -->
 			{#each $store as item, i}
-				<AxInputAll
-					bind:files={files_all[i]}
-					bind:inputValue={item.inputValue}
-					bind:label={item.label}
-					bind:type={item.type}
-					bind:posts={item.posts}
-				/>
+				<!-- {#if item.posts}
+			<AxInputBlog bind:files={files_all[i]} bind:{item} />
+			{:else} -->
+				<AxInputAll bind:files={files_all[i]} {item} />
+				<!-- {/if} -->
 			{/each}
+			<!-- 
+			bind:type={item.type}
+			bind:label={item.label}
+			bind:inputValue={item.inputValue}
+			bind:posts={item.posts} -->
 			<!-- {/if} -->
 			<!--  -->
 		{/if}

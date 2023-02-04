@@ -15,7 +15,7 @@
 	<Section id="headeradmin-right--1">
 		<div class="flexy">
 			<div class="margins">
-				<a href="/admin/edit" rel="prefetch">
+				<a href="/admin/pages" rel="prefetch">
 					<Fab mini>
 						<!-- <img src="media/ax/3.jpg" alt="" /> -->
 						<Icon class="material-icons">login</Icon>

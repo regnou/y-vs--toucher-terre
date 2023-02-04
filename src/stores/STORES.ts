@@ -22,7 +22,8 @@ import { writable, type Writable } from 'svelte/store';
 export const STORE_ACCEUIL = writable<any[]>([]);
 
 export const STORE_LADEMARCHE = writable<any[]>([]);
-export const STORE_CREATIONREALISATION = writable<T_storeCreationRealisation>([]);
+export const STORE_CREATIONREALISATION = writable([]);
+// export const STORE_CREATIONREALISATION = writable<T_storeCreationRealisation>([]);
 export const STORE_PROCHAINSRDV = writable<any[]>([]);
 export const STORE_NEWSLETTER = writable<any[]>([]);
 

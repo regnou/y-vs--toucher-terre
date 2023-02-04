@@ -4,7 +4,7 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 	{
 		id: '1',
 		index: 1,
-		type: 'accordeon',
+		type: 'blog',
 		posts: [
 			{
 				id: 1,
@@ -17,7 +17,7 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 						id: '1',
 						index: 1,
 						type: 'text',
-						label: 'titre 1',
+						label: 'Titre de l\’article',
 						inputValue: 'Cuisinières en terre crue'
 					},
 					{
@@ -42,14 +42,14 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 						id: '',
 						index: 3,
 						type: 'text',
-						label: 'titre 2',
+						label: 'Titre de l\’article',
 						inputValue: 'Charpentes réciproques'
 					},
 					{
 						id: '',
 						index: 4,
 						type: 'area',
-						label: 'content 2',
+						label: 'Contenu de l\’article',
 						inputValue:
 							'Structure de charpente autoportante le plus souvent en rond, qui ne nécessite aucun pilier central. Elle permet de créer des toits, des ponts et toutes sortes de structures'
 					}
@@ -67,14 +67,14 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 						id: '',
 						index: 5,
 						type: 'text',
-						label: 'titre 3',
+						label: 'Titre de l\’article',
 						inputValue: 'Poêles de masse'
 					},
 					{
 						id: '',
 						index: 6,
 						type: 'area',
-						label: 'content 3',
+						label: 'Contenu de l\’article',
 						inputValue:
 							'Économe en bois, ce type de poêle auto-construit est basé sur la technique du «Rocket Stove». La chaleur est accumulée dans la masse et ensuite diffusée par rayonnement. Ces poêles font partie des appareils de chauffage au bois les plus perinputValuesants'
 					}
@@ -92,14 +92,14 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 						id: '',
 						index: 7,
 						type: 'text',
-						label: 'titre 4',
+						label: 'Titre de l\’article',
 						inputValue: 'Habitats réversibles et cabanes'
 					},
 					{
 						id: '',
 						index: 8,
 						type: 'area',
-						label: 'content 4',
+						label: 'Contenu de l\’article',
 						inputValue:
 							'Biodégradable. Conçu à partir de matériaux naturels, à même de se décomposer naturellement une fois détruit (kerterre, love-shack, maison terre …). Tous ces habitats ont en commun le fait de permettre au terrain de revenir dans son état initial lorsqu’ils sont démontés ou compostés.'
 					}
@@ -117,14 +117,14 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 						id: '',
 						index: 9,
 						type: 'text',
-						label: 'titre 5',
+						label: 'Titre de l\’article',
 						inputValue: 'Enduits et arts'
 					},
 					{
 						id: '',
 						index: 10,
 						type: 'area',
-						label: 'content 5',
+						label: 'Contenu de l\’article',
 						inputValue:
 							'Posés sur supports variés (paille, toile de jutte, pierres, parpaings ...); Fabriqués à partir de terre argileuse et au mieux, à partir de matériaux trouvés sur chantier ou alentour (paille, sciure, bouse, foin, tonte etc ...)'
 					}
@@ -137,7 +137,7 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 		id: '2',
 		index: 11,
 		type: 'file',
-		label: 'img 1',
+		label: 'Image',
 		inputValue:
 			'/media/gallery/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_01.jpg'
 	},
@@ -145,7 +145,7 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 		id: '3',
 		index: 12,
 		type: 'file',
-		label: 'img 2',
+		label: 'Image',
 		inputValue:
 			'/media/gallery/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_01.JPG'
 	},
@@ -153,7 +153,7 @@ export const DATAJSON__INJECT_CREATIONREALISATION: T_storeCreationRealisation = 
 		id: '4',
 		index: 13,
 		type: 'file',
-		label: 'img 3',
+		label: 'Image',
 		inputValue:
 			'/media/gallery/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_01.jpg'
 	}
