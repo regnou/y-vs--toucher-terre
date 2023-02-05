@@ -4,10 +4,7 @@
 	import Button, { Label } from '@smui/button';
 </script>
 
-<!-- 2 -->
-<!-- BTN OK -->
 <!-- type="submit" -->
-
 <Button on:click={callback} variant="raised">
 	<Label>{text}</Label>
 </Button>
@@ -32,8 +29,7 @@
        focus:ring-2
        focus:ring-offset-2
        focus:ring-blue-600
-       hover:shadow-md
-                                "
+       hover:shadow-md                  "
 >
 	OK
 </button> -->
