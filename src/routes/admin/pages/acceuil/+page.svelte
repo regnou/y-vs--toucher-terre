@@ -4,7 +4,7 @@
 	import { TABLE_ACCEUIL } from '@app/entities/COLLECTIONS';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
 	import { DATAJSON__INJECT_ACCEUIL } from '@app/data/DB-INJECT/DATAJSON__Acceuil.json';
-	import GenericAdmin from '@app/components/catalog/toucherterre/admin/layout/GenericAdmin.svelte';
+	import GenericAdmin from '@app/components/catalog/toucherterre/admin/layout/1-GenericAdmin.svelte';
 </script>
 
 <Layoutadminapp>

@@ -36,12 +36,13 @@ declare global {
 
 
 	// -----------------------------------------
-	// type T_storeCreationRealisation = Array<(T_blog | T_inputValue)>
 	// type mixed = T_blog | T_inputValue
 	// type T_storeCreationRealisation = Array<mixed>
 
 
-	type T_storeCreationRealisation = (T_inputValue | T_blog)[]
+	// interface T_storeCreationRealisation = Array<T_inputValue | T_blog>
+	// interface T_storeCreationRealisation = (T_inputValue | T_blog)[]
+
 
 
 	// 	type T_storeCreationRealisation = (
@@ -49,6 +50,17 @@ declare global {
 	// 		T_inputValue | T_blog
 	// }
 	// 	)[]
+	// function isBlog(item: T_inputValue | T_blog): item is T_blog {
+	// 	// return (item as T_blog).swim !== undefined;
+	// 	return typeof item === T_blog;
+	// }
+	//   function isA(param: C): param is A {
+	// 	return param.type === A;
+	// }
+	// type T_storeCreationRealisation = (T_inputValue | T_blog)[] | null
+
+	// -----------------------
+	type T_storeCreationRealisation = Array<(T_blog | T_inputValue)>
 
 	type T_blog = {
 		id: string;
@@ -56,7 +68,6 @@ declare global {
 		type: string;
 		posts: T_post[];
 	}
-
 	type T_post = {
 		id: number;
 		page: string;
@@ -65,7 +76,7 @@ declare global {
 		date_modified: string;
 		inputValues: T_inputValue[];
 	}
-
+	// -----------------------
 	// form fields
 	type T_inputValue = {
 		id: string;

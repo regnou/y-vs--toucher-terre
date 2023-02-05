@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/layout/Layoutadminapp.svelte';
-	import BaseAdmin from '@app/components/catalog/toucherterre/admin/layout/GenericAdmin.svelte';
+	import BaseAdmin from '@app/components/catalog/toucherterre/admin/layout/1-GenericAdmin.svelte';
 	import LaDemarcheApp from '@app/components/catalog/toucherterre/front/page/LaDemarcheApp.svelte';
 	import { TABLE_LADEMARCHE } from '@app/entities/COLLECTIONS';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';

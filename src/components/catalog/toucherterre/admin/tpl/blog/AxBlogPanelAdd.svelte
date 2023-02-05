@@ -3,22 +3,23 @@
 	import IconButton, { Icon } from '@smui/icon-button';
 	import AxBtnCancel from '../../form/AxBtnCancel.svelte';
 	import AxBtnOk from '../../form/AxBtnOk.svelte';
-	import AxInputAll from '../../layout/AxInputAll.svelte';
+	import AxInputAll from '../../layout/3-AxInputAll.svelte';
 
 	export let panelOpens = [false, false, false, false, false];
-	// export let item;
-	export let i: number;
+	export let item1 = { type: 'text', label: "Titre de l'article", inputValue: '' };
+	export let item2 = { type: 'area', label: "Contenu de l'article", inputValue: '' };
+	export let ii: number;
 
-	const add = () => {};
+	const add = async () => {};
 </script>
 
-<Panel square variant="outlined" color="secondary" extend bind:open={panelOpens[i]}>
+<Panel square variant="outlined" color="secondary" extend bind:open={panelOpens[ii]}>
 	<!--  -->
 	<Header>
 		<span slot="description">Créer un nouvel article</span>
 
 		<div slot="icon" class="">
-			<IconButton toggle pressed={panelOpens[i]}>
+			<IconButton toggle pressed={panelOpens[ii]}>
 				<Icon class="material-icons" on>unfold_less</Icon>
 				<Icon class="material-icons">unfold_more</Icon>
 			</IconButton>
@@ -30,19 +31,10 @@
 	<!--  -->
 	<Content>
 		<div class="space-y-10">
-			<AxInputAll item={{ type: 'text', label: "Titre de l'article", inputValue: '' }} />
-			<AxInputAll item={{ type: 'area', label: "Contenu de l'article", inputValue: '' }} />
-			<!-- {#each item.inputValues as itm, i} -->
-			<!-- <AxInputAll item={itm} bind:files={files_all[i]} /> -->
-			<!-- bind:inputValue={itm.inputValue}
-				bind:label={itm.label}
-				bind:type={itm.type}
-				bind:posts={itm.posts} -->
-			<!-- {/each} -->
-			<!-- btn -->
+			<AxInputAll bind:item={item1} />
+			<AxInputAll bind:item={item2} />
 			<div class="mt-10 grid grid-flow-col place-items-center gap-2 p-10">
 				<AxBtnCancel text="cancel" />
-				<!-- <AxBtnBlue handle={save} /> -->
 				<AxBtnOk text="ok" callback={async () => await add()} />
 			</div>
 		</div>

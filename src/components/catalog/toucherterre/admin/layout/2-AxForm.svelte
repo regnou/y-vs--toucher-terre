@@ -5,7 +5,8 @@
 	import { service_modInput } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
 	import AxBtnCancel from '../form/AxBtnCancel.svelte';
 	import AxBtnOk from '../form/AxBtnOk.svelte';
-	import AxInputAll from './AxInputAll.svelte';
+	import AxInputAll from './3-AxInputAll.svelte';
+	import AxBlog from '../tpl/blog/AxBlog.svelte';
 	//
 	export let col;
 	export let postId = -1; // postId, means the form edit, will only display the fields of the post
@@ -20,7 +21,7 @@
 	$: console.log('todel::', postId);
 
 	async function save() {
-		console.log('click onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
+		console.log('click > onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
 		console.log('🟨 (1/2)');
 		// FAST and BAD - upload image now
 		const { STORAGE } = getFirebase();
@@ -29,16 +30,15 @@
 			if (fileList) {
 				const urlStorage = await upload(fileList[0]);
 				// const urlStorage = await upload(fileList[0]);
-
 				$GENERIC_STORE[index].inputValue = urlStorage;
 				console.log('UPDATE FINAL : ', $GENERIC_STORE[index].inputValue, ' -- ', urlStorage);
 				console.log('________________________________');
 			}
 		}
-
 		console.log('🟨 (2/2)');
 		// SAVE LE STORE VERS FIRESTORE
 		await service_modInput(col, 'summaryId', { data: $GENERIC_STORE });
+		console.log('click < onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
 	}
 </script>
 
@@ -56,7 +56,11 @@
 		<!-- {@debug $store} -->
 		{#if $GENERIC_STORE && $GENERIC_STORE.length}
 			{#each $GENERIC_STORE as item, i}
-				<AxInputAll bind:files={files_all[i]} {item} />
+				{#if item.type === 'blog'}
+					<AxBlog {item} />
+				{:else}
+					<AxInputAll {item} bind:files={files_all[i]} />
+				{/if}
 			{/each}
 		{/if}
 	</div>

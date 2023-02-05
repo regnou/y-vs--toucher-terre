@@ -1,10 +1,9 @@
 <script lang="ts">
 	import Textfield from '@smui/textfield';
 	import Axfileupload from '../form/Axfileupload.svelte';
-	import AxBlog from '../tpl/blog/AxBlog.svelte';
 
 	export let files = null;
-	export let item;
+	export let item; // take a reference to the GENERIC_STORE
 
 	// replace space
 	// $: labelFormName = labelName.toLowerCase().replace(/\s/g, ""); // 3 to use as the name for the FORM
@@ -35,8 +34,5 @@
 		<!-- input$maxlength={500} -->
 		<!-- helperLine$style="width: 100%;" -->
 		<!-- <CharacterCounter slot="internalCounter">0 / 100</CharacterCounter> -->
-	{:else if item.type === 'blog'}
-		<!-- <AxDataTable items={posts} sortId={'label'} /> -->
-		<AxBlog posts={item.posts} />
 	{/if}
 </div>
