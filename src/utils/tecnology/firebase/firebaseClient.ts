@@ -1,5 +1,5 @@
 // @@@ FIREBASE-CONFIG
-import { config } from '../../../data/TECNOLOGY/DATAJSON__FIREBASE.config.json';
+import { config } from '../../../DATA/TECNOLOGY/DATAJSON__FIREBASE.config.json';
 // @@@ FIREBASE CLIENT
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
@@ -22,7 +22,7 @@ export function getFirebase() {
 		// initAllCol(services.FIRESTORE); // todo
 
 		//////////////////////////////////
-		connectToEmulators(services); // actuellement en local
+		// connectToEmulators(services); // actuellement en local
 		//////////////////////////////////
 
 		// enableMultiTabIndexedDbPersistence(services.firestore)

@@ -2,7 +2,7 @@
 	import {
 		service_addIdInput,
 		service_modInput
-	} from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
+	} from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
 	import Button, { Label } from '@smui/button';
 
 	export let col;

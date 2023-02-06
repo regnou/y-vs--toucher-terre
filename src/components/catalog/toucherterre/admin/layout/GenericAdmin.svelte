@@ -1,6 +1,6 @@
 <script lang="ts">
-	import FormInjector from '../Forminjector.svelte';
-	import AxForm from './2-AxForm.svelte';
+	import FormInjector from './sublayout/Forminjector.svelte';
+	import AxForm from './sublayout/AxForm.svelte';
 
 	export let col;
 	export let GENERIC_STORE;

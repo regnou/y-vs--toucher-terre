@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import Separator from '@smui/list/src/Separator.svelte';
-	import { DATAJSON__HEADERMENU__APP } from '@app/data/MENUS/DATAJSON__HeaderMenuApp.json';
+	import { DATAJSON__HEADERMENU__APP } from '@app/DATA/MENUS/DATAJSON__HeaderMenuApp.json';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import DrawerMenuItem from '../DrawerMenuItem.svelte';

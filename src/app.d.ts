@@ -32,19 +32,9 @@ declare global {
 
 	type T_storeAcceuil = {};
 
-
-
-
 	// -----------------------------------------
 	// type mixed = T_blog | T_inputValue
 	// type T_storeCreationRealisation = Array<mixed>
-
-
-	// interface T_storeCreationRealisation = Array<T_inputValue | T_blog>
-	// interface T_storeCreationRealisation = (T_inputValue | T_blog)[]
-
-
-
 	// 	type T_storeCreationRealisation = (
 	// 		{
 	// 		T_inputValue | T_blog
@@ -60,14 +50,14 @@ declare global {
 	// type T_storeCreationRealisation = (T_inputValue | T_blog)[] | null
 
 	// -----------------------
-	type T_storeCreationRealisation = Array<(T_blog | T_inputValue)>
+	type T_storeCreationRealisation = Array<T_blog | T_inputValue>;
 
 	type T_blog = {
 		id: string;
 		index: number;
 		type: string;
 		posts: T_post[];
-	}
+	};
 	type T_post = {
 		id: number;
 		page: string;
@@ -75,7 +65,7 @@ declare global {
 		date_created: string;
 		date_modified: string;
 		inputValues: T_inputValue[];
-	}
+	};
 	// -----------------------
 	// form fields
 	type T_inputValue = {
@@ -84,10 +74,8 @@ declare global {
 		type: string;
 		label: string;
 		inputValue: string;
-	}
+	};
 	// -----------------------------------------
-
-
 }
 
-export { };
+export {};

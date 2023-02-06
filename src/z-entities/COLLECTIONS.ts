@@ -1,4 +1,4 @@
-import type { IInputEntity } from '@app/entities/IInputEntity';
+import type { IInputEntity } from '@app/z-entities/IInputEntity';
 import { collection, CollectionReference, type DocumentData } from 'firebase/firestore';
 import { getFirebase } from '../utils/tecnology/firebase/firebaseClient';
 // ---

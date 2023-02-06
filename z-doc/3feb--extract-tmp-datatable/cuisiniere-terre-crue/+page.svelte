@@ -1,8 +1,8 @@
 <script lang="ts">
-	import AxForm from '@app/components/catalog/toucherterre/admin/layout/2-AxForm.svelte';
 	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/layout/Layoutadminapp.svelte';
-	import { TABLE_CREATIONREALISATION } from '@app/entities/COLLECTIONS';
+	import { TABLE_CREATIONREALISATION } from '@app/z-entities/COLLECTIONS';
 	import { STORE_CREATIONREALISATION } from '@app/stores/STORES';
+	import AxForm from '@app/components/catalog/toucherterre/admin/layout/sublayout/AxForm.svelte';
 
 	// const col = 'TABLE_CREATIONREALISATION';
 	// const store = '';

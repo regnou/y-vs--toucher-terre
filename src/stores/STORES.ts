@@ -29,7 +29,6 @@ export const STORE_NEWSLETTER = writable<any[]>([]);
 
 // export const STORE_ACCEUIL:Writable<T_storeAcceuil> = writable([]);
 
-
 // export const STORE_ACCEUIL = asyncDerivedConsistent(STORE_ACCEUIL_BASE, startInitStore, [], TABLE_ACCEUIL)
 
 // do not build

@@ -2,11 +2,11 @@
 	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 	import { upload } from '@app/utils/tecnology/firebase/storageServices';
 	import { page } from '$app/stores';
-	import { service_modInput } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
-	import AxBtnCancel from '../form/AxBtnCancel.svelte';
-	import AxBtnOk from '../form/AxBtnOk.svelte';
-	import AxInputAll from './3-AxInputAll.svelte';
-	import AxBlog from '../tpl/blog/AxBlog.svelte';
+	import { service_modInput } from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
+	import AxBtnCancel from '../../TPL/form/AxBtnCancel.svelte';
+	import AxBtnOk from '../../TPL/form/AxBtnOk.svelte';
+	import AxInputAll from './items/AxInputAll.svelte';
+	import AxBlog from '../../TPL/blog/AxBlog.svelte';
 	//
 	export let col;
 	export let postId = -1; // postId, means the form edit, will only display the fields of the post

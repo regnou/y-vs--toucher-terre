@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
-	import AxInputAll from '../../layout/3-AxInputAll.svelte';
+	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
 	import { STORE_CREATIONREALISATION } from '@app/stores/STORES';
 
 	export let post; // take a reference to the GENERIC_STORE

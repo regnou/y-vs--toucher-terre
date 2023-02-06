@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/layout/Layoutadminapp.svelte';
-	import BaseAdmin from '@app/components/catalog/toucherterre/admin/layout/1-GenericAdmin.svelte';
-	import LaDemarcheApp from '@app/components/catalog/toucherterre/front/page/LaDemarcheApp.svelte';
-	import { TABLE_LADEMARCHE } from '@app/entities/COLLECTIONS';
+	import BaseAdmin from '@app/components/catalog/toucherterre/admin/layout/GenericAdmin.svelte';
+	import LaDemarcheApp from '@app/components/catalog/toucherterre/front/TPL/LaDemarcheApp.svelte';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';
-	import { DATAJSON__INJECT_LADEMARCHE } from '@app/data/DB-INJECT/DATAJSON__LaDemarche.json';
+	import { DATAJSON__INJECT_LADEMARCHE } from '@app/DATA/DB-INJECT/DATAJSON__LaDemarche.json';
+	import { TABLE_LADEMARCHE } from '@app/z-entities/COLLECTIONS';
 </script>
 
 <Layoutadminapp>

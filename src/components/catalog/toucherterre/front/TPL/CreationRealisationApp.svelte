@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { TABLE_CREATIONREALISATION } from '@app/entities/COLLECTIONS';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
+	import { service_getInputs } from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
 	import { STORE_CREATIONREALISATION } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import Loader from '../Loader.svelte';
 	import PostEntry from '../PostEntry.svelte';
 	import Slider from '../Slider.svelte';
+	import { TABLE_CREATIONREALISATION } from '@app/z-entities/COLLECTIONS';
 
 	let promise: Promise<any> = service_getInputs(TABLE_CREATIONREALISATION);
 

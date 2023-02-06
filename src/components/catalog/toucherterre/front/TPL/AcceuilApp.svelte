@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { TABLE_ACCEUIL } from '@app/entities/COLLECTIONS';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
+	import { service_getInputs } from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import Hero from '../Hero.svelte';
@@ -12,6 +11,7 @@
 	import ContactCard from '../Contactcard.svelte';
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
+	import { TABLE_ACCEUIL } from '@app/z-entities/COLLECTIONS';
 
 	// import Splide from '../splide.svelte';
 	let promise: Promise<any> = service_getInputs(TABLE_ACCEUIL);

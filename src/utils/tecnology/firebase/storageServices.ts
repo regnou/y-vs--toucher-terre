@@ -1,6 +1,6 @@
 import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
-import { TABLE_IMG } from '../../../entities/COLLECTIONS';
+import { TABLE_IMG } from '../../../z-entities/COLLECTIONS';
 import { dao_add } from './services/firestoreCRUDServices';
 
 async function upload(fileax) {

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/layout/Layoutadminapp.svelte';
-	import { TABLE_CREATIONREALISATION } from '@app/entities/COLLECTIONS';
 	import { STORE_CREATIONREALISATION } from '@app/stores/STORES';
-	import { DATAJSON__INJECT_CREATIONREALISATION } from '@app/data/DB-INJECT/DATAJSON__CreationRealisation';
-	import CreationRealisationApp from '@app/components/catalog/toucherterre/front/page/CreationRealisationApp.svelte';
-	import GenericAdmin from '@app/components/catalog/toucherterre/admin/layout/1-GenericAdmin.svelte';
+	import { DATAJSON__INJECT_CREATIONREALISATION } from '@app/DATA/DB-INJECT/DATAJSON__CreationRealisation';
+	import CreationRealisationApp from '@app/components/catalog/toucherterre/front/TPL/CreationRealisationApp.svelte';
+	import GenericAdmin from '@app/components/catalog/toucherterre/admin/layout/GenericAdmin.svelte';
+	import { TABLE_CREATIONREALISATION } from '@app/z-entities/COLLECTIONS';
 </script>
 
 <Layoutadminapp>

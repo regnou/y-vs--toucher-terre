@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { TABLE_PROCHAINSRDV } from '@app/entities/COLLECTIONS';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/firestoreCRUDAdminServices';
+	import { service_getInputs } from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
 	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import EventCard from '../Eventcard.svelte';
 	import Loader from '../Loader.svelte';
+	import { TABLE_PROCHAINSRDV } from '@app/z-entities/COLLECTIONS';
 
 	// hack-type
 	let arrTitle: any[] = [];

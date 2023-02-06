@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Textfield from '@smui/textfield';
-	import Axfileupload from '../form/Axfileupload.svelte';
+	import Axfileupload from '../../../TPL/form/Axfileupload.svelte';
 
 	export let files = null;
 	export let item; // take a reference to the GENERIC_STORE

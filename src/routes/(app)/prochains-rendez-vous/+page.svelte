@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProchainsRdvApp from '@app/components/catalog/toucherterre/front/page/ProchainsRdvApp.svelte';
+	import ProchainsRdvApp from '@app/components/catalog/toucherterre/front/TPL/ProchainsRdvApp.svelte';
 </script>
 
 <ProchainsRdvApp />

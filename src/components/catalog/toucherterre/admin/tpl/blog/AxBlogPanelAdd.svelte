@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
-	import AxBtnCancel from '../../form/AxBtnCancel.svelte';
-	import AxBtnOk from '../../form/AxBtnOk.svelte';
-	import AxInputAll from '../../layout/3-AxInputAll.svelte';
+	import AxBtnCancel from '../form/AxBtnCancel.svelte';
+	import AxBtnOk from '../form/AxBtnOk.svelte';
+	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
 	import { createEventDispatcher } from 'svelte';
 	import { STORE_CREATIONREALISATION } from '@app/stores/STORES';
 
