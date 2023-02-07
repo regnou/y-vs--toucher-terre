@@ -4,11 +4,12 @@
 	import IconButton, { Icon } from '@smui/icon-button';
 	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
 
+	export let isStaticPage = false;
+	export let open = isStaticPage;
 	export let GENERIC_STORE;
 	export let post; // take a reference to the GENERIC_STORE
 	export let ii: number;
 	// let panelOpens = [false, false, false, false, false];
-	let open = false;
 
 	// const dispatch = createEventDispatcher();
 	const del = () => {
@@ -37,9 +38,11 @@
 				<Icon class="material-icons" on>unfold_less</Icon>
 				<Icon class="material-icons">unfold_more</Icon>
 			</IconButton>
-			<IconButton on:click={del}>
-				<Icon class="material-icons">delete</Icon>
-			</IconButton>
+			{#if !isStaticPage}
+				<IconButton on:click={del}>
+					<Icon class="material-icons">delete</Icon>
+				</IconButton>
+			{/if}
 		</div>
 	</Header>
 	<!--  -->

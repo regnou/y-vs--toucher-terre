@@ -1,31 +1,4 @@
 export const DATAJSON__INJECT_PROCHAINSRDV = [
-	// let d1 =
-	// 	'2023_02_21-CP-Construction-d_une-charpente-en-bois-rond-sculpte-+-toiture-vegetalisee.jpg';
-
-	// let d2 = '2023_03_04-WED-Correction-thermique-en-terre-paille-et-enduits-terre-interieurs.jpg';
-	// let d3 = '2023_03_13-CE-Construction-d_une-cuisinieere-en-terre-crue.jpg';
-	// let d4 = '2023_03_23-CE-Realisation-d_un-sanitaire-ecologique.jpg';
-	// let d5 =
-	// 	'2023_04_01-WED-Realisation-d_une-mini-charpente-reciproque-et-d_un-pont-Leonard-de-Vinci.jpg';
-	// let d6 =
-	// 	'2023_04_11-CP-Fondations-et-soubassements-en-pierres-maçonnees-pour-doome-geodesique.jpg';
-	// let d7 =
-	// 	'2023_05_08-CP-Volige-en-bois-brut-et-toiture-vegetalisee-sur-kiosque-realisation-d_un-garde-corps-sculpte-et-du-parquet.jpg';
-	// let d8 = '2023_06_05-CE-Construction-cuisinière-en-terre-crue-interieure.jpg';
-	// let d9 =
-	// 	'2023_09_04-Defi-paillourte-Fondations-et-soubassements-en-pierres-maçonnees-pour-paillourte.jpg';
-	// let d10 = 
-	// 	'2023_09_11-Defi-paillourte-Ossature-bois--charpente-reciproque--toiture-vegetalisee--murs-en-paille-et-corps-d_enduits.jpg';
-
-	// let e11 = "Juillet – Chantier participatif - Réalisation d'ouverture dans murs en pierre (44)";
-	// let e12 =
-	// 	"Juillet – Chantier école - Réalisation d'enduits extérieurs sur murs en pierre et paille (44)";
-	// let e13 =
-	// 	'Août 2023 – Chantier école - Poêle de masse et cuisinière intérieure en terre crue (Batchbox + Batchblock) (49)';
-	// let e14 =
-	// 	'du 04 au 09 Septembre 2023 – Défi Paillourte - Fondations et mur de soubassement paillourte';
-	// let e15 =
-	// 	"du 11 au 23 Septembre 2023 – Défi Paillourte - Ossature bois, charpente réciproque, toiture végétalisée, murs en paille et corps d'enduits";
 	{
 		id: '1',
 		index: 1,
@@ -418,3 +391,30 @@ export const DATAJSON__INJECT_PROCHAINSRDV = [
 		]
 	}
 ]
+// let d1 =
+	// 	'2023_02_21-CP-Construction-d_une-charpente-en-bois-rond-sculpte-+-toiture-vegetalisee.jpg';
+
+	// let d2 = '2023_03_04-WED-Correction-thermique-en-terre-paille-et-enduits-terre-interieurs.jpg';
+	// let d3 = '2023_03_13-CE-Construction-d_une-cuisinieere-en-terre-crue.jpg';
+	// let d4 = '2023_03_23-CE-Realisation-d_un-sanitaire-ecologique.jpg';
+	// let d5 =
+	// 	'2023_04_01-WED-Realisation-d_une-mini-charpente-reciproque-et-d_un-pont-Leonard-de-Vinci.jpg';
+	// let d6 =
+	// 	'2023_04_11-CP-Fondations-et-soubassements-en-pierres-maçonnees-pour-doome-geodesique.jpg';
+	// let d7 =
+	// 	'2023_05_08-CP-Volige-en-bois-brut-et-toiture-vegetalisee-sur-kiosque-realisation-d_un-garde-corps-sculpte-et-du-parquet.jpg';
+	// let d8 = '2023_06_05-CE-Construction-cuisinière-en-terre-crue-interieure.jpg';
+	// let d9 =
+	// 	'2023_09_04-Defi-paillourte-Fondations-et-soubassements-en-pierres-maçonnees-pour-paillourte.jpg';
+	// let d10 =
+	// 	'2023_09_11-Defi-paillourte-Ossature-bois--charpente-reciproque--toiture-vegetalisee--murs-en-paille-et-corps-d_enduits.jpg';
+
+	// let e11 = "Juillet – Chantier participatif - Réalisation d'ouverture dans murs en pierre (44)";
+	// let e12 =
+	// 	"Juillet – Chantier école - Réalisation d'enduits extérieurs sur murs en pierre et paille (44)";
+	// let e13 =
+	// 	'Août 2023 – Chantier école - Poêle de masse et cuisinière intérieure en terre crue (Batchbox + Batchblock) (49)';
+	// let e14 =
+	// 	'du 04 au 09 Septembre 2023 – Défi Paillourte - Fondations et mur de soubassement paillourte';
+	// let e15 =
+	// 	"du 11 au 23 Septembre 2023 – Défi Paillourte - Ossature bois, charpente réciproque, toiture végétalisée, murs en paille et corps d'enduits";

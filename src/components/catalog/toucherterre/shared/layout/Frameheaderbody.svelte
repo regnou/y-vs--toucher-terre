@@ -45,7 +45,7 @@
 	<!-- top-app-bar--content -->
 	<!-- place-items-center - le centrage du body se fait ici... changer si on ve NON centre -->
 	<AutoAdjust {topAppBar} class="border-4 border-cyan-500 " id="frameheaderbody-body--1">
-		<main class="m-auto max-w-6xl border-4 border-black p-5">
+		<main class="m-auto max-w-6xl border-4 border-black ">
 			<slot name="content-2" />
 		</main>
 	</AutoAdjust>

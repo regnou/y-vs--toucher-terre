@@ -3,20 +3,23 @@
 	import AxBlogPanel from './AxBlogPanel.svelte';
 	import AxBlogPanelAdd from './AxBlogPanelAdd.svelte';
 
+	export let isStaticPage = true;
 	export let GENERIC_STORE;
 	export let GENERIC_ADD = null;
 </script>
 
 <!-- THE BLOG is a list of articles you can manage -->
 <Accordion class="demo-small-titles">
-	<!-- PANEL ADD -->
-	<AxBlogPanelAdd {GENERIC_STORE} {GENERIC_ADD} />
+	{#if !isStaticPage}
+		<!-- PANEL ADD -->
+		<AxBlogPanelAdd {GENERIC_STORE} {GENERIC_ADD} />
+	{/if}
 
 	<!-- PANEL EDITS -->
 	{#if $GENERIC_STORE && $GENERIC_STORE.length}
 		{#each $GENERIC_STORE[0].posts as post, ii (post.url)}
-			<!-- on:delete={deletePost}  -->
-			<AxBlogPanel {GENERIC_STORE} {ii} bind:post />
+			<!-- if it is not a blog, so we directly open the post -->
+			<AxBlogPanel {isStaticPage} {GENERIC_STORE} {ii} bind:post />
 		{/each}
 	{/if}
 </Accordion>

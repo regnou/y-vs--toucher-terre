@@ -5,7 +5,6 @@
 
 <div id="layoutadminapp--1">
 	<Framedrawer isAdmin={true}>
-		<!--  -->
 		<!-- HEADER -->
 		<slot slot="header-1">
 			<HeaderAdmin />
@@ -14,12 +13,11 @@
 		<!-- BODY -->
 		<!-- TIP: le flex ci dessous, permet de mettre l admin a cote ou au dessus du viewer -->
 		<div slot="content-1" id="layoutadminapp-body--1" class=" max-w-6xl  ">
-			<!--  -->
 			<!-- SLOT ADMIN -->
-			<div id="vieweradmin--1" class=" border-4 border-blue-500 px-10">
+			<div id="vieweradmin--1" class=" border-4 border-blue-500 ">
 				<slot name="admin" />
 			</div>
-			<!--  -->
+
 			<!-- SLOT APP -->
 			<slot name="app" id="viewerapp--1" />
 		</div>

@@ -5,6 +5,9 @@
 	import HeaderApp from '../../shared/layout/HeaderApp.svelte';
 
 	let imgBg = 'N/A';
+	let prominent = false;
+	let dense = false;
+	let secondaryColor = false;
 	const GALLERY: any = {
 		'/acceuil': { url: '/media/bg/bg-1.jpg' },
 		'/la-demarche': { url: '/media/bg/bg-2.jpg' },
@@ -18,10 +21,6 @@
 		const menuUrl = GALLERY[menu] ? GALLERY[menu].url : 'N/A';
 		imgBg = menuUrl;
 	}
-
-	let prominent = false;
-	let dense = false;
-	let secondaryColor = false;
 </script>
 
 <!--  -->
