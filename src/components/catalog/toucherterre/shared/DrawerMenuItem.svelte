@@ -7,6 +7,7 @@
 	export let menu = 'N/A';
 
 	let active = $page.url.pathname;
+	$: active = $page.url.pathname;
 	//
 	onMount(() => {
 		console.log($page.url.pathname + ' - (why so much ? ) mount -- ');

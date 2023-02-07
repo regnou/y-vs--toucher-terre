@@ -3,33 +3,23 @@
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
-	import { onMount } from 'svelte';
 	import DrawerMenuItem from '../DrawerMenuItem.svelte';
 
 	export let open;
 	export let dynVariant; // 'modal', 'dismissible'
-
-	// let drawer = null;
 </script>
-
-<!-- <div class="drawer-container"> -->
-<!-- <Drawer variant="dismissible" bind:open> -->
-<!-- <Drawer variant="modal" fixed={false} bind:open> -->
-<!-- Don't include fixed={false} if this is a page wide drawer.
-        It adds a style for absolute positioning. -->
 
 <!--  -->
 <!-- DRAWER -->
 <!--  -->
-<!-- fixed={false} -->
-<Drawer bind:variant={dynVariant} bind:open id="draweradmin--1">
-	<!-- <Drawer bind:this={drawer} bind:variant={dynVariant} bind:open id="draweradmin--1"> -->
-	<!-- drawer--header -->
+<Drawer bind:variant={dynVariant} bind:open id="draweradmin--1" class="fixed">
+	<!-- HEADER -->
 	<Header>
 		<Title>AXELO</Title>
 		<Subtitle>1.0.0</Subtitle>
 	</Header>
-	<!-- drawer--content (les mens du drawer) -->
+	<!-- drawer--content (les menus du drawer) -->
+	<!-- WE FIXE THE DRAWER to not scroll -->
 	<Content>
 		<!-- Aller sur le site -->
 		<!-- <Separator /> -->
@@ -40,7 +30,7 @@
 		<!-- <DrawerMenuItem url={'/admin'} menu={'Tableau de bord'} /> -->
 
 		<Separator />
-		<Subheader>Pages</Subheader>
+		<Subheader>Editer les pages du site</Subheader>
 		<!-- <DrawerMenuItem url={'/admin/pages'} menu={'Toutes les pages'} /> -->
 
 		<!-- QUICK LINKS PAGES EDIT -->

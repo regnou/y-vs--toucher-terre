@@ -29,12 +29,12 @@
 	let isLg = matches(lg);
 	let isXl = matches(xl);
 	let isXxl = matches(xxl);
-
+	// -------------------------------------
 	onMount(() => {
 		// if (isXs) dynVariant = 'modal';
 		// else dynVariant = 'dismissible';
 	});
-
+	// -------------------------------------
 	$: {
 		console.log('openApp: ', openApp);
 		console.log('openAdmin ', openAdmin);
@@ -51,7 +51,7 @@
 		}
 		console.log('$2: DRAWER-AX--dynvariant-after:', dynVariant);
 	}
-
+	// -------------------------------------
 	function handleResize(e) {
 		isXs = matches(xs);
 		isSm = matches(sm);
@@ -62,7 +62,7 @@
 		console.log(isXs, isSm, isMd, isLg, isXl, isXxl);
 		//
 	}
-
+	// -------------------------------------
 	//press esc TO open/close drawer
 	function handleNavWithKey(e) {
 		if (e.code === 'Escape') {
@@ -70,7 +70,7 @@
 			else openApp = !openApp;
 		}
 	}
-
+	// -------------------------------------
 	function matches(query) {
 		if (browser) {
 			return window.matchMedia(query).matches;
@@ -91,7 +91,7 @@
 {:else}
 	<DrawerApp bind:open={openApp} {dynVariant} />
 {/if}
-<!--  -->
+
 <!-- scrim -->
 <!--  -->
 {#if isXs || isSm}
