@@ -1,38 +1,32 @@
-<!-- <svelte:options accessors={true} /> -->
 <script lang="ts">
+	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
+
+	export let ivItm; // we have to dynamically add a field, that is the blob UPLOADED
 	// to upload binary
 	let imgFromElement;
 	let hasUploaded_aLocalImg = false;
-
-	// export let storeIndex = 0;
-	export let files: any | null = null;
-	export let urlStorage = '';
+	let files: any | null = null;
 
 	$: (async () => {
 		if (files) {
 			let reader = new FileReader();
 			// Note that `files` is of type `FileList`, not an Array:
 			// https://developer.mozilla.org/en-US/docs/Web/API/FileList
-			console.log('FILES HAS CHANGED >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<');
-			console.log(files.length, ' ', files);
+			// console.log('FILES HAS CHANGED >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<');
+			// console.log(files.length, ' ', files);
 			for (const file of files) {
 				console.log(`${file.name}: ${file.size} bytes`);
 				reader.readAsDataURL(file);
 				reader.onload = (e) => {
 					imgFromElement = e.target?.result;
 					hasUploaded_aLocalImg = true;
+					// DYNAMIC ADD THIS ATTRIBUTE -> type ...
+					ivItm.blobs = files;
+					// console.log($STORE_PROCHAINSRDV[0].posts);
 				};
 			}
-			// // FAST and BAD - upload image now
-			// const { STORAGE } = getFirebase();
-			// urlStorage = await upload(STORAGE, files[0]);
-			// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><');
-			// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><');
-			// console.log('UPDATED to new URL STORAGE : ', urlStorage);
 		}
 	})();
-
-	// gs://y-toucherterre.appspot.com/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.png
 </script>
 
 <!-- 2 -->
@@ -81,8 +75,10 @@
 					class="z-0 mt-10 absolute inset-0 object-cover"
 				/> -->
 			{/each}
-		{:else if urlStorage}
-			<img src={urlStorage} alt="" class="absolute inset-0 z-0 mt-10 object-cover" />
+		{:else if ivItm.inputValue}
+			<img src={ivItm.inputValue} alt="" class="absolute inset-0 z-0 mt-10 object-cover" />
+			<!-- {:else if urlStorage}
+			<img src={urlStorage} alt="" class="absolute inset-0 z-0 mt-10 object-cover" /> -->
 		{/if}
 	</header>
 </section>

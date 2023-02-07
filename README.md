@@ -1,3 +1,5 @@
+<!-- // gs://y-toucherterre.appspot.com/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.png -->
+
     // files_all.forEach(async (fileList, i) => {
     	// 	if (fileList) {
     	// 		const urlStorage = await upload(fileList[0]);
@@ -140,3 +142,6 @@ You can preview the production build with `npm run preview`.
 		<!-- {/if} -->
 	{/each}
 </List>
+
+    // replace space
+    // $: labelFormName = labelName.toLowerCase().replace(/\s/g, ""); // 3 to use as the name for the FORM

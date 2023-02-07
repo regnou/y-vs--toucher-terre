@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
+	import { service_getInputs } from '@app/services/crudService';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import Hero from '../Hero.svelte';

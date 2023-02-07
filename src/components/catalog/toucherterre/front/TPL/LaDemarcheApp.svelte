@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { service_getInputs } from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
+	import { service_getInputs } from '@app/services/crudService';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import Hero2 from '../Hero2.svelte';

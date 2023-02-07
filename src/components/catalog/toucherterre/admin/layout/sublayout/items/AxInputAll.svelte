@@ -2,37 +2,43 @@
 	import Textfield from '@smui/textfield';
 	import Axfileupload from '../../../TPL/form/Axfileupload.svelte';
 
-	export let files = null;
-	export let item; // take a reference to the GENERIC_STORE
-
-	// replace space
-	// $: labelFormName = labelName.toLowerCase().replace(/\s/g, ""); // 3 to use as the name for the FORM
+	export let ivItm; // take a reference to the GENERIC_STORE
 </script>
 
 <div>
-	{#if item.type === 'text'}
+	<!--  -->
+	<!--  -->
+	<!-- TXT -->
+	{#if ivItm.type === 'text'}
 		<Textfield
 			style="width: 100%;"
 			helperLine$style="width: 100%;"
-			bind:value={item.inputValue}
-			label={item.label}
+			bind:value={ivItm.inputValue}
+			label={ivItm.label}
 		>
 			<!-- <HelperText slot="helper">Helper Text</HelperText> -->
 		</Textfield>
-	{:else if item.type === 'file'}
-		<div class="max-w-xs">
-			<div class="text-xs text-gray-400">{item.label}</div>
-			<Axfileupload bind:files bind:urlStorage={item.inputValue} />
-		</div>
-	{:else if item.type === 'area'}
+		<!--  -->
+		<!--  -->
+		<!-- TXT AREA -->
+	{:else if ivItm.type === 'area'}
 		<Textfield
 			style="width: 100%; height: 200px;"
 			textarea
-			bind:value={item.inputValue}
-			label={item.label}
+			bind:value={ivItm.inputValue}
+			label={ivItm.label}
 		/>
 		<!-- input$maxlength={500} -->
 		<!-- helperLine$style="width: 100%;" -->
 		<!-- <CharacterCounter slot="internalCounter">0 / 100</CharacterCounter> -->
+		<!--  -->
+		<!--  -->
+		<!-- FILE -->
+	{:else if ivItm.type === 'file'}
+		<div class="max-w-xs">
+			<div class="text-xs text-gray-400">{ivItm.label}</div>
+			<Axfileupload bind:ivItm />
+			<!-- <Axfileupload bind:files bind:urlStorage={ivItm.inputValue} /> -->
+		</div>
 	{/if}
 </div>

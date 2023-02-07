@@ -1,20 +1,20 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	// import { createEventDispatcher } from 'svelte';
 	import { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
 	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
-	import { STORE_CREATIONREALISATION } from '@app/stores/STORES';
 
+	export let GENERIC_STORE;
 	export let post; // take a reference to the GENERIC_STORE
 	export let ii: number;
 	// let panelOpens = [false, false, false, false, false];
 	let open = false;
 
-	const dispatch = createEventDispatcher();
+	// const dispatch = createEventDispatcher();
 	const del = () => {
 		if (confirm("Supprimer l'article ?")) {
-			$STORE_CREATIONREALISATION[0].posts.splice(ii, 1);
-			$STORE_CREATIONREALISATION[0].posts = $STORE_CREATIONREALISATION[0].posts;
+			$GENERIC_STORE[0].posts.splice(ii, 1);
+			$GENERIC_STORE[0].posts = $GENERIC_STORE[0].posts;
 			open = false;
 		}
 		// dispatch('delete', {
@@ -46,8 +46,8 @@
 	<Content>
 		<div class="space-y-10">
 			<div class="space-y-10">
-				{#each post.inputValues as itm}
-					<AxInputAll bind:item={itm} />
+				{#each post.inputValues as ivItm}
+					<AxInputAll bind:ivItm />
 				{/each}
 			</div>
 		</div>

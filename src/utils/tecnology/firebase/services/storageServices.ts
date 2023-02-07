@@ -1,7 +1,7 @@
 import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
-import { TABLE_IMG } from '../../../z-entities/COLLECTIONS';
-import { dao_add } from './services/firestoreCRUDServices';
+import { TABLE_IMG } from '../../../../z-entities/COLLECTIONS';
+import { dao_add } from './firestoreServices';
 
 async function upload(fileax) {
 	// return new Promise(async function (resolve, reject) {
@@ -23,7 +23,7 @@ async function upload(fileax) {
 	// 'file' comes from the Blob or File API
 	const snap = await uploadBytes(storageRef, fileax);
 	const downloadURL = await getDownloadURL(snap.ref);
-	console.log('mission finished: ', downloadURL);
+	console.log('mission finished: downloadURL: ', downloadURL);
 	return downloadURL;
 
 	// const uploadTask = uploadBytesResumable(storageRef, fileax, metadata);

@@ -1,44 +1,97 @@
 <script lang="ts">
-	import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
-	import { upload } from '@app/utils/tecnology/firebase/storageServices';
+	import { upload } from '@app/utils/tecnology/firebase/services/storageServices';
 	import { page } from '$app/stores';
-	import { service_modInput } from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
+	import { service_modInput } from '@app/services/crudService';
+	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
 	import AxBtnCancel from '../../TPL/form/AxBtnCancel.svelte';
 	import AxBtnOk from '../../TPL/form/AxBtnOk.svelte';
 	import AxInputAll from './items/AxInputAll.svelte';
 	import AxBlog from '../../TPL/blog/AxBlog.svelte';
-	//
+
 	export let col;
 	export let postId = -1; // postId, means the form edit, will only display the fields of the post
-
-	// hack-type
+	export let GENERIC_ADD = null;
 	export let GENERIC_STORE: any = [];
 
-	let files_all = [null, null, null, null, null, null, null, null, null, null];
-
-	// $: $site = data.site;
-	$: console.log('files_all: ', files_all);
 	$: console.log('todel::', postId);
 
+	async function createStorageUrl() {
+		$GENERIC_STORE[0].posts.forEach(async (post, ii) => {
+			post.inputValues.forEach(async (ivItm) => {
+				// console.log('verify it is here');
+				// console.log($STORE_PROCHAINSRDV[0].posts);
+
+				if (ivItm.type === 'file' && ivItm.blobs) {
+					console.log(" (ivItm.type === 'file' && ivItm.blobs) HAS PASSED");
+					// we always just have ONE FILE
+					const urlStorage = await upload(ivItm.blobs[0]);
+
+					// const urlStorage = await upload(fileList[0]);
+					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+					ivItm.inputValue = urlStorage;
+
+					// We unlink the blob now from the store
+					delete ivItm.blobs;
+
+					// console.log('urlStorage : ', ivItm.inputValue);
+					console.log('verify it is deleted blob ');
+					console.log($GENERIC_STORE[0].posts);
+					console.log('________________________________');
+				}
+			});
+		});
+	}
+
 	async function save() {
-		console.log('click > onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
-		console.log('🟨 (1/2)');
-		// FAST and BAD - upload image now
-		const { STORAGE } = getFirebase();
-		for (let index = 0; index < files_all.length; index++) {
-			const fileList = files_all[index];
-			if (fileList) {
-				const urlStorage = await upload(fileList[0]);
-				// const urlStorage = await upload(fileList[0]);
-				$GENERIC_STORE[index].inputValue = urlStorage;
-				console.log('UPDATE FINAL : ', $GENERIC_STORE[index].inputValue, ' -- ', urlStorage);
-				console.log('________________________________');
+		console.log('click > onsave 1 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
+		// await createStorageUrl();
+		for (const post of $GENERIC_STORE[0].posts) {
+			for (const ivItm of post.inputValues) {
+				if (ivItm.type === 'file' && ivItm.blobs) {
+					console.log(" (ivItm.type === 'file' && ivItm.blobs) HAS PASSED");
+					// we always just have ONE FILE
+					const urlStorage = await upload(ivItm.blobs[0]);
+					// const urlStorage = await upload(fileList[0]);
+					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+					ivItm.inputValue = urlStorage;
+					// We unlink the blob now from the store
+					delete ivItm.blobs;
+					// console.log('urlStorage : ', ivItm.inputValue);
+					console.log('verify it is deleted blob ');
+					console.log($GENERIC_STORE[0].posts);
+					console.log('________________________________');
+				}
 			}
 		}
-		console.log('🟨 (2/2)');
-		// SAVE LE STORE VERS FIRESTORE
+		// $GENERIC_STORE[0].posts.forEach(async (post, ii) => {
+		// 	post.inputValues.forEach(async (ivItm) => {
+		// 		console.log('verify it is here');
+		// 		console.log($STORE_PROCHAINSRDV[0].posts);
+
+		// 		if (ivItm.type === 'file' && ivItm.blobs) {
+		// 			console.log(" (ivItm.type === 'file' && ivItm.blobs) HAS PASSED");
+		// 			// we always just have ONE FILE
+		// 			const urlStorage = await upload(ivItm.blobs[0]);
+
+		// 			// const urlStorage = await upload(fileList[0]);
+		// 			// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+		// 			ivItm.inputValue = urlStorage;
+
+		// 			// We unlink the blob now from the store
+		// 			delete ivItm.blobs;
+
+		// 			// console.log('urlStorage : ', ivItm.inputValue);
+		// 			console.log('verify it is deleted blob ');
+		// 			console.log($GENERIC_STORE[0].posts);
+		// 			debugger;
+		// 			console.log('________________________________');
+		// 		}
+		// 	});
+		// });
+		console.log('click > onsave 2 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
+		console.log('check the store: no blob: ', $GENERIC_STORE[0].posts);
 		await service_modInput(col, 'summaryId', { data: $GENERIC_STORE });
-		console.log('click < onsave 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
+		console.log('click < onsave 3 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
 	}
 </script>
 
@@ -46,20 +99,21 @@
 <!--  -->
 <!--  -->
 
-<div id="AxForm--1" class=" rounded-xl  border-4 bg-white p-5 text-black">
+<div id="AxForm--1" class="rounded-xl border-4  bg-white p-5 uppercase text-black">
 	<!-- <button on:click={injectScript}>> INJECT DATA !</button> -->
 	<div class="mb-10 text-center text-2xl font-bold">
-		{$page.url.pathname.replace('/admin/pages/', '')}
+		{$page.url.pathname.replace('/admin/pages/', '').replace('-', ' ')}
 	</div>
 	<!--  -->
 	<div class="space-y-6 p-2">
-		<!-- {@debug $store} -->
 		{#if $GENERIC_STORE && $GENERIC_STORE.length}
 			{#each $GENERIC_STORE as item, i}
+				<!-- to del type = blog -->
 				{#if item.type === 'blog'}
-					<AxBlog {item} />
-				{:else}
-					<AxInputAll {item} bind:files={files_all[i]} />
+					<AxBlog {GENERIC_ADD} {GENERIC_STORE} />
+					<!-- TODO - just a BLOG LOOP ! -->
+					<!-- {:else}
+					<AxInputAll {iv} bind:files={files_all[i]} /> -->
 				{/if}
 			{/each}
 		{/if}

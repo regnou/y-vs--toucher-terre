@@ -1,8 +1,5 @@
 <script lang="ts">
-	import {
-		service_addIdInput,
-		service_modInput
-	} from '@app/utils/tecnology/firebase/services/MOA/firestoreDAO';
+	import { service_addIdInput, service_modInput } from '@app/services/crudService';
 	import Button, { Label } from '@smui/button';
 
 	export let col;

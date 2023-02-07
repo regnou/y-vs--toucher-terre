@@ -9,7 +9,7 @@
 	let active = $page.url.pathname;
 	//
 	onMount(() => {
-		console.log('mount -- ' + $page.url.pathname);
+		console.log($page.url.pathname + ' - (why so much ? ) mount -- ');
 	});
 
 	// UTILS
@@ -18,8 +18,10 @@
 	}
 </script>
 
-<Item on:click={() => setActive(url)} activated={active === url}>
-	<a href={url} class="w-full" rel="prefetch">
-		<Text>{menu}</Text>
-	</a>
-</Item>
+<a href={url} class="w-full" rel="prefetch">
+	<Item on:click={() => setActive(url)} activated={active === url}>
+		<Text>
+			{menu}
+		</Text>
+	</Item>
+</a>

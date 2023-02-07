@@ -5,7 +5,12 @@
 </script>
 
 <!-- type="submit" -->
-<Button on:click={callback} variant="raised">
+<Button
+	on:click={async () => {
+		await callback();
+	}}
+	variant="raised"
+>
 	<Label>{text}</Label>
 </Button>
 
