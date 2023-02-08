@@ -3,10 +3,16 @@ import { writable, type Writable } from 'svelte/store';
 
 export const STORE_ACCEUIL = writable<any[]>([]);
 export const STORE_LADEMARCHE = writable<any[]>([]);
-
 export const STORE_CREATIONREALISATION = writable<T_storeCreationRealisation>([]);
 export const STORE_PROCHAINSRDV = writable<any[]>([]);
 export const STORE_NEWSLETTER = writable<any[]>([]);
+
+// -- guard
+	// function isBlog(item: T_inputValue | T_blog): item is T_blog {
+	// 	// return (item as T_blog).swim !== undefined;
+	// 	return 'posts' in item;
+	// }
+
 
 // import asyncDerivedConsistent from "./utils/consistent";
 

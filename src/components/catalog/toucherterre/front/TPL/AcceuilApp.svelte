@@ -19,6 +19,7 @@
 		$STORE_ACCEUIL = data[0] ? data[0].data : [];
 	});
 	//--------------------------------------------------------------------
+	$: console.log($STORE_ACCEUIL);
 </script>
 
 {#await promise}

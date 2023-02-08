@@ -22,8 +22,8 @@ export function getFirebase() {
 		// initAllCol(services.FIRESTORE); // todo
 
 		//////////////////////////////////
-		connectToEmulators(services); // actuellement en local
-		// console.log('🟠 🟠 🟠 🟠 🟠  USING LOCAL EMULATOR oooooooooo 🟠 🟠 🟠 🟠 🟠 ');
+		console.log('🟠 🟠 🟠 🟠 🟠  USING < PRODUCTION > EMULATOR oooooooooo 🟠 🟠 🟠 🟠 🟠 ');
+		// connectToEmulators(services); // actuellement en local
 		//////////////////////////////////
 
 		// enableMultiTabIndexedDbPersistence(services.firestore)
@@ -85,7 +85,7 @@ export function getFirebase() {
 	}
 	function connectToEmulators({ FIRESTORE }: any) {
 		//i f (location.hostname === 'localhost') {
-		console.log('🟡 🟡 🟡 🟡 🟡 🟡 USING LOCAL EMULATOR oooooooooo 🟡 🟡 🟡 🟡 🟡');
+		console.log('🟡 🟡 🟡 🟡 🟡 🟡 USING < LOCAL > EMULATOR oooooooooo 🟡 🟡 🟡 🟡 🟡');
 		// --- DEBUG local
 		connectFirestoreEmulator(FIRESTORE, 'localhost', 8080);
 		// --- todo
