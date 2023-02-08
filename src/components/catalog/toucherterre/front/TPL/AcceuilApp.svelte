@@ -26,20 +26,18 @@
 {:then data}
 	<main id="acceuilApp--1">
 		{#if $STORE_ACCEUIL && $STORE_ACCEUIL.length}
-			<!-- dans le cas statique (non blog/post), on ne prend que le premier item -->
+			<!-- why index = 0 -> dans le cas statique (non blog/post), on ne prend que le premier item -->
 			<Hero
 				bind:img={$STORE_ACCEUIL[0].posts[0].inputValues[0].inputValue}
 				bind:text={$STORE_ACCEUIL[0].posts[0].inputValues[1].inputValue}
 			/>
 			<SeparatorMedium />
-
 			<Title text={$STORE_ACCEUIL[0].posts[0].inputValues[2].inputValue} />
 			<SeparatorMedium />
-
 			<Paragraph text={$STORE_ACCEUIL[0].posts[0].inputValues[3].inputValue} />
 			<SeparatorMedium />
-
 			<Twocol>
+				<!-- CONTACT -->
 				<ContactCard
 					title={$STORE_ACCEUIL[0].posts[0].inputValues[4].inputValue}
 					subtitle={$STORE_ACCEUIL[0].posts[0].inputValues[5].inputValue}
@@ -47,8 +45,10 @@
 					fb={$STORE_ACCEUIL[0].posts[0].inputValues[7].inputValue}
 					tel={$STORE_ACCEUIL[0].posts[0].inputValues[8].inputValue}
 				/>
+				<!-- SLIDER -->
 				<div id="slider--1" class="grid place-items-center border-4 border-white ">
-					<Slider />
+					<!-- why idx 1 -> becoz in staticpage, i do it as I want -->
+					<Slider items={$STORE_ACCEUIL[1].posts} />
 				</div>
 			</Twocol>
 		{/if}

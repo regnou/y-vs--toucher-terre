@@ -1,12 +1,17 @@
-<!-- // const dispatch = createEventDispatcher();
+    // const dispatch = createEventDispatcher();
+    	// dispatch('delete', {
+    	// 	ii: ii
+    	// });
+    	<!-- // const dispatch = createEventDispatcher();
+
 // onMount(() => {
-// 	console.log('-- onMount');
-// 	dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
+// console.log('-- onMount');
+// dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
 // });
 
 // afterUpdate(() => {
-// 	console.log('-- afterUpdate');
-// 	// dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
+// console.log('-- afterUpdate');
+// // dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
 // }); -->
 
 <!-- // gs://y-toucherterre.appspot.com/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.png -->

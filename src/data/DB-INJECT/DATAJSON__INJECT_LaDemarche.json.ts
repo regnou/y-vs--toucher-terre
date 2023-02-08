@@ -11,7 +11,6 @@ export const DATAJSON__INJECT_LADEMARCHE = [
 				date_created: '12/12/12',
 				date_modified: '10/10/10',
 				inputValues: [
-
 					{
 						id: '',
 						index: 1,

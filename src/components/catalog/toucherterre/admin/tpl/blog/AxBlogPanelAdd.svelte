@@ -4,27 +4,26 @@
 	import AxBtnCancel from '../form/AxBtnCancel.svelte';
 	import AxBtnOk from '../form/AxBtnOk.svelte';
 	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
-	import { createEventDispatcher } from 'svelte';
 
+	export let pos_blog;
 	export let GENERIC_STORE;
 	export let GENERIC_ADD = [];
-	// export let item1 = { type: 'text', label: "Titre de l'article", inputValue: '' };
-	// export let item2 = { type: 'area', label: "Contenu de l'article", inputValue: '' };
-
 	let open = false;
 
 	const add = () => {
-		// console.log('this is add');
-		// dispatch('add', {
-		// 	title: item1.inputValue,
-		// 	content: item2.inputValue
-		// });
-
+		console.log('voila le GENERIC_ADD: ', GENERIC_ADD);
 		// post to send
-		const post = {
+		const postMeta = {
 			id: 1,
-			page: '',
-			url: '',
+			//
+			// ATTENTION, c qd m beroute la !
+			//
+			// car l ordre du schema de ADD_XXX doivent mapper les deux params importants
+			// DONT SURTOUT l URL, car elle s ert d ID unique pour svelte-ui--key
+			page: GENERIC_ADD[0].inputValue, //seo
+			url: GENERIC_ADD[1].inputValue, // url
+			//
+			//
 			date_created: '12/12/12',
 			date_modified: '10/10/10',
 			inputValues: []
@@ -32,39 +31,18 @@
 
 		// a voir si check if null
 		GENERIC_ADD.forEach((itm) => {
-			post.inputValues.push(itm);
+			postMeta.inputValues.push(itm);
 		});
-		post.page = GENERIC_ADD[0];
-		post.url = GENERIC_ADD[1];
 
-		// {
-		// 			id: '1',
-		// 			index: 1,
-		// 			type: 'text',
-		// 			label: 'Titre de l’article',
-		// 			inputValue: item1.inputValue
-		// 		},
-		// 		{
-		// 			id: '2',
-		// 			index: 2,
-		// 			type: 'area',
-		// 			label: "Contenu de l'article",
-		// 			inputValue: item2.inputValue
-		// 		}
 		if (confirm("Ajouter l'article ?")) {
-			$GENERIC_STORE[0].posts.push(post);
-			$GENERIC_STORE[0].posts = $GENERIC_STORE[0].posts;
-			// $GENERIC_STORE[0].posts = $GENERIC_STORE[0].posts;
+			$GENERIC_STORE[pos_blog].posts.push(postMeta);
+			$GENERIC_STORE[pos_blog].posts = $GENERIC_STORE[pos_blog].posts;
 			open = false;
-
+			console.log('this post is added to STORE: ', postMeta);
 			// reset form
-			GENERIC_ADD.forEach((itm) => {
-				itm.inputValue = '';
-			});
-
-			// GENERIC_STORE
-			// item1.inputValue = '';
-			// item2.inputValue = '';
+			// GENERIC_ADD.forEach((itm) => {
+			// 	itm.inputValue = '';
+			// });
 		}
 	};
 </script>

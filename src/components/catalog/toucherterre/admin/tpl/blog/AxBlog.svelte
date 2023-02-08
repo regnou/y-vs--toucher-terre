@@ -1,72 +1,45 @@
 <script lang="ts">
+	import { DATAJSON__ADD_SLIDESHOW } from '@app/DATA/DB-ADD/DATAJSON__ADD_Slideshow.json';
 	import Accordion from '@smui-extra/accordion';
+	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
 	import AxBlogPanel from './AxBlogPanel.svelte';
 	import AxBlogPanelAdd from './AxBlogPanelAdd.svelte';
 
-	export let isStaticPage = true;
+	export let pos_blog; // index in the GENERIC_STORE
+	export let type; // blog, slideshow, staticpage OU natif ++++++++++++++
 	export let GENERIC_STORE;
 	export let GENERIC_ADD = null;
 </script>
 
 <!-- THE BLOG is a list of articles you can manage -->
-<Accordion class="demo-small-titles">
-	{#if !isStaticPage}
-		<!-- PANEL ADD -->
-		<AxBlogPanelAdd {GENERIC_STORE} {GENERIC_ADD} />
-	{/if}
+<!-- <Accordion class="demo-small-titles"> -->
+<Accordion class="">
+	<!-- PANEL ADD -->
+	<!-- {#if type === 'blog'}
+		<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} {GENERIC_ADD} />
+	{:else if type === 'slideshow'}
+		<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} GENERIC_ADD={DATAJSON__ADD_SLIDESHOW} />
+	{/if} -->
 
 	<!-- PANEL EDITS -->
 	{#if $GENERIC_STORE && $GENERIC_STORE.length}
-		{#each $GENERIC_STORE[0].posts as post, ii (post.url)}
-			<!-- if it is not a blog, so we directly open the post -->
-			<AxBlogPanel {isStaticPage} {GENERIC_STORE} {ii} bind:post />
-		{/each}
+		{#if type === 'blog' || type === 'slideshow' || type === 'staticpage'}
+			<!-- donc ca contient la section post -->
+			{#each $GENERIC_STORE[pos_blog].posts as post, pos_post (pos_blog + '_' + pos_post)}
+				<!-- {@debug $GENERIC_STORE} -->
+				<!-- if it is not a blog, so we directly open the post -->
+				<AxBlogPanel {type} {GENERIC_STORE} {pos_blog} {pos_post} />
+			{/each}
+		{:else}
+			<AxInputAll ivItm={$GENERIC_STORE[pos_blog]} />
+		{/if}
 	{/if}
 </Accordion>
 
-<!-- 
-// export let posts: T_post[] = [];
-// export let item; // take a reference to the GENERIC_STORE
-// $: console.log('hack:', $GENERIC_STORE);
-
-// const addPost = (event) => {
-// 	console.log('this is addpost (final step)');
-// 	const post = {
-// 		id: 1,
-// 		page: event.detail.title,
-// 		url: '/' + encodeURIComponent(event.detail.title),
-// 		date_created: '12/12/12',
-// 		date_modified: '10/10/10',
-// 		inputValues: [
-// 			{
-// 				id: '1',
-// 				index: 1,
-// 				type: 'text',
-// 				label: 'Titre de l’article',
-// 				inputValue: event.detail.title
-// 			},
-// 			{
-// 				id: '2',
-// 				index: 2,
-// 				type: 'area',
-// 				label: "Contenu de l'article",
-// 				inputValue: event.detail.content
-// 			}
-// 		]
-// 	};
-// 	if (confirm("Ajouter l'article ?")) {
-// 		$GENERIC_STORE[0].posts.push(post);
-// 		$GENERIC_STORE[0].posts = $GENERIC_STORE[0].posts;
-// 		// $GENERIC_STORE[0].posts = $GENERIC_STORE[0].posts;
-// 	}
-// };
-
-// const deletePost = (event) => {
-// 	if (confirm("Supprimer l'article ?")) {
-// 		$GENERIC_STORE[0].posts.splice(event.detail.ii, 1);
-// 		$GENERIC_STORE[0].posts = $GENERIC_STORE[0].posts;
-// 	}
-// }; -->
-<!-- on:add={addPost} -->
-<!-- remettre - tu as  triche en mettant directement le store, alorsque l on veut du generic -->
-<!-- {#each item.posts as post, ii} -->
+<!--  -->
+<!-- <style lang="postcss">
+	* :global(.demo-small-titles .smui-accordion__header__title--with-description) {
+		flex-basis: 20% !important;
+		max-width: 200px !important;
+	}
+</style> -->

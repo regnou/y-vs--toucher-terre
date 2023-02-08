@@ -2,7 +2,7 @@
 	import FormInjector from './sublayout/Forminjector.svelte';
 	import AxForm from './sublayout/AxForm.svelte';
 
-	export let isStaticPage = false;
+	// export let isStaticPage = false;
 	export let col;
 	export let GENERIC_ADD = null;
 	export let GENERIC_STORE;
@@ -17,7 +17,8 @@
 <!-- ADMIN -->
 <div id="admin--1" class=" border-4  border-red-300  ">
 	<!-- PANEL: form edit -->
-	<AxForm {isStaticPage} {col} {GENERIC_ADD} {GENERIC_STORE} />
+	<!-- {isStaticPage}  -->
+	<AxForm {col} {GENERIC_ADD} {GENERIC_STORE} />
 	<!-- PANEL: inject -->
 	<FormInjector {col} {initData} />
 </div>

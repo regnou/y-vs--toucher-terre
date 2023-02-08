@@ -2,7 +2,7 @@ export const DATAJSON__INJECT_ACCEUIL = [
 	{
 		id: '1',
 		index: 1,
-		type: 'blog',
+		type: 'staticpage',
 		posts: [
 			{
 				id: 1,
@@ -11,7 +11,6 @@ export const DATAJSON__INJECT_ACCEUIL = [
 				date_created: '12/12/12',
 				date_modified: '10/10/10',
 				inputValues: [
-
 					{
 						id: 'hero-1',
 						index: 1,
@@ -86,11 +85,86 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						inputValue: '06.60.81.85.69'
 					}
 
-
-
 				]
 			},
 
+		]
+	},
+	// SLIDESHOW
+	{
+		id: '2',
+		index: 2,
+		type: 'slideshow',
+		posts: [
+			{
+				id: 1,
+				page: 'unik-seo-1',
+				url: 'unik-url-1',
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
+					{
+						id: 'img-1',
+						index: 1,
+						type: 'file',
+						label: 'img-1',
+						inputValue: 'unik-url-1'
+					},
+					{
+						id: 'seo-img-1',
+						index: 2,
+						type: 'text',
+						label: 'seo-img-1',
+						inputValue: 'unik-seo-1'
+					}
+				]
+			},
+			{
+				id: 2,
+				page: 'unik-seo-2',
+				url: 'unik-url-2',
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
+					{
+						id: 'img-2',
+						index: 1,
+						type: 'file',
+						label: 'img-2',
+						inputValue: 'unik-url-2'
+					},
+					{
+						id: 'seo-img-2',
+						index: 2,
+						type: 'text',
+						label: 'seo-img-1',
+						inputValue: ''
+					}
+				]
+			},
+			{
+				id: 3,
+				page: 'unik-seo-3',
+				url: 'unik-url-3',
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
+					{
+						id: 'img-3',
+						index: 1,
+						type: 'file',
+						label: 'img-3',
+						inputValue: 'unik-3'
+					},
+					{
+						id: 'seo-img-3',
+						index: 2,
+						type: 'text',
+						label: 'seo-img-3',
+						inputValue: ''
+					}
+				]
+			},
 		]
 	},
 ];

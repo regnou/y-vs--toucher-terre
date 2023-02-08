@@ -1,33 +1,38 @@
 <script lang="ts">
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-	import { onMount } from 'svelte';
-
+	// --------------------------------------------------------
 	// Default theme
 	import '@splidejs/svelte-splide/css';
-
 	// or other themes
 	// import '@splidejs/svelte-splide/css/skyblue';
 	// import '@splidejs/svelte-splide/css/sea-green';
-
 	// or only core styles
 	// import '@splidejs/svelte-splide/css/core';
-
-	// export let id = '.splide';
-
-	onMount(() => {
-		// new Splide(id).mount();
-	});
-
-	export let imgs = [
-		'/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.jpg',
-		'/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_03.jpg'
-	];
+	// --------------------------------------------------------
+	export let items = [];
+	// c la structure
+	// inputValues: [
+	// 				{
+	// 					id: 'img-3',
+	// 					index: 1,
+	// 					type: 'file',
+	// 					label: 'img-3',
+	// 					inputValue: ''
+	// 				},
+	// 				{
+	// 					id: 'seo-img-3',
+	// 					index: 2,
+	// 					type: 'text',
+	// 					label: 'seo-img-3',
+	// 					inputValue: ''
+	// 				}
+	// 			]
 </script>
 
 <Splide aria-label="My Favorite Images">
-	{#each imgs as url}
+	{#each items as item}
 		<SplideSlide class="h-60">
-			<img src={url} alt="" />
+			<img src={item.inputValues[1].inputValue} alt={item.inputValues[0].inputValue} />
 		</SplideSlide>
 	{/each}
 </Splide>
