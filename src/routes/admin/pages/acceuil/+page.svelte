@@ -10,7 +10,6 @@
 <Layoutadminapp>
 	<div slot="admin">
 		<GenericAdmin
-			isStaticPage={true}
 			col={TABLE_ACCEUIL}
 			GENERIC_STORE={STORE_ACCEUIL}
 			initData={DATAJSON__INJECT_ACCEUIL}

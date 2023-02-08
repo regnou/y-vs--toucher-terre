@@ -14,16 +14,16 @@
 <!-- THE BLOG is a list of articles you can manage -->
 <!-- <Accordion class="demo-small-titles"> -->
 <Accordion class="">
-	<!-- PANEL ADD -->
-	<!-- {#if type === 'blog'}
-		<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} {GENERIC_ADD} />
-	{:else if type === 'slideshow'}
-		<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} GENERIC_ADD={DATAJSON__ADD_SLIDESHOW} />
-	{/if} -->
-
 	<!-- PANEL EDITS -->
 	{#if $GENERIC_STORE && $GENERIC_STORE.length}
 		{#if type === 'blog' || type === 'slideshow' || type === 'staticpage'}
+			<!-- PANEL ADD -->
+			{#if type === 'blog'}
+				<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} {GENERIC_ADD} />
+			{:else if type === 'slideshow'}
+				<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} GENERIC_ADD={DATAJSON__ADD_SLIDESHOW} />
+			{/if}
+
 			<!-- donc ca contient la section post -->
 			{#each $GENERIC_STORE[pos_blog].posts as post, pos_post (pos_blog + '_' + pos_post)}
 				<!-- {@debug $GENERIC_STORE} -->

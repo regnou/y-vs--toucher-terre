@@ -2,7 +2,7 @@ export const DATAJSON__INJECT_LADEMARCHE = [
 	{
 		id: '1',
 		index: 1,
-		type: 'blog',
+		type: 'staticpage',
 		posts: [
 			{
 				id: 1,

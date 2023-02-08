@@ -13,7 +13,6 @@
 	</div>
 	<div slot="admin">
 		<GenericAdmin
-			isStaticPage={true}
 			col={TABLE_LADEMARCHE}
 			GENERIC_STORE={STORE_LADEMARCHE}
 			initData={DATAJSON__INJECT_LADEMARCHE}
