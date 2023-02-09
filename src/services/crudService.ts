@@ -1,3 +1,4 @@
+import { STORE_UI__SNACK_IS_OPEN } from '@app/stores/storeUi';
 import {
 	dao_add,
 	dao_add_id,
@@ -14,35 +15,88 @@ import {
 // 	else return list[0];
 // };
 
+const openSnack = (type: string, msg: string) => {
+	const o = {
+		type: type,
+		text: msg,
+		open: true
+	}
+	STORE_UI__SNACK_IS_OPEN.set(o);
+
+	// o.open = false
+	// STORE_UI__SNACK_IS_OPEN.set(o);
+	// STORE_UI__SNACK_IS_OPEN.update((n) => {
+}
 // -- gets
 export const service_getInputs = async (col) => {
-	return await dao_gets(col);
+	try {
+		const r = await dao_gets(col);
+		openSnack('success', `🔥 > ✅ > GET (all) > ${col.id}`)
+		return r;
+	} catch (error) {
+		openSnack('success', `🔥 > ❌ > GET (all) > ${col.id}`)
+	}
 };
-
 // -- get
 export const service_getInput = async (col, id: string) => {
-	return await dao_get(col, id);
-};
+	try {
+		const r = await dao_get(col, id);
+		openSnack('success', `🔥 > ✅ > GET (one) > ${col.id}`)
+		return r;
+	} catch (error) {
+		openSnack('success', `🔥 > ❌ > GET (one) > ${col.id}`)
+	}
 
+
+
+};
 // -- post
+// this add WILL replace totally the existing doc
 export const service_addInput = async (col, data) => {
-	// todo - attention, on modifie la source !!!
-	// ---
-	return await dao_add(col, data);
+
+
+	try {
+		// todo - attention, on modifie la source !!!
+		// ---
+		const r = await dao_add(col, data);
+		openSnack('success', `🔥 > ✅ > ADD (hard) > ${col.id}`)
+		return r;
+	} catch (error) {
+		openSnack('success', `🔥 > ❌ > ADD (hard) > ${col.id}`)
+	}
+
 };
 export const service_addIdInput = async (col, id, data) => {
-	// todo - attention, on modifie la source !!!
-	// ---
-	return await dao_add_id(col, id, data);
-};
+	try {
+		// todo - attention, on modifie la source !!!
+		// ---
+		const r = await dao_add_id(col, id, data);
+		openSnack('success', `🔥 > ✅ > ADD (hard) (with-id) > ${col.id} > ${id}`)
+		return r;
+	} catch (error) {
+		openSnack('success', `🔥 > ❌ > ADD (hard) (with-id) > ${col.id}`)
+	}
 
-// -- put
+
+};
+// this add WILL merge with the existing doc
 export const service_modInput = async (col, id: string, data) => {
-	return await dao_modSoft(col, id, data);
+	try {
+		const r = await dao_modSoft(col, id, data);
+		openSnack('success', `🔥 > ✅ > ADD (soft) (with-id) > ${col.id}`)
+		return r;
+	} catch (error) {
+		openSnack('success', `🔥 > ❌ > ADD (soft) (with-id) > ${col.id}`)
+	}
 };
 export const service_delInputs = async (col) => {
-	const data = (await dao_gets(col)) || [];
-	data.forEach(async (itm) => {
-		await dao_del(col, itm.id);
-	});
+	try {
+		const data = (await dao_gets(col)) || [];
+		data.forEach(async (itm) => {
+			await dao_del(col, itm.id);
+		});
+		openSnack('success', `🔥 > ✅ > DEL (all) > ${col.id}`)
+	} catch (error) {
+		openSnack('success', `🔥 > ❌ > DEL (all) > ${col.id}`)
+	}
 };

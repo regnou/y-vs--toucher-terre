@@ -12,26 +12,29 @@
 
 	// -------------------------------------
 	async function createStorageUrl() {
+		console.log($GENERIC_STORE);
 		for (const blog of $GENERIC_STORE) {
-			for (const post of blog.posts) {
-				for (const ivItm of post.inputValues) {
-					if (ivItm.type === 'file' && ivItm.blobs) {
-						// console.log(" (ivItm.type === 'file' && ivItm.blobs) HAS PASSED");
-						// we always just have ONE FILE
-						const urlStorage = await upload(ivItm.blobs[0]);
-						// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
-						ivItm.inputValue = urlStorage;
-						//
-						// and update the ui
-						post.url = urlStorage;
+			if (blog.posts) {
+				for (const post of blog.posts) {
+					for (const ivItm of post.inputValues) {
+						if (ivItm.type === 'file' && ivItm.blobs) {
+							// console.log(" (ivItm.type === 'file' && ivItm.blobs) HAS PASSED");
+							// we always just have ONE FILE
+							const urlStorage = await upload(ivItm.blobs[0]);
+							// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+							ivItm.inputValue = urlStorage;
+							//
+							// and update the ui
+							post.url = urlStorage;
 
-						// $GENERIC_STORE = $GENERIC_STORE;
+							// $GENERIC_STORE = $GENERIC_STORE;
 
-						// src={item.inputValues[1].inputValue}
-						//
-						//
-						// We unlink the blob now from the store
-						delete ivItm.blobs;
+							// src={item.inputValues[1].inputValue}
+							//
+							//
+							// We unlink the blob now from the store
+							delete ivItm.blobs;
+						}
 					}
 				}
 			}
@@ -39,10 +42,10 @@
 	}
 	// -------------------------------------
 	async function save() {
-		console.log('click > onsave 1 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
+		console.log('🟨 click >> onsave 1 ');
 		await createStorageUrl();
 		await service_modInput(col, 'summaryId', { data: $GENERIC_STORE });
-		console.log('click < onsave 2 🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨');
+		console.log('🟨 click << onsave 2 ');
 	}
 	// -------------------------------------
 </script>

@@ -22,7 +22,9 @@ export function getFirebase() {
 		// initAllCol(services.FIRESTORE); // todo
 
 		//////////////////////////////////
-		console.log('🟠 🟠 🟠 🟠 🟠  USING < PRODUCTION > EMULATOR oooooooooo 🟠 🟠 🟠 🟠 🟠 ');
+		console.log('🟠 🟠 🟠 🟠 🟠  USING > PRODUCTION ');
+		console.log('🟠 🟠 🟠 🟠 🟠  FIRESTORE ');
+		//////////////////////////////////
 		// connectToEmulators(services); // actuellement en local
 		//////////////////////////////////
 
@@ -85,7 +87,9 @@ export function getFirebase() {
 	}
 	function connectToEmulators({ FIRESTORE }: any) {
 		//i f (location.hostname === 'localhost') {
-		console.log('🟡 🟡 🟡 🟡 🟡 🟡 USING < LOCAL > EMULATOR oooooooooo 🟡 🟡 🟡 🟡 🟡');
+		console.log('🟡 🟡 🟡 🟡 🟡 🟡 USING > LOCAL-EMULATOR ');
+		console.log('🟡 🟡 🟡 🟡 🟡 🟡 FIRESTORE ');
+
 		// --- DEBUG local
 		connectFirestoreEmulator(FIRESTORE, 'localhost', 8080);
 		// --- todo

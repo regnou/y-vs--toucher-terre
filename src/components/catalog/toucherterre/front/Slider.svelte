@@ -30,9 +30,22 @@
 </script>
 
 <Splide aria-label="My Favorite Images">
-	{#each items as item}
+	{#each items as ivItem}
+		<!-- "https://www.youtube.com/embed/dLmiog2KqpA" -->
 		<SplideSlide class="h-60">
-			<img src={item.inputValues[1].inputValue} alt={item.inputValues[0].inputValue} />
+			{#if ivItem.format && ivItem.format === 'video'}
+				<iframe
+					width="560"
+					height="315"
+					src={ivItem.inputValues[1].inputValue}
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+				/>
+			{:else}
+				<img src={ivItem.inputValues[1].inputValue} alt={ivItem.inputValues[0].inputValue} />
+			{/if}
 		</SplideSlide>
 	{/each}
 </Splide>

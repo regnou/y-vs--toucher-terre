@@ -16,6 +16,6 @@ export const TABLE_IMG = createCollection<any>('img');
 // ---
 function createCollection<T = DocumentData>(collectionName: string) {
 	const { FIRESTORE } = getFirebase();
-	console.log(`💾  | [SCHEMA-TYPE] >> createCollection -- ${collectionName}`);
+	// console.log(`💾  | [SCHEMA-TYPE] >> createCollection -- ${collectionName}`);
 	return collection(FIRESTORE, collectionName) as CollectionReference<T>;
 }

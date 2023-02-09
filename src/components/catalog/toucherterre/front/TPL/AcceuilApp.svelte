@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { service_getInputs } from '@app/services/crudService';
 	import { STORE_ACCEUIL } from '@app/stores/STORES';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import Hero from '../Hero.svelte';
 	import Loader from '../Loader.svelte';
 	import SeparatorMedium from '../SeparatorMedium.svelte';
@@ -11,15 +11,32 @@
 	import Paragraph from '../Paragraph.svelte';
 	import Slider from '../Slider.svelte';
 	import { TABLE_ACCEUIL } from '@app/z-entities/COLLECTIONS';
+	import { STORE_UI__SNACK_IS_OPEN } from '@app/stores/storeUi';
 
+	const dispatch = createEventDispatcher();
 	let promise: Promise<any> = service_getInputs(TABLE_ACCEUIL);
+	// let open = true;
 	//--------------------------------------------------------------------
 	onMount(async () => {
 		const data = await promise;
 		$STORE_ACCEUIL = data[0] ? data[0].data : [];
+		console.log('1 ===========================');
+
+		// dispatch('openSnackEvent', {
+		// 	snackOpen: true,
+		// 	snackType: 'success',
+		// 	snackText: 'a voir'
+		// });
+
+		// $STORE_UI__SNACK_IS_OPEN.type = 'success';
+		// $STORE_UI__SNACK_IS_OPEN.text = 'acceuil app > mount ';
+		// $STORE_UI__SNACK_IS_OPEN.open = true; // tjs en dernier car c lui qui declenche le snack
+
+		// TEST now
+		// open = true;
 	});
 	//--------------------------------------------------------------------
-	$: console.log($STORE_ACCEUIL);
+	// $: console.log($STORE_ACCEUIL);
 </script>
 
 {#await promise}

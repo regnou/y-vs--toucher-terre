@@ -2,7 +2,7 @@
 	import { DATAJSON__ADD_SLIDESHOW } from '@app/DATA/DB-ADD/DATAJSON__ADD_Slideshow.json';
 	import Accordion from '@smui-extra/accordion';
 	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
-	import AxBlogPanel from './AxBlogPanel.svelte';
+	import AxBlogPanelEdit from './AxBlogPanelEdit.svelte';
 	import AxBlogPanelAdd from './AxBlogPanelAdd.svelte';
 
 	export let pos_blog; // index in the GENERIC_STORE
@@ -11,25 +11,36 @@
 	export let GENERIC_ADD = null;
 </script>
 
+<!-- 
+	ACCORDEON
+ -->
 <!-- THE BLOG is a list of articles you can manage -->
 <!-- <Accordion class="demo-small-titles"> -->
 <Accordion class="">
+	<!-- 
+	ACCORDEON
+ -->
 	<!-- PANEL EDITS -->
 	{#if $GENERIC_STORE && $GENERIC_STORE.length}
 		{#if type === 'blog' || type === 'slideshow' || type === 'staticpage'}
-			<!-- PANEL ADD -->
+			<!-- PANEL
+				 ADD -->
 			{#if type === 'blog'}
 				<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} {GENERIC_ADD} />
 			{:else if type === 'slideshow'}
 				<AxBlogPanelAdd {pos_blog} {GENERIC_STORE} GENERIC_ADD={DATAJSON__ADD_SLIDESHOW} />
 			{/if}
 
+			<!-- LIST PANEL
+				 EDIT -->
+			<!-- ============================================== -->
 			<!-- donc ca contient la section post -->
 			{#each $GENERIC_STORE[pos_blog].posts as post, pos_post (pos_blog + '_' + pos_post)}
 				<!-- {@debug $GENERIC_STORE} -->
 				<!-- if it is not a blog, so we directly open the post -->
-				<AxBlogPanel {type} {GENERIC_STORE} {pos_blog} {pos_post} />
+				<AxBlogPanelEdit {type} {GENERIC_STORE} {pos_blog} {pos_post} />
 			{/each}
+			<!-- ============================================== -->
 		{:else}
 			<AxInputAll ivItm={$GENERIC_STORE[pos_blog]} />
 		{/if}

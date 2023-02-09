@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { service_addIdInput, service_modInput } from '@app/services/crudService';
+	import { service_addIdInput } from '@app/services/crudService';
 	import Button, { Label } from '@smui/button';
 
 	export let col;
@@ -7,6 +7,8 @@
 
 	const injectScript = async () => {
 		await service_addIdInput(col, 'summaryId', { data: initData });
+		// if it exists, it will not change it => conserve the existing
+		// await service_addIdInput(col, 'summaryId', { data: initData });
 	};
 </script>
 

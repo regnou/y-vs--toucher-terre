@@ -1,4 +1,5 @@
 export const DATAJSON__INJECT_ACCEUIL = [
+	// ##################################################@
 	{
 		id: '1',
 		index: 1,
@@ -90,6 +91,7 @@ export const DATAJSON__INJECT_ACCEUIL = [
 
 		]
 	},
+	// ##################################################@
 	// SLIDESHOW
 	{
 		id: '2',
@@ -108,6 +110,7 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						index: 1,
 						type: 'file',
 						label: 'img-1',
+						format: "image",
 						inputValue: 'unik-url-1'
 					},
 					{
@@ -119,6 +122,32 @@ export const DATAJSON__INJECT_ACCEUIL = [
 					}
 				]
 			},
+			// -------------------------------------------- 1
+			{
+				id: 1,
+				page: 'didgiridoo',
+				url: 'https://www.youtube.com/watch?v=8gWCfmlDOHU',
+				date_created: '12/12/12',
+				date_modified: '10/10/10',
+				inputValues: [
+					{
+						id: 'vid-1',
+						index: 1,
+						type: 'text',
+						label: 'img-1',
+						format: "video",
+						inputValue: 'https://www.youtube.com/watch?v=8gWCfmlDOHU'
+					},
+					{
+						id: 'seo-img-1',
+						index: 2,
+						type: 'text',
+						label: 'seo-img-1',
+						inputValue: 'didgiridoo culture'
+					}
+				]
+			},
+			// -------------------------------------------- 2
 			{
 				id: 2,
 				page: 'unik-seo-2',
@@ -131,6 +160,7 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						index: 1,
 						type: 'file',
 						label: 'img-2',
+						format: "image",
 						inputValue: 'unik-url-2'
 					},
 					{
@@ -142,18 +172,30 @@ export const DATAJSON__INJECT_ACCEUIL = [
 					}
 				]
 			},
+			// -------------------------------------------- 3
 			{
 				id: 3,
 				page: 'unik-seo-3',
 				url: 'unik-url-3',
 				date_created: '12/12/12',
 				date_modified: '10/10/10',
+
+
+				// L ordre d affichage de ces VAR n est pas le M dans
+				// le JSON ADD (add) 
+				// et dans le JSON INJECT (read/front) et (edit/admin)
+				// => edit, car le UI depend du STORE et pas de la DB
+				// page: GENERIC_ADD[0].inputValue, //seo
+				// url: GENERIC_ADD[1].inputValue, // url
+
+
 				inputValues: [
 					{
 						id: 'img-3',
 						index: 1,
 						type: 'file',
 						label: 'img-3',
+						// si pas de format, c image par default, mais c mieux de preciser
 						inputValue: 'unik-3'
 					},
 					{
@@ -167,4 +209,5 @@ export const DATAJSON__INJECT_ACCEUIL = [
 			},
 		]
 	},
+	// ##################################################@
 ];

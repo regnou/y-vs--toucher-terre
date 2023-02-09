@@ -9,7 +9,7 @@
 	<!--  -->
 	<!--  -->
 	<!-- TXT -->
-	{#if ivItm.type === 'text'}
+	{#if ivItm.type === 'text' || (ivItm.type === 'file' && ivItm.format && ivItm.format === 'video')}
 		<Textfield
 			style="width: 100%;"
 			helperLine$style="width: 100%;"

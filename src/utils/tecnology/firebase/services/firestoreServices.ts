@@ -13,15 +13,18 @@ import {
 } from 'firebase/firestore';
 import { getFirebase } from '../firebaseClient';
 
+
+const LOG_LEVEL__ON = false
+
 // ---
 async function dao_tryHelper(callback, msg, action) {
 	try {
 		const result_ = await callback();
-		console.log(`🔥 >> ✅ >> ${action}-ED ! >> ${msg}`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ✅ >> ${action}-ED ! >> ${msg}`) : ''
 		return result_;
 	} catch (error) {
-		console.log(`🔥 >> ❌ >> ${action}-ING... >> ${msg}`);
-		console.error(error);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ❌ >> ${action}-ING... >> ${msg}`) : ''
+		LOG_LEVEL__ON ? console.error(error) : ''
 		return null;
 	}
 }
@@ -65,12 +68,12 @@ export const dao_add_id = async <T>(collection, id: string, data: T) => {
 			updatedAt: serverTimestamp(),
 			...data
 		};
-		console.log('debug entity - ', entity);
+		LOG_LEVEL__ON ? console.log('debug entity - ', entity) : ''
 		// ---
 
 		// Add a new document in collection "cities"
 		collection;
-		console.log(collection);
+		LOG_LEVEL__ON ? console.log(collection) : ''
 		return await setDoc(doc(collection, id), entity);
 	};
 	// ---
@@ -90,10 +93,10 @@ export const dao_modSoft = async (col, id: string, data) => {
 			updatedAt: serverTimestamp(),
 			...data
 		});
-		console.log(`🔥 >> ✅ UPDAT-ED ! >> ${col.id} -- ${id}`);
-		return true; //operation sucessfull
+		LOG_LEVEL__ON ? console.log(`🔥 >> ✅ UPDAT-ED ! >> ${col.id} -- ${id}`) : ''
+		return true; //operation successfull
 	} catch (error) {
-		console.log(`🔥 >> ❌ UPDAT-ING... >> ${col.id} -- ${id}`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ❌ UPDAT-ING... >> ${col.id} -- ${id}`) : ''
 		console.error(error);
 		return null;
 	}
@@ -103,11 +106,12 @@ export const dao_del = async (col, id) => {
 		const { FIRESTORE } = getFirebase();
 		const d = doc(FIRESTORE, col.id, id);
 		await deleteDoc(d);
-		console.log(`🔥 >> ✅ DELET-ED ! >> ${col.id} -- ${id}`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ✅ DELET-ED ! >> ${col.id} -- ${id}`) : ''
 	} catch (error) {
-		console.log(`🔥 >> ❌ DELET-ING... >> ${col.id} -- ${id}`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ❌ DELET-ING... >> ${col.id} -- ${id}`) : ''
 		console.error(error);
 		return null;
+		// throw new Error(`🔥 >> ❌ DELET-ING... >> ${col.id} -- ${id}`);
 	}
 };
 // ---
@@ -118,12 +122,12 @@ export const dao_get = async <T>(col, id) => {
 		const { FIRESTORE } = getFirebase();
 		const d = doc(FIRESTORE, col.id, id);
 		const item = await getDoc(d);
-		console.log(`🔥  >> ✅ GET-ED ! >> ${col.id} -- ${id}`);
+		LOG_LEVEL__ON ? console.log(`🔥  >> ✅ GET-ED ! >> ${col.id} -- ${id}`) : ''
 		const data = item.data();
 		// ---
 		return data as T;
 	} catch (error) {
-		console.log(`🔥 >> ❌ GET-ING... >> ${col.id} -- ${id}`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ❌ GET-ING... >> ${col.id} -- ${id}`) : ''
 		console.error(error);
 		return null;
 	}
@@ -132,11 +136,11 @@ export const dao_gets = async <T>(col) => {
 	try {
 		const d = await getDocs<T>(col);
 		const list: T[] = d.docs.map((x) => x.data());
-		console.log(`🔥 >> ✅ GET_ALL-ED ! >> ${col.id} -- [${list.length}]`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ✅ GET_ALL-ED ! >> ${col.id} -- [${list.length}]`) : ''
 		// ---
 		return list as T[];
 	} catch (error) {
-		console.log(`🔥 >> ❌ GET_ALL-ING... >> ${col.id} `);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ❌ GET_ALL-ING... >> ${col.id} `) : ''
 		console.error(error);
 		return null;
 	}
@@ -150,7 +154,7 @@ export const dao_onSnapshot_DB = (col) => {
 		const stream = (callback) =>
 			onSnapshot(col, (snap) => {
 				try {
-					console.log(`🔥🟣💀 SUSCRIBE REAL TIME SNAPSHOTS`);
+					LOG_LEVEL__ON ? console.log(`🔥🟣💀 SUSCRIBE REAL TIME SNAPSHOTS`) : ''
 					const list = snap.docs.map((x) => {
 						return { ...x.data(), id: x.id };
 					});
@@ -183,10 +187,10 @@ export const dao_q_DB = async <T>(col, P1: string, P2, P3: string) => {
 		d.forEach((x) => {
 			list.push(x.data());
 		});
-		console.log(`🔥 >> ✅ QUERY-ED ! >> ${col.id} -- ${P1} ${P2} ${P3}`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ✅ QUERY-ED ! >> ${col.id} -- ${P1} ${P2} ${P3}`) : ''
 		return list;
 	} catch (error) {
-		console.log(`🔥 >> ❌ QUERY-ING... >> ${col.id} -- ${P1} ${P2} ${P3}`);
+		LOG_LEVEL__ON ? console.log(`🔥 >> ❌ QUERY-ING... >> ${col.id} -- ${P1} ${P2} ${P3}`) : ''
 		console.error(error);
 		return null;
 	}
