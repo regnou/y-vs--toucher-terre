@@ -17,7 +17,7 @@ const write = async (path, str) => {
 		// $$$ LOG
 		console.log('ALFRED REPORT');
 		console.log('☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕\n');
-		console.log('(1) FILE SUCCESSFULY WRITTEN: \n', path);
+		console.log('(1) FILE IS WRITTEN: \n', path);
 		console.log('\n☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕');
 	} catch (err) {
 		// When a request is aborted - err is an AbortError

@@ -85,10 +85,8 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						label: 'contact 5',
 						inputValue: '06.60.81.85.69'
 					}
-
 				]
-			},
-
+			}
 		]
 	},
 	// ##################################################@
@@ -110,7 +108,7 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						index: 1,
 						type: 'file',
 						label: 'img-1',
-						format: "image",
+						format: 'image',
 						inputValue: 'unik-url-1'
 					},
 					{
@@ -135,7 +133,7 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						index: 1,
 						type: 'text',
 						label: 'img-1',
-						format: "video",
+						format: 'video',
 						inputValue: 'https://www.youtube.com/watch?v=8gWCfmlDOHU'
 					},
 					{
@@ -160,7 +158,7 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						index: 1,
 						type: 'file',
 						label: 'img-2',
-						format: "image",
+						format: 'image',
 						inputValue: 'unik-url-2'
 					},
 					{
@@ -180,14 +178,12 @@ export const DATAJSON__INJECT_ACCEUIL = [
 				date_created: '12/12/12',
 				date_modified: '10/10/10',
 
-
 				// L ordre d affichage de ces VAR n est pas le M dans
-				// le JSON ADD (add) 
+				// le JSON ADD (add)
 				// et dans le JSON INJECT (read/front) et (edit/admin)
 				// => edit, car le UI depend du STORE et pas de la DB
 				// page: GENERIC_ADD[0].inputValue, //seo
 				// url: GENERIC_ADD[1].inputValue, // url
-
 
 				inputValues: [
 					{
@@ -206,8 +202,8 @@ export const DATAJSON__INJECT_ACCEUIL = [
 						inputValue: ''
 					}
 				]
-			},
+			}
 		]
-	},
+	}
 	// ##################################################@
 ];

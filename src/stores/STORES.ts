@@ -8,11 +8,10 @@ export const STORE_PROCHAINSRDV = writable<any[]>([]);
 export const STORE_NEWSLETTER = writable<any[]>([]);
 
 // -- guard
-	// function isBlog(item: T_inputValue | T_blog): item is T_blog {
-	// 	// return (item as T_blog).swim !== undefined;
-	// 	return 'posts' in item;
-	// }
-
+// function isBlog(item: T_inputValue | T_blog): item is T_blog {
+// 	// return (item as T_blog).swim !== undefined;
+// 	return 'posts' in item;
+// }
 
 // import asyncDerivedConsistent from "./utils/consistent";
 

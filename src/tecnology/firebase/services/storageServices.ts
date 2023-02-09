@@ -1,6 +1,6 @@
-import { getFirebase } from '@app/utils/tecnology/firebase/firebaseClient';
+import { getFirebase } from '@app/tecnology/firebase/firebaseClient';
 import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
-import { TABLE_IMG } from '../../../../z-entities/COLLECTIONS';
+import { TABLE_IMG } from '../../../z-entities/COLLECTIONS';
 import { dao_add } from './firestoreServices';
 
 async function upload(fileax) {
@@ -63,7 +63,7 @@ async function upload(fileax) {
 	// 	},
 	// 	async () => {
 	// 		console.log("UPLOAD completed");
-	// 		// Upload completed successfully, now we can get the download URL
+	// 		// Upload completed ok, now we can get the download URL
 	// 		const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
 	// 		// .then((downloadURL) => {
 	// 		console.log('File available at', downloadURL);

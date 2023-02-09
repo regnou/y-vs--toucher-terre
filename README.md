@@ -1,4 +1,15 @@
-    // const dispatch = createEventDispatcher();
+<!-- <div class="" on:openSnackEvent={onOpenSnack}> -->
+<!-- <slot on:openSnackEvent /> -->
+
+    	// dispatch('openSnackEvent', {
+    	// 	snackOpen: true,
+    	// 	snackType: 'success',
+    	// 	snackText: 'a voir'
+    	// });
+
+const dispatch = createEventDispatcher();
+
+    	    // const dispatch = createEventDispatcher();
     	// dispatch('delete', {
     	// 	ii: ii
     	// });

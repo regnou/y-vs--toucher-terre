@@ -5,17 +5,12 @@
 	import Frameheaderbody from './Frameheaderbody.svelte';
 	import DrawerApp from './Drawerapp.svelte';
 	import DrawerAdmin from './Draweradmin.svelte';
-	import { onMount } from 'svelte';
-
+	//#######################################################
 	export let isAdmin = false;
-
-	// First init state for the drawer
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	let openApp = false;
 	let openAdmin = false;
-
-	// let dynVariant = 'N/A'; // 'modal', 'dismissible'
 	let dynVariant: T_dynvar; // 'modal', 'dismissible'
-
 	//xs ??   sm 640 | md 768   |    lg 1024 | xl 1280 | 2xl 1536
 	const xs = '(max-width: 639px)';
 	const sm = '(min-width: 640px) and (max-width: 767px)';
@@ -29,16 +24,8 @@
 	let isLg = matches(lg);
 	let isXl = matches(xl);
 	let isXxl = matches(xxl);
-	// -------------------------------------
-	onMount(() => {
-		// if (isXs) dynVariant = 'modal';
-		// else dynVariant = 'dismissible';
-	});
-	// -------------------------------------
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	$: {
-		console.log('openApp: ', openApp);
-		console.log('openAdmin ', openAdmin);
-		console.log('$1: DRAWER-AX--dynVariant-before: ', dynVariant);
 		if (isXs || isSm) {
 			dynVariant = 'modal';
 		} else {
@@ -49,9 +36,8 @@
 				openApp = false;
 			}
 		}
-		console.log('$2: DRAWER-AX--dynvariant-after:', dynVariant);
 	}
-	// -------------------------------------
+	//-------------------------------------------------------
 	function handleResize(e) {
 		isXs = matches(xs);
 		isSm = matches(sm);
@@ -59,10 +45,8 @@
 		isLg = matches(lg);
 		isXl = matches(xl);
 		isXxl = matches(xxl);
-		console.log(isXs, isSm, isMd, isLg, isXl, isXxl);
-		//
 	}
-	// -------------------------------------
+	//-------------------------------------------------------
 	//press esc TO open/close drawer
 	function handleNavWithKey(e) {
 		if (e.code === 'Escape') {
@@ -70,12 +54,13 @@
 			else openApp = !openApp;
 		}
 	}
-	// -------------------------------------
+	//-------------------------------------------------------
 	function matches(query) {
 		if (browser) {
 			return window.matchMedia(query).matches;
 		}
 	}
+	//#######################################################
 </script>
 
 <!-- ESCAPE TOOPEN IT -->
@@ -85,8 +70,6 @@
 <!-- DRAWER -->
 <!--  -->
 {#if isAdmin}
-	<!-- IF BUG DRAWER -- HERE TODO -->
-	<!-- bind:open -->
 	<DrawerAdmin bind:open={openAdmin} {dynVariant} />
 {:else}
 	<DrawerApp bind:open={openApp} {dynVariant} />
@@ -95,11 +78,8 @@
 <!-- scrim -->
 <!--  -->
 {#if isXs || isSm}
-	<!-- fixed={true} -->
 	<Scrim class="opacity-90 backdrop-blur-sm" />
 {/if}
-
-<!-- transition:fade={{ duration: 200 }} class="blur-panel z-40" -->
 
 <!--  -->
 <!-- MAIN CONTENT -->
@@ -114,3 +94,5 @@
 		<!-- <Footer /> -->
 	</Frameheaderbody>
 </AppContent>
+
+<!-- transition:fade={{ duration: 200 }} class="blur-panel z-40" -->

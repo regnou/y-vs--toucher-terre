@@ -15,7 +15,7 @@ export const DATAJSON__INJECT_LADEMARCHE = [
 						id: '',
 						index: 1,
 						type: 'area',
-						label: 'L\'ÉQUIPE 1',
+						label: "L'ÉQUIPE 1",
 						inputValue:
 							'Terra et Vincent fondateurs de toucher terre vivent sur des lieux autonomes et collectifs en Loire-atlantique (Hameaux du Ruisseau, Manoir de la Grée).'
 					},
@@ -23,7 +23,7 @@ export const DATAJSON__INJECT_LADEMARCHE = [
 						id: '',
 						index: 2,
 						type: 'area',
-						label: 'L\'ÉQUIPE 2',
+						label: "L'ÉQUIPE 2",
 						inputValue:
 							"Terra, diplômée d'architecture <br/> \
 							Vincent, Infographiste et illustrateur de formation, il s'est passionné par les rocket-stoves il y a une dizaine d'année. Expérimentateur et artiste, il accorde autant d'attention à la technique que l'esthétique d'un ouvrage."
@@ -32,7 +32,7 @@ export const DATAJSON__INJECT_LADEMARCHE = [
 						id: '',
 						index: 3,
 						type: 'area',
-						label: 'L\'ÉQUIPE 3',
+						label: "L'ÉQUIPE 3",
 						inputValue:
 							"Toucher Terre favorise aussi les collaborations afin de multiplier les co-créations, compléter ses domaines de compétences et enrichir son éventail de techniques d'eco-construction."
 					},
@@ -130,12 +130,8 @@ export const DATAJSON__INJECT_LADEMARCHE = [
 						label: 'hero 1',
 						inputValue: '/media/logo-01.png'
 					}
-
 				]
-			},
-
+			}
 		]
-	},
-
-
+	}
 ];

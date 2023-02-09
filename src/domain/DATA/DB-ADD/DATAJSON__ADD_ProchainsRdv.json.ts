@@ -6,14 +6,14 @@ export const DATAJSON__ADD_PROCHAINSRDV = [
 		id: '1',
 		index: 1,
 		type: 'text',
-		label: 'titre de l\'évènement',
+		label: "titre de l'évènement",
 		inputValue: ''
 	},
 	{
 		id: '2',
 		index: 2,
 		type: 'text',
-		label: 'date de l\'évènement',
+		label: "date de l'évènement",
 		inputValue: ''
 	},
 	// ---------------------------------------
@@ -31,4 +31,4 @@ export const DATAJSON__ADD_PROCHAINSRDV = [
 		label: 'image',
 		inputValue: ''
 	}
-]
+];

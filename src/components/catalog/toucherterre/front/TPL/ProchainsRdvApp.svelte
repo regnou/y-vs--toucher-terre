@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { service_getInputs } from '@app/services/crudService';
+	import { service_getInputs } from '@app/domain/services/crudService';
 	import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
 	import { onMount } from 'svelte';
 	import { TABLE_PROCHAINSRDV } from '@app/z-entities/COLLECTIONS';

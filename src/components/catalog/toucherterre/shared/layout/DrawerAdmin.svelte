@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DATAJSON__PAGES } from '@app/DATA/MENUS/DATAJSON__Pages.json';
+	import { DATAJSON__PAGES } from '@app/domain/DATA/MENUS/DATAJSON__Pages.json';
 	import Drawer, { AppContent, Content, Header, Title, Subtitle } from '@smui/drawer';
 	import List, { Group, Subheader, Item, Text } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';

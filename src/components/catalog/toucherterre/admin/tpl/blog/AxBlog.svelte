@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DATAJSON__ADD_SLIDESHOW } from '@app/DATA/DB-ADD/DATAJSON__ADD_Slideshow.json';
+	import { DATAJSON__ADD_SLIDESHOW } from '@app/domain/DATA/DB-ADD/DATAJSON__ADD_Slideshow.json';
 	import Accordion from '@smui-extra/accordion';
 	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
 	import AxBlogPanelEdit from './AxBlogPanelEdit.svelte';

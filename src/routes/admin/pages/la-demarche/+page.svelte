@@ -3,7 +3,7 @@
 	import GenericAdmin from '@app/components/catalog/toucherterre/admin/layout/GenericAdmin.svelte';
 	import LaDemarcheApp from '@app/components/catalog/toucherterre/front/TPL/LaDemarcheApp.svelte';
 	import { STORE_LADEMARCHE } from '@app/stores/STORES';
-	import { DATAJSON__INJECT_LADEMARCHE } from '@app/DATA/DB-INJECT/DATAJSON__INJECT_LaDemarche.json';
+	import { DATAJSON__INJECT_LADEMARCHE } from '@app/domain/DATA/DB-INJECT/DATAJSON__INJECT_LaDemarche.json';
 	import { TABLE_LADEMARCHE } from '@app/z-entities/COLLECTIONS';
 </script>
 

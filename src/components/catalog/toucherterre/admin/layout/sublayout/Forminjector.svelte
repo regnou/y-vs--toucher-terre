@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { service_addIdInput } from '@app/services/crudService';
+	import { service_addIdInput } from '@app/domain/services/crudService';
 	import Button, { Label } from '@smui/button';
 
 	export let col;

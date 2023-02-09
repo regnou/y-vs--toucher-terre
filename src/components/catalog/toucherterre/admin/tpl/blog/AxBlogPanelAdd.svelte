@@ -6,25 +6,22 @@
 	import AxInputAll from '../../layout/sublayout/items/AxInputAll.svelte';
 	import Tab, { Label } from '@smui/tab';
 	import TabBar from '@smui/tab-bar';
-	import Textfield from '@smui/textfield';
-
+	//#######################################################
 	export let pos_blog;
 	export let GENERIC_STORE;
 	export let GENERIC_ADD = [];
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	let open = false;
 	let activeTab = 'image'; // todo enum - image | video
-
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	$: console.log(activeTab);
-	// -------------------------------------------------------------------
+	//-------------------------------------------------------
 	const add = () => {
 		console.log('voila le GENERIC_ADD: ', GENERIC_ADD);
 		// post to send
 		const postMeta = {
 			id: 1,
-			// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 			// &&&&&&&&&&&&&&& warn &&&&&&&&&&&&&&&&&&&
-			// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-			// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 			//
 			// ATTENTION, c qd m beroute la !
 			//
@@ -33,11 +30,7 @@
 			page: GENERIC_ADD[0].inputValue, //seo
 			url: GENERIC_ADD[1].inputValue, // url (img ou video)
 			//
-			//
 			// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-			// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-			// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
 			date_created: '12/12/12',
 			date_modified: '10/10/10',
 			inputValues: []
@@ -60,6 +53,7 @@
 			// });
 		}
 	};
+	//#######################################################
 </script>
 
 <!-- <Panel square variant="outlined" color="secondary" extend bind:open={panelOpens[0]}> -->

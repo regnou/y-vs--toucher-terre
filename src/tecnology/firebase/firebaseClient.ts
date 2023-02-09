@@ -1,51 +1,44 @@
 // @@@ FIREBASE-CONFIG
-import { config } from '../../../DATA/TECNOLOGY/DATAJSON__FIREBASE.config.json';
+import { config } from '../../domain/DATA/TECNOLOGY/DATAJSON__FIREBASE.config.json';
 // @@@ FIREBASE CLIENT
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { connectFirestoreEmulator, getFirestore, initializeFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+//#######################################################
 // !!!
 // !!! GET FIREBASE
 // !!!
 // @@@ INIT ALL TYPES below, mandatory to use the DAO
 // getFirebase(); //todo ?
 // @@@
+//#######################################################
 export function getFirebase() {
-	// ---
-	console.log('🔥');
+	// console.log('🔥');
 	const services = initializeServices();
 	if (!services.isConfigured) {
 		console.log('🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
 		console.log('🎉  Initializing FIREBASE <-- [1st time] ');
 		console.log('🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
-		// initAllCol(services.FIRESTORE); // todo
-
+		// initAllCol(services.FIRESTORE); // todo ???
 		//////////////////////////////////
-		console.log('🟠 🟠 🟠 🟠 🟠  USING > PRODUCTION ');
-		console.log('🟠 🟠 🟠 🟠 🟠  FIRESTORE ');
+		// console.log('🟠 🟠 🟠 🟠 🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
+		// console.log('🟠 🟠 🟠 🟠 🟠  FIRESTORE '); // 🟢  UN-COMMENT
 		//////////////////////////////////
-		// connectToEmulators(services); // actuellement en local
+		connectToEmulators(services); // actuellement en local  // 🟢  COMMENT
 		//////////////////////////////////
-
 		// enableMultiTabIndexedDbPersistence(services.firestore)
 	}
 	return services;
-	// ---
-	// ---
-	// ---
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	function initializeServices() {
 		// ---
 		const isConfigured = getApps().length > 0;
 		const app = initializeApp(config.firebase);
-
-		// const FIRESTORE = getFirestore(app);
 		const FIRESTORE = initializeFirestore(app, {
 			experimentalForceLongPolling: true
 		});
-
 		const STORAGE = getStorage(app);
-
 		const AUTH = getAuth(app);
 		const GOOGLE_AUTH__PROVIDER = new GoogleAuthProvider();
 		// ---
@@ -55,7 +48,6 @@ export function getFirebase() {
 		// setPersistence(auth, inMemoryPersistence) // ?
 		GOOGLE_AUTH__PROVIDER.addScope('profile');
 		GOOGLE_AUTH__PROVIDER.addScope('email');
-
 		// TODO - if contacts
 		// GOOGLE_AUTH__PROVIDER.addScope('https://www.googleapis.com/auth/contacts.readonly');
 		GOOGLE_AUTH__PROVIDER.setCustomParameters({
@@ -85,18 +77,21 @@ export function getFirebase() {
 			isConfigured
 		};
 	}
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	function connectToEmulators({ FIRESTORE }: any) {
 		//i f (location.hostname === 'localhost') {
 		console.log('🟡 🟡 🟡 🟡 🟡 🟡 USING > LOCAL-EMULATOR ');
 		console.log('🟡 🟡 🟡 🟡 🟡 🟡 FIRESTORE ');
-
-		// --- DEBUG local
+		// --- pour local
 		connectFirestoreEmulator(FIRESTORE, 'localhost', 8080);
 		// --- todo
 		// connectAuthEmulator(AUTH, 'http://localhost:9099');
 		// } e lse { console.log('🟥🟥 oooooooooo USING PRODUCTION oooooooooo 🟥🟥');
 	}
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 }
+//-------------------------------------------------------
+
 // @@@
 // @@@ GET AUTH (bidel) -- useless
 // @@@
@@ -107,6 +102,3 @@ export function getFirebase() {
 // 		callback(user);
 // 	});
 // }
-// @@@
-// @@@
-// @@@
