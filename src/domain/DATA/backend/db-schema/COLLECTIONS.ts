@@ -9,19 +9,19 @@ import { getFirebase } from '../../../../tecnology/firebase/firebaseClient';
 // -------------------------------------------------------------
 // dyn
 export const AX__COLLECTION__BLOG =
-	createCollection<I_firestoreDoc__config_cms<I_ENTITY__post>>('blog');
+	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__post>>('blog');
 export const AX__COLLECTION__EVENT =
-	createCollection<I_firestoreDoc__config_cms<I_ENTITY__event>>('prochains-rdv');
+	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__event>>('prochains-rdv');
 
 // static
 export const AX__COLLECTION__ACCEUIL =
-	createCollection<I_firestoreDoc__config_cms<I_UI__inputValue>>('acceuil');
+	createCollection<I_firestoreDoc__megaconfig_cms<I_UI__inputValue>>('acceuil');
 export const AX__COLLECTION__LADEMARCHE =
-	createCollection<I_firestoreDoc__config_cms<I_UI__inputValue>>('la-demarche');
+	createCollection<I_firestoreDoc__megaconfig_cms<I_UI__inputValue>>('la-demarche');
 
 //
 export const AX__COLLECTION__NEWSLETTER =
-	createCollection<I_firestoreDoc__config_cms<any>>('newsletter');
+	createCollection<I_firestoreDoc__megaconfig_cms<any>>('newsletter');
 // TODO
 export const AX__COLLECTION__IMG = createCollection<any>('z-img');
 

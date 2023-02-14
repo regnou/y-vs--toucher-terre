@@ -2,11 +2,13 @@
 	import Accordion from '@smui-extra/accordion';
 	import PanelAdd from './AxPanelAdd.svelte';
 	import PanelEdit from './AxPanelEdit.svelte';
-	import { STORE__PAGEITEMS } from '@app/stores/store';
-	import { isEntity } from '@app/utils/guards';
+	import { isEntity, isEntityEvent, isInputValue } from '@app/utils/guards';
+	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
+	import { get } from 'svelte/store';
 
 	// ........................................................
 	export let megaconfig;
+	const hackStore = megaconfig.conf__store; // pur hack le $ qui marche pas sur .
 	// export let listItems: T_genericItem[];
 	// export let pos_pageItem: number; // index in the STORE
 </script>
@@ -18,7 +20,9 @@
 	<!-- --------------- -->
 	<!-- ADD -->
 	<!-- --------------- -->
-	<PanelAdd {megaconfig} />
+	{#if isEntity($hackStore)}
+		<PanelAdd {megaconfig} />
+	{/if}
 
 	<!-- --------------- -->
 	<!-- EDIT -->
@@ -27,11 +31,21 @@
 	<!-- POUR CHAQUE ITEM -->
 	<!-- ######################## -->
 	<!-- todo - grouper ces 2 en 1 ? -->
-	{#if isEntity($STORE__PAGEITEMS)}
-		<!-- {#if isEntityEvent($STORE__PAGEITEMS) || isEntityPost($STORE__PAGEITEMS)} -->
-		<!-- (pos_pageItem + '_' + pos_item) -->
-		{#each $STORE__PAGEITEMS as item, pos_item (pos_item)}
-			<PanelEdit {pos_item} bind:item />
-		{/each}
-	{/if}
+	<!-- {#if isEntity($hackStore)} -->
+	<!-- {#if isEntityEvent($hackStore) || isEntityPost($hackStore)} -->
+	<!-- (pos_pageItem + '_' + pos_item) -->
+	<!-- $hackStore -->
+	{#each $hackStore as item, pos_item (pos_item)}
+		<!-- {#each $hackStore as item, pos_item (pos_item)} -->
+		<!-- {#each $megaconfig.conf__store as item, pos_item (pos_item)} -->
+		<!--  -->
+		{#if isEntity($hackStore)}
+			<PanelEdit {megaconfig} {pos_item} bind:item />
+			<!--  -->
+		{:else if isInputValue($hackStore)}
+			<AxInputValue bind:ivItm={item} />
+			<!--  -->
+		{/if}
+	{/each}
+	<!-- {/if} -->
 </Accordion>

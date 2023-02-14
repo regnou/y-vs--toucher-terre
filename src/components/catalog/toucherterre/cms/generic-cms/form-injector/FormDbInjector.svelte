@@ -6,7 +6,8 @@
 
 	const injectScript = async () => {
 		console.debug('🌎🏎️✅ click >> on:inject 1 🟡');
-		if (megaconfig.conf__dataset) await config__add(megaconfig.conf__col, megaconfig.conf__dataset);
+		if (megaconfig.conf__db_dataset)
+			await config__add(megaconfig.conf__db, megaconfig.conf__db_dataset);
 		console.debug('🌎🏎️✅ click << on:inject 2 🟨');
 	};
 </script>

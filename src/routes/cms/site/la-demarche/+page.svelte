@@ -4,13 +4,15 @@
 	import LaDemarcheApp from '@app/components/catalog/toucherterre/app/TPL/LaDemarcheApp.svelte';
 	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
 	import GenericCms from '@app/components/catalog/toucherterre/cms/generic-cms/GenericCms.svelte';
+	import { STORE__lademarche } from '@app/stores/store';
 
 	// .............................................
 	//  ROOT INIT CONFIG -- STATIC
 	// .............................................
 	let MEGACONFIG_CMS: I_megaconfig__cms<I_UI__inputValue> = {
-		conf__col: AX__COLLECTION__LADEMARCHE,
-		conf__dataset: AX__DATASET__laDemarche
+		conf__db: AX__COLLECTION__LADEMARCHE,
+		conf__db_dataset: AX__DATASET__laDemarche,
+		conf__store: STORE__lademarche // bind here the store
 	};
 	// .............................................
 </script>

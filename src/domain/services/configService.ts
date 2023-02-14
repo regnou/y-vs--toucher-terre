@@ -27,11 +27,11 @@ const openSnack = (type: string, msg: string) => {
 // -- get (id)
 //-------------------------------------------------------
 export const config__get = async <T extends T_pageItemStore>(
-	col: CollectionReference<I_firestoreDoc__config_cms<T>>
+	col: CollectionReference<I_firestoreDoc__megaconfig_cms<T>>
 ): Promise<T[]> => {
 	const id = AX__CONST__idRootDoc;
 	try {
-		const { data } = await crud__getId<I_firestoreDoc__config_cms<T>>(col, id);
+		const { data } = await crud__getId<I_firestoreDoc__megaconfig_cms<T>>(col, id);
 		if (data) {
 			// && data.pageItemsStore
 			console.debug('🚔\n🚔🧞‍♂️✅ CONVERT-ED 🔥 -> 🏎️\n🚔');
@@ -53,7 +53,7 @@ export const config__get = async <T extends T_pageItemStore>(
 // -- add (id)
 //-------------------------------------------------------
 export const config__add = async <T extends T_pageItemStore>(
-	col: CollectionReference<I_firestoreDoc__config_cms<T>>,
+	col: CollectionReference<I_firestoreDoc__megaconfig_cms<T>>,
 	data: T[]
 ) => {
 	const id = AX__CONST__idRootDoc;
@@ -63,7 +63,7 @@ export const config__add = async <T extends T_pageItemStore>(
 			dateCreated: serverTimestamp(),
 			dateUpdated: serverTimestamp()
 		};
-		await crud__addId<I_firestoreDoc__config_cms<T>>(col, id, entity);
+		await crud__addId<I_firestoreDoc__megaconfig_cms<T>>(col, id, entity);
 		openSnack('firestore', `🚔🧞‍♂️✅ (🔥+🏎️) ADD (hard) (+id=${id}) > ${col.id.toUpperCase()} `);
 	} catch (error) {
 		openSnack('firestore', `🚔🧞‍♂️❌ (🔥+🏎️) ADD (hard) (+id=${id}) > ${col.id.toUpperCase()}`);

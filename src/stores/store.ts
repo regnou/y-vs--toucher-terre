@@ -1,7 +1,17 @@
+/**
+ * C est le store, qui gere l etat de tous les element ui de la page affichee
+ * le store ne contient PAS les meta-informations de la DB, juste la liste des itms a afficher
+ */
 import { writable } from 'svelte/store';
+
 // -------------------------------------------------------------
 // STORE
 // -------------------------------------------------------------
-// c est le store, qui gere l etat de tous les element ui de la page affichee
-// le store ne contient PAS les meta-informations de la DB, juste la liste des itms a afficher
-export const STORE__PAGEITEMS = writable<T_pageItemStore[]>(/* -- */ [] /* -- */);
+// dyn
+export const STORE__BLOG = writable<I_ENTITY__post[]>(/* -- */ [] /* -- */);
+export const STORE__EVENT = writable<I_ENTITY__event[]>(/* -- */ [] /* -- */);
+
+// static
+export const STORE__acceuil = writable<I_UI__inputValue[]>(/* -- */ [] /* -- */);
+export const STORE__lademarche = writable<I_UI__inputValue[]>(/* -- */ [] /* -- */);
+// store-user

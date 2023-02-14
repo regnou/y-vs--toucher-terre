@@ -6,10 +6,10 @@
 	import AxBtnCancel from '../form-inputValue/AxBtnCancel.svelte';
 	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
-	import { STORE__PAGEITEMS } from '@app/stores/store';
 	import { isEntity } from '@app/utils/guards';
 	// ........................................................
 	export let megaconfig;
+	const hackStore = megaconfig.conf__store; // pur hack le $ qui marche pas sur .
 	let open = false;
 	// let activeTab = 'image'; // todo enum - image | video
 	// export let pos_pageItem;
@@ -34,15 +34,15 @@
 		};
 		if (confirm("Ajouter l'article ?")) {
 			// guard
-			if (isEntity($STORE__PAGEITEMS)) {
-				$STORE__PAGEITEMS.push(post);
+			if (isEntity($hackStore)) {
+				$hackStore.push(post);
 				open = false;
 				megaconfig.conf__genericAdd.forEach((itm: I_UI__inputValue) => {
 					itm.value = '';
 				});
 				// attention, chaque refresh update sa vue
 				megaconfig = megaconfig; // refresh ui : vue = ADD
-				$STORE__PAGEITEMS = $STORE__PAGEITEMS; // refresh ui : vue = COLLECTION__EDIT
+				$hackStore = $hackStore; // refresh ui : vue = COLLECTION__EDIT
 				console.debug('🌎🏎️✅ click << on:add 2 🟨');
 			}
 		}
@@ -67,17 +67,17 @@
 	</Header>
 	<!--  -->
 	<Content>
-		<div class="space-y-10">
-			<!--  -->
-			{#each megaconfig.conf__genericAdd as ivItm}
-				<AxInputValue bind:ivItm />
-			{/each}
-			<!-- END -->
-			<div class="mt-10 grid grid-flow-col place-items-center gap-2 p-10">
-				<AxBtnCancel text="cancel" />
-				<AxBtnOk text="ok" callback={add} />
-			</div>
+		<!-- <div class="space-y-10"> -->
+		<!--  -->
+		{#each megaconfig.conf__genericAdd as ivItm}
+			<AxInputValue bind:ivItm />
+		{/each}
+		<!-- END -->
+		<div class="mt-10 grid grid-flow-col place-items-center gap-2 p-10">
+			<AxBtnCancel text="cancel" />
+			<AxBtnOk text="ok" callback={add} />
 		</div>
+		<!-- </div> -->
 	</Content>
 </Panel>
 <!-- NEW BIG LOOP FOR UNION -->

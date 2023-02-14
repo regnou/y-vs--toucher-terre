@@ -1,25 +1,9 @@
 <script lang="ts">
 	import { AX__ENUM__formatMedia } from '@app/domain/DATA/backend/AX__ENUM__formatMedia';
-	// import { STORE__PAGEITEMS } from '@app/stores/store';
 	import Textfield from '@smui/textfield';
 	import Axfileupload from './AxFileupload.svelte';
 	// ....................................................
 	export let ivItm: I_UI__inputValue; // take a reference to the STORE
-
-	// $: {
-	// MEGACONFIG_CMS.conf__STORE__PAGEITEMS.set($STORE__PAGEITEMS);
-	// console.debug('🚔STORE__PAGEITEMS ', $STORE__PAGEITEMS);
-	// console.debug('🚔MEGACONFIG_CMS.conf__STORE__PAGEITEMS ', get(MEGACONFIG_CMS.conf__STORE__PAGEITEMS));
-	// }
-
-	// $: {
-	// 	MEGACONFIG_CMS.conf__STORE__PAGEITEMS.set($STORE__PAGEITEMS);
-	// 	// MEGACONFIG_CMS = MEGACONFIG_CMS;
-	// 	// MEGACONFIG_CMS.conf__STORE__PAGEITEMS = MEGACONFIG_CMS.conf__STORE__PAGEITEMS;
-	// 	// get(MEGACONFIG_CMS.conf__STORE__PAGEITEMS)[] = MEGACONFIG_CMS;
-	// 	console.debug('🚔STORE__PAGEITEMS ', $STORE__PAGEITEMS);
-	// 	console.debug('🚔MEGACONFIG_CMS.conf__STORE__PAGEITEMS ', get(MEGACONFIG_CMS.conf__STORE__PAGEITEMS));
-	// }
 </script>
 
 <!-- ############################################## -->

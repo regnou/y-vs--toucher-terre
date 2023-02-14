@@ -25,13 +25,13 @@ module.exports = {
 		//
 		// DOMAIN
 		T_pageItemStore: 'writable',
+		T_ENTITY: 'writable',
 		I_ENTITY__event: 'writable',
 		I_ENTITY__post: 'writable',
-		//
-		// UI
 		I_UI__inputValue: 'writable',
 		I_UI__factoryItem: 'writable',
-		T_ui__dynvar: 'writable',
+		//
+		// UI
 		I_ui__menu: 'writable'
 	},
 	rules: {

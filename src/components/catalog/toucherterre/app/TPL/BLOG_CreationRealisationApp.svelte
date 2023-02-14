@@ -1,13 +1,16 @@
 <script lang="ts">
-	import { STORE__PAGEITEMS } from '@app/stores/store';
+	import { STORE__BLOG } from '@app/stores/store';
 	import { AX__COLLECTION__BLOG } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
 	import { config__get } from '@app/domain/services/configService';
 	import { onMount } from 'svelte';
 	import { isEntityPost } from '@app/utils/guards';
 	import Loader from '../widgets/Loader.svelte';
 	import Post from '../widgets/Post.svelte';
+	import { axlog } from '@app/utils/axLog';
+	import { page } from '$app/stores';
+
 	// import Slider from '../Slider.svelte--no';
-	// .............................................
+	// ----------------------------------------------------------
 	// \x1B[46;97;4m cyan
 	// \x1B[44;97;4m bleu
 	// \x1B[105;97;4m rose
@@ -16,20 +19,8 @@
 	let promise = config__get<I_ENTITY__post>(AX__COLLECTION__BLOG);
 	// ----------------------------------------------------------
 	onMount(async () => {
-		$STORE__PAGEITEMS = await promise; // les types MATCH donc le bding devrait etre bon
-		console.debug('🚔');
-		console.dir($STORE__PAGEITEMS);
-		// LIGHT LOG
-		// green
-		console.debug(`🚔🏎️✅ MOUNT-ED \x1B[45;97;4m APP \x1B[m\x1B[105;97;4m BLOG \x1B[m\n`);
-		// yellow
-		// console.debug(`🚔🏎️✅ MOUNT-ED \x1B[103;30;4m APP \x1B[m\x1B[107;93;4m BLOG \x1B[m\n`);
-		// HEAVY LOG
-		// console.debug(
-		// 			`🏎️✅ MOUNT-ED \x1B[103;30;4m APP \x1B[m\x1B[107;93;4m BLOG \x1B[m
-		// \x1B[43;30;4m${JSON.stringify($STORE__PAGEITEMS, null, 2)} \x1B[m\n`
-		// 		);
-		console.debug('🚔\n');
+		$STORE__BLOG = await promise; // les types MATCH donc le bding devrait etre bon
+		axlog($STORE__BLOG, $page.url.pathname, 'BLOG');
 	});
 </script>
 
@@ -38,9 +29,9 @@
 	<Loader />
 {:then data}
 	<main id="page-blog-1">
-		{#if $STORE__PAGEITEMS && $STORE__PAGEITEMS.length}
-			{#if isEntityPost($STORE__PAGEITEMS)}
-				{#each $STORE__PAGEITEMS as post}
+		{#if $STORE__BLOG && $STORE__BLOG.length}
+			{#if isEntityPost($STORE__BLOG)}
+				{#each $STORE__BLOG as post}
 					<Post {post} />
 					<!-- {:else} -->
 					<!-- SLIDESHOW - todo AFTER -->

@@ -2,17 +2,17 @@
 	// import { upload } from '@app/tecnology/firebase/services/storageServices';
 	import { page } from '$app/stores';
 	import { config__mod } from '@app/domain/services/configService';
-	import { STORE__PAGEITEMS } from '@app/stores/store';
 	import AxBtnCancel from './widgets/form-inputValue/AxBtnCancel.svelte';
 	import AxBtnOk from './widgets/form-inputValue/AxBtnOk.svelte';
 	import AxPanelsAddEdit from './widgets/form-list/AxPanelsAddEdit.svelte';
 	// .............................................
 	export let megaconfig;
+	const hackStore = megaconfig.conf__store; // pur hack le $ qui marche pas sur .
 	//----------------------------------------------
 	async function save() {
 		console.debug('🌎🏎️✅ click >> on:save 1 🟡');
 		// await createStorageUrl();
-		await config__mod(megaconfig.conf__col, $STORE__PAGEITEMS);
+		await config__mod(megaconfig.conf__db, $hackStore);
 		console.debug('🌎🏎️✅ click << on:save 2 🟨');
 	}
 </script>
@@ -28,22 +28,22 @@
 		{$page.url.pathname.replace('/cms/site/', '').replace('-', ' ')}
 	</div>
 
-	<div class="space-y-6 p-2">
-		<!-- ######################## -->
-		<!-- POUR CHAQUE PAGE-ITEM -->
-		<!-- ######################## -->
-		{#each $STORE__PAGEITEMS as pageItem, pos_pi}
-			<!-- {#if 'listItems' in pageItem} -->
-			<!-- megaconfig, juste pour le PanelAdd qui a besoin d'avoir le form ADD -->
-			<!-- NON => je me base sur le store, pas sur la modularite du component -->
-			<!-- JE COUPLE le component au STORE pour l instant -->
-			<!-- bind:listItems={pageItem.listItems} -->
-			<AxPanelsAddEdit {megaconfig} />
-			<!-- pos_pageItem={pos_pi} -->
-			<!-- {/if} -->
-			<!-- TODO - elese - inputValue -->
-		{/each}
-	</div>
+	<!-- <div> -->
+	<!-- ######################## -->
+	<!-- POUR CHAQUE PAGE-ITEM -->
+	<!-- ######################## -->
+	<!-- {#each $hackStore as pageItem, pos_pi} -->
+	<!-- {#if 'listItems' in pageItem} -->
+	<!-- megaconfig, juste pour le PanelAdd qui a besoin d'avoir le form ADD -->
+	<!-- NON => je me base sur le store, pas sur la modularite du component -->
+	<!-- JE COUPLE le component au STORE pour l instant -->
+	<!-- bind:listItems={pageItem.listItems} -->
+	<AxPanelsAddEdit {megaconfig} />
+	<!-- pos_pageItem={pos_pi} -->
+	<!-- {/if} -->
+	<!-- TODO - elese - inputValue -->
+	<!-- {/each} -->
+	<!-- </div> -->
 	<!-- ---------------------- -->
 	<!-- SUBMIT BTNs -->
 	<!-- ---------------------- -->
