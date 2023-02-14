@@ -1,19 +1,19 @@
 export const TPL_UIADMIN = `
 <script> 
 	import XXXApp from '@app/components/catalog/toucherterre/pagecomponent/XXXApp.svelte'; 
-	import Layoutadminapp from '@app/components/catalog/toucherterre/admin/pagecomponent/Layoutadminapp.svelte'; 
-	import BaseAdmin from '@app/components/catalog/toucherterre/admin/pagecomponent/BaseAdmin.svelte'; 
-	import { TABLE_YYY } from '@app/domain/2dao/firebase/COLLECTIONS'; 
+	import Framecms from '@app/components/catalog/toucherterre/site/pagecomponent/Framecms.svelte'; 
+	import BaseAdmin from '@app/components/catalog/toucherterre/site/pagecomponent/BaseAdmin.svelte'; 
+	import { DB__YYY } from '@app/domain/2dao/firebase/COLLECTIONS'; 
 	import { STORE_YYY } from '@app/stores/stores'; 
-	import { DATAJSON__INJECT_YYY } from '@app/components/catalog/toucherterre/admin/pagecomponent/JSON/XXX.json'; 
+	import { AX__INJECT_YYY } from '@app/components/catalog/toucherterre/site/pagecomponent/JSON/XXX.json'; 
 </script> 
 
-<Layoutadminapp> 
+<Framecms> 
 	<div slot='app'> 
 		<XXXApp /> 
 	</div> 
 	<div slot='admin'> 
-		<BaseAdmin col={TABLE_YYY} store={STORE_YYY} initData={DATAJSON__INJECT_YYY} /> 
+		<BaseAdmin col={DB__YYY} store={STORE_YYY} dataset={AX__INJECT_YYY} /> 
 	</div> 
-</Layoutadminapp> 
+</Framecms> 
 `;

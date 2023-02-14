@@ -1,4 +1,7 @@
 <script lang="ts">
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+	// CSS (themes for all the app)
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import '@app/app.css';
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import '@splidejs/splide/css'; // splide - Default theme
@@ -6,14 +9,19 @@
 	// import '@splidejs/splide/css/sea-green'; // or other themes
 	// import '@splidejs/splide/css/core'; // or only core styles
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
-	import Snack from '@app/components/catalog/toucherterre/shared/Snack.svelte';
+	//
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import { navigating } from '$app/stores';
-	import PreloadingIndicator from '@app/components/catalog/toucherterre/shared/PreloadingIndicator.svelte';
 	import { onMount } from 'svelte';
+	import AxSnack from '@app/components/catalog/toucherterre/shared/frame/AxSnack.svelte';
+	import AxPreloadingIndicator from '@app/components/catalog/toucherterre/shared/frame/AxPreloadingIndicator.svelte';
+	import GridChecker from '@app/components/catalog/toucherterre/shared/debug-ui/GridChecker.svelte';
+	//#######################################################
+	// MEGA ROOT LAYOUT
 	//#######################################################
 	onMount(() => {
-		const style = getComputedStyle(document.body);
-		// console.log('>>> THEME: ' + style.getPropertyValue('--mdc-theme-primary'));
+		// const style = getComputedStyle(document.body);
+		// console.debug('🚔>>> THEME: ' + style.getPropertyValue('--mdc-theme-primary'));
 		// --mdc-theme-primary: #f6c0c0;
 		// --mdc-theme-secondary: #676778;
 		// --mdc-theme-background: #fff;
@@ -42,12 +50,15 @@
 	//#######################################################
 </script>
 
+<!-- jouer sur le z-index si besoin -->
+<!-- <GridChecker /> -->
+
 {#if $navigating}
-	<PreloadingIndicator />
+	<AxPreloadingIndicator />
 {/if}
 
 <!-- it sync its state with the store -->
-<Snack />
+<AxSnack />
 
 <slot />
 

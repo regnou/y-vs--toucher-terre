@@ -19,8 +19,17 @@
 		// "moduleResolution": "node",
 		// "module": "es2020",
 		// "target": "es2020",
+		//
+		//
+		//
+		//
 		// ---
-		"noImplicitAny": false // RETIRE HAS INPLICITY ANY TYPE
+		// CALMER TYPAGE 1
+		// ---
+		"noImplicitAny": false // EASY NOW
+		// "noImplicitAny": true // Parameter 's' implicitly has an 'any' type.
+		//
+		//
 		// https://firelordjs.com/quick_start
 		// below options are optional, be sure to google what they do!
 		// "noUncheckedIndexedAccess": true, // optional but recommended todo

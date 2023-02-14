@@ -4,4 +4,4 @@
 # .
 
 PATH_SCRIPT='/Users/axelo/0gh/vs/toucher-terre/svelte-frontend/src/gen/gen-ui-admin.js'
-node "$PATH_SCRIPT" "admin-la-demarche" "LaDemarche" "TABLE_LADEMARCHE"
+node "$PATH_SCRIPT" "admin-la-demarche" "LaDemarche" "DB__LADEMARCHE"

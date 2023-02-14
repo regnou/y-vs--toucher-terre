@@ -1,0 +1,22 @@
+<script lang="ts">
+	import ParagraphLeft from './ParagraphLeft.svelte';
+	// ............................................
+	// ARTICLE
+	export let post: I_ENTITY__post;
+	// title={post.title.iv} richTextArea={post.slug.iv}
+	// export let title = '';
+	// export let richTextArea = '';
+	// ........I_blogItem..............................
+	let imgIcon = '/media/icon/icon-infinity.png';
+	// ............................................
+</script>
+
+<div id="postentry-1" class="m-2">
+	<!-- TITLE ARTICLE -->
+	<div class="flex place-items-center border py-3">
+		<img class="w-16  border pr-5" src={imgIcon} alt="" />
+		<div style="color:#F6BD94" class="text-2xl font-bold uppercase">{post.titlePost.value}</div>
+	</div>
+	<!-- CONTENT ARTICLE -->
+	<ParagraphLeft text={post.body.value} />
+</div>

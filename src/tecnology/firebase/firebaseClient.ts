@@ -1,29 +1,31 @@
 // @@@ FIREBASE-CONFIG
-import { config } from '../../domain/DATA/TECNOLOGY/DATAJSON__FIREBASE.config.json';
+import { AX__config_firesbase } from '../../domain/DATA/clientend/tecnology/AX__CONFIG__FIREBASE.json';
 // @@@ FIREBASE CLIENT
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { connectFirestoreEmulator, getFirestore, initializeFirestore } from 'firebase/firestore';
+import { connectFirestoreEmulator, initializeFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+
 //#######################################################
 // !!!
 // !!! GET FIREBASE
 // !!!
-// @@@ INIT ALL TYPES below, mandatory to use the DAO
-// getFirebase(); //todo ?
-// @@@
 //#######################################################
+
+// help ? => INIT ALL TYPES below, mandatory to use the DAO ?
+// getFirebase(); //todo ?Export firestore incase we need to access it directly
+
 export function getFirebase() {
-	// console.log('🔥');
+	// console.debug('🚔🔥');
 	const services = initializeServices();
 	if (!services.isConfigured) {
-		console.log('🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
-		console.log('🎉  Initializing FIREBASE <-- [1st time] ');
-		console.log('🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
+		console.debug('🚔🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
+		console.debug('🚔🔥✅ 🎉  Initializing FIREBASE <-- [1st time] ');
+		console.debug('🚔🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
 		// initAllCol(services.FIRESTORE); // todo ???
 		//////////////////////////////////
-		// console.log('🟠 🟠 🟠 🟠 🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
-		// console.log('🟠 🟠 🟠 🟠 🟠  FIRESTORE '); // 🟢  UN-COMMENT
+		// console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
+		// console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  FIRESTORE '); // 🟢  UN-COMMENT
 		//////////////////////////////////
 		connectToEmulators(services); // actuellement en local  // 🟢  COMMENT
 		//////////////////////////////////
@@ -34,7 +36,7 @@ export function getFirebase() {
 	function initializeServices() {
 		// ---
 		const isConfigured = getApps().length > 0;
-		const app = initializeApp(config.firebase);
+		const app = initializeApp(AX__config_firesbase.firebase);
 		const FIRESTORE = initializeFirestore(app, {
 			experimentalForceLongPolling: true
 		});
@@ -80,13 +82,13 @@ export function getFirebase() {
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	function connectToEmulators({ FIRESTORE }: any) {
 		//i f (location.hostname === 'localhost') {
-		console.log('🟡 🟡 🟡 🟡 🟡 🟡 USING > LOCAL-EMULATOR ');
-		console.log('🟡 🟡 🟡 🟡 🟡 🟡 FIRESTORE ');
+		console.debug('🚔🔥✅ 🟢🟢🟢🟢🟢🟢🟢🟢 USING > LOCAL-EMULATOR ');
+		console.debug('🚔🔥✅ 🟢🟢🟢🟢🟢🟢🟢🟢 FIRESTORE ');
 		// --- pour local
 		connectFirestoreEmulator(FIRESTORE, 'localhost', 8080);
 		// --- todo
 		// connectAuthEmulator(AUTH, 'http://localhost:9099');
-		// } e lse { console.log('🟥🟥 oooooooooo USING PRODUCTION oooooooooo 🟥🟥');
+		// } e lse { console.debug('🚔🟥🟥 oooooooooo USING PRODUCTION oooooooooo 🟥🟥');
 	}
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 }
@@ -98,7 +100,7 @@ export function getFirebase() {
 // export function onAuth(callback: any) {
 // 	const { AUTH } = getFirebase();
 // 	return onAuthStateChanged(AUTH, (user) => {
-// 		console.log(user);
+// 		console.debug(user);
 // 		callback(user);
 // 	});
 // }

@@ -1,4 +1,12 @@
-<!-- <div class="" on:openSnackEvent={onOpenSnack}> -->
+@ts-ignore
+
+- :global(.whatever)
+  🌎
+  🚔
+  🏎️
+  ✅
+
+<!-- <div  on:openSnackEvent={onOpenSnack}> -->
 <!-- <slot on:openSnackEvent /> -->
 
     	// dispatch('openSnackEvent', {
@@ -16,12 +24,12 @@ const dispatch = createEventDispatcher();
     	<!-- // const dispatch = createEventDispatcher();
 
 // onMount(() => {
-// console.log('-- onMount');
+// console.debug('🚔-- onMount');
 // dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
 // });
 
 // afterUpdate(() => {
-// console.log('-- afterUpdate');
+// console.debug('🚔-- afterUpdate');
 // // dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
 // }); -->
 
@@ -32,9 +40,9 @@ const dispatch = createEventDispatcher();
     	// 		const urlStorage = await upload(fileList[0]);
     	// 		// const urlStorage = await upload(fileList[0]);
 
-    	// 		$store[i].inputValue = urlStorage;
-    	// 		console.log('UPDATE FINAL : ', $store[i].inputValue, ' -- ', urlStorage);
-    	// 		console.log('________________________________');
+    	// 		$store[i].iv = urlStorage;
+    	// 		console.debug('🚔UPDATE FINAL : ', $store[i].iv, ' -- ', urlStorage);
+    	// 		console.debug('🚔________________________________');
     	// 	}
     	// });
 
@@ -43,7 +51,7 @@ const dispatch = createEventDispatcher();
     // let hhh = 'N/A';
     // $: {
     // 	hhh = 'h-[calc(100vh-theme(' + hh + '))]';
-    // 	console.log('ici:', hhh);
+    // 	console.debug('🚔ici:', hhh);
     // }
     // TODO - dj mike, met l interpolation
 
@@ -61,7 +69,7 @@ const dispatch = createEventDispatcher();
 		<!-- ajouter le scroll ici change tout -->
 		<!-- <div
 		id="catalog-container-item1"
-		class="relative overflow-y-scroll   border-green-500 border h-[calc(100vh-theme(space.12)-12px)]   "
+		class="relative overflow-y-scroll   border-green-500 border h-[calc(100vh-theme(space.12)-12px)] "
 		styl
 		e="max-width: 1080px;"
 	> -->
@@ -74,14 +82,14 @@ const dispatch = createEventDispatcher();
 <!-- body -->
 <!-- <div class="grid grid-flow-col content-start"> -->
 <!-- <LayoutCenter1> -->
-<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
+<!-- hh={'space.' + AX__HEADER_APP__HEIGHT} -->
 <!-- <LayoutCenter1> -->
 <!-- <slot name="app" /> -->
 <!-- </LayoutCenter1> -->
-<!-- hh={'space.' + DATAJSON__HEADER_APP__HEIGHT} -->
+<!-- hh={'space.' + AX__HEADER_APP__HEIGHT} -->
 <!-- <LayoutCenter1> -->
-<!-- <slot name="admin">
-		<div class="">bloc d admin</div>
+<!-- <slot name="cms">
+		<div >bloc d admin</div>
 	</slot> -->
 <!-- </LayoutCenter1> -->
 <!-- </div> -->
@@ -99,15 +107,15 @@ const dispatch = createEventDispatcher();
 // let hjoin = 'N/A';
 // $: {
 // hjoin = hstr + h;
-// console.log(hjoin);
+// console.debug(hjoin);
 // }
 
 <!-- this is the main header -->
 <!-- {@debug hjoin} -->
 <!-- class="{hjoin}  -->
-<div id="catalog-header" class=" border border-yellow-500" />
+<div id="catalog-header" class="border border-yellow-500" />
 <!-- just to equilibrate the previous absolute... -->
-<!-- <div class=" h-{h} bg-red-200  " /> -->
+<!-- <div class="h-{h} bg-red-200" /> -->
 
 # create-svelte
 
@@ -154,14 +162,14 @@ You can preview the production build with `npm run preview`.
     });
 
 <List class="bg-yellow-500">
-	{#each DATAJSON__PAGES as item}
+	{#each AX__HEADERMENU_CMS as item}
 		<!-- {#if item.submenus} -->
-		<!-- FOR THE ADMIN -->
+		<!-- FOR THE CMS -->
 		<!-- <SubmenuItem menu= submenus={item.submenus} /> -->
 		<!-- {:else} -->
 		<!-- href="javascript:void(0)" activated={active === item.menu} -->
 		<Item>
-			<a href={'/admin/pages' + item.url} class="w-full">
+			<a href={'/cms/site' + item.url} class="w-full">
 				<Text>{item.page}</Text>
 			</a>
 		</Item>

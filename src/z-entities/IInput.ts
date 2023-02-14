@@ -1,6 +1,6 @@
 export interface IInput {
 	id: string;
-	index: string;
+	pos: string;
 	type: string;
 	label: string;
 	inputValue: string;

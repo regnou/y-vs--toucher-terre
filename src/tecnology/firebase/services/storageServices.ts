@@ -1,19 +1,19 @@
 import { getFirebase } from '@app/tecnology/firebase/firebaseClient';
-import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage';
-import { TABLE_IMG } from '../../../z-entities/COLLECTIONS';
-import { dao_add } from './firestoreServices';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { AX__COLLECTION__IMG } from '../../../domain/DATA/backend/db-schema/COLLECTIONS';
+import { firestore__add } from './crudFirestore';
 
 async function upload(fileax) {
 	// return new Promise(async function (resolve, reject) {
-	const metadata = {
-		contentType: ['image/jpeg', 'image/png']
-	};
+	// const metadata = {
+	// 	contentType: ['image/jpeg', 'image/png']
+	// };
 	const { STORAGE } = getFirebase();
-	console.log('debug 0 - filename: ', fileax.name.trim());
-	console.log('debug 1 - upload file: ', fileax);
+	console.debug('🚔debug 0 - filename: ', fileax.name.trim());
+	console.debug('🚔debug 1 - upload file: ', fileax);
 
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
-	const uid = await dao_add(TABLE_IMG, { filename: fileax.name.trim() });
+	const uid = await firestore__add(AX__COLLECTION__IMG, { filename: fileax.name.trim() });
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
 	const YOUR_STORAGE_PATH = '/media/' + uid;
 
@@ -23,7 +23,7 @@ async function upload(fileax) {
 	// 'file' comes from the Blob or File API
 	const snap = await uploadBytes(storageRef, fileax);
 	const downloadURL = await getDownloadURL(snap.ref);
-	console.log('mission finished: downloadURL: ', downloadURL);
+	console.debug('🚔mission finished: downloadURL: ', downloadURL);
 	return downloadURL;
 
 	// const uploadTask = uploadBytesResumable(storageRef, fileax, metadata);
@@ -33,13 +33,13 @@ async function upload(fileax) {
 	// 	(snapshot) => {
 	// 		// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
 	// 		const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-	// 		console.log('Upload is ' + progress + '% done');
+	// 		console.debug('🚔Upload is ' + progress + '% done');
 	// 		switch (snapshot.state) {
 	// 			case 'paused':
-	// 				console.log('Upload is paused');
+	// 				console.debug('🚔Upload is paused');
 	// 				break;
 	// 			case 'running':
-	// 				console.log('Upload is running');
+	// 				console.debug('🚔Upload is running');
 	// 				break;
 	// 		}
 	// 	},
@@ -62,11 +62,11 @@ async function upload(fileax) {
 	// 		}
 	// 	},
 	// 	async () => {
-	// 		console.log("UPLOAD completed");
+	// 		console.debug("UPLOAD completed");
 	// 		// Upload completed ok, now we can get the download URL
 	// 		const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
 	// 		// .then((downloadURL) => {
-	// 		console.log('File available at', downloadURL);
+	// 		console.debug('🚔File available at', downloadURL);
 	// 		// resolve(downloadURL);
 	// 		// });
 	// 		return downloadURL;
@@ -80,7 +80,7 @@ async function download(storagePath) {
 	// const storageRef = ref(STORAGE, file);
 	const { STORAGE } = getFirebase();
 	const storageRef = ref(STORAGE, storagePath);
-	const value = await getDownloadURL(storageRef);
+	await getDownloadURL(storageRef);
 }
 
 export { download, upload };
