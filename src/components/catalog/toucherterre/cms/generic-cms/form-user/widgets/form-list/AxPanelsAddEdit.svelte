@@ -2,7 +2,7 @@
 	import Accordion from '@smui-extra/accordion';
 	import PanelAdd from './AxPanelAdd.svelte';
 	import PanelEdit from './AxPanelEdit.svelte';
-	import { isEntity, isEntityEvent, isInputValue } from '@app/utils/guards';
+	import { isEntity, isInputValue } from '@app/utils/guards';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	import { get } from 'svelte/store';
 

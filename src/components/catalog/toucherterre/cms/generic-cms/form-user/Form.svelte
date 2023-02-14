@@ -2,6 +2,7 @@
 	// import { upload } from '@app/tecnology/firebase/services/storageServices';
 	import { page } from '$app/stores';
 	import { config__mod } from '@app/domain/services/configService';
+	import { upload } from '@app/tecnology/firebase/services/storageServices';
 	import AxBtnCancel from './widgets/form-inputValue/AxBtnCancel.svelte';
 	import AxBtnOk from './widgets/form-inputValue/AxBtnOk.svelte';
 	import AxPanelsAddEdit from './widgets/form-list/AxPanelsAddEdit.svelte';
@@ -11,9 +12,35 @@
 	//----------------------------------------------
 	async function save() {
 		console.debug('🌎🏎️✅ click >> on:save 1 🟡');
-		// await createStorageUrl();
+		await createStorageUrl();
 		await config__mod(megaconfig.conf__db, $hackStore);
 		console.debug('🌎🏎️✅ click << on:save 2 🟨');
+	}
+	// ---------------------------------------------
+	//----------------------------------------------
+	// UPLOAD STORAGE ON FIREBASE
+	//----------------------------------------------
+	async function createStorageUrl() {
+		for (const item of $hackStore) {
+			// if (item.posts) {
+			// for (const post of item.posts) {
+			// for (const ivItm of item.inputValues) {
+			if (item.tag === 'file' && item.blobs) {
+				// we always just have ONE FILE
+				const urlStorage = await upload(item.blobs[0]);
+				// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+				item.value = urlStorage;
+				//
+				// and update the ui
+				// post.url = urlStorage;
+				//
+				// We unlink the blob now from the store
+				delete item.blobs;
+			}
+			// }
+			// }
+			// }
+		}
 	}
 </script>
 
@@ -59,29 +86,3 @@
 <!-- SLIDESHOW - todo AFTER -->
 <!-- <div class="col-span-4 grid grid-rows-3 place-items-center">
 				<Slider imgs={[$STORE[i].iv]} /> </div> -->
-
-<!-- //----------------------------------------------
-				// UPLOAD STORAGE ON FIREBASE
-				//----------------------------------------------
-				// async function createStorageUrl() {
-				// 	for (const blog of $STORE) {
-				// 		if (blog.posts) {
-				// 			for (const post of blog.posts) {
-				// 				for (const ivItm of post.inputValues) {
-				// 					if (ivItm.tag === 'file' && ivItm.blobs) {
-				// 						// we always just have ONE FILE
-				// 						const urlStorage = await upload(ivItm.blobs[0]);
-				// 						// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
-				// 						ivItm.iv = urlStorage;
-				// 						//
-				// 						// and update the ui
-				// 						post.url = urlStorage;
-				// 						//
-				// 						// We unlink the blob now from the store
-				// 						delete ivItm.blobs;
-				// 					}
-				// 				}
-				// 			}
-				// 		}
-				// 	}
-				// } -->

@@ -12,7 +12,8 @@
 	let open = false;
 
 	// always open first in admin
-	$: open = $page.url.pathname.includes('/cms/') ? true : false;
+	$: open = isAdmin && !isXs && !isSm ? true : open;
+	// $: open = $page.url.pathname.includes('/cms/') ? true : false;
 
 	//xs ??   sm 640 | md 768   |    lg 1024 | xl 1280 | 2xl 1536
 	const xs = '(max-width: 639px)';

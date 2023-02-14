@@ -2,15 +2,11 @@
 	import TopAppBar, { Row, Section, AutoAdjust } from '@smui/top-app-bar';
 	import IconButton from '@smui/icon-button';
 	// --------------------------------------------
-	// export let isAdmin = false;
-	// export let openApp;
-	// export let openAdmin;
-	export let open = false;
+	export let open;
 	// ............................................
 	const toggleOpen = () => {
 		open = !open;
-		// if (isAdmin) openAdmin = !openAdmin;
-		// else openApp = !openApp;
+		console.log('hamburger pressed; open: ', open);
 	};
 	let topAppBar;
 	// --------------------------------------------

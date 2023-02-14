@@ -52,13 +52,14 @@ declare global {
 	}
 	interface I_UI__inputValue extends I_UI__factoryItem {
 		label: string;
-		value: string; // discriminant G1
+		value: string; // discriminant G1 // the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+		blobs?: any[]; // on l ajoute et puis on le supprime pour l upload
 		format?: AX__ENUM__formatMedia; // TODO - enum => pour differencierimge/video du slideshow
 	}
 	interface I_UI__factoryItem {
 		id: string;
 		pos?: number;
-		tag?: string; // cf. tag (I_UI__inputValue) => le type de input = image, text, area, ....
+		tag?: string; // cf. tag (I_UI__inputValue) => le type de input = file, image, text, area, ....
 		dateCreated?: string;
 		dateEdited?: string;
 	}

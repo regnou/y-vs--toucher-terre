@@ -1,16 +1,17 @@
 <script lang="ts">
 	import ParagraphLeft from './ParagraphLeft.svelte';
-	// ............................................
-	// ARTICLE
+	// --------------------------------------------
 	export let post: I_ENTITY__post;
-	// title={post.title.iv} richTextArea={post.slug.iv}
-	// export let title = '';
-	// export let richTextArea = '';
-	// ........I_blogItem..............................
-	let imgIcon = '/media/icon/icon-infinity.png';
 	// ............................................
+	let imgIcon = '/media/icon/icon-infinity.png';
+	// title={post.title.iv} richTextArea={post.slug.iv}
+	// export let richTextArea = '';
+	// --------------------------------------------
 </script>
 
+<!-- ######################################### -->
+<!-- POST -->
+<!-- ######################################### -->
 <div id="postentry-1" class="m-2">
 	<!-- TITLE ARTICLE -->
 	<div class="flex place-items-center border py-3">

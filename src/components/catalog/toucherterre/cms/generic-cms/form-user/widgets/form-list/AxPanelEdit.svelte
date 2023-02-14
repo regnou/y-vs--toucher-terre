@@ -2,7 +2,7 @@
 	import { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
-	import { isEntity, isEntityEvent, isEntityPost, isInputValue } from '@app/utils/guards';
+	import { isEntity, isEntityEvent, isEntityPost } from '@app/utils/guards';
 	// ...............................................
 	export let item: T_ENTITY;
 	export let pos_item: number;

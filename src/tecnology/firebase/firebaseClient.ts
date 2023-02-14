@@ -24,10 +24,10 @@ export function getFirebase() {
 		console.debug('🚔🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
 		// initAllCol(services.FIRESTORE); // todo ???
 		//////////////////////////////////
-		// console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
-		// console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  FIRESTORE '); // 🟢  UN-COMMENT
+		console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
+		console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  FIRESTORE '); // 🟢  UN-COMMENT
 		//////////////////////////////////
-		connectToEmulators(services); // actuellement en local  // 🟢  COMMENT
+		// connectToEmulators(services); // actuellement en local  // 🟢  COMMENT
 		//////////////////////////////////
 		// enableMultiTabIndexedDbPersistence(services.firestore)
 	}

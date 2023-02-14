@@ -15,7 +15,7 @@
 	import { onMount } from 'svelte';
 	import AxSnack from '@app/components/catalog/toucherterre/shared/frame/AxSnack.svelte';
 	import AxPreloadingIndicator from '@app/components/catalog/toucherterre/shared/frame/AxPreloadingIndicator.svelte';
-	import GridChecker from '@app/components/catalog/toucherterre/shared/debug-ui/GridChecker.svelte';
+	// import GridChecker from '@app/components/catalog/toucherterre/shared/debug-ui/GridChecker.svelte';
 	//#######################################################
 	// MEGA ROOT LAYOUT
 	//#######################################################

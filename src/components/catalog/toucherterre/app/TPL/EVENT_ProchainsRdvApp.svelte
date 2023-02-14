@@ -8,7 +8,6 @@
 	import Eventcard from '../widgets/Eventcard.svelte';
 	import { axlog } from '@app/utils/axLog';
 	import { page } from '$app/stores';
-
 	// ----------------------------------------------------------
 	// .............................................
 	let promise = config__get<I_ENTITY__event>(AX__COLLECTION__EVENT);

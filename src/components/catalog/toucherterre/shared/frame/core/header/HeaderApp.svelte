@@ -3,7 +3,6 @@
 	import { AX__HEADERMENU_APP } from '@app/domain/DATA/clientend/ui-frame/menus/AX__HEADERMENU_APP.json';
 	import Fab, { Icon } from '@smui/fab';
 	import HeadermenuItem from './menuItem/HeadermenuItem.svelte';
-	import IconButton from '@smui/icon-button';
 </script>
 
 <!-- #######################################################  -->
@@ -17,8 +16,7 @@
 </Section>
 
 <!-- RIGHT -->
-<!-- <Section align="end"> -->
-<Section>
+<Section align="end">
 	<a href="/cms/site" rel="prefetch">
 		<Fab mini>
 			<!-- <img src="media/ax/3.jpg" alt="" /> -->

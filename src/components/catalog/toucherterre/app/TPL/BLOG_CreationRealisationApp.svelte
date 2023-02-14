@@ -8,13 +8,8 @@
 	import Post from '../widgets/Post.svelte';
 	import { axlog } from '@app/utils/axLog';
 	import { page } from '$app/stores';
-
 	// import Slider from '../Slider.svelte--no';
 	// ----------------------------------------------------------
-	// \x1B[46;97;4m cyan
-	// \x1B[44;97;4m bleu
-	// \x1B[105;97;4m rose
-	// \x1B[m end
 	// .............................................
 	let promise = config__get<I_ENTITY__post>(AX__COLLECTION__BLOG);
 	// ----------------------------------------------------------
