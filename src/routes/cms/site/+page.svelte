@@ -1,6 +1,6 @@
 <script lang="ts">
-	import AxTable from '@app/components/catalog/toucherterre/cms/generic-cms/form-user/widgets/AxTable.svelte';
 	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
+	import AxTable from '@app/components/catalog/toucherterre/cms/generic-cms/form-user/toolbox/AxTable.svelte';
 	import { AX__HEADERMENU_CMS } from '@app/domain/DATA/clientend/ui-frame/menus/AX__HEADERMENU_CMS.json';
 </script>
 

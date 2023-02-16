@@ -3,9 +3,9 @@
 	import { page } from '$app/stores';
 	import { config__mod } from '@app/domain/services/configService';
 	import { upload } from '@app/tecnology/firebase/services/storageServices';
-	import AxBtnCancel from './widgets/form-inputValue/AxBtnCancel.svelte';
-	import AxBtnOk from './widgets/form-inputValue/AxBtnOk.svelte';
-	import AxPanelsAddEdit from './widgets/form-list/AxPanelsAddEdit.svelte';
+	import AxBtnCancel from './toolbox/form-inputValue/AxBtnCancel.svelte';
+	import AxBtnOk from './toolbox/form-inputValue/AxBtnOk.svelte';
+	import AxPanelsAddEdit from './toolbox/form-list/AxPanelsAddEdit.svelte';
 	// .............................................
 	export let megaconfig;
 	const hackStore = megaconfig.conf__store; // pur hack le $ qui marche pas sur .

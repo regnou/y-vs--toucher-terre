@@ -2,7 +2,7 @@
 	// import Slider from '../Slider.svelte';
 	import { onMount } from 'svelte';
 	import { AX__COLLECTION__ACCEUIL } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
-	import { STORE__acceuil } from '@app/stores/store';
+	// import { store } from '@app/stores/store';
 	import { config__get } from '@app/domain/services/configService';
 	import { isInputValue } from '@app/utils/guards';
 	import SeparatorMedium from '../widgets/SeparatorMedium.svelte';
@@ -14,45 +14,60 @@
 	import Contactcard from '../widgets/Contactcard.svelte';
 	import { axlog } from '@app/utils/axLog';
 	import { page } from '$app/stores';
+	import { reducerBlog } from '@app/stores/storeReducers';
 	// ----------------------------------------------------------
 	// ..........................................................
-	let promise = config__get<I_UI__inputValue>(AX__COLLECTION__ACCEUIL);
+	export let store;
+
+	// let promise = config__get<I_UI__inputValue>(AX__COLLECTION__ACCEUIL);
 	// ----------------------------------------------------------
-	onMount(async () => {
-		$STORE__acceuil = await promise; // les types MATCH donc le bding devrait etre bon
-		axlog($STORE__acceuil, $page.url.pathname, 'ACCEUIL');
-	});
+	// onMount(async () => {
+	// 	//
+	// 	const r = await promise; // les types MATCH donc le bding devrait etre bon
+	// 	store.dispatch('mod-hard', r);
+	// 	// debugger;
+	// 	axlog($store, $page.url.pathname, 'ACCEUIL');
+	// });
 </script>
 
-{#await promise}
+<!-- {#if $store}
+	<button on:click={(e) => store.dispatch('add', 5)}>Dispatch</button>
+{/if} -->
+
+<!-- {#await promise}
 	<Loader />
-{:then data}
-	<main id="acceuilApp-1">
-		{#if $STORE__acceuil && $STORE__acceuil.length}
-			{#if isInputValue($STORE__acceuil)}
-				<Hero bind:img={$STORE__acceuil[0].value} bind:text={$STORE__acceuil[1].value} />
-				<SeparatorMedium />
-				<Title text={$STORE__acceuil[2].value} />
-				<SeparatorMedium />
-				<Paragraph text={$STORE__acceuil[3].value} />
-				<SeparatorMedium />
-				<Twocol>
-					<Contactcard
-						title={$STORE__acceuil[4].value}
-						subtitle={$STORE__acceuil[5].value}
-						mail={$STORE__acceuil[6].value}
-						fb={$STORE__acceuil[7].value}
-						tel={$STORE__acceuil[8].value}
-					/>
-					<div />
-				</Twocol>
-			{/if}
+{:then data} -->
+<main id="acceuilApp-1">
+	{#if $store && $store.length}
+		{#if isInputValue($store)}
+			<Hero bind:img={$store[0].value} bind:text={$store[1].value} />
+			<SeparatorMedium />
+			<Title text={$store[2].value} />
+			<SeparatorMedium />
+			<Paragraph text={$store[3].value} />
+			<SeparatorMedium />
+			<Twocol>
+				<Contactcard
+					title={$store[4].value}
+					subtitle={$store[5].value}
+					mail={$store[6].value}
+					fb={$store[7].value}
+					tel={$store[8].value}
+				/>
+				<div />
+			</Twocol>
 		{/if}
-	</main>
-{:catch error}
+	{/if}
+</main>
+<!-- {:catch error}
 	<p style="color: red">{error.message}</p>
-{/await}
+{/await} -->
+<!-- 
+
+
+
+ -->
 <!-- <div id="slider-1" class="grid place-items-center border-4 border-white "> -->
 <!-- why idx 1 -> becoz in staticpage, i do it as I want -->
-<!-- <Slider items={$STORE__acceuil[1].posts} /> -->
+<!-- <Slider items={$store[1].posts} /> -->
 <!-- </div> -->

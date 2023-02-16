@@ -1,0 +1,49 @@
+<!-- <script>
+	import { redux } from '@app/stores/StoreBlog';
+	import { reducerBlog } from '@app/stores/storeReducers';
+	import { onMount } from 'svelte';
+
+	// function redux(init, reducer) {
+	// 	const devTools =
+	// 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__.connect();
+
+	// 	const { update, subscribe } = writable(init);
+
+	// 	function dispatch(action) {
+	// 		update((state) => {
+	// 			devTools.send(action, state);
+	// 			return reducer(state, action);
+	// 		});
+	// 	}
+
+	// 	return {
+	// 		subscribe,
+	// 		dispatch
+	// 	};
+	// }
+
+	// const reducer = (state, action) => {
+	// 	console.log(state.count, action);
+	// 	switch (action) {
+	// 		case 'increment':
+	// 			return { count: state.count + 1 };
+	// 		default:
+	// 			return state;
+	// 	}
+	// };
+
+	let storeBlog = undefined;
+	onMount(() => {
+		const devTools =
+			window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__.connect();
+		// store = redux({ count: 0 }, reducer);
+		// storeBlog = redux({ count: 0 }, reducerBlog, devTools);
+	});
+</script>
+
+{#if $storeBlog}
+	Count: {$storeBlog.count}
+	<button on:click={(e) => storeBlog.dispatch('add', 5)}>Dispatch</button>
+{/if}
+
+end -->
