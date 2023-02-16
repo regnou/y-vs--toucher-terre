@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { AX__CONST__isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__CONST__isDebugBorder';
 	import ParagraphLeft from './ParagraphLeft.svelte';
 	// --------------------------------------------
 	export let post: I_ENTITY__post;
@@ -15,7 +16,12 @@
 <div id="postentry-1" class="m-2">
 	<!-- TITLE ARTICLE -->
 	<div class="flex place-items-center border py-3">
-		<img class="w-16  border pr-5" src={imgIcon} alt="" />
+		<img
+			style="border:{AX__CONST__isDebugBorder ? '1px solid blue' : 'none'}"
+			class="w-16   pr-5"
+			src={imgIcon}
+			alt=""
+		/>
 		<div style="color:#F6BD94" class="text-2xl font-bold uppercase">{post.titlePost.value}</div>
 	</div>
 	<!-- CONTENT ARTICLE -->

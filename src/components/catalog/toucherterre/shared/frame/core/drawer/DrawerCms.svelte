@@ -7,12 +7,13 @@
 	import DrawerMenuItem from './menu-item/DrawermenuItem.svelte';
 
 	export let open = false;
+	export let variant = undefined;
 </script>
 
 <!-- ########################################### -->
 <!-- DRAWER CMS -->
 <!-- ########################################### -->
-<Drawer variant="modal" {open} class="fixed">
+<Drawer {variant} {open} class="fixed">
 	<!-- HEADER -->
 	<Header>
 		<Title>AXELO</Title>

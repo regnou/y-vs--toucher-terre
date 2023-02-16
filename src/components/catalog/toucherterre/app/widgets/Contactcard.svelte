@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Separator from './Separator.svelte';
 	import ContactCardItem from './ContactcardItem.svelte';
+	import { AX__CONST__isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__CONST__isDebugBorder';
 
 	export let title = 'N/A';
 	export let subtitle = 'N/A';
@@ -9,7 +10,11 @@
 	export let tel = 'N/A';
 </script>
 
-<div id="ax-contactcard-1" class="rounded-3xl border bg-white/20 p-2">
+<div
+	id="ax-contactcard-1"
+	style="border:{AX__CONST__isDebugBorder ? '1px solid blue' : 'none'}"
+	class="rounded-3xl  bg-white/20 p-2"
+>
 	<!--  -->
 	<div class="place-body-center grid grid-flow-col">
 		<img class="h-8 justify-self-end " src="/media/icon/icon-contact-decom--creme.png" alt="" />

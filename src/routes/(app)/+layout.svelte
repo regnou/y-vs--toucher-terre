@@ -1,7 +1,7 @@
 <script lang="ts">
-	import FrameApp from '@app/components/catalog/toucherterre/app/FrameApp.svelte';
+	import Frameapp from '@app/components/catalog/toucherterre/app/Frameapp.svelte';
 </script>
 
-<FrameApp>
+<Frameapp>
 	<slot />
-</FrameApp>
+</Frameapp>

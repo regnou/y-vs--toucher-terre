@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { AX__CONST__isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__CONST__isDebugBorder';
 	import Button, { Label } from '@smui/button';
 	// ----------------------------------------------
 	export let menu: I_ui__menu;
+
 	// ..............................................
 </script>
 
@@ -15,7 +17,19 @@
 	href={menu.url}
 >
 	<Label style="color:#E5B385">
-		<img class="hidden h-7  w-7 border lg:inline" src={menu.img} alt="" />
+		<img
+			class:uiDebug={AX__CONST__isDebugBorder}
+			class="hidden h-7  w-7  lg:inline"
+			src={menu.img}
+			alt=""
+		/>
 		{menu.title}</Label
 	>
 </Button>
+
+<!-- ui-border--1 -->
+<style lang="postcss">
+	.uiDebug {
+		@apply border border-blue-500;
+	}
+</style>

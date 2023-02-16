@@ -1,6 +1,8 @@
 <script lang="ts">
 	import TopAppBar, { Row, Section, AutoAdjust } from '@smui/top-app-bar';
 	import IconButton from '@smui/icon-button';
+	import { AX__CONST__isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__CONST__isDebugBorder';
+
 	// --------------------------------------------
 	export let open;
 	// ............................................
@@ -21,7 +23,12 @@
 <!-- ####################################################### -->
 <!-- HEADER -->
 <!-- ####################################################### -->
-<TopAppBar bind:this={topAppBar} variant="fixed" class="border-4 border-red-500 bg-black/80 ">
+<TopAppBar
+	bind:this={topAppBar}
+	variant="fixed"
+	style="border:{AX__CONST__isDebugBorder ? '4px solid red' : 'none'}"
+	class="bg-black/80 "
+>
 	<Row>
 		<!-- =========== -->
 		<!-- HAMBURGER - fait partis du chassi -->
@@ -47,9 +54,12 @@
 <!-- top-app-bar--content -->
 <!-- place-items-center - le centrage du body se fait ici... changer si on ve NON centre -->
 <!-- le conteneur root du content -->
-<AutoAdjust {topAppBar} class="border-4 border-cyan-500 ">
+<AutoAdjust {topAppBar} style="border:{AX__CONST__isDebugBorder ? '4px solid cyan' : 'none'}">
 	<!-- en purple, il s agit de la max largeur... -->
-	<main class="m-auto max-w-6xl border-4 border-purple-500 ">
+	<main
+		class="m-auto max-w-6xl"
+		style="border:{AX__CONST__isDebugBorder ? '4px solid purple' : 'none'}"
+	>
 		<!-- ------------------------------------------ -->
 		<!-- SLOT: BODY 2 -->
 		<!-- ------------------------------------------ -->
@@ -67,4 +77,12 @@
 				/> -->
 <!-- <Label class="text-wa-2" title="Toucher Terre" /> -->
 <!-- <Title class="text-wa-2" title="Agence Web">Agence Web</Title> -->
+
 <!-- </Button> -->
+<!-- <style lang="postcss">
+	.uiDebug-1 {
+		@apply border-4 border-cyan-500;
+	}
+	.uiDebug-2 {
+	}
+</style> -->

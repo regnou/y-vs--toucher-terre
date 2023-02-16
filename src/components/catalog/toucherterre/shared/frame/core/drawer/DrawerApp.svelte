@@ -5,13 +5,14 @@
 	import DrawerMenuItem from './menu-item/DrawermenuItem.svelte';
 
 	export let open = false;
+	export let variant = '';
 </script>
 
 <!-- ########################################### -->
 <!-- DRAWER APP -->
 <!-- ########################################### -->
 <!-- variant = 'modal', 'dismissible' -->
-<Drawer variant="modal" {open} class="fixed">
+<Drawer {variant} {open} class="fixed">
 	<Header>
 		<Title>TOUCHER TERRE</Title>
 	</Header>

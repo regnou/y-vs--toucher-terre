@@ -41,6 +41,7 @@
 			{#if isEntityPost($hackStore)}
 				{item.titlePost.value}
 			{:else if isEntityEvent($hackStore)}
+				<!--  @ts-ignore -->
 				{item.titleEvent.value}
 			{/if}
 		</span>

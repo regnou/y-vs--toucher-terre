@@ -9,7 +9,8 @@
 	//-------------------------------------------------------
 	export let isAdmin = false;
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
-	let open = false;
+	let open = false; // drawer open
+	let variant = undefined; // drawer variant
 
 	// always open first in admin
 	$: open = isAdmin && !isXs && !isSm ? true : open;
@@ -29,18 +30,16 @@
 	let isXl = matches(xl);
 	let isXxl = matches(xxl);
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
-	// $: {
-	// 	if (isXs || isSm) {
-	// 		// dynVariant = 'modal';
-	// 	} else {
-	// 		// dynVariant = 'dismissible';
-	// 		// if (isAdmin) {
-	// 		// 	openAdmin = true;
-	// 		// } else {
-	// 		// 	openApp = false;
-	// 		// }
-	// 	}
-	// }
+	$: {
+		variant =
+			isXs || isSm
+				? //
+				  'modal'
+				: 'dismissible';
+		// : isAdmin
+		// ? undefined
+		// : 'dismissible';
+	}
 	//-------------------------------------------------------
 	function handleResize() {
 		//e
@@ -81,9 +80,9 @@
 <!-- PREDEFINIS :: 🟨 DRAWER 🟨 -->
 <!-- ------------------------------------------ -->
 {#if isAdmin}
-	<DrawerCms {open} />
+	<DrawerCms {open} {variant} />
 {:else}
-	<DrawerApp {open} />
+	<DrawerApp {open} {variant} />
 {/if}
 <!-- ------------------------------------------ -->
 <!-- scrim -->
