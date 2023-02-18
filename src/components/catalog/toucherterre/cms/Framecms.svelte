@@ -1,39 +1,27 @@
 <script lang="ts">
-	import AxFrame from '../shared/frame/core/AxFrameDrawer.svelte';
-	import HeaderCms from '../shared/frame/core/header/HeaderCms.svelte';
+	import AxFrame from '../shared/frame/core/AxFrame.svelte';
+	import HeaderCms from '../shared/frame/core/header/AxHeaderCms.svelte';
 </script>
 
-<!-- ############################################### -->
-<!-- ############################################### -->
-<!-- ROOT-LAYOUT -- CMS-APP -->
-<!-- ############################################### -->
-<!-- ############################################### -->
-<!-- ############################################## -->
-<!-- LE LAYOUT DEFINIS UNE PART DU CHASSIS -- CMS (le chassis est dans le layout) -->
-<!-- ############################################## -->
+<!-- +#################################### -->
+<!-- ####################################################### -->
+<!-- ####################################### -->
+<!-- FRAME (CMS)  -->
+<!-- ####################################### -->
+
 <AxFrame isAdmin={true}>
-	<!-- ------------------------------------------ -->
-	<!-- SLOT: NON-PREDEFINIS :: 🟨 SLOT: HEADER_B 🟨 -->
-	<!-- ------------------------------------------ -->
-	<!-- ⬛ -->
-	<slot slot="plugin--frame-header-1">
+	<!-- slot: HEADER -->
+	<!-- ................... -->
+	<slot slot="plugin--frame-header--1" name="header-0">
 		<HeaderCms />
 	</slot>
 
-	<!-- ------------------------------------------ -->
-	<!-- 🟨 SLOT: BODY -- LE LAYOUT PASSE 2 PARAM POUR LE BODY DU CHASSIS-->
-	<!-- ------------------------------------------ -->
-	<!-- TIP: le flex ci dessous, permet de mettre l admin a cote ou au dessus du viewer -->
-	<div slot="plugin--frame-body-1" class="max-w-6xl">
-		<!-- ......... -->
-		<!-- SLOT: CMS -->
-		<!-- ......... -->
+	<!-- slot: BODY -->
+	<!-- ................... -->
+	<!-- tip: max-w-6xl -- max width for full screen content -->
+	<div slot="plugin--frame-body--1" class="max-w-6xl">
 		<!-- 🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢 -->
 		<slot name="cms" />
-
-		<!-- ......... -->
-		<!-- SLOT: APP -->
-		<!-- ......... -->
 		<!-- 🟢🟢🟢🟢🟢🟢🟢🟢🟢 -->
 		<slot name="app" />
 	</div>

@@ -32,6 +32,7 @@ module.exports = {
 		I_UI__factoryItem: 'writable',
 		//
 		// UI
+		T_ui__dynvariant: 'writable',
 		I_ui__menu: 'writable'
 	},
 	rules: {

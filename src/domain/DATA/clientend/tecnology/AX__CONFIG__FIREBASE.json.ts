@@ -10,12 +10,5 @@ export const AX__config_firesbase = {
 		appId: '1:799638465669:web:8ef965f30f1c0c4a7a4dec',
 		measurementId: 'G-GKZG8MVZHE'
 		// TOUCHER-TERRE
-
-		// apiKey: "AIzaSyCtXOPKZKkVRWfkBcf_jatwQ45B-FcXcAo",
-		// authDomain: "blog-app-00001.firebaseapp.com",
-		// projectId: "blog-app-00001",
-		// storageBucket: "blog-app-00001.appspot.com",
-		// messagingSenderId: "377509716632",
-		// appId: "1:377509716632:web:82196b852428b408cf26ed"
 	}
 };

@@ -3,8 +3,6 @@ declare global {
 	// ###############################################
 	// namespace
 	// ###############################################
-	// APP
-	// =================================================
 	namespace App {
 		// interface Error {}
 		// interface Locals {}
@@ -12,6 +10,7 @@ declare global {
 		// interface Platform {}
 		// type dynvar = 'dismissible' | 'modal' | undefined;
 	}
+
 	// ###############################################
 	// DOMAIN
 	// ###############################################
@@ -65,13 +64,19 @@ declare global {
 	}
 
 	// ................................................
-	// Z
+	// UI
 	// ................................................
+	type T_ui__dynvariant = 'modal' | 'dismissible' | undefined;
+
 	interface I_ui__menu {
 		title: string;
 		url: string;
 		img?: string; // c est l icon-img a cote du menu-name
 	}
+
+	// ................................................
+	// z
+	// ................................................
 	interface I_dto {
 		msg: string;
 		data: any;

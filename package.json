@@ -36,6 +36,7 @@
 	},
 	"dependencies": {
 		"firebase": "^9.17.1",
+		"firelordjs": "^2.3.5",
 		"googleapis": "^111.0.0",
 		"libphonenumber-js": "^1.10.19",
 		"minimist": "^1.2.8",
@@ -78,7 +79,7 @@
 		"@smui/snackbar": "^6.1.4",
 		"@smui/switch": "^6.1.4",
 		"@smui/tab": "^6.1.4",
-		"@smui/tab-bar": "^6.1.4",
+		"@smui/tab-bar": "7.0.0-beta.0",
 		"@smui/textfield": "^6.1.4",
 		"@smui/tooltip": "^6.1.4",
 		"@smui/top-app-bar": "^6.1.4",

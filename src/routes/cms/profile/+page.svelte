@@ -2,6 +2,9 @@
 	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
 </script>
 
+<!-- PROFILE (todo) -->
+<!-- ####################################################### -->
+
 <Framecms>
 	<div slot="app">
 		Profile

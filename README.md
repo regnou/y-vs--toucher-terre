@@ -1,4 +1,6 @@
-    // \x1B[46;97;4m cyan
+    // $: open = $page.url.pathname.includes('/cms/') ? true : false;
+
+        // \x1B[46;97;4m cyan
     // \x1B[44;97;4m bleu
     // \x1B[105;97;4m rose
     // \x1B[m end

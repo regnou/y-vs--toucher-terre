@@ -18,7 +18,7 @@ export const AX__HEADERMENU_CMS: I_ui__menu[] = [
 		title: 'blog -- Création / Réalisation'
 	},
 	{
-		url: '/prochains-rendez-vous',
+		url: '/event',
 		title: 'event -- Prochains rdv'
 	},
 	{

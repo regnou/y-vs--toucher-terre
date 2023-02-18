@@ -20,7 +20,7 @@ export const AX__HEADERMENU_APP: I_ui__menu[] = [
 		img: '/media/icon/icon-menu-realisation--creme.png'
 	},
 	{
-		url: '/prochains-rendez-vous',
+		url: '/event',
 		title: 'event--Prochains rdv',
 		img: '/media/icon/icon-menu-prochains-rdv--creme.png'
 	},

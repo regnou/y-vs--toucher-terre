@@ -2,6 +2,10 @@
 	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
 </script>
 
+<!-- ####################################################### -->
+<!-- route: HOME (cms) -->
+<!-- ####################################################### -->
+
 <Framecms>
 	<div slot="cms">
 		<div class="text-red-500">

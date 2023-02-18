@@ -11,15 +11,18 @@
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	//
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
-	import { navigating } from '$app/stores';
+	import { navigating, page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import AxSnack from '@app/components/catalog/toucherterre/shared/frame/AxSnack.svelte';
 	import AxPreloadingIndicator from '@app/components/catalog/toucherterre/shared/frame/AxPreloadingIndicator.svelte';
+	import { axlog } from '@app/utils/axLog';
 	// import GridChecker from '@app/components/catalog/toucherterre/shared/debug-ui/GridChecker.svelte';
 	//#######################################################
 	// MEGA ROOT LAYOUT
 	//#######################################################
 	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'ROOT-LAYOUT');
+
 		// const style = getComputedStyle(document.body);
 		// console.debug('🚔>>> THEME: ' + style.getPropertyValue('--mdc-theme-primary'));
 		// --mdc-theme-primary: #f6c0c0;

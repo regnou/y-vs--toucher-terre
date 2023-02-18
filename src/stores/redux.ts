@@ -1,35 +1,39 @@
 import { writable } from 'svelte/store';
 
-export function redux(init, reducer, devTools) {
-	// donne in the compoennt
-	// const devTools =
-	// 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__.connect();
+// #############################################
+// REDUX
+// #############################################
+export function redux(reducer) {
+	// -----------------------------------------
+	// PROP
+	// -----------------------------------------
+	const { update, set, subscribe } = writable([]);
+	// [] => beacoz we do not want the UI to break on the #each, so array
 
-	const { update, subscribe } = writable(init);
+	const devTools =
+		// @ts-ignore
+		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__.connect();
+	console.log('FIRST INIT: tool : ', devTools);
 
+	// -----------------------------------------
+	// METHOD
+	// -----------------------------------------
 	function dispatch(action, value = 0) {
 		update((state) => {
-			// devTools.send(action, state);
 			return reducer(state, action, value);
 		});
 		update((state) => {
-			// devTools.send(action, state);
-			// return reducer(state, action, value);
 			devTools.send(action, state);
+			return state;
 		});
 	}
 
+	// -----------------------------------------
+	// RETURN
+	// -----------------------------------------
 	return {
+		set,
 		subscribe,
 		dispatch
 	};
 }
-
-// export const STORE_BLOG = redux({ count: 0 }, reducer, devTool);
-
-// {#if store}
-// 	Count: {$store.count}
-// 	<button on:click={(e) => store.dispatch('increment')}>Dispatch</button>
-// {/if}
-
-// <!-- end -->

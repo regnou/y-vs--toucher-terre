@@ -5,3 +5,5 @@ export const STORE_UI__SNACK_IS_OPEN = writable({
 	text: 'N/A',
 	open: false
 });
+
+export const STORE_UI__DRAWER_IS_OPEN = writable(false);

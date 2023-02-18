@@ -4,14 +4,11 @@
 import { collection, CollectionReference, type DocumentData } from 'firebase/firestore';
 import { getFirebase } from '../../../../tecnology/firebase/firebaseClient';
 
-// -------------------------------------------------------------
-// DB
-// -------------------------------------------------------------
 // dyn
 export const AX__COLLECTION__BLOG =
 	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__post>>('blog');
 export const AX__COLLECTION__EVENT =
-	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__event>>('prochains-rdv');
+	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__event>>('event');
 
 // static
 export const AX__COLLECTION__ACCEUIL =
@@ -22,7 +19,8 @@ export const AX__COLLECTION__LADEMARCHE =
 //
 export const AX__COLLECTION__NEWSLETTER =
 	createCollection<I_firestoreDoc__megaconfig_cms<any>>('newsletter');
-// TODO
+
+// Z
 export const AX__COLLECTION__IMG = createCollection<any>('z-img');
 
 // -------------------------------------------------------------

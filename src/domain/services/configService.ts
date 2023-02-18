@@ -15,12 +15,11 @@ import { AX__CONST__idRootDoc } from '../DATA/backend/AX__CONST__idRootDoc';
 //-------------------------------------------------------
 // hack - we want to open the snack when doing DB operations
 const openSnack = (type: string, msg: string) => {
-	const o = {
+	STORE_UI__SNACK_IS_OPEN.set({
 		type: type,
 		text: msg,
 		open: true
-	};
-	STORE_UI__SNACK_IS_OPEN.set(o);
+	});
 };
 
 //-------------------------------------------------------
@@ -34,18 +33,16 @@ export const config__get = async <T extends T_pageItemStore>(
 		const { data } = await crud__getId<I_firestoreDoc__megaconfig_cms<T>>(col, id);
 		if (data) {
 			// && data.pageItemsStore
-			console.debug('🚔\n🚔🧞‍♂️✅ CONVERT-ED 🔥 -> 🏎️\n🚔');
-			openSnack('firestore', `🚔🧞‍♂️✅ (🔥+🏎️) GETid <<< ${col.id.toUpperCase()} / ${id} >>>`);
+			console.dir(data.pageItemsStore);
+			console.debug('🧞‍♂️✅ CONVERT-ED 🔥 -> 🏎️\n🚔');
+			openSnack('firestore', `🧞‍♂️ ${col.id.toUpperCase()} successfully loaded ! ✅`);
 			return data.pageItemsStore;
 		} else {
-			openSnack(
-				'firestore',
-				`🚔🧞‍♂️✅ (🔥+🏎️) GETid <<< ${col.id.toUpperCase()} / ${id} >>> NO DATA !`
-			);
+			openSnack('firestore', `🧞‍♂️${col.id.toUpperCase()} / ${id} successfully loaded NO DATA ! ✅`);
 			return []; // => have UI working
 		}
 	} catch (error) {
-		openSnack('firestore', `🚔🧞‍♂️❌ (🔥+🏎️) ❌❌❌ GETid <<< ${col.id.toUpperCase()} / ${id} >>>`);
+		openSnack('firestore', `🧞‍♂️❌ (🔥+🏎️) ❌❌❌ GETid <<< ${col.id.toUpperCase()} / ${id} >>>`);
 		return []; //  => have UI working
 	}
 };
@@ -64,9 +61,9 @@ export const config__add = async <T extends T_pageItemStore>(
 			dateUpdated: serverTimestamp()
 		};
 		await crud__addId<I_firestoreDoc__megaconfig_cms<T>>(col, id, entity);
-		openSnack('firestore', `🚔🧞‍♂️✅ (🔥+🏎️) ADD (hard) (+id=${id}) > ${col.id.toUpperCase()} `);
+		openSnack('firestore', `🧞‍♂️ Successfully injected in ${col.id.toUpperCase()} ! ✅`);
 	} catch (error) {
-		openSnack('firestore', `🚔🧞‍♂️❌ (🔥+🏎️) ADD (hard) (+id=${id}) > ${col.id.toUpperCase()}`);
+		openSnack('firestore', `🧞‍♂️ Successfully injected in ${col.id.toUpperCase()} ! ❌`);
 	}
 };
 //-------------------------------------------------------
@@ -82,9 +79,9 @@ export const config__mod = async <T>(col, data) => {
 		};
 
 		await crud__modSoft<T>(col, id, entity);
-		openSnack('firestore', `🚔🧞‍♂️✅ (🔥+🏎️) MOD (soft) (+id=${id}) > ${col.id.toUpperCase()}`);
+		openSnack('firestore', `🧞‍♂️✅ SAVED ${col.id.toUpperCase()}`);
 	} catch (error) {
-		openSnack('firestore', `🚔🧞‍♂️❌ (🔥+🏎️) MOD (soft) (+id=${id}) > ${col.id.toUpperCase()}`);
+		openSnack('firestore', `🧞‍♂️❌ SAVED ${col.id.toUpperCase()}`);
 	}
 };
 //-------------------------------------------------------
