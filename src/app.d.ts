@@ -22,7 +22,7 @@ declare global {
 		conf__db: CollectionReference<I_firestoreDoc__megaconfig_cms<T>>;
 		conf__db_dataset: T[];
 		conf__genericAdd?: I_UI__inputValue[]; // do not add in static page...
-		conf__store: Writable<T[]>;
+		// conf__store: Writable<T[]>;
 	}
 	// SCHEMA: DB
 	interface I_firestoreDoc__megaconfig_cms<T extends T_pageItemStore> {

@@ -1,12 +1,21 @@
 //-----------------------------------------------------------
 // GUARDS (how to have them global, with types ?)
 //-----------------------------------------------------------
+export const isInputValues = (
+	test: T_pageItemStore[],
+	log: boolean = true
+): test is I_UI__inputValue[] => {
+	const r = isInputValue(test[0]);
+	// console.log('isInputValues? : ', r);
+	return r;
+};
+
 export const isInputValue = (
 	test: T_pageItemStore,
 	log: boolean = true
 ): test is I_UI__inputValue => {
 	const r = (test as I_UI__inputValue).value !== undefined;
-	console.log('isInputValue? : ', r);
+	// console.log('isInputValue? : ', r);
 	return r;
 };
 export const isEntityEvent = (

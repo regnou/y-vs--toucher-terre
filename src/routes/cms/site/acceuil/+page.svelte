@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { AX__DATASET__acceuil } from '@app/domain/DATA/backend/db-inject/AX__DATASET__acceuil.json';
 	import { AX__COLLECTION__ACCEUIL } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
-	import AcceuilApp from '@app/components/catalog/toucherterre/app/site/AcceuilApp.svelte';
+	import AcceuilApp from '@app/components/catalog/toucherterre/app/frame-widget/AcceuilApp.svelte';
 	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
-	import GenericCms from '@app/components/catalog/toucherterre/cms/generic-cms/GenericCms.svelte';
+	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/GenericCms.svelte';
 	import { reducerStatic } from '@app/stores/storeReducers';
 	import { onMount } from 'svelte';
-	import { redux } from '@app/stores/redux';
+	import { createReduxStore, type T_axStore } from '@app/stores/createReduxStore';
 	import { AX__CONFIG__REDUX } from '@app/domain/DATA/clientend/tecnology/AX__CONFIG__REDUX.json';
 	import { axlog } from '@app/utils/axLog';
 	import { page } from '$app/stores';
@@ -15,24 +15,29 @@
 	// --------------------------------------------------------
 	// PAGE-ROOT & INTELLIGENT
 	// --------------------------------------------------------
-	let store;
+	let store: T_axStore | undefined = undefined;
 	let promise = config__get<I_UI__inputValue>(AX__COLLECTION__ACCEUIL);
 	// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 	const MEGACONFIG_CMS: I_megaconfig__cms<I_UI__inputValue> = {
 		conf__db: AX__COLLECTION__ACCEUIL,
-		conf__db_dataset: AX__DATASET__acceuil,
-		conf__store: undefined
+		conf__db_dataset: AX__DATASET__acceuil
+		// conf__store: undefined
 	};
 	// --------------------------------------------------------
 	onMount(async () => {
 		axlog($store, $page.url.pathname, 'ACCEUIL (cms)');
-		store = redux(reducerStatic);
-		MEGACONFIG_CMS.conf__store = store; // hack: to refresh REACTIVITY
 
+		// fetch data
 		console.debug('...');
-		const r = await promise; // les types MATCH donc le bding devrait etre bon
+		const r = await promise; // les types MATCH donc le biding devrait etre bon
+
+		// create store connected to Redux & init it with data fetched (x1 time, becoz in mount)
+		store = createReduxStore(reducerStatic);
 		store.dispatch('mod-hard', r);
-		console.dir($store);
+		// MEGACONFIG_CMS.conf__store = $store; // so all children can update with the data fetched !
+
+		//
+		// console.dir($store);
 		// axlog($store, $page.url.pathname, 'ACCEUIL (cms)');
 	});
 </script>
@@ -44,16 +49,18 @@
 {#await promise}
 	<Loader />
 {:then data}
-	<Framecms>
-		<!-- CMS -->
-		<div slot="cms">
-			<GenericCms megaconfig={MEGACONFIG_CMS} />
-		</div>
-		<!-- APP -->
-		<div slot="app">
-			<AcceuilApp {store} />
-		</div>
-	</Framecms>
+	{#if store}
+		<Framecms>
+			<!-- CMS -->
+			<div slot="cms">
+				<GenericCms bind:store={$store} megaconfig={MEGACONFIG_CMS} />
+			</div>
+			<!-- APP -->
+			<div slot="app">
+				<AcceuilApp store={$store} />
+			</div>
+		</Framecms>
+	{/if}
 {:catch error}
 	<p style="color: red">{error.message}</p>
 {/await}

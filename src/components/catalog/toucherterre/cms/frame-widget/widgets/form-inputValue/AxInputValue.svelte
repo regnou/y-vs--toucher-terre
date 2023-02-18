@@ -9,15 +9,13 @@
 <!-- ####################################### -->
 <!-- INPUT VALUE -->
 <!-- ####################################### -->
-
-<!-- <div> -->
 {#if ivItm}
 	<!-- TODO - a remettre, je fais une version sans imge, ni slideshow -->
 	<!-- {#if ivItm.tag === 'text' || (ivItm.tag === 'file' && ivItm.format && ivItm.format === 'video')} -->
 	{#if ivItm.tag === 'text' || (ivItm.tag === 'file' && ivItm.format && ivItm.format === AX__ENUM__formatMedia.video)}
-		<!--  -->
+		<!--     -->
 		<!-- TXT -->
-		<!--  -->
+		<!--     -->
 		<Textfield
 			style="width: 100%;"
 			helperLine$style="width: 100%;"
@@ -27,9 +25,9 @@
 			<!-- <HelperText slot="helper">Helper Text</HelperText> -->
 		</Textfield>
 	{:else if ivItm.tag === 'area'}
-		<!--  -->
+		<!--          -->
 		<!-- TXT AREA -->
-		<!--  -->
+		<!--          -->
 		<Textfield
 			style="width: 100%; height: 200px;"
 			textarea
@@ -40,14 +38,12 @@
 		<!-- helperLine$style="width: 100%;" -->
 		<!-- <CharacterCounter slot="internalCounter">0 / 100</CharacterCounter> -->
 	{:else if ivItm.tag === 'file'}
-		<!--  -->
+		<!--      -->
 		<!-- FILE -->
-		<!--  -->
+		<!--      -->
 		<div class="max-w-xs">
 			<div class="text-xs text-gray-400">{ivItm.label}</div>
 			<Axfileupload bind:ivItm />
-			<!-- <Axfileupload bind:files bind:urlStorage={ivItm.iv} /> -->
 		</div>
 	{/if}
 {/if}
-<!-- </div> -->

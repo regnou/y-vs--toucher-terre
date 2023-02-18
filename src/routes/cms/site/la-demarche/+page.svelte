@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { AX__DATASET__laDemarche } from '@app/domain/DATA/backend/db-inject/AX__DATASET__laDemarche.json';
 	import { AX__COLLECTION__LADEMARCHE } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
-	import LaDemarcheApp from '@app/components/catalog/toucherterre/app/site/LaDemarcheApp.svelte';
+	import LaDemarcheApp from '@app/components/catalog/toucherterre/app/frame-widget/LaDemarcheApp.svelte';
 	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
-	import GenericCms from '@app/components/catalog/toucherterre/cms/generic-cms/GenericCms.svelte';
+	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/GenericCms.svelte';
 	import { reducerStatic } from '@app/stores/storeReducers';
 	import { onMount } from 'svelte';
-	import { redux } from '@app/stores/redux';
+	import { createReduxStore, type T_axStore } from '@app/stores/createReduxStore';
 	import { page } from '$app/stores';
 	import Loader from '@app/components/catalog/toucherterre/app/widgets/Loader.svelte';
 	import { axlog } from '@app/utils/axLog';
@@ -14,7 +14,7 @@
 	// --------------------------------------------------------
 	// PAGE-ROOT & INTELLIGENT
 	// --------------------------------------------------------
-	let store;
+	let store: T_axStore | undefined = undefined;
 	let promise = config__get<I_UI__inputValue>(AX__COLLECTION__LADEMARCHE);
 	// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 	const MEGACONFIG_CMS: I_megaconfig__cms<I_UI__inputValue> = {
@@ -25,7 +25,7 @@
 	// --------------------------------------------------------
 	onMount(async () => {
 		axlog($store, $page.url.pathname, 'LA DEMARCHE (cms)');
-		store = redux(reducerStatic);
+		store = createReduxStore(reducerStatic);
 		MEGACONFIG_CMS.conf__store = store; // hack: to refresh REACTIVITY
 
 		console.debug('...');
@@ -46,11 +46,11 @@
 	<Framecms>
 		<!-- CMS -->
 		<div slot="cms">
-			<GenericCms megaconfig={MEGACONFIG_CMS} />
+			<GenericCms bind:store={$store} megaconfig={MEGACONFIG_CMS} />
 		</div>
 		<!-- APP -->
 		<div slot="app">
-			<LaDemarcheApp {store} />
+			<LaDemarcheApp store={$store} />
 		</div>
 	</Framecms>
 {:catch error}

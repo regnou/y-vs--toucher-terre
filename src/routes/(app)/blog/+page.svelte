@@ -1,10 +1,10 @@
 <script lang="ts">
-	import BlogApp from '@app/components/catalog/toucherterre/app/site/BlogApp.svelte';
+	import BlogApp from '@app/components/catalog/toucherterre/app/frame-widget/BlogApp.svelte';
 	import { page } from '$app/stores';
 	import Loader from '@app/components/catalog/toucherterre/app/widgets/Loader.svelte';
 	import { AX__COLLECTION__BLOG } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
 	import { config__get } from '@app/domain/services/configService';
-	import { redux } from '@app/stores/redux';
+	import { createReduxStore } from '@app/stores/createReduxStore';
 	import { reducerBlog } from '@app/stores/storeReducers';
 	import { axlog } from '@app/utils/axLog';
 	import { onMount } from 'svelte';
@@ -12,11 +12,11 @@
 	// --------------------------------------------------------
 	// PAGE-ROOT & INTELLIGENT
 	// --------------------------------------------------------
+	let store: T_axStore | undefined = undefined;
 	let promise = config__get<I_ENTITY__post>(AX__COLLECTION__BLOG);
-	let store; // FROM root TO --> dumb-child
 	// --------------------------------------------------------
 	onMount(async () => {
-		store = redux(reducerBlog);
+		store = createReduxStore(reducerBlog);
 		// store.dispatch('start');
 		console.debug('...');
 		const r = await promise; // les types MATCH donc le bding devrait etre bon
@@ -33,7 +33,7 @@
 {#await promise}
 	<Loader />
 {:then data}
-	<BlogApp {store} />
+	<BlogApp store={$store} />
 {:catch error}
 	<p style="color: red">{error.message}</p>
 {/await}

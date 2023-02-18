@@ -3,10 +3,10 @@
 	import IconButton, { Icon } from '@smui/icon-button';
 	// import Tab, { Label } from '@smui/tab';
 	// import TabBar from '@smui/tab-bar';
+	import { isEntity } from '@app/utils/guards';
+	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	import AxBtnCancel from '../form-inputValue/AxBtnCancel.svelte';
 	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
-	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
-	import { isEntity } from '@app/utils/guards';
 	// -------------------------------------------------------------------
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
 	let store = undefined; // alias with hack le $ qui marche pas sur .

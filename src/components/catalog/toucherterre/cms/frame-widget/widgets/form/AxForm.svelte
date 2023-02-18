@@ -2,33 +2,41 @@
 	import { page } from '$app/stores';
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
 	import { config__mod } from '@app/domain/services/configService';
+	import type { T_axStore } from '@app/stores/createReduxStore';
 	import { upload } from '@app/tecnology/firebase/services/storageServices';
-	import IconButton from '@smui/icon-button';
 	import TopAppBar, { Row } from '@smui/top-app-bar';
 	import Section from '@smui/top-app-bar/src/Section.svelte';
-	import AxBtnCancel from './widgets/form-inputValue/AxBtnCancel.svelte';
-	import AxBtnOk from './widgets/form-inputValue/AxBtnOk.svelte';
-	import AxPanelsAddEdit from './widgets/form-list/AxPanelsAddEdit.svelte';
+	import AxBtnCancel from '../form-inputValue/AxBtnCancel.svelte';
+	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
+	import AxPanelsAddEdit from './AxPanelsAddEdit.svelte';
+	//----------------------------------------------
+
 	let topAppBar;
 	//----------------------------------------------
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	let store = undefined; // alias with hack le $ qui marche pas sur .
+	// let store: T_axStore | undefined = undefined;
+	export let store: T_pageItemStore[] | undefined = undefined;
+
 	// .....................................................................
-	$: store = megaconfig ? megaconfig.conf__store : undefined;
+	// $: store = megaconfig ? megaconfig.conf__store : undefined;
 	//----------------------------------------------
 	// SAVE
 	//----------------------------------------------
 	async function save() {
+		if (!megaconfig) return;
 		console.debug('🌎🏎️✅ click >> on:save 1 🟡');
-		await createStorageUrl();
-		await config__mod(megaconfig.conf__db, $store);
+		// TODO
+		// await createStorageUrl();
+		await config__mod(megaconfig.conf__db, store);
 		console.debug('🌎🏎️✅ click << on:save 2 🟨');
 	}
 	//----------------------------------------------
 	// UPLOAD STORAGE ON FIREBASE
 	//----------------------------------------------
 	async function createStorageUrl() {
-		for (const item of $store) {
+		if (!store && !Array.isArray(store)) return;
+
+		for (const item of store) {
 			// if (item.posts) {
 			// for (const post of item.posts) {
 			// for (const ivItm of item.inputValues) {
@@ -86,7 +94,7 @@
 
 	<!-- POUR CHAQUE PAGE-ITEM -->
 	<!-- ................ -->
-	<AxPanelsAddEdit {megaconfig} />
+	<AxPanelsAddEdit bind:store {megaconfig} />
 
 	<!-- ---------------------- -->
 	<!-- SUBMIT BTNs -->
@@ -102,4 +110,4 @@
 <!-- {:else} -->
 <!-- SLIDESHOW - todo AFTER -->
 <!-- <div class="col-span-4 grid grid-rows-3 place-items-center">
-				<Slider imgs={[$STORE[i].iv]} /> </div> -->
+				<Slider imgs={[store[i].iv]} /> </div> -->

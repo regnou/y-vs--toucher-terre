@@ -1,4 +1,4 @@
-import { STORE_UI__SNACK_IS_OPEN } from '@app/stores/storeUi';
+import { STORE_UI__SNACK_IS_OPEN } from '@app/stores/storeUiItems';
 import { serverTimestamp, type CollectionReference } from 'firebase/firestore';
 import {
 	crud__addId,

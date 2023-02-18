@@ -1,6 +1,4 @@
 <script lang="ts">
-	// import { STORE_PROCHAINSRDV } from '@app/stores/STORES';
-
 	export let ivItm; // we have to dynamically add a field, that is the blob UPLOADED
 	// to upload binary
 	let imgFromElement;
@@ -32,9 +30,8 @@
 
 <!-- ####################################################### -->
 <!-- ####################################### -->
-<!--  -->
+<!-- FILE UPLOAD-->
 <!-- ####################################### -->
-
 <!-- 2 -->
 <!-- uploader -->
 <section class="flex h-full w-full flex-col overflow-auto p-1">
@@ -78,7 +75,7 @@
 				<!-- <img
 					src={URL.createObjectURL(file)}
 					alt=""
-					class="z-0 mt-10 absolute inset-0 object-cover"
+					class=" z-0 mt-10 absolute inset-0 object-cover"
 				/> -->
 			{/each}
 		{:else if ivItm.iv}

@@ -8,7 +8,7 @@
 	import TopAppBar, { Row, Section, AutoAdjust } from '@smui/top-app-bar';
 	import IconButton from '@smui/icon-button';
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
-	import { STORE_UI__DRAWER_IS_OPEN } from '@app/stores/storeUi';
+	import { STORE_UI__DRAWER_IS_OPEN } from '@app/stores/storeUiItems';
 	//-------------------------------------------------------
 	export let isAdmin = false;
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -81,11 +81,14 @@
 <!-- DRAWER -->
 <!-- +#################################### -->
 <Drawer {variant} open={$STORE_UI__DRAWER_IS_OPEN} class="fixed">
-	{#if isAdmin}
+	<!-- +................. -->
+	<slot name="plugin--frame-drawer--1" />
+
+	<!-- {#if isAdmin}
 		<AxDrawerCms />
 	{:else}
 		<AxDrawerApp />
-	{/if}
+	{/if} -->
 </Drawer>
 <!-- scrim -->
 {#if isXs || isSm}

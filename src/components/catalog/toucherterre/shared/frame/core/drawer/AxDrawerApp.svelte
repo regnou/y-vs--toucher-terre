@@ -3,6 +3,7 @@
 	import { AX__HEADERMENU_APP } from '@app/domain/DATA/clientend/ui-frame/menus/AX__HEADERMENU_APP.json';
 	import DrawerMenuItem from './menu-item/AxDrawermenuItem.svelte';
 	import { Content, Header, Title, Subtitle } from '@smui/drawer';
+	import List from '@smui/list';
 </script>
 
 <!-- DRAWER APP -->
@@ -16,8 +17,10 @@
 <Content>
 	<!-- ................. -->
 	<Separator />
-	{#each AX__HEADERMENU_APP as menu}
-		<DrawerMenuItem {menu} />
-	{/each}
+	<List>
+		{#each AX__HEADERMENU_APP as menu}
+			<DrawerMenuItem {menu} />
+		{/each}
+	</List>
 	<Separator />
 </Content>

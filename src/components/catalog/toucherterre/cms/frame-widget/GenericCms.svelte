@@ -1,11 +1,12 @@
 <script lang="ts">
+	import AxForm from './widgets/form/AxForm.svelte';
+	import AxFormDbInjector from './widgets/form-injector/AxFormDbInjector.svelte';
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
-	import FormInjector from './form-injector/FormDbInjector.svelte';
-	import Form from './form/Form.svelte';
-	// import { get } from 'svelte/store';
 	// ----------------------------------------------
-	// Page init this config, that goes throught childrens
+	// ROOT CONFIG CMS (generique)
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
+	export let store: T_pageItemStore[] | undefined = undefined;
+
 	// .............................................
 </script>
 
@@ -17,7 +18,6 @@
 <!-- ####################################### -->
 <!--  -->
 <!-- ####################################### -->
-
 <!-- 💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀 -->
 <!-- WELCOME TO THE GENERIC-CMS-PAGE COMPONENT       -->
 <!-- 💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀 -->
@@ -25,10 +25,10 @@
 	<!-- ---------------- -->
 	<!-- PANEL: form edit (CA FAIT AUSSI UN READ) -->
 	<!-- ---------------- -->
-	<Form {megaconfig} />
+	<AxForm {megaconfig} bind:store />
 
 	<!-- ------------- -->
 	<!-- PANEL: inject -->
 	<!-- ------------- -->
-	<FormInjector {megaconfig} />
+	<AxFormDbInjector {megaconfig} />
 </div>
