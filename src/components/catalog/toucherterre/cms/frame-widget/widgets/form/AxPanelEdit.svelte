@@ -2,17 +2,16 @@
 	import { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
 	import { isEntity, isEntityEvent, isEntityPost } from '@app/utils/guards';
-	import type { T_axStore } from '@app/stores/createReduxStore';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	// -------------------------------------------------------------------
 	export let item: T_ENTITY | undefined = undefined;
 	export let pos_item: number | undefined = undefined;
 	let open = false; // remettre ? export let open = type === 'staticpage' ? true : false;
 
-	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	let store: T_axStore | undefined = undefined;
+	// export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
+	export let store: T_pageItemStore[] | undefined = undefined;
 	// .....................................................................
-	$: store = megaconfig ? megaconfig.conf__store : undefined;
+	// $: store = megaconfig ? megaconfig.conf__store : undefined;
 
 	// let activeTab;
 	// -------------------------------------------------------------------
@@ -20,15 +19,15 @@
 	// -------------------------------------------------------------------
 	const del = () => {
 		// XXX
-		if (!$store || !Array.isArray($store) || !pos_item) return;
+		if (!store || !Array.isArray(store) || !pos_item) return;
 
 		console.debug('🌎🏎️✅ click >> on:del 1 🟡');
 		if (confirm("Supprimer l'article ?")) {
 			// guard
-			if (isEntity($store[pos_item])) {
-				$store.splice(pos_item, 1);
+			if (isEntity(store[pos_item])) {
+				store.splice(pos_item, 1);
 				// refresh (can do diferently - TODO - juste genericStore)
-				$store = $store; // refresh ui
+				store = store; // refresh ui
 				// open = false;
 			}
 		}
@@ -48,16 +47,16 @@
 {#if item}
 	<Panel square variant="outlined" color="primary" extend {open}>
 		<Header>
-			<span slot="description">
-				<!-- base guard -->
-				{#if item}
-					{#if isEntityPost(item)}
-						{item.titlePost.value}
-					{:else if isEntityEvent(item)}
-						{item.titleEvent.value}
-					{/if}
+			<!-- <span slot="description"> -->
+			<!-- base guard -->
+			{#if item}
+				{#if isEntityPost(item)}
+					{item.titlePost.value}
+				{:else if isEntityEvent(item)}
+					{item.titleEvent.value}
 				{/if}
-			</span>
+			{/if}
+			<!-- </span> -->
 			<div slot="icon">
 				<IconButton toggle pressed={(open = !open)}>
 					<Icon class="material-icons" on>unfold_less</Icon>

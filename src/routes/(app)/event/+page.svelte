@@ -8,7 +8,6 @@
 	import { axlog } from '@app/utils/axLog';
 	import { onMount } from 'svelte';
 	import EventApp from '@app/components/catalog/toucherterre/app/frame-widget/EventApp.svelte';
-	import { AX__CONFIG__REDUX } from '@app/domain/DATA/clientend/tecnology/AX__CONFIG__REDUX.json';
 	// --------------------------------------------------------
 	// PAGE-ROOT & INTELLIGENT
 	// --------------------------------------------------------

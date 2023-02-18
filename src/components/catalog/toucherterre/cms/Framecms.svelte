@@ -27,10 +27,11 @@
 	<!-- slot: BODY -->
 	<!-- ................... -->
 	<!-- tip: max-w-6xl -- max width for full screen content -->
-	<div slot="plugin--frame-body--1" class="max-w-6xl">
+	<div slot="plugin--frame-body--1" class=" max-w-6xl xl:flex ">
 		<!-- 🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢 -->
 		<slot name="cms" />
 		<!-- 🟢🟢🟢🟢🟢🟢🟢🟢🟢 -->
+
 		<slot name="app" />
 	</div>
 </AxFrame>

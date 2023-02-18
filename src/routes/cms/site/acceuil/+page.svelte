@@ -7,7 +7,6 @@
 	import { reducerStatic } from '@app/stores/storeReducers';
 	import { onMount } from 'svelte';
 	import { createReduxStore, type T_axStore } from '@app/stores/createReduxStore';
-	import { AX__CONFIG__REDUX } from '@app/domain/DATA/clientend/tecnology/AX__CONFIG__REDUX.json';
 	import { axlog } from '@app/utils/axLog';
 	import { page } from '$app/stores';
 	import Loader from '@app/components/catalog/toucherterre/app/widgets/Loader.svelte';
@@ -21,22 +20,16 @@
 	const MEGACONFIG_CMS: I_megaconfig__cms<I_UI__inputValue> = {
 		conf__db: AX__COLLECTION__ACCEUIL,
 		conf__db_dataset: AX__DATASET__acceuil
-		// conf__store: undefined
 	};
 	// --------------------------------------------------------
 	onMount(async () => {
 		axlog($store, $page.url.pathname, 'ACCEUIL (cms)');
-
 		// fetch data
 		console.debug('...');
 		const r = await promise; // les types MATCH donc le biding devrait etre bon
-
 		// create store connected to Redux & init it with data fetched (x1 time, becoz in mount)
 		store = createReduxStore(reducerStatic);
 		store.dispatch('mod-hard', r);
-		// MEGACONFIG_CMS.conf__store = $store; // so all children can update with the data fetched !
-
-		//
 		// console.dir($store);
 		// axlog($store, $page.url.pathname, 'ACCEUIL (cms)');
 	});

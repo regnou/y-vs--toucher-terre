@@ -1,6 +1,7 @@
 // @@@ FIREBASE-CONFIG
 import { AX__config_firesbase } from '../../domain/DATA/clientend/tecnology/AX__CONFIG__FIREBASE.json';
 // @@@ FIREBASE CLIENT
+import { dev } from '$app/environment';
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { connectFirestoreEmulator, initializeFirestore } from 'firebase/firestore';
@@ -24,11 +25,12 @@ export function getFirebase() {
 		console.debug('🚔🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
 		// initAllCol(services.FIRESTORE); // todo ???
 		//////////////////////////////////
-		// console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
-		// console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  FIRESTORE '); // 🟢  UN-COMMENT
-		//////////////////////////////////
-		connectToEmulators(services); // actuellement en local  // 🟢  COMMENT
-		//////////////////////////////////
+		if (dev) {
+			connectToEmulators(services); // actuellement en local  // 🟢  COMMENT
+		} else {
+			console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
+			console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  FIRESTORE '); // 🟢  UN-COMMENT
+		}
 		// enableMultiTabIndexedDbPersistence(services.firestore)
 	}
 	return services;

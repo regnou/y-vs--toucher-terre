@@ -6,7 +6,6 @@
 	import Title from '../widgets/Title.svelte';
 	import Hero from '../widgets/Hero.svelte';
 	import Contactcard from '../widgets/Contactcard.svelte';
-	import type { T_axStore } from '@app/stores/createReduxStore';
 	// ----------------------------------------------------------
 	// DUMB (no operation to test, just display)
 	// ----------------------------------------------------------

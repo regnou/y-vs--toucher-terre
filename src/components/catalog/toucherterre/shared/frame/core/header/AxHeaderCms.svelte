@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { Section } from '@smui/top-app-bar';
-	import Fab, { Icon } from '@smui/fab';
 	import { AX__CONST__homeUrl } from '@app/domain/DATA/clientend/ui-frame/AX__CONST__homeUrl';
-	import { STORE_UI__DRAWER_IS_OPEN } from '@app/stores/storeUiItems';
-	import { goto } from '$app/navigation';
 	import IconButton from '@smui/icon-button';
-
 	// const handleClick = async () => {
 	// 	console.log('CLICKED RETOUR VERS app');
 	// 	await goto(AX__CONST__homeUrl);

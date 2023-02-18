@@ -2,7 +2,6 @@
 	import { page } from '$app/stores';
 	import AxFrame from '../shared/frame/core/AxFrame.svelte';
 	import AxDrawerApp from '../shared/frame/core/drawer/AxDrawerApp.svelte';
-	import AxDrawerCms from '../shared/frame/core/drawer/AxDrawerCms.svelte';
 	import HeaderApp from '../shared/frame/core/header/AxHeaderApp.svelte';
 	import LayoutBg1 from './Layoutbg1.svelte';
 	// ----------------------------------------------------

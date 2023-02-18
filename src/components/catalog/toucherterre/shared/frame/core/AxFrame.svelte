@@ -3,8 +3,6 @@
 	import { AppContent } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
 	import Drawer from '@smui/drawer';
-	import AxDrawerCms from './drawer/AxDrawerCms.svelte';
-	import AxDrawerApp from './drawer/AxDrawerApp.svelte';
 	import TopAppBar, { Row, Section, AutoAdjust } from '@smui/top-app-bar';
 	import IconButton from '@smui/icon-button';
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
@@ -102,8 +100,8 @@
 	<TopAppBar
 		bind:this={topAppBar}
 		variant="fixed"
-		style="border:{AX__UI__CONST_isDebugBorder ? '4px solid red' : 'none'}"
-		class="bg-orange-900/60 "
+		style="background-color:{isAdmin ? 'rgb(24 149 5 / 79%)' : 'rgb(35 0 0 / 44%)'};
+			border:{AX__UI__CONST_isDebugBorder ? '4px solid red' : 'none'}"
 	>
 		<Row>
 			<!-- HAMBURGER - fait partis du chassi -->
@@ -138,3 +136,9 @@
 		</main>
 	</AutoAdjust>
 </AppContent>
+
+<!-- <style lang="postcss">
+	.isAdmin {
+		@apply bg-orange-900/60;
+	}
+</style> -->

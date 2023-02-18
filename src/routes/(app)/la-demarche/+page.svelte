@@ -8,7 +8,6 @@
 	import { reducerStatic } from '@app/stores/storeReducers';
 	import { axlog } from '@app/utils/axLog';
 	import { onMount } from 'svelte';
-	import { AX__CONFIG__REDUX } from '@app/domain/DATA/clientend/tecnology/AX__CONFIG__REDUX.json';
 	// --------------------------------------------------------
 	// PAGE-ROOT & INTELLIGENT
 	// --------------------------------------------------------

@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { isEntityEvent, isEntityPost, isInputValue, isInputValues } from '@app/utils/guards';
 	import Hero2 from '../widgets/Hero2.svelte';
 	import Paragraph from '../widgets/Paragraph.svelte';
 	import Separator from '@smui/list/src/Separator.svelte';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
-	import type { T_axStore } from '@app/stores/createReduxStore';
 	// ----------------------------------------------------------
 	// DUMB (no operation to test, just display)
 	// ----------------------------------------------------------

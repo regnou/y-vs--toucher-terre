@@ -2,8 +2,6 @@
 	import { page } from '$app/stores';
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
 	import Button, { Label } from '@smui/button';
-	import { Item } from '@smui/image-list';
-	import { Text } from '@smui/list';
 	// ----------------------------------------------
 	export let menu: I_ui__menu;
 	// ..............................................

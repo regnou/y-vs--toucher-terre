@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { T_axStore } from '@app/stores/createReduxStore';
-	import { isEntityPost } from '@app/utils/guards';
 	import Post from '../widgets/Post.svelte';
 	// import Slider from '../Slider.svelte--no';
 	// ----------------------------------------------------------

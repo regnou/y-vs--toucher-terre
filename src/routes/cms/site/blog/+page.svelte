@@ -34,7 +34,7 @@
 		store = createReduxStore(reducerBlog);
 
 		// hack: to refresh REACTIVITY
-		MEGACONFIG_CMS.conf__store = store;
+		// MEGACONFIG_CMS.conf__store = store;
 
 		// fetch DB and init store
 		console.debug('...');

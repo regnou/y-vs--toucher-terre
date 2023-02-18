@@ -2,23 +2,16 @@
 	import { page } from '$app/stores';
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
 	import { config__mod } from '@app/domain/services/configService';
-	import type { T_axStore } from '@app/stores/createReduxStore';
 	import { upload } from '@app/tecnology/firebase/services/storageServices';
+	import { isInputValue } from '@app/utils/guards';
 	import TopAppBar, { Row } from '@smui/top-app-bar';
 	import Section from '@smui/top-app-bar/src/Section.svelte';
 	import AxBtnCancel from '../form-inputValue/AxBtnCancel.svelte';
 	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
 	import AxPanelsAddEdit from './AxPanelsAddEdit.svelte';
 	//----------------------------------------------
-
-	let topAppBar;
-	//----------------------------------------------
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	// let store: T_axStore | undefined = undefined;
 	export let store: T_pageItemStore[] | undefined = undefined;
-
-	// .....................................................................
-	// $: store = megaconfig ? megaconfig.conf__store : undefined;
 	//----------------------------------------------
 	// SAVE
 	//----------------------------------------------
@@ -26,7 +19,7 @@
 		if (!megaconfig) return;
 		console.debug('🌎🏎️✅ click >> on:save 1 🟡');
 		// TODO
-		// await createStorageUrl();
+		await createStorageUrl();
 		await config__mod(megaconfig.conf__db, store);
 		console.debug('🌎🏎️✅ click << on:save 2 🟨');
 	}
@@ -34,24 +27,22 @@
 	// UPLOAD STORAGE ON FIREBASE
 	//----------------------------------------------
 	async function createStorageUrl() {
-		if (!store && !Array.isArray(store)) return;
+		if (!store) return;
 
 		for (const item of store) {
-			// if (item.posts) {
-			// for (const post of item.posts) {
-			// for (const ivItm of item.inputValues) {
-			if (item.tag === 'file' && item.blobs) {
-				// we always just have ONE FILE
-				const urlStorage = await upload(item.blobs[0]);
-				// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
-				item.value = urlStorage;
-				//
-				// and update the ui
-				// post.url = urlStorage;
-				//
-				// We unlink the blob now from the store
-				delete item.blobs;
-			}
+			if (isInputValue(item))
+				if (item.tag === 'file' && item.blobs) {
+					// we always just have ONE FILE
+					const urlStorage = await upload(item.blobs[0]);
+					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+					item.value = urlStorage;
+					//
+					// and update the ui
+					// post.url = urlStorage;
+					//
+					// We unlink the blob now from the store
+					delete item.blobs;
+				}
 			// }
 			// }
 			// }
@@ -76,7 +67,6 @@
 
 	<TopAppBar
 		variant="static"
-		bind:this={topAppBar}
 		style="border:{AX__UI__CONST_isDebugBorder ? '4px solid red' : 'none'}"
 		class="bg-black/80 "
 	>

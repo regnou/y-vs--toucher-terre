@@ -1,4 +1,4 @@
-import { derived, readable, writable, type Writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
 // #############################################
 // REDUX
@@ -23,6 +23,7 @@ export function createReduxStore(reducer) {
 	// [] => beacoz we do not want the UI to break on the #each, so array
 
 	const devTools =
+		// eslint-disable-next-line
 		// @ts-ignore
 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__.connect();
 	console.log('FIRST INIT: tool : ', devTools);

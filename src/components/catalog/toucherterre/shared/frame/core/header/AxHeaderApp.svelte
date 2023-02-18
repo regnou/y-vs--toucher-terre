@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { Section } from '@smui/top-app-bar';
 	import { AX__HEADERMENU_APP } from '@app/domain/DATA/clientend/ui-frame/menus/AX__HEADERMENU_APP.json';
-	import Fab, { Icon } from '@smui/fab';
 	import HeadermenuItem from './menuItem/AxHeadermenuItem.svelte';
-	import List from '@smui/list';
 	import IconButton from '@smui/icon-button';
 </script>
 

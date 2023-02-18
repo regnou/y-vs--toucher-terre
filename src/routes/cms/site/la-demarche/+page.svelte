@@ -19,14 +19,14 @@
 	// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 	const MEGACONFIG_CMS: I_megaconfig__cms<I_UI__inputValue> = {
 		conf__db: AX__COLLECTION__LADEMARCHE,
-		conf__db_dataset: AX__DATASET__laDemarche,
-		conf__store: store
+		conf__db_dataset: AX__DATASET__laDemarche
+		// conf__store: store
 	};
 	// --------------------------------------------------------
 	onMount(async () => {
 		axlog($store, $page.url.pathname, 'LA DEMARCHE (cms)');
 		store = createReduxStore(reducerStatic);
-		MEGACONFIG_CMS.conf__store = store; // hack: to refresh REACTIVITY
+		// MEGACONFIG_CMS.conf__store = store; // hack: to refresh REACTIVITY
 
 		console.debug('...');
 		const r = await promise; // les types MATCH donc le bding devrait etre bon

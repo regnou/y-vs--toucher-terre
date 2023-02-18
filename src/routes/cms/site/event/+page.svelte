@@ -28,7 +28,7 @@
 	onMount(async () => {
 		axlog($store, $page.url.pathname, 'ACCEUIL (cms)');
 		store = createReduxStore(reducerEvent);
-		MEGACONFIG_CMS.conf__store = store; // hack: to refresh REACTIVITY
+		// MEGACONFIG_CMS.conf__store = store; // hack: to refresh REACTIVITY
 
 		console.debug('...');
 		const r = await promise; // les types MATCH donc le bding devrait etre bon

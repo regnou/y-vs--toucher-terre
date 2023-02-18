@@ -2,7 +2,7 @@
 	import Separator from '@smui/list/src/Separator.svelte';
 	import { AX__HEADERMENU_APP } from '@app/domain/DATA/clientend/ui-frame/menus/AX__HEADERMENU_APP.json';
 	import DrawerMenuItem from './menu-item/AxDrawermenuItem.svelte';
-	import { Content, Header, Title, Subtitle } from '@smui/drawer';
+	import { Content, Header, Title } from '@smui/drawer';
 	import List from '@smui/list';
 </script>
 
