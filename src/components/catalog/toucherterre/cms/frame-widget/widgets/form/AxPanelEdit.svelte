@@ -78,8 +78,8 @@
 			<!--  pour tous les fields de l item -->
 			<!-- (si item == post => slug, title, body) -->
 			<!-- {#each Object.entries(item) as [key, prop], index (key)} -->
-			{#each Object.entries(item) as [key, prop]}
-				<AxInputValue bind:ivItm={item[key]} />
+			{#each Object.entries(item) as [key, prop], pos}
+				<AxInputValue {pos} bind:ivItm={item[key]} />
 			{/each}
 			<!-- </div> -->
 			<!-- </div> -->

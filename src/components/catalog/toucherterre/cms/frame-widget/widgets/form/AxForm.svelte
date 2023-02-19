@@ -3,6 +3,7 @@
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
 	import { config__mod } from '@app/domain/services/configService';
 	import { upload } from '@app/tecnology/firebase/services/storageServices';
+	import { axlog } from '@app/utils/axLog';
 	import { isInputValue } from '@app/utils/guards';
 	import TopAppBar, { Row } from '@smui/top-app-bar';
 	import Section from '@smui/top-app-bar/src/Section.svelte';
@@ -16,10 +17,21 @@
 	// SAVE
 	//----------------------------------------------
 	async function save() {
-		if (!megaconfig) return;
+		if (!megaconfig || !store) return;
 		console.debug('🌎🏎️✅ click >> on:save 1 🟡');
-		// TODO
+
 		await createStorageUrl();
+
+		// clean blob
+		for await (const item of store) {
+			if (isInputValue(item))
+				if (item.tag === 'file' && item.blobs) {
+					delete item.blobs;
+				}
+		}
+
+		axlog(store, $page.url.pathname, 'SAVE', false, 'DEBUG-AVANT-SAVE');
+		// debugger;
 		await config__mod(megaconfig.conf__db, store);
 		console.debug('🌎🏎️✅ click << on:save 2 🟨');
 	}
@@ -28,27 +40,32 @@
 	//----------------------------------------------
 	async function createStorageUrl() {
 		if (!store) return;
-		debugger;
-		for (const item of store) {
+		// for await (const item of store) {
+
+		for (let ii = 0; ii < store.length; ii++) {
+			const item = store[ii];
 			if (isInputValue(item))
 				if (item.tag === 'file' && item.blobs) {
 					// we always just have ONE FILE
-					console.log('blob');
-					console.dir(item.blobs);
+					console.log('🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 ');
+					console.log('Uploading your image...');
+					// console.dir(item.blobs);
+					// ---------------------------------------------------
+					// console.debug('...');
 					const urlStorage = await upload(item.blobs[0]);
 					debugger;
+					// ---------------------------------------------------
 					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
 					item.value = urlStorage;
+
+					// delete item.blobs;
+					// console.log('this item has no more BLOB; ', item);
+					// debugger;
 					//
-					// and update the ui
-					// post.url = urlStorage;
-					//
+					// item.exit = true; // hack-bad
 					// We unlink the blob now from the store
-					delete item.blobs;
+					// delete item.blobs;
 				}
-			// }
-			// }
-			// }
 		}
 	}
 </script>

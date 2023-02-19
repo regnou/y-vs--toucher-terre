@@ -67,7 +67,6 @@
 							alt=""
 						/>
 						<img src={store[13].value} alt="" />
-
 						<!-- <img
 							class="h-48"
 							src="/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_02.jpg"

@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let pos: number = 0;
 	export let ivItm: I_UI__inputValue | undefined = undefined; // we have to dynamically add a field, that is the blob UPLOADED
 	// to upload binary
 	// let imgFromElement: string | ArrayBuffer | null | undefined = undefined; // cf type FileReader
@@ -7,28 +8,53 @@
 	// TOLERATED BUG TYPE
 	let files: any | null = null;
 
-	$: {
-		if (files) {
-			let reader = new FileReader();
-			// Note that `files` is of type `FileList`, not an Array:
-			// https://developer.mozilla.org/en-US/docs/Web/API/FileList
-			// console.debug('🚔FILES HAS CHANGED >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<');
-			// console.debug(files.length, ' ', files);
-			for (const file of files) {
-				// BUG - why does this loop ? when I load an image...it does not stop looping this log
-				// console.debug(`🚔${file.name}: ${file.size} bytes`);
+	const onFileSelected = (e) => {
+		let image = e.target.files[0];
+		let reader = new FileReader();
+		reader.readAsDataURL(image);
+		reader.onload = (e) => {
+			imgFromElement = e.target?.result;
+			if (ivItm) {
+				console.log('blob file added', files, 'ivItm', ivItm);
 
-				reader.readAsDataURL(file);
-				reader.onload = (e) => {
-					imgFromElement = e.target?.result;
-					hasUploaded_aLocalImg = true;
-					// DYNAMIC ADD THIS ATTRIBUTE -> type ...
-					if (ivItm) ivItm.blobs = files;
-					// console.debug($STORE_PROCHAINSRDV[0].posts);
-				};
+				// ca ne marche PAS ! c le meme file
+				// const deepCopyFiles = structuredClone(files);
+				// deepCopyFiles === files ? console.log('ERRROR c egal') : '';
+				// ivItm.blobs = deepCopyFiles;
+				ivItm.blobs = files;
 			}
-		}
-	}
+		};
+	};
+
+	// $: {
+	// 	if (files && files.length) {
+	// 		let reader = new FileReader();
+	// 		// Note that `files` is of type `FileList`, not an Array:
+	// 		// https://developer.mozilla.org/en-US/docs/Web/API/FileList
+	// 		// console.debug('🚔FILES HAS CHANGED >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<');
+	// 		// console.debug(files.length, ' ', files);
+	// 		// for (const file of files) {
+	// 		debugger;
+	// 		const file = files[0];
+	// 		// BUG - why does this loop ? when I load an image...it does not stop looping this log
+	// 		// console.debug(`🚔${file.name}: ${file.size} bytes`);
+
+	// 		reader.readAsDataURL(file);
+	// 		// reader.onload = (e) => {
+	// 		// 	imgFromElement = e.target?.result;
+	// 		// 	hasUploaded_aLocalImg = true;
+	// 		// 	// DYNAMIC ADD THIS ATTRIBUTE -> type ...
+	// 		// 	if (ivItm) {
+	// 		// 		ivItm.blobs = files;
+
+	// 		// 		//
+	// 		// 		// console.log('blob file added');
+	// 		// 	}
+	// 		// 	// console.debug($STORE_PROCHAINSRDV[0].posts);
+	// 		// };
+	// 		// }
+	// 	}
+	// }
 </script>
 
 <!-- ####################################################### -->
@@ -62,14 +88,20 @@
             focus:ring-2
         "
 	>
+		<!-- name="upload-id" -->
+		<!-- id="axfileupload--1" -->
+		<!--  -->
+		<!-- name=`upload-id${pos}` -->
 		<input
-			accept="image/png, image/jpeg"
+			on:change={(e) => onFileSelected(e)}
 			bind:files
-			id="axfileupload--1"
-			name="upload-id"
+			name={'upload-id' + pos}
+			accept="image/png, image/jpeg"
 			type="file"
 			class="custom-file-input z-10"
 		/>
+
+		<!-- <input style="display:none" type="file" accept=".jpg, .jpeg, .png" on:change={(e)=>onFileSelected(e)} bind:this={fileinput} > -->
 
 		{#if files}
 			{#each Array.from(files) as file}

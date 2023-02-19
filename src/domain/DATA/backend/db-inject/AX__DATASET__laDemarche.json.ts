@@ -94,21 +94,21 @@ export const AX__DATASET__laDemarche: I_UI__inputValue[] = [
 	},
 	{
 		id: 'img-1',
-		pos: 1,
+		pos: 13,
 		tag: 'file',
 		label: 'hero 1',
 		value: '/media/logo-01.png'
 	},
 	{
 		id: 'img-2',
-		pos: 1,
+		pos: 14,
 		tag: 'file',
 		label: 'hero 1',
 		value: '/media/logo-01.png'
 	},
 	{
 		id: 'img-3',
-		pos: 1,
+		pos: 15,
 		tag: 'file',
 		label: 'hero 1',
 		value: '/media/logo-01.png'

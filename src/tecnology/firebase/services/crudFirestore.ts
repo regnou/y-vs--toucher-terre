@@ -107,8 +107,11 @@ export const crud__modSoft = async <T>(col, id: string, data) => {
 // --- add update delete
 // ---
 // ----------------------------------------------------------
-export const firestore__add = async <T>(collection, data: T) => {
-	let msg = `${collection.id} -- (new)`;
+export const crud__add = async <T>(col: CollectionReference<T>, data: T) => {
+	// LIGHT LOG
+	// \x1B[m\x1B[105;97;4m ${id}\x1B[m
+	const msg = `\x1B[45;97;4m ${col.id.toUpperCase()}`;
+
 	const callback = async () => {
 		const entity = {
 			dateCreated: serverTimestamp(),
@@ -117,8 +120,8 @@ export const firestore__add = async <T>(collection, data: T) => {
 		};
 		// ---
 		// add also the id generated !
-		const docRef = await addDoc<T>(collection, entity);
-		msg = `${msg} ${docRef.id}`;
+		const docRef = await addDoc<T>(col, entity);
+		// msg = `${msg} ${docRef.id}`;
 		// const entityWithId = {
 		// 	...entity,
 		// 	id: docRef.id
@@ -126,10 +129,11 @@ export const firestore__add = async <T>(collection, data: T) => {
 		// todo - attention tu refais requete coté CLIENT !
 		// await modSoft(col, docRef.id, entityWithId);
 		// ---
-		return docRef.id;
+		return { msg, data: docRef.id };
+		// return docRef.id;
 	};
 	// ---
-	return await firestore__tryHelper(callback, msg, 'ADD');
+	return await firestore__tryHelper(callback, msg, 'ADDnew');
 };
 // ----------------------------------------------------------
 //

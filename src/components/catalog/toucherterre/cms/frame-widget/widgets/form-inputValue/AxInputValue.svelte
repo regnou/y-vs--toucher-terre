@@ -2,6 +2,7 @@
 	import { AX__ENUM__formatMedia } from '@app/domain/DATA/backend/AX__ENUM__formatMedia';
 	import Textfield from '@smui/textfield';
 	import Axfileupload from './AxFileupload.svelte';
+	export let pos: number;
 	export let ivItm: I_UI__inputValue | undefined = undefined; // take a reference to the STORE
 </script>
 
@@ -43,7 +44,7 @@
 		<!--      -->
 		<div class="max-w-xs">
 			<div class="text-xs text-gray-400">{ivItm.label}</div>
-			<Axfileupload bind:ivItm />
+			<Axfileupload bind:ivItm {pos} />
 		</div>
 	{/if}
 {/if}

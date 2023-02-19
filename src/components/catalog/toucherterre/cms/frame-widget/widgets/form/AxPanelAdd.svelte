@@ -76,8 +76,8 @@
 		<Content>
 			<!-- <div class="space-y-10"> -->
 			<!--  -->
-			{#each megaconfig.conf__genericAdd as ivItm}
-				<AxInputValue bind:ivItm />
+			{#each megaconfig.conf__genericAdd as ivItm, pos}
+				<AxInputValue bind:ivItm {pos} />
 			{/each}
 			<!-- END -->
 			<div class="mt-10 grid grid-flow-col place-items-center gap-2 p-10">

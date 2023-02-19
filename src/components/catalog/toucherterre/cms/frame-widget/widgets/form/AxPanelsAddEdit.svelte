@@ -37,11 +37,11 @@
 		<!-- ######################## -->
 		<!-- {@debug store} -->
 
-		{#each store as entity, pos_entity}
+		{#each store as entity, pos}
 			{#if isEntity(entity)}
-				<PanelEdit pos_item={pos_entity} bind:item={entity} />
+				<PanelEdit pos_item={pos} bind:item={entity} />
 			{:else if isInputValue(entity)}
-				<AxInputValue bind:ivItm={entity} />
+				<AxInputValue {pos} bind:ivItm={entity} />
 			{/if}
 		{/each}
 	</Accordion>

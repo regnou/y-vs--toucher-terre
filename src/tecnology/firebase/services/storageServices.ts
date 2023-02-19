@@ -1,29 +1,36 @@
 import { getFirebase } from '@app/tecnology/firebase/firebaseClient';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { AX__COLLECTION__IMG } from '../../../domain/DATA/backend/db-schema/COLLECTIONS';
-import { firestore__add } from './crudFirestore';
+import { crud__add } from './crudFirestore';
 
 async function upload(fileax) {
 	// return new Promise(async function (resolve, reject) {
 	// const metadata = {
 	// 	contentType: ['image/jpeg', 'image/png']
 	// };
+
+	// DEBUG: UPLOAD:FIREBASE
 	const { STORAGE } = getFirebase();
 	console.debug('🚔debug 0 - filename: ', fileax.name.trim());
 	console.debug('🚔debug 1 - upload file: ', fileax);
 
+	// 1
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
-	const uid = await firestore__add(AX__COLLECTION__IMG, { filename: fileax.name.trim() });
+	const uid = await crud__add(AX__COLLECTION__IMG, { filename: fileax.name.trim() });
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
-	const YOUR_STORAGE_PATH = '/media/' + uid;
 
+	// 2
+	const YOUR_STORAGE_PATH = '/media/' + uid;
 	// Create a storage reference from our storage service
 	const storageRef = ref(STORAGE, YOUR_STORAGE_PATH);
-
 	// 'file' comes from the Blob or File API
 	const snap = await uploadBytes(storageRef, fileax);
 	const downloadURL = await getDownloadURL(snap.ref);
-	console.debug('🚔mission finished: downloadURL: ', downloadURL);
+
+	//
+	console.debug('-----------------------------------------');
+	console.debug('🚔 Upload finished: downloadURL/urlStorage: ', downloadURL, 'fileax', fileax);
+	console.debug('-----------------------------------------');
 	return downloadURL;
 
 	// const uploadTask = uploadBytesResumable(storageRef, fileax, metadata);
