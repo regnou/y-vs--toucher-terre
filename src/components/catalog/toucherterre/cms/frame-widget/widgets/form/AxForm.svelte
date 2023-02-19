@@ -28,12 +28,15 @@
 	//----------------------------------------------
 	async function createStorageUrl() {
 		if (!store) return;
-
+		debugger;
 		for (const item of store) {
 			if (isInputValue(item))
 				if (item.tag === 'file' && item.blobs) {
 					// we always just have ONE FILE
+					console.log('blob');
+					console.dir(item.blobs);
 					const urlStorage = await upload(item.blobs[0]);
+					debugger;
 					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
 					item.value = urlStorage;
 					//

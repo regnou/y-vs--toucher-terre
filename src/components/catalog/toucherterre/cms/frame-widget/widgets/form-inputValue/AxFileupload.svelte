@@ -1,12 +1,13 @@
 <script lang="ts">
-	export let ivItm; // we have to dynamically add a field, that is the blob UPLOADED
+	export let ivItm: I_UI__inputValue | undefined = undefined; // we have to dynamically add a field, that is the blob UPLOADED
 	// to upload binary
+	// let imgFromElement: string | ArrayBuffer | null | undefined = undefined; // cf type FileReader
 	let imgFromElement;
 	let hasUploaded_aLocalImg = false;
 	// TOLERATED BUG TYPE
 	let files: any | null = null;
 
-	$: (async () => {
+	$: {
 		if (files) {
 			let reader = new FileReader();
 			// Note that `files` is of type `FileList`, not an Array:
@@ -14,18 +15,20 @@
 			// console.debug('🚔FILES HAS CHANGED >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<');
 			// console.debug(files.length, ' ', files);
 			for (const file of files) {
-				console.debug(`🚔${file.name}: ${file.size} bytes`);
+				// BUG - why does this loop ? when I load an image...it does not stop looping this log
+				// console.debug(`🚔${file.name}: ${file.size} bytes`);
+
 				reader.readAsDataURL(file);
 				reader.onload = (e) => {
 					imgFromElement = e.target?.result;
 					hasUploaded_aLocalImg = true;
 					// DYNAMIC ADD THIS ATTRIBUTE -> type ...
-					ivItm.blobs = files;
+					if (ivItm) ivItm.blobs = files;
 					// console.debug($STORE_PROCHAINSRDV[0].posts);
 				};
 			}
 		}
-	})();
+	}
 </script>
 
 <!-- ####################################################### -->
@@ -70,7 +73,9 @@
 
 		{#if files}
 			{#each Array.from(files) as file}
+				<!-- {#if imgFromElement} -->
 				<img src={imgFromElement} alt="" class="absolute inset-0 z-0 mt-10 object-cover" />
+				<!-- {/if} -->
 
 				<!-- <img
 					src={URL.createObjectURL(file)}
@@ -78,8 +83,8 @@
 					class=" z-0 mt-10 absolute inset-0 object-cover"
 				/> -->
 			{/each}
-		{:else if ivItm.iv}
-			<img src={ivItm.iv} alt="" class="absolute inset-0 z-0 mt-10 object-cover" />
+		{:else if ivItm && ivItm.value}
+			<img src={ivItm.value} alt="" class="absolute inset-0 z-0 mt-10 object-cover" />
 			<!-- {:else if urlStorage}
 			<img src={urlStorage} alt="" class="absolute inset-0 z-0 mt-10 object-cover" /> -->
 		{/if}

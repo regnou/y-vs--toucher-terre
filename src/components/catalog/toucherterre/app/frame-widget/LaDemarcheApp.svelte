@@ -53,10 +53,8 @@
 					<Separator />
 					<Paragraph text={store[2].value} />
 					<Separator />
-					<img
-						src="/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.jpg"
-						alt=""
-					/>
+					<!-- src="/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.jpg" -->
+					<img src={store[12].value} alt="" />
 				</div>
 			</Cell>
 			<Cell span={4}>
@@ -68,11 +66,13 @@
 							src="/media/icon/icon-contact-decom--creme.png"
 							alt=""
 						/>
-						<img
+						<img src={store[13].value} alt="" />
+
+						<!-- <img
 							class="h-48"
 							src="/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_02.jpg"
 							alt=""
-						/>
+						/> -->
 						<img
 							class="h-10 rotate-180 justify-self-start"
 							src="/media/icon/icon-contact-decom--creme.png"
@@ -104,10 +104,11 @@
 						<Paragraph text={store[11].value} />
 					</div>
 					<Separator />
-					<img
+					<img src={store[14].value} alt="" />
+					<!-- <img
 						src="/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_03.jpg"
 						alt=""
-					/>
+					/> -->
 				</div>
 			</Cell>
 		</LayoutGrid>
