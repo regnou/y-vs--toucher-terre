@@ -1,20 +1,12 @@
-<script lang="ts">
-	import { Section } from '@smui/top-app-bar';
-	import { AX__CONST__homeUrl } from '@app/domain/DATA/clientend/ui-frame/AX__CONST__homeUrl';
-	import IconButton from '@smui/icon-button';
-	// const handleClick = async () => {
-	// 	console.log('CLICKED RETOUR VERS app');
-	// 	await goto(AX__CONST__homeUrl);
-	// 	// $STORE_UI__DRAWER_IS_OPEN = false;
-	// };
-</script>
-
 <!-- HEADER CMS -->
 <!-- ######################################################## -->
 
 <!-- on:click={async () => {
 	await handleClick();
 }} -->
+<Section class="mdc-top-app-bar__section--align-start uppercase ">
+	{$page.url.pathname.replace('/cms/site/', '').replace('-', ' ')}
+</Section>
 <Section>
 	<!-- <a href={AX__CONST__homeUrl} rel="prefetch"> -->
 	<!-- <Fab mini> -->
@@ -22,6 +14,22 @@
 	<!-- <Icon class="material-icons">login</Icon> -->
 	<!-- </Fab> -->
 	<!-- </a>  -->
-	<IconButton href={AX__CONST__homeUrl} class="material-icons" title="Dismiss">login</IconButton>
+	<IconButton
+		href={AX__CONST__homeUrl}
+		class="material-icons"
+		title="Dismiss">login</IconButton
+	>
 </Section>
 <!-- mdc-top-app-bar__ -->
+
+<script lang="ts">
+	import { Section } from '@smui/top-app-bar';
+	import { AX__CONST__homeUrl } from '@app/domain/DATA/clientend/ui-frame/AX__CONST__homeUrl';
+	import IconButton from '@smui/icon-button';
+	import { page } from '$app/stores';
+	// const handleClick = async () => {
+	// 	console.log('CLICKED RETOUR VERS app');
+	// 	await goto(AX__CONST__homeUrl);
+	// 	// $STORE_UI__DRAWER_IS_OPEN = false;
+	// };
+</script>

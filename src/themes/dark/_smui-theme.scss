@@ -13,14 +13,14 @@
 // #######################################################
 @use '../../axSnack.scss';
 //#######################################################
-html,
-body {
-	background-color: #000;
-	color: theme.$on-surface;
-}
-a {
-	color: #40b3ff;
-}
-a:visited {
-	color: color.scale(#40b3ff, $lightness: -35%);
-}
+// html,
+// body {
+// 	background-color: #000;
+// 	color: theme.$on-surface;
+// }
+// a {
+// 	color: #40b3ff;
+// }
+// a:visited {
+// 	color: color.scale(#40b3ff, $lightness: -35%);
+// }

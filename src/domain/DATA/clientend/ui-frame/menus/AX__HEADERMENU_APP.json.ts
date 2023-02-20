@@ -16,12 +16,12 @@ export const AX__HEADERMENU_APP: I_ui__menu[] = [
 	},
 	{
 		url: '/blog',
-		title: 'blog--Création / Réalisation',
+		title: 'Créations / Réalisations',
 		img: '/media/icon/icon-menu-realisation--creme.png'
 	},
 	{
 		url: '/event',
-		title: 'event--Prochains rdv',
+		title: 'Prochains rdv',
 		img: '/media/icon/icon-menu-prochains-rdv--creme.png'
 	},
 	{

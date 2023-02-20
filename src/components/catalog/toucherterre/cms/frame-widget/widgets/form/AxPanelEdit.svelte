@@ -40,12 +40,15 @@
 <!-- PANEL EDIT -->
 <!-- ####################################### -->
 
-<!-- ######################## -->
-<!-- POUR x1 ITEM -->
-<!-- ######################## -->
-<!-- ACCORDION -->
+<!-- x1 ACCORDION-PANEL -->
 {#if item}
-	<Panel square variant="outlined" color="primary" extend {open}>
+	<Panel
+		square
+		variant="outlined"
+		color="black"
+		extend
+		{open}
+	>
 		<Header>
 			<!-- <span slot="description"> -->
 			<!-- base guard -->
@@ -58,10 +61,10 @@
 			{/if}
 			<!-- </span> -->
 			<div slot="icon">
-				<IconButton toggle pressed={(open = !open)}>
+				<!-- <IconButton toggle pressed={(open = !open)}>
 					<Icon class="material-icons" on>unfold_less</Icon>
 					<Icon class="material-icons">unfold_more</Icon>
-				</IconButton>
+				</IconButton> -->
 				<!-- {#if type === 'blog' || type === 'slideshow'} -->
 				<IconButton on:click={del}>
 					<Icon class="material-icons">delete</Icon>
@@ -69,20 +72,13 @@
 				<!-- {/if} -->
 			</div>
 		</Header>
-		<Content>
-			<!-- <div class="space-y-10"> -->
-			<!-- <div class="space-y-10"> -->
-			<!-- ######################## -->
-			<!-- POUR CHAQUE PROP -->
-			<!-- ######################## -->
-			<!--  pour tous les fields de l item -->
-			<!-- (si item == post => slug, title, body) -->
-			<!-- {#each Object.entries(item) as [key, prop], index (key)} -->
+		<Content class="space-y-10 bg-gray-100">
 			{#each Object.entries(item) as [key, prop], pos}
-				<AxInputValue {pos} bind:ivItm={item[key]} />
+				<AxInputValue
+					{pos}
+					bind:ivItm={item[key]}
+				/>
 			{/each}
-			<!-- </div> -->
-			<!-- </div> -->
 		</Content>
 	</Panel>
 {/if}

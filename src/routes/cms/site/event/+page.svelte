@@ -1,9 +1,33 @@
+<!-- ####################################################### -->
+<!-- route: cmd-EVENT -->
+<!-- ####################################################### -->
+
+{#await promise}
+	<Loader />
+{:then data}
+	<Framecms>
+		<!-- CMS -->
+		<div slot="cms">
+			<GenericCms
+				bind:store={$store}
+				megaconfig={MEGACONFIG_CMS}
+			/>
+		</div>
+		<!-- APP -->
+		<div slot="app">
+			<EventApp store={$store} />
+		</div>
+	</Framecms>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+
 <script lang="ts">
 	import { AX__DATASET__event } from '@app/domain/DATA/backend/db-inject/AX__DATASET__event.json';
 	import { AX__COLLECTION__EVENT } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
 	import { AX__ADD__event } from '@app/domain/DATA/clientend/generic-cms/db-add/AX__ADD__event.json';
-	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
-	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/GenericCms.svelte';
+	import Framecms from '@app/components/catalog/toucherterre/cms/AxFramecms.svelte';
+	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/AxGenericCms.svelte';
 	import { reducerEvent } from '@app/stores/storeReducers';
 	import { onMount } from 'svelte';
 	import { createReduxStore, type T_axStore } from '@app/stores/createReduxStore';
@@ -37,24 +61,3 @@
 		// axlog($store, $page.url.pathname, 'ACCEUIL (cms)');
 	});
 </script>
-
-<!-- ####################################################### -->
-<!-- route: cmd-EVENT -->
-<!-- ####################################################### -->
-
-{#await promise}
-	<Loader />
-{:then data}
-	<Framecms>
-		<!-- CMS -->
-		<div slot="cms">
-			<GenericCms bind:store={$store} megaconfig={MEGACONFIG_CMS} />
-		</div>
-		<!-- APP -->
-		<div slot="app">
-			<EventApp store={$store} />
-		</div>
-	</Framecms>
-{:catch error}
-	<p style="color: red">{error.message}</p>
-{/await}

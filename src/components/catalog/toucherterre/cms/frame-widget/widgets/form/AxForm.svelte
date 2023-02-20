@@ -1,6 +1,49 @@
+<!-- ####################################################### -->
+<!-- ####################################### -->
+<!--  -->
+<!-- ####################################### -->
+<!-- .................. -->
+<!-- tip responsive: cf. gsite, both app et cms -->
+<!-- .................. -->
+<!-- {AX__UI__CONST_responsiveHambergerShow} -->
+<div
+	id="axformedit--1"
+	style=" "
+	class="w-full bg-red-300 lg:w-72"
+>
+	<!-- ####################################### -->
+	<!-- BODY                                  -->
+	<!-- ####################################### -->
+	<!-- ---------------------- -->
+	<!-- SUBMIT BTNs            -->
+	<!-- ---------------------- -->
+	<!-- <AxBtnCancel text="Annuler" /> -->
+	<div class=" grid grid-flow-col place-items-center gap-2 p-10">
+		<AxBtnOk
+			text="Enregistrer"
+			callback={async () => await save()}
+		/>
+	</div>
+	<!-- ---------------------- -->
+	<!-- POUR CHAQUE PAGE-ITEM  -->
+	<!-- ---------------------- -->
+	<!-- ................ -->
+	<AxPanelsAddEdit
+		bind:store
+		{megaconfig}
+	/>
+</div>
+<!-- BRANCH: I_UI__inputValue          -->
+<!-- <AxInputValue ivItm={pageItem} /> -->
+<!-- {:else} -->
+<!-- SLIDESHOW - todo AFTER -->
+
+<!-- <div class="col-span-4 grid grid-rows-3 place-items-center">
+				<Slider imgs={[store[i].iv]} /> </div> -->
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { AX__UI__CONST_isDebugBorder } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_isDebugBorder';
+	import { AX__UI__CONST_responsiveHambergerShow } from '@app/domain/DATA/clientend/ui-frame/AX__UI__CONST_responsiveHambergerShow';
 	import { config__mod } from '@app/domain/services/configService';
 	import { upload } from '@app/tecnology/firebase/services/storageServices';
 	import { axlog } from '@app/utils/axLog';
@@ -19,9 +62,7 @@
 	async function save() {
 		if (!megaconfig || !store) return;
 		console.debug('🌎🏎️✅ click >> on:save 1 🟡');
-
 		await createStorageUrl();
-
 		// clean blob
 		for await (const item of store) {
 			if (isInputValue(item))
@@ -29,9 +70,7 @@
 					delete item.blobs;
 				}
 		}
-
 		axlog(store, $page.url.pathname, 'SAVE', false, 'DEBUG-AVANT-SAVE');
-		// debugger;
 		await config__mod(megaconfig.conf__db, store);
 		console.debug('🌎🏎️✅ click << on:save 2 🟨');
 	}
@@ -41,7 +80,6 @@
 	async function createStorageUrl() {
 		if (!store) return;
 		// for await (const item of store) {
-
 		for (let ii = 0; ii < store.length; ii++) {
 			const item = store[ii];
 			if (isInputValue(item))
@@ -50,18 +88,16 @@
 					console.log('🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 ');
 					console.log('Uploading your image...');
 					// console.dir(item.blobs);
-					// ---------------------------------------------------
 					// console.debug('...');
-					const urlStorage = await upload(item.blobs[0]);
-					debugger;
+					// ---------------------------------------------------
+					const urlStorage = await upload(item.blobs);
+					// ---------------------------------------------------
+					// const urlStorage = await upload(item.blobs[0]);
 					// ---------------------------------------------------
 					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
 					item.value = urlStorage;
-
 					// delete item.blobs;
 					// console.log('this item has no more BLOB; ', item);
-					// debugger;
-					//
 					// item.exit = true; // hack-bad
 					// We unlink the blob now from the store
 					// delete item.blobs;
@@ -69,55 +105,3 @@
 		}
 	}
 </script>
-
-<!-- ####################################################### -->
-<!-- ####################################### -->
-<!--  -->
-<!-- ####################################### -->
-
-<div id="axformedit--1" class="rounded-xl  bg-gray-200 p-5 uppercase text-black">
-	<!-- +#################################### -->
-	<!-- HEADER -->
-	<!-- +#################################### -->
-	<!-- variant="fixed" -->
-
-	<!-- +#################################### -->
-	<!-- BODY -->
-	<!-- +#################################### -->
-
-	<TopAppBar
-		variant="static"
-		style="border:{AX__UI__CONST_isDebugBorder ? '4px solid red' : 'none'}"
-		class="bg-black/80 "
-	>
-		<Row>
-			<Section class="mdc-top-app-bar__section--align-start ">
-				<!-- prev btn -->
-				<!-- on:click={console.log('todo')} -->
-				<!-- <IconButton style="color:var(--wa-color-1)" class="material-icons">arrow_back	</IconButton> -->
-
-				<!-- title of this section of admin (collection you will handle) -->
-				{$page.url.pathname.replace('/cms/site/', '').replace('-', ' ')}
-			</Section>
-		</Row>
-	</TopAppBar>
-
-	<!-- POUR CHAQUE PAGE-ITEM -->
-	<!-- ................ -->
-	<AxPanelsAddEdit bind:store {megaconfig} />
-
-	<!-- ---------------------- -->
-	<!-- SUBMIT BTNs -->
-	<!-- ---------------------- -->
-	<div class="mt-10 grid grid-flow-col place-items-center gap-2 p-10">
-		<AxBtnCancel text="cancel" />
-		<AxBtnOk text="ok" callback={async () => await save()} />
-	</div>
-</div>
-
-<!-- BRANCH: I_UI__inputValue -->
-<!-- <AxInputValue ivItm={pageItem} /> -->
-<!-- {:else} -->
-<!-- SLIDESHOW - todo AFTER -->
-<!-- <div class="col-span-4 grid grid-rows-3 place-items-center">
-				<Slider imgs={[store[i].iv]} /> </div> -->

@@ -1,9 +1,35 @@
+<!-- ####################################################### -->
+<!-- route: cms-ACCEUIL -->
+<!-- ####################################################### -->
+
+{#await promise}
+	<Loader />
+{:then data}
+	{#if store}
+		<Framecms>
+			<!-- CMS -->
+			<div slot="cms">
+				<GenericCms
+					bind:store={$store}
+					megaconfig={MEGACONFIG_CMS}
+				/>
+			</div>
+			<!-- APP -->
+			<div slot="app">
+				<AcceuilApp store={$store} />
+			</div>
+		</Framecms>
+	{/if}
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+
 <script lang="ts">
 	import { AX__DATASET__acceuil } from '@app/domain/DATA/backend/db-inject/AX__DATASET__acceuil.json';
 	import { AX__COLLECTION__ACCEUIL } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
 	import AcceuilApp from '@app/components/catalog/toucherterre/app/frame-widget/AcceuilApp.svelte';
-	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
-	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/GenericCms.svelte';
+	import Framecms from '@app/components/catalog/toucherterre/cms/AxFramecms.svelte';
+	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/AxGenericCms.svelte';
 	import { reducerStatic } from '@app/stores/storeReducers';
 	import { onMount } from 'svelte';
 	import { createReduxStore, type T_axStore } from '@app/stores/createReduxStore';
@@ -34,26 +60,3 @@
 		// axlog($store, $page.url.pathname, 'ACCEUIL (cms)');
 	});
 </script>
-
-<!-- ####################################################### -->
-<!-- route: cms-ACCEUIL -->
-<!-- ####################################################### -->
-
-{#await promise}
-	<Loader />
-{:then data}
-	{#if store}
-		<Framecms>
-			<!-- CMS -->
-			<div slot="cms">
-				<GenericCms bind:store={$store} megaconfig={MEGACONFIG_CMS} />
-			</div>
-			<!-- APP -->
-			<div slot="app">
-				<AcceuilApp store={$store} />
-			</div>
-		</Framecms>
-	{/if}
-{:catch error}
-	<p style="color: red">{error.message}</p>
-{/await}

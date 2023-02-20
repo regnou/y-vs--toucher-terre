@@ -20,7 +20,7 @@ async function upload(fileax) {
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
 
 	// 2
-	const YOUR_STORAGE_PATH = '/media/' + uid;
+	const YOUR_STORAGE_PATH = '/media/' + uid.data;
 	// Create a storage reference from our storage service
 	const storageRef = ref(STORAGE, YOUR_STORAGE_PATH);
 	// 'file' comes from the Blob or File API

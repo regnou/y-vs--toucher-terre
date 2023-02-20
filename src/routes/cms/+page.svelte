@@ -1,7 +1,3 @@
-<script lang="ts">
-	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
-</script>
-
 <!-- ####################################################### -->
 <!-- route: HOME (cms) -->
 <!-- ####################################################### -->
@@ -17,3 +13,7 @@
 		</div>
 	</div>
 </Framecms>
+
+<script lang="ts">
+	import Framecms from '@app/components/catalog/toucherterre/cms/AxFramecms.svelte';
+</script>

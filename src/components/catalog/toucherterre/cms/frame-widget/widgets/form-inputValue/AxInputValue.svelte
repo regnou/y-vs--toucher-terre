@@ -1,11 +1,3 @@
-<script lang="ts">
-	import { AX__ENUM__formatMedia } from '@app/domain/DATA/backend/AX__ENUM__formatMedia';
-	import Textfield from '@smui/textfield';
-	import Axfileupload from './AxFileupload.svelte';
-	export let pos: number;
-	export let ivItm: I_UI__inputValue | undefined = undefined; // take a reference to the STORE
-</script>
-
 <!-- ####################################################### -->
 <!-- ####################################### -->
 <!-- INPUT VALUE -->
@@ -18,6 +10,7 @@
 		<!-- TXT -->
 		<!--     -->
 		<Textfield
+			variant="filled"
 			style="width: 100%;"
 			helperLine$style="width: 100%;"
 			bind:value={ivItm.value}
@@ -44,7 +37,18 @@
 		<!--      -->
 		<div class="max-w-xs">
 			<div class="text-xs text-gray-400">{ivItm.label}</div>
-			<Axfileupload bind:ivItm {pos} />
+			<Axfileupload
+				bind:ivItm
+				{pos}
+			/>
 		</div>
 	{/if}
 {/if}
+
+<script lang="ts">
+	import { AX__ENUM__formatMedia } from '@app/domain/DATA/backend/AX__ENUM__formatMedia';
+	import Textfield from '@smui/textfield';
+	import Axfileupload from './AxFileupload.svelte';
+	export let pos: number;
+	export let ivItm: I_UI__inputValue | undefined = undefined; // take a reference to the STORE
+</script>

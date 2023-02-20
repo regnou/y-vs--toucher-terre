@@ -1,3 +1,29 @@
+    // ----------------------------------------------------------
+    // function demo() {
+    // 	const a: I_UI__inputValue = { label: 'a', value: 'b', id: 'c' };
+    // 	let post: I_ENTITY__event = { titleEvent: a, slug: a, body: a, date: a, image: a };
+    // 	if (isEntityPost(post)) console.log(post.titlePost);
+    // 	if (isEntityEvent(post)) console.log(post.titlePost);
+    // 	// ----------------
+    // 	function getSmallPet(): Animal {
+    // 		const a: Animal = { swim: () => 'a' }; // secret fish at dyn time
+    // 		return a;
+    // 	}
+    // 	type Animal = Fish | Bird;
+    // 	type Fish = { swim: () => 'a' };
+    // 	type Bird = { fly: () => 'a' };
+    // 	function isFish(pet: Animal): pet is Fish {
+    // 		return (pet as Fish).swim !== undefined;
+    // 	}
+    // 	// Both calls to 'swim' and 'fly' are now okay.
+    // 	let pet = getSmallPet();
+    // 	if (isFish(pet)) {
+    // 		pet.swim();
+    // 	} else {
+    // 		pet.fly();
+    // 	}
+    // }
+
     // $: open = $page.url.pathname.includes('/cms/') ? true : false;
 
         // \x1B[46;97;4m cyan

@@ -10,21 +10,32 @@
 	$surface: #fff,
 	$background: #fff,
 	$error: color-palette.$red-900
+		// https://codelabs.developers.google.com/codelabs/mdc-103-web/index.html#2
+	// 	$mdc-theme-primary: #FEDBD0;
+	// $mdc-theme-on-primary: #442C2E;
+	// $mdc-theme-secondary: #FEEAE6;
+	// $mdc-theme-on-secondary: #442C2E;
+	// $mdc-theme-surface: #FFFBFA;
+	// $mdc-theme-on-surface: #442C2E;
+	// $mdc-theme-background: #FFFFFF;
+	// $mdc-theme-on-background: #442C2E;
 );
 /* ####################################################### */
 
 @use '../axSnack.scss';
+@use '../axTypo.scss';
+@use '../axDrawer.scss';
 /* ####################################################### */
 
-html,
-body {
-	background-color: theme.$surface;
-	color: theme.$on-surface;
-}
+// html,
+// body {
+// 	background-color: theme.$surface;
+// 	color: theme.$on-surface;
+// }
 
-a {
-	color: #40b3ff;
-}
-a:visited {
-	color: color.scale(#40b3ff, $lightness: -35%);
-}
+// a {
+// 	color: #40b3ff;
+// }
+// a:visited {
+// 	color: color.scale(#40b3ff, $lightness: -35%);
+// }

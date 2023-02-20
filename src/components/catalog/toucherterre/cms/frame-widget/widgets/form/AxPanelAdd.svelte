@@ -57,33 +57,44 @@
 <!-- PANEL ADD -->
 <!-- ####################################### -->
 {#if megaconfig && megaconfig.conf__genericAdd}
-	<Panel square variant="outlined" color="secondary" extend bind:open>
+	<Panel
+		square
+		variant="outlined"
+		color="secondary"
+		extend
+		bind:open
+	>
 		<!--  -->
 		<Header class="bg-green-400">
 			<!-- <span>AJOUTER</span> -->
-			<span slot="description">AJOUTER</span>
+			<!-- <span slot="description">AJOUTER</span> -->
+			<span>AJOUTER</span>
+
 			<div slot="icon">
-				<IconButton toggle pressed={(open = !open)}>
+				<!-- <IconButton toggle pressed={(open = !open)}>
 					<Icon class="material-icons" on>unfold_less</Icon>
 					<Icon class="material-icons">unfold_more</Icon>
-				</IconButton>
+				</IconButton> -->
 				<IconButton>
 					<Icon class="material-icons">add</Icon>
 				</IconButton>
 			</div>
 		</Header>
 		<!--  -->
-		<Content>
-			<!-- <div class="space-y-10"> -->
-			<!--  -->
+		<Content class="space-y-10 bg-gray-100 text-center">
 			{#each megaconfig.conf__genericAdd as ivItm, pos}
-				<AxInputValue bind:ivItm {pos} />
+				<AxInputValue
+					bind:ivItm
+					{pos}
+				/>
 			{/each}
-			<!-- END -->
-			<div class="mt-10 grid grid-flow-col place-items-center gap-2 p-10">
-				<AxBtnCancel text="cancel" />
-				<AxBtnOk text="ok" callback={add} />
-			</div>
+			<!-- <div > -->
+			<!-- class="grid grid-flow-col place-items-center gap-2 p-10" -->
+			<!-- <AxBtnCancel text="cancel" /> -->
+			<AxBtnOk
+				text="ajouter"
+				callback={add}
+			/>
 			<!-- </div> -->
 		</Content>
 	</Panel>

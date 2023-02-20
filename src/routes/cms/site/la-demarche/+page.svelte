@@ -1,9 +1,33 @@
+<!-- ####################################################### -->
+<!-- route: cms-LA DEMARCHE -->
+<!-- ####################################################### -->
+
+{#await promise}
+	<Loader />
+{:then data}
+	<Framecms>
+		<!-- CMS -->
+		<div slot="cms">
+			<GenericCms
+				bind:store={$store}
+				megaconfig={MEGACONFIG_CMS}
+			/>
+		</div>
+		<!-- APP -->
+		<div slot="app">
+			<LaDemarcheApp store={$store} />
+		</div>
+	</Framecms>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+
 <script lang="ts">
 	import { AX__DATASET__laDemarche } from '@app/domain/DATA/backend/db-inject/AX__DATASET__laDemarche.json';
 	import { AX__COLLECTION__LADEMARCHE } from '@app/domain/DATA/backend/db-schema/COLLECTIONS';
 	import LaDemarcheApp from '@app/components/catalog/toucherterre/app/frame-widget/LaDemarcheApp.svelte';
-	import Framecms from '@app/components/catalog/toucherterre/cms/Framecms.svelte';
-	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/GenericCms.svelte';
+	import Framecms from '@app/components/catalog/toucherterre/cms/AxFramecms.svelte';
+	import GenericCms from '@app/components/catalog/toucherterre/cms/frame-widget/AxGenericCms.svelte';
 	import { reducerStatic } from '@app/stores/storeReducers';
 	import { onMount } from 'svelte';
 	import { createReduxStore, type T_axStore } from '@app/stores/createReduxStore';
@@ -35,24 +59,3 @@
 		// axlog($store, $page.url.pathname, 'LA DEMARCHE (cms)');
 	});
 </script>
-
-<!-- ####################################################### -->
-<!-- route: cms-LA DEMARCHE -->
-<!-- ####################################################### -->
-
-{#await promise}
-	<Loader />
-{:then data}
-	<Framecms>
-		<!-- CMS -->
-		<div slot="cms">
-			<GenericCms bind:store={$store} megaconfig={MEGACONFIG_CMS} />
-		</div>
-		<!-- APP -->
-		<div slot="app">
-			<LaDemarcheApp store={$store} />
-		</div>
-	</Framecms>
-{:catch error}
-	<p style="color: red">{error.message}</p>
-{/await}

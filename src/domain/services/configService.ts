@@ -15,11 +15,12 @@ import { AX__CONST__idRootDoc } from '../DATA/backend/AX__CONST__idRootDoc';
 //-------------------------------------------------------
 // hack - we want to open the snack when doing DB operations
 const openSnack = (type: string, msg: string) => {
-	STORE_UI__SNACK_IS_OPEN.set({
-		type: type,
-		text: msg,
-		open: true
-	});
+	// OFF - pour le moment => decommenter pour ON
+	// STORE_UI__SNACK_IS_OPEN.set({
+	// 	type: type,
+	// 	text: msg,
+	// 	open: true
+	// });
 };
 
 //-------------------------------------------------------
