@@ -53,7 +53,7 @@ declare global {
 		label: string;
 		value: string; // discriminant G1 // the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
 		blobs?: any[]; // on l ajoute et puis on le supprime pour l upload
-		format?: AX__ENUM__formatMedia; // TODO - enum => pour differencierimge/video du slideshow
+		format?: AX_CONST__formatMedia; // TODO - enum => pour differencierimge/video du slideshow
 	}
 	interface I_UI__factoryItem {
 		id: string;

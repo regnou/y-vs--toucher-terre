@@ -1,7 +1,42 @@
 {
 	"name": "starter-vinz",
+	"description": "Use TypeScript, TailwindCSS & Sass to quick start your new SvelteKit app!!",
 	"version": "0.0.1",
+	"author": {
+		"name": "Axel Regnoult",
+		"url": "https://github.com/regnou"
+	},
+	"license": "MIT",
+	"keywords": [
+		"tailwindcss",
+		"svelte",
+		"sveltekit",
+		"svelte kit",
+		"starter",
+		"typescript",
+		"prettier",
+		"eslint",
+		"sass",
+		"react",
+		"husky",
+		"postcss",
+		"sass",
+		"svelte starter",
+		"sveltekit starter",
+		"svelte kit starter",
+		"tailwindcss starter",
+		"svelte tailwindcss starter",
+		"sveltekit tailwindcss starter",
+		"svelte kit tailwindcss starter",
+		"svelte-tailwind-starter"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:MikevPeeren/sveltekit-typescript-tailwindcss-sass-starter.git"
+	},
 	"scripts": {
+		"prepare": "husky install",
+		"precommit": "lint-staged",
 		"dev": "vite dev",
 		"build": "svelte-kit sync && vite build",
 		"preview": "vite preview",
@@ -10,7 +45,7 @@
 		"SMUI-------------------------------------------------------": "",
 		"smui-x-pre-prepare--oneTimeOnly": "npx smui-theme template src/themes",
 		"smui-prepare": "npm run smui-theme-light",
-		"smui-prepare-all": "npm run smui-theme-light && npm run smui-theme-dark",
+		"smui-prepare-allthemes": "npm run smui-theme-light && npm run smui-theme-dark",
 		"smui-theme-light": "smui-theme compile static/smui.css -i src/themes",
 		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/themes/dark",
 		"SCRIPT-------------------------------------------------------": "",
@@ -34,6 +69,14 @@
 		"lint--orig": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
+	"lint-staged": {
+		"*.{js,ts,svelte}": [
+			"eslint --fix"
+		],
+		"*.{html,js,ts,svelte}": [
+			"prettier --write"
+		]
+	},
 	"dependencies": {
 		"firebase": "^9.17.1",
 		"firelordjs": "^2.3.5",
@@ -48,7 +91,6 @@
 		"@material/typography": "^14.0.0",
 		"@mdi/js": "^7.1.96",
 		"@neoconfetti/svelte": "^1.0.0",
-		"@playwright/test": "^1.30.0",
 		"@smui-extra/accordion": "^6.1.4",
 		"@smui-extra/autocomplete": "^6.2.0",
 		"@smui-extra/badge": "^6.1.4",
@@ -77,7 +119,7 @@
 		"@smui/segmented-button": "^6.1.4",
 		"@smui/select": "^6.2.0",
 		"@smui/slider": "^6.1.4",
-		"@smui/snackbar": "^6.1.4",
+		"@smui/snackbar": "7.0.0-beta.0",
 		"@smui/switch": "^6.1.4",
 		"@smui/tab": "7.0.0-beta.0",
 		"@smui/tab-bar": "7.0.0-beta.0",
@@ -86,32 +128,36 @@
 		"@smui/top-app-bar": "7.0.0-beta.0",
 		"@smui/touch-target": "^6.1.4",
 		"@splidejs/svelte-splide": "^0.2.9",
-		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "next",
-		"@sveltejs/kit": "^1.5.6",
 		"@types/cookie": "^0.5.1",
 		"@types/gapi": "^0.0.44",
 		"@types/minimist": "^1.2.2",
-		"@typescript-eslint/eslint-plugin": "^5.51.0",
-		"@typescript-eslint/parser": "^5.51.0",
+		"postcss-import": "^15.1.0",
+		"prettier-plugin-organize-imports": "^3.2.2",
+		"prettier-plugin-tailwindcss": "^0.2.2",
+		"smui-theme": "^6.2.0",
+		"@playwright/test": "^1.30.0",
+		"@sveltejs/adapter-auto": "^1.0.2",
+		"@sveltejs/kit": "^1.7.2",
+		"@typescript-eslint/eslint-plugin": "^5.52.0",
+		"@typescript-eslint/parser": "^5.52.0",
 		"autoprefixer": "^10.4.13",
 		"eslint": "^8.34.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.1.2",
 		"postcss": "^8.4.21",
-		"postcss-import": "^15.1.0",
 		"prettier": "^2.8.4",
-		"prettier-plugin-organize-imports": "^3.2.2",
-		"prettier-plugin-svelte": "^2.9.0",
-		"prettier-plugin-tailwindcss": "^0.2.2",
-		"smui-theme": "^6.2.0",
+		"prettier-plugin-svelte": "^2.8.1",
+		"sass": "^1.58.3",
 		"svelte": "^3.55.1",
-		"svelte-check": "^3.0.3",
-		"tailwindcss": "^3.2.6",
+		"svelte-check": "^2.9.2",
+		"tailwindcss": "^3.2.7",
 		"tslib": "^2.5.0",
 		"typescript": "^4.9.5",
-		"vite": "^4.1.1",
-		"vitest": "^0.28.4"
+		"vite": "^4.1.2",
+		"vitest": "^0.28.5"
 	},
 	"type": "module"
 }

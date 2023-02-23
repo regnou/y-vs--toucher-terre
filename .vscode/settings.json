@@ -1,0 +1,82 @@
+{
+	// "files.associations": {
+	// 	"*.scss": "sass"
+	// },
+	// --- search
+	"search.exclude": {
+		"stdoc": true,
+		".svelte-kit": true,
+		"node_modules": true,
+		"static": true,
+		"static/smui.css": true,
+		".vscode/settings.json": true,
+		".firebase": true,
+		"media": true,
+		"z-doc": true
+		// "lib": true
+	},
+	// --- file explorer
+	"files.exclude": {
+		// "vite.config.js*": true,
+		//
+		"yarn.lock": true,
+		".eslintignore": true,
+		".eslintrc.cjs": true,
+		".firebase": true,
+		".firebaserc": true,
+		".gitignore": true,
+		".npmrc": true,
+		".prettierignore": true,
+		".prettierrc": true,
+		".prettierrc-comment": true,
+		".svelte-kit": true,
+		"build": true,
+		"firebase-debug.log": true,
+		"firebase.json": true,
+		"firestore-debug.log": true,
+		"firestore.indexes.json": true,
+		"firestore.rules": true,
+		"jsconfig.json": true,
+		"node_modules": true,
+		"package-lock.json": true,
+		"package.json": true,
+		"playwright-ct.config.ts": true,
+		"playwright.config.ts": true,
+		"pnpm-lock.yaml": true,
+		"postcss.config.cjs": true,
+		"README.md": true,
+		"root.code-workspace": true,
+		"tailwind.config.cjs": true,
+		"tsconfig.json": true,
+		"ui-debug.log": true,
+		"z-.editorconfig--NO": true,
+		"z-.gitattributes--NO": true,
+		"z-.nvmrc--no": true,
+		"z-CHANGELOG.md": true,
+		"z-LICENSE": true,
+		"z-README--orig.md": true,
+		"z-package-full.jsono": true
+		// ---
+		// "**/DROP": true,
+	},
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#95eae2",
+		"activityBar.background": "#95eae2",
+		"activityBar.foreground": "#15202b",
+		"activityBar.inactiveForeground": "#15202b99",
+		"activityBarBadge.background": "#d35fdf",
+		"activityBarBadge.foreground": "#15202b",
+		"commandCenter.border": "#15202b99",
+		"sash.hoverBorder": "#95eae2",
+		"statusBar.background": "#6be1d6",
+		"statusBar.foreground": "#15202b",
+		"statusBarItem.hoverBackground": "#41d8ca",
+		"statusBarItem.remoteBackground": "#6be1d6",
+		"statusBarItem.remoteForeground": "#15202b",
+		"titleBar.activeBackground": "#6be1d6",
+		"titleBar.activeForeground": "#15202b",
+		"titleBar.inactiveBackground": "#6be1d699",
+		"titleBar.inactiveForeground": "#15202b99"
+	},
+	"peacock.color": "#6be1d6"
+}

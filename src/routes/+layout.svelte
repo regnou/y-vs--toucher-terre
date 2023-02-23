@@ -18,7 +18,7 @@
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	// CSS (themes for all the app)
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
-	import '@app/app.css';
+	import '@app/app.postcss';
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import '@splidejs/splide/css'; // splide - Default theme
 	// import '@splidejs/splide/css/skyblue'; // or other themes
@@ -29,9 +29,9 @@
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import { navigating, page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import AxSnack from '@app/components/catalog/toucherterre/shared/frame/AxSnack.svelte';
-	import AxPreloadingIndicator from '@app/components/catalog/toucherterre/shared/frame/AxPreloadingIndicator.svelte';
-	import { axlog } from '@app/utils/axLog';
+	import AxPreloadingIndicator from '../components/catalog/toucherterre/shared/frame/AxPreloadingIndicator.svelte';
+	import AxSnack from '../components/catalog/toucherterre/shared/frame/popup/AxSnack.svelte';
+	import { axlog } from '../utils/axLog';
 	// import GridChecker from '@app/components/catalog/toucherterre/shared/debug-ui/GridChecker.svelte';
 	//#######################################################
 	// MEGA ROOT LAYOUT

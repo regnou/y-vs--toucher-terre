@@ -1,24 +1,26 @@
-import adapterStatic from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
-// import adapterAuto from '@sveltejs/adapter-auto';
-//#######################################################
-// SVELTE CONFIG
-//#######################################################
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// preproc: https://kit.svelte.dev/docs/integrations#preprocessors
-	preprocess: vitePreprocess(),
-
 	kit: {
-		adapter: adapterStatic({
-			pages: 'build',
-			assets: 'build',
-			fallback: null
-		}),
+		adapter: adapter(),
+
 		alias: {
-			'@app': 'src'
+			$app: 'src',
+			$lib: 'src/lib',
+			$ui: 'src/components/toucherterre',
+			$stores: 'src/stores',
+			$tecnologies: 'src/tecnology',
+			$utils: 'src/utils',
+			$domain: 'src/domain',
 		}
-	}
+	},
+	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+	// for more information about preprocessors
+	preprocess: vitePreprocess()
 };
-//-------------------------------------------------------
+
 export default config;
+
+

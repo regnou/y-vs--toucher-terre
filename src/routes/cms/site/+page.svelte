@@ -6,7 +6,7 @@
 	<!-- CMS -->
 	<div slot="cms">
 		<AxTable
-			menus={AX__HEADERMENU_CMS}
+			menus={AX_CONST__FRAME_MENU_cms}
 			sortId="id"
 		/>
 	</div>
@@ -16,5 +16,5 @@
 <script lang="ts">
 	import Framecms from '@app/components/catalog/toucherterre/cms/AxFramecms.svelte';
 	import AxTable from '@app/components/catalog/toucherterre/cms/widgets/AxTable.svelte';
-	import { AX__HEADERMENU_CMS } from '@app/domain/DATA/clientend/ui-frame/menus/AX__HEADERMENU_CMS.json';
+	import { AX_CONST__FRAME_MENU_cms } from '@app/domain/DATACONST/config-uiFrame/menus/AX_CONST__FRAME_MENU_cms';
 </script>

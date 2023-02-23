@@ -110,7 +110,7 @@ const dispatch = createEventDispatcher();
 	</div>
 </div>
 
-    		<!-- <div slot="content-1" id="content-1--pageAdmin" class="bg-white text-black"> -->
+    		<!-- <div slot="content-1" id="content-1--pageAdmin" class="bg-white "> -->
 
 <!-- body -->
 <!-- <div class="grid grid-flow-col content-start"> -->
@@ -213,3 +213,46 @@ You can preview the production build with `npm run preview`.
 
     // replace space
     // $: labelFormName = labelName.toLowerCase().replace(/\s/g, ""); // 3 to use as the name for the FORM
+
+<!-- ####################################################### -->
+<!-- ####################################### -->
+<!-- FORM -->
+<!-- ####################################### -->
+<div id="axformedit--1">
+	<AxPanelsAddEdit
+		bind:store
+		{megaconfig}
+	/>
+</div>
+
+<!-- ####################################### -->
+<!-- BODY                                  -->
+<!-- ####################################### -->
+<!-- {AX__UI__CONST_isMobile} -->
+<!-- class="w-full  lg:w-72" -->
+<!-- BRANCH: I_UI__inputValue          -->
+
+<!-- ---------------------- -->
+<!-- POUR CHAQUE PAGE-ITEM  -->
+<!-- ---------------------- -->
+
+<!-- ---------------------- -->
+<!-- SUBMIT BTNs            -->
+<!-- ---------------------- -->
+<!-- <AxBtnCancel text="Annuler" /> -->
+<!-- <div class=" grid grid-flow-col place-items-center gap-2 p-10">
+		<AxBtnOk
+			text="Enregistrer"
+			callback={async () => await save()}
+		/>
+	</div> -->
+
+<!-- <div class="col-span-4 grid grid-rows-3 place-items-center">
+				<Slider imgs={[store[i].iv]} /> </div> -->
+<script lang="ts">
+	import AxPanelsAddEdit from './AxPanelsAddEdit.svelte';
+
+	//----------------------------------------------
+	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
+	export let store: T_pageItemStore[] | undefined = undefined;
+</script>

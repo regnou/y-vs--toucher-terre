@@ -1,35 +1,9 @@
-<script lang="ts">
-	import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
-	import LinearProgress from '@smui/linear-progress';
-	import Button from '@smui/button';
-	// import { script_updateCities } from 'src/lib/libshared/firebasesdk/firestore/script/';
-
-	type Script = {
-		id: number;
-		name: string;
-		script: () => unknown;
-	};
-	let items: Script[] = [
-		// { id: 1, name: "Update in 'contacts' cities for '--/--'" }
-		// { id: 1, name: "Update in 'contacts' cities for '--/--'", script: script_updateCities }
-		// {
-		// 	id: 2,
-		// 	name: "Remove in 'contacts' already liked elements in 'contacts_liked'",
-		// 	script: script_cleanTmp
-		// }
-	];
-	let loaded = true;
-	const loadScript = async (f: () => unknown) => {
-		loaded = false;
-		await f();
-		loaded = true;
-	};
-</script>
-
-<!-- <div class="bg-black h-screen"> -->
 <div class="bg-brown grid h-screen justify-center pt-20">
 	<div class="w-min">
-		<DataTable table$aria-label="User list" style="width: 100%;">
+		<DataTable
+			table$aria-label="User list"
+			style="width: 100%;"
+		>
 			<Head>
 				<Row>
 					<Cell numeric>ID</Cell>
@@ -60,13 +34,30 @@
 	</div>
 </div>
 
-<!-- </div> -->
-<style lang="postcss">
-	/* @@@ */
-	/* @@@ */
-	/* @@@ */
-	/* html,
-	body {
-		background-color: black !important;
-	} */
-</style>
+<script lang="ts">
+	import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
+	import LinearProgress from '@smui/linear-progress';
+	import Button from '@smui/button';
+	// import { script_updateCities } from 'src/lib/libshared/firebasesdk/firestore/script/';
+
+	type Script = {
+		id: number;
+		name: string;
+		script: () => unknown;
+	};
+	let items: Script[] = [
+		// { id: 1, name: "Update in 'contacts' cities for '--/--'" }
+		// { id: 1, name: "Update in 'contacts' cities for '--/--'", script: script_updateCities }
+		// {
+		// 	id: 2,
+		// 	name: "Remove in 'contacts' already liked elements in 'contacts_liked'",
+		// 	script: script_cleanTmp
+		// }
+	];
+	let loaded = true;
+	const loadScript = async (f: () => unknown) => {
+		loaded = false;
+		await f();
+		loaded = true;
+	};
+</script>

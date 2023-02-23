@@ -1,0 +1,100 @@
+<div class="card-display">
+	<div class="card-container">
+		<Card class="demo-sass">
+			<PrimaryAction on:click={() => clicked++}>
+				<Media
+					class="card-media-16x9"
+					aspectRatio="16x9"
+				/>
+				<Content class="mdc-typography--body2">
+					<h2
+						class="mdc-typography--headline6"
+						style="margin: 0;"
+					>
+						A card with media.
+					</h2>
+					<h3
+						class="mdc-typography--subtitle2"
+						style="margin: 0 0 10px; ;"
+					>
+						And a subtitle.
+					</h3>
+					It's all in this card. It's a veritable smorgasbord of card features.
+				</Content>
+			</PrimaryAction>
+			<Actions>
+				<ActionButtons>
+					<Button on:click={() => clicked++}>
+						<Label>Action</Label>
+					</Button>
+					<Button on:click={() => clicked++}>
+						<Label>Another</Label>
+					</Button>
+				</ActionButtons>
+				<ActionIcons>
+					<IconButton
+						on:click={() => clicked++}
+						toggle
+						aria-label="Add to favorites"
+						title="Add to favorites"
+					>
+						<Icon
+							class="material-icons"
+							on>favorite</Icon
+						>
+						<Icon class="material-icons">favorite_border</Icon>
+					</IconButton>
+					<IconButton
+						class="material-icons"
+						on:click={() => clicked++}
+						title="Share">share</IconButton
+					>
+					<IconButton
+						class="material-icons"
+						on:click={() => clicked++}
+						title="More options">more_vert</IconButton
+					>
+				</ActionIcons>
+			</Actions>
+		</Card>
+	</div>
+</div>
+
+<pre class="status">Clicked: {clicked}</pre>
+
+<!-- <main class="flex min-h-screen flex-1 flex-col items-center justify-center py-2">
+	<h1
+		class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600 m-0 text-center hover:cursor-pointer"
+	>
+		Welcome to <a href="https://kit.svelte.dev/">SvelteKit!</a>
+	</h1>
+	<p class="my-16 text-center text-2xl ">
+		Get started by editing{' '}
+		<code class="rounded-2xl px-5 py-3 text-base "> +page.svelte </code>
+	</p>
+
+	<div class="md:flex-unset flex max-w-3xl flex-wrap items-center justify-center ">
+		<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+	</div>
+</main> -->
+<style lang="scss">
+	* :global(.card-media-16x9) {
+		background-image: url(https://place-hold.it/320x180?text=16x9&fontsize=23);
+	}
+</style>
+
+<script lang="ts">
+	import Card, {
+		Content,
+		PrimaryAction,
+		Media,
+		MediaContent,
+		Actions,
+		ActionButtons,
+		ActionIcons
+	} from '@smui/card';
+	import Button, { Label } from '@smui/button';
+	import IconButton, { Icon } from '@smui/icon-button';
+
+	let clicked = 0;
+</script>

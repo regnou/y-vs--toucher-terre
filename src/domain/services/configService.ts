@@ -1,27 +1,14 @@
-import { STORE_UI__SNACK_IS_OPEN } from '@app/stores/storeUiItems';
+import { openSnack } from '@app/components/catalog/toucherterre/shared/frame/popup/openSnack';
 import { serverTimestamp, type CollectionReference } from 'firebase/firestore';
 import {
 	crud__addId,
 	crud__getId,
 	crud__modSoft
-} from '../../tecnology/firebase/services/crudFirestore';
+} from '../../tecnologies/firebase/services/crudFirestore';
 // firestore__add
 // firestore__del,
 // firestore__gets,
-import { AX__CONST__idRootDoc } from '../DATA/backend/AX__CONST__idRootDoc';
-
-//-------------------------------------------------------
-// BEREOUTH -- nothing to do with crudService
-//-------------------------------------------------------
-// hack - we want to open the snack when doing DB operations
-const openSnack = (type: string, msg: string) => {
-	// OFF - pour le moment => decommenter pour ON
-	// STORE_UI__SNACK_IS_OPEN.set({
-	// 	type: type,
-	// 	text: msg,
-	// 	open: true
-	// });
-};
+import { AX__CONST__DB_idRootDoc } from '../DATACONST/config-db/AX_CONST__DB_idRootDoc';
 
 //-------------------------------------------------------
 // -- get (id)
@@ -29,21 +16,25 @@ const openSnack = (type: string, msg: string) => {
 export const config__get = async <T extends T_pageItemStore>(
 	col: CollectionReference<I_firestoreDoc__megaconfig_cms<T>>
 ): Promise<T[]> => {
-	const id = AX__CONST__idRootDoc;
+	const id = AX__CONST__DB_idRootDoc;
 	try {
 		const { data } = await crud__getId<I_firestoreDoc__megaconfig_cms<T>>(col, id);
 		if (data) {
 			// && data.pageItemsStore
 			console.dir(data.pageItemsStore);
 			console.debug('🧞‍♂️✅ CONVERT-ED 🔥 -> 🏎️\n🚔');
-			openSnack('firestore', `🧞‍♂️ ${col.id.toUpperCase()} successfully loaded ! ✅`);
+			// OK - qd le loader s arrete et que ca s affiche alors c OK !
+			// openSnack('firestore', `🧞‍♂️ [ loaded ] ${col.id.toUpperCase()} ✅`);
 			return data.pageItemsStore;
 		} else {
-			openSnack('firestore', `🧞‍♂️${col.id.toUpperCase()} / ${id} successfully loaded NO DATA ! ✅`);
+			openSnack(
+				'firestore',
+				`🧞‍♂️${col.id.toUpperCase()} / ${id} loaded NO DATA (you could inject them) ! ✅`
+			);
 			return []; // => have UI working
 		}
 	} catch (error) {
-		openSnack('firestore', `🧞‍♂️❌ (🔥+🏎️) ❌❌❌ GETid <<< ${col.id.toUpperCase()} / ${id} >>>`);
+		openSnack('firestore', `🧞‍♂️ ❌ [ loaded ] GETid <<< ${col.id.toUpperCase()} / ${id} ❌`);
 		return []; //  => have UI working
 	}
 };
@@ -54,7 +45,7 @@ export const config__add = async <T extends T_pageItemStore>(
 	col: CollectionReference<I_firestoreDoc__megaconfig_cms<T>>,
 	data: T[]
 ) => {
-	const id = AX__CONST__idRootDoc;
+	const id = AX__CONST__DB_idRootDoc;
 	try {
 		const entity = {
 			pageItemsStore: data,
@@ -62,9 +53,9 @@ export const config__add = async <T extends T_pageItemStore>(
 			dateUpdated: serverTimestamp()
 		};
 		await crud__addId<I_firestoreDoc__megaconfig_cms<T>>(col, id, entity);
-		openSnack('firestore', `🧞‍♂️ Successfully injected in ${col.id.toUpperCase()} ! ✅`);
+		openSnack('firestore', `🧞‍♂️ [ injected ]  ${col.id.toUpperCase()} ! ✅`);
 	} catch (error) {
-		openSnack('firestore', `🧞‍♂️ Successfully injected in ${col.id.toUpperCase()} ! ❌`);
+		openSnack('firestore', `🧞‍♂️ [ injected ]  ${col.id.toUpperCase()} ! ❌`);
 	}
 };
 //-------------------------------------------------------
@@ -72,7 +63,7 @@ export const config__add = async <T extends T_pageItemStore>(
 //-------------------------------------------------------
 // this add WILL merge with the existing doc
 export const config__mod = async <T>(col, data) => {
-	const id = AX__CONST__idRootDoc;
+	const id = AX__CONST__DB_idRootDoc;
 	try {
 		const entity = {
 			pageItemsStore: data,
@@ -80,9 +71,9 @@ export const config__mod = async <T>(col, data) => {
 		};
 
 		await crud__modSoft<T>(col, id, entity);
-		openSnack('firestore', `🧞‍♂️✅ SAVED ${col.id.toUpperCase()}`);
+		openSnack('firestore', `🧞‍♂️ [ SAVED ] ${col.id.toUpperCase()} ✅`);
 	} catch (error) {
-		openSnack('firestore', `🧞‍♂️❌ SAVED ${col.id.toUpperCase()}`);
+		openSnack('firestore', `🧞‍♂️ [ SAVED ] ${col.id.toUpperCase()} ❌`);
 	}
 };
 //-------------------------------------------------------

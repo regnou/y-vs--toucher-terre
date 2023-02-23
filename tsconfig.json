@@ -1,4 +1,5 @@
 {
+	// https://www.typescriptlang.org/tsconfig
 	"extends": "./.svelte-kit/tsconfig.json",
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
@@ -12,7 +13,7 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"strict": true,
+
 		// %%% BONUS AXEL
 		// --- USED WITH CV...
 		// "lib": ["es2020", "DOM"],
@@ -20,8 +21,12 @@
 		// "module": "es2020",
 		// "target": "es2020",
 		//
-		//
-		// "strictNullChecks": true,
+		//ax
+		"strict": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"useUnknownInCatchVariables": true,
+		"strictFunctionTypes": true,
 		//
 		//
 		// ---
