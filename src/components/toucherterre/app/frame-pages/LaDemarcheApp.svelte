@@ -126,7 +126,11 @@
 	export let dataArrDumb: I_UI__inputValue[] | undefined = undefined;
 	let promise = config__get<I_UI__inputValue>(AX_CONST__SCHEMA_COLLECTIONS_lademarche);
 	// --------------------------------------------------------
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
 	onMount(async () => {
+		axlog(dataArrDumb, $page.url.pathname, 'BLOG (cms)');
+
 		console.debug('...');
 		dataArrDumb = await promise;
 	});

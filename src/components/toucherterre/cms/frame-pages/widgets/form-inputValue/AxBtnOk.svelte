@@ -1,5 +1,4 @@
 <!-- ####################################################### -->
-
 <!-- ####################################### -->
 <!--  -->
 <!-- ####################################### -->
@@ -39,7 +38,14 @@
 </button> -->
 <script lang="ts">
 	import Button, { Label } from '@smui/button';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	// .............................................
 	export let text = 'N/A';
 	export let callback;
+	// .............................................
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax btn ok');
+	});
 </script>

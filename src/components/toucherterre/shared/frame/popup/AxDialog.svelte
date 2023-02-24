@@ -34,4 +34,11 @@
 		// BUG - how to stop opening ?
 		// $AX_STORE__UI_ISOPEN_snack.open = false;
 	}
+
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax dialog');
+	});
 </script>

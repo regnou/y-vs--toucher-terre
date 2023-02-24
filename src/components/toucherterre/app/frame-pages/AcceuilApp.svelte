@@ -73,6 +73,10 @@
 	// let store: T_axStore | undefined = undefined;
 	let promise = config__get<I_UI__inputValue>(AX_CONST__SCHEMA_COLLECTIONS_acceuil);
 	// --------------------------------------------------------
+
+	import { axlog } from 'app/utils/axLog';
+	import { page } from '$app/stores';
+
 	onMount(async () => {
 		// axlog($store, $page.url.pathname, 'ACCEUIL (app)');
 		// console.debug('...');
@@ -84,7 +88,7 @@
 		// axlog($store, $page.url.pathname, 'ACCEUIL (app)');
 		//
 		//
-		// axlog($store, $page.url.pathname, 'ACCEUIL (app)');
+		axlog(dataArrDumb, $page.url.pathname, 'ACCEUIL (app)');
 		console.debug('...');
 		// const r = await promise; // les types MATCH donc le bding devrait etre bon
 		// store = createReduxStore(reducerStatic);

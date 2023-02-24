@@ -9,7 +9,7 @@
 	<div slot="app">
 		<!-- tip: OBLIGE d utiliser le module de fetch data du compo ren READ -->
 		<!-- tip: pas de bind, car le front ne modifie jamias les datas -->
-		<LaDemarcheApp {dataArrDumb} />
+		<LaDemarcheApp bind:dataArrDumb />
 	</div>
 </AxFramecms>
 
@@ -25,4 +25,11 @@
 		conf__db_dataset: AX_CONST__DATASET_laDemarche
 	};
 	// 🔥🔥🔥
+
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { axlog } from 'app/utils/axLog';
+	onMount(() => {
+		axlog(dataArrDumb, $page.url.pathname, 'LA DEMARCHE (cms)');
+	});
 </script>

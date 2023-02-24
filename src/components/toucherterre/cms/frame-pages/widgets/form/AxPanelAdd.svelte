@@ -15,7 +15,6 @@
 			<!-- <span>AJOUTER</span> -->
 			<!-- <span slot="description">AJOUTER</span> -->
 			<span>AJOUTER</span>
-
 			<div slot="icon">
 				<!-- <IconButton toggle pressed={(open = !open)}>
 					<Icon class="material-icons" on>unfold_less</Icon>
@@ -45,7 +44,6 @@
 		</Content>
 	</Panel>
 {/if}
-
 <!-- NEW BIG LOOP FOR UNION -->
 <!-- {#if ivItm.union} -->
 <!-- content here -->
@@ -81,6 +79,12 @@
 	// import TabBar from '@smui/tab-bar';
 	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax panel add');
+	});
 	// ----------------------------------------------------------
 	// DUMB (no operation to test, just display)
 	// -------------------------------------------------------------------

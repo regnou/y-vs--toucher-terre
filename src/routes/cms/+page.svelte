@@ -1,7 +1,6 @@
 <!-- ####################################################### -->
 <!-- route: HOME (cms) -->
 <!-- ####################################################### -->
-
 <AxFramecms>
 	<div slot="cms">
 		<div class="">
@@ -16,4 +15,10 @@
 
 <script>
 	import AxFramecms from 'app/components/toucherterre/cms/AxFrameCms.svelte';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { axlog } from 'app/utils/axLog';
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'HOME (cms)');
+	});
 </script>

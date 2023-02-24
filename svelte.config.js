@@ -5,7 +5,6 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-
 		alias: {
 			app: 'src',
 			routes: 'src/routes',
@@ -21,19 +20,18 @@ const config = {
 		adapter: adapterStatic({
 			// default options are shown. On some platforms
 			// these options are set automatically — see below
-			// 
+			//
 			// fallback: 'index.html'
-
 			// pages: 'build',
 			// assets: 'build',
 			// fallback: null,
 			// precompress: false,
 			// strict: true
-			// 
+			//
 			// fallback: null
 			// fallback: '202.html'
-		}),
-		// 
+		})
+		//
 		// prerender: {
 		// entries: [
 		// '/',

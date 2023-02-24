@@ -6,8 +6,9 @@
 	await handleClick();
 }} -->
 <Section
+	align="start"
 	style="background:{AX_CONST__FRAME_isDebugBg ? 'gray' : 'none'}"
-	class=" flex  justify-center  uppercase"
+	class=" uppercase    underline"
 >
 	{$page.url.pathname.replace('/cms/app/', '').replace('-', ' ')}
 </Section>
@@ -43,8 +44,13 @@
 	import { page } from '$app/stores';
 	import { save } from 'app/stores/actionsApi';
 	import { Section } from '@smui/top-app-bar';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	// ------------------------------------------------
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
 	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
 	// ------------------------------------------------
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax header cms');
+	});
 </script>

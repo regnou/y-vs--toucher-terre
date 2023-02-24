@@ -1,7 +1,6 @@
 <!-- HEADER APP -->
 <!-- ######################################################## -->
 <!-- ######################################## -->
-
 <!-- LEFT + CENTER -->
 <!-- tip: this part of the header is it is hidden, is MOBILE -->
 <!-- .................. -->
@@ -18,7 +17,6 @@
 		<AxHeadermenuItem {menu} />
 	{/each}
 	<!-- </List> -->
-
 	<!-- <Menu static> -->
 	<!-- <List class="grid grid-flow-col">
 		<Item href="www.google.com">
@@ -37,7 +35,6 @@
 	</List> -->
 	<!-- </Menu> -->
 </Section>
-
 <!-- RIGHT -->
 <Section
 	style="background:{AX_CONST__FRAME_isDebugBg ? 'green' : 'none'}"
@@ -50,9 +47,7 @@
 	<!-- </Fab> -->
 	<!-- on:click={() => (action = 'Dismissed')} -->
 	<!-- <AxSearchBar /> -->
-
 	<!-- on:click={doSearch} -->
-
 	<!-- disabled={value === ''} -->
 	<Fab
 		href={AX_CONST__FRAME_URL_homeCms}
@@ -63,7 +58,6 @@
 		<!-- arrow_forward -->
 		<Icon class="material-icons">person</Icon>
 	</Fab>
-
 	<!-- <IconButton
 		href="/cms"
 		class="material-icons"
@@ -81,7 +75,9 @@
 	import { Section } from '@smui/top-app-bar';
 	import AxHeadermenuItem from './menuItem/AxHeadermenuItem.svelte';
 	import { AX_CONST__FRAME_URL_homeCms } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
-
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	// SEARCH (off)
 	// let value = '';
 	// function doSearch() {
@@ -93,4 +89,7 @@
 	// 		doSearch();
 	// 	}
 	// }
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax header app');
+	});
 </script>

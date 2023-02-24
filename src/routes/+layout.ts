@@ -1,5 +1,5 @@
 // export const ssr = true;
-// export const ssr = false;
+export const ssr = false;
 //
 export const prerender = true;
 //

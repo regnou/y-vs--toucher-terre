@@ -59,7 +59,11 @@
 	let p = 0;
 	let visible = false;
 	//-------------------------------------------------------
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
 	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- preloading-indicator');
+
 		visible = true;
 		function next() {
 			p += 0.1;

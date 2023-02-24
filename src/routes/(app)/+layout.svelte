@@ -12,6 +12,6 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'LAYOUT-app (closeDrawer=yes)');
+		axlog(undefined, $page.url.pathname, 'LAYOUT (app)');
 	});
 </script>

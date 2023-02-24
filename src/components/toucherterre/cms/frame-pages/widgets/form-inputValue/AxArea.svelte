@@ -12,7 +12,6 @@
 >
 	<!-- <HelperText slot="helper">Helper Text</HelperText> -->
 </Textfield>
-
 <!-- <div class="block  text-sm font-bold capitalize ">
 	{label}
 </div>
@@ -23,18 +22,15 @@
 	aria-label="Edit {label}"
 	{placeholder}
 /> -->
-
 <!-- <svelte:options accessors={true} /> -->
 // $: labelFormName = labelName.toLowerCase().replace(/\s/g, ""); // 3 to use as the name for the FORM
 
 <!-- <style lang="postcss">
 	textarea:hover {
-
 		outline: 2px solid blue;
 	}
 	textarea:focus {
 		outline: none;
-
 	}
 	.btnInputAx {
 		@apply h-32;
@@ -51,10 +47,8 @@
 		@apply border;
 		@apply border-transparent;
 		@apply rounded-lg;
-
 	}
 	.btnInputAx:focus {
-
 		@apply outline-none;
 		@apply ring-2;
 		@apply ring-white;
@@ -64,9 +58,14 @@
 </style> -->
 <script lang="ts">
 	import Textfield from '@smui/textfield';
-
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	export let inputValue = '';
 	export let label = '';
 	// let inputId = 0;
 	// let placeholder = '--';
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax area');
+	});
 </script>

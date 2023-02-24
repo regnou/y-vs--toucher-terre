@@ -1,15 +1,11 @@
 <!-- jouer sur le z-index si besoin -->
 <!-- <GridChecker /> -->
-
 {#if $navigating}
 	<AxPreloadingIndicator />
 {/if}
-
 <!-- it sync its state with the store -->
 <AxSnack />
-
 <slot />
-
 <!-- <SeoMetas />
 	<FavIcons /> -->
 

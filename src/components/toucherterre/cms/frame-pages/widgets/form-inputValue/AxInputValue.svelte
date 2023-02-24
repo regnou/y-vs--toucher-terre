@@ -53,4 +53,11 @@
 	import Axfileupload from './AxFileupload.svelte';
 	export let pos: number;
 	export let ivItm: I_UI__inputValue | undefined = undefined; // take a reference to the STORE
+
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax input value');
+	});
 </script>

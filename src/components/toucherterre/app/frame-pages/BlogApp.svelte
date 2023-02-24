@@ -45,7 +45,12 @@
 	let promise = config__get<I_ENTITY__post>(AX_CONST__SCHEMA_COLLECTIONS_blog);
 	// --------------------------------------------------------
 	onMount(async () => {
+		axlog(dataArrDumb, $page.url.pathname, 'BLOG (cms)');
+
 		console.debug('...');
 		dataArrDumb = await promise;
 	});
+
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
 </script>

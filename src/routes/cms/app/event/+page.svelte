@@ -6,7 +6,7 @@
 	megaconfig={MEGACONFIG_CMS}
 >
 	<div slot="app">
-		<EventApp {dataArrDumb} />
+		<EventApp bind:dataArrDumb />
 	</div>
 </AxFramecms>
 
@@ -25,4 +25,11 @@
 		conf__genericAdd: AX_CONST__CMS_addEvent
 	};
 	// 🔥🔥🔥
+
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { axlog } from 'app/utils/axLog';
+	onMount(() => {
+		axlog(dataArrDumb, $page.url.pathname, 'EVENT (cms)');
+	});
 </script>

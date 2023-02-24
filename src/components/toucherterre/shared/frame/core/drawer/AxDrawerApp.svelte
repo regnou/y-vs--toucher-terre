@@ -1,7 +1,6 @@
 <!-- DRAWER APP -->
 <!-- ######################################################## -->
 <!-- ######################################## -->
-
 <!-- <Header> -->
 <!-- ................. -->
 <!-- <Title>TOUCHER TERRE</Title> -->
@@ -34,10 +33,17 @@
 	import { Content, Header, Subtitle, Title } from '@smui/drawer';
 	import List, { Subheader } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
+	import { AX_CONST__FRAME_URL_homeCms } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
+	import { AX_CONST__FRAME_favicon } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	import {
 		default as AxDrawerMenuItem,
 		default as AxDrawermenuItem
 	} from './menu-item/AxDrawerMenuitem.svelte';
-	import { AX_CONST__FRAME_URL_homeCms } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
-	import { AX_CONST__FRAME_favicon } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax drawer app');
+	});
 </script>

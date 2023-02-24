@@ -136,4 +136,11 @@ focus:ring-2
 			}
 		};
 	};
+
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax file uplad');
+	});
 </script>

@@ -20,7 +20,7 @@ export const axlog = (
 		// yellow - \x1B[103;30;4m ${axEnv} \x1B[m\x1B[107;93;4m
 		// red
 		console.debug(
-			`🚔🏎️✅ ${verb}-ED \x1B[41;97;4m ${axEnv} \x1B[m\x1B[107;91;4m ${pagename} \x1B[m\n`
+			`🚔🏎️✅ ${verb}-ED \x1B[41;97;4m ${axEnv} \x1B[m\x1B[107;30;4m ${pagename} \x1B[m\n`
 		);
 	} else {
 		// HEAVY LOG

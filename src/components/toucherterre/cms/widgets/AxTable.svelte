@@ -101,4 +101,10 @@
 		});
 		menus = menus;
 	}
+
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax table');
+	});
 </script>

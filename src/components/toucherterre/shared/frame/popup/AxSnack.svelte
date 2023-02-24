@@ -20,14 +20,21 @@
 	import Snackbar, { Label, Actions } from '@smui/snackbar';
 	import IconButton from '@smui/icon-button';
 	import { AX_STORE__UI_ISOPEN_snack } from 'app/stores/AX_STORE__UI_isopen';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	//-------------------------------------------------------
 	// TOLERATED-BUG-TYPE
 	// let snackbar: Snackbar = null;
 	let snackbar: any = null;
-	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+	//-------------------------------------------------------
 	$: if ($AX_STORE__UI_ISOPEN_snack.open && snackbar) {
 		snackbar.open();
 		// BUG - how to stop opening ?
 		// $AX_STORE__UI_ISOPEN_snack.open = false;
 	}
+	//-------------------------------------------------------
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax snack');
+	});
 </script>

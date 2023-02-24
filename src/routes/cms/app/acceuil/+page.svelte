@@ -6,7 +6,7 @@
 	megaconfig={MEGACONFIG_CMS}
 >
 	<div slot="app">
-		<AcceuilApp {dataArrDumb} />
+		<AcceuilApp bind:dataArrDumb />
 	</div>
 </AxFramecms>
 
@@ -22,4 +22,11 @@
 		conf__db: AX_CONST__SCHEMA_COLLECTIONS_acceuil,
 		conf__db_dataset: AX_CONST__DATASET_acceuil
 	};
+
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { axlog } from 'app/utils/axLog';
+	onMount(() => {
+		axlog(dataArrDumb, $page.url.pathname, 'ACCEUIL (cms)');
+	});
 </script>

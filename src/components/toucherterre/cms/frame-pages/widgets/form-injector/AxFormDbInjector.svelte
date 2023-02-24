@@ -2,7 +2,6 @@
 <!-- ####################################### -->
 <!--  -->
 <!-- ####################################### -->
-
 <!-- ###################################### -->
 <!-- FORM INJECTOR -->
 <!-- ###################################### -->
@@ -14,7 +13,6 @@
 		callback={injectScript}
 	/>
 </div>
-
 <!-- <Button
 	on:click={injectScript}
 	variant="raised"
@@ -28,6 +26,8 @@
 	import { config__add } from 'app/domain/services/configService';
 	import { page } from '$app/stores';
 	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	// ------------------------------------------
 	export let megaconfig;
 	// ------------------------------------------
@@ -37,4 +37,7 @@
 			await config__add(megaconfig.conf__db, megaconfig.conf__db_dataset);
 		console.debug('🌎🏎️✅ click << on:inject 2 🟨');
 	};
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax form injector');
+	});
 </script>

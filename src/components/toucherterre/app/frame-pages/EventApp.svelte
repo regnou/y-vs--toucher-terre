@@ -38,6 +38,8 @@
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
 	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
 	// --------------------------------------------------------
 	export let dataArrDumb: I_ENTITY__event[] | undefined = undefined;
 	let promise = config__get<I_ENTITY__event>(AX_CONST__SCHEMA_COLLECTIONS_event);
@@ -45,5 +47,6 @@
 	onMount(async () => {
 		console.debug('...');
 		dataArrDumb = await promise;
+		axlog(dataArrDumb, $page.url.pathname, 'BLOG (cms)');
 	});
 </script>

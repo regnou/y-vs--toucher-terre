@@ -105,9 +105,17 @@
 	import { AX_CONST__FRAME_URL_home } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
 	import AxDrawermenuItem from './menu-item/AxDrawerMenuitem.svelte';
 	import { AX_CONST__FRAME_favicon } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	let active = 'page'; // page | form
-	$: console.log('active', active);
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	// ------------------------------------------------
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
 	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
+	let active = 'page'; // page | form
+	// ------------------------------------------------
+	// $: console.log('active', active);
+	// ------------------------------------------------
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax Frame CMS');
+	});
 </script>

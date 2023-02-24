@@ -5,7 +5,7 @@
 {#if dataArrDumb && dataArrDumb && dataArrDumb.length}
 	<Accordion
 		style="color:var(mdc-theme-text-primary-on-light)"
-		class=" text-black "
+		class=" space-y-5 "
 	>
 		<!-- --------------- -->
 		<!-- ADD -->
@@ -40,6 +40,12 @@
 	import PanelEdit from './AxPanelEdit.svelte';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	import { isEntity, isInputValue } from 'app/utils/guards';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
 	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
+	onMount(() => {
+		axlog(dataArrDumb, $page.url.pathname, 'wc -- ax panel add-edit');
+	});
 </script>
