@@ -28,7 +28,7 @@
 		left: 0;
 		top: 0;
 		height: 100%;
-		background-color: #5be705;
+		background-color: red;
 		transition: width 0.4s;
 	}
 	.fade {

@@ -48,7 +48,7 @@
 
 <!-- <div class="mb-5" /> -->
 <script lang="ts">
-	import { AX_CONST__formatMedia } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { AX_CONST__formatMedia } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
 	import Textfield from '@smui/textfield';
 	import Axfileupload from './AxFileupload.svelte';
 	export let pos: number;

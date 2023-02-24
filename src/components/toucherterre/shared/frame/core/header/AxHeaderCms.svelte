@@ -6,10 +6,10 @@
 	await handleClick();
 }} -->
 <Section
-	style="background:{AX_CONST__FRAME_isDebugBg ? 'purple' : 'none'}"
+	style="background:{AX_CONST__FRAME_isDebugBg ? 'gray' : 'none'}"
 	class=" flex  justify-center  uppercase"
 >
-	{$page.url.pathname.replace('/cms/site/', '').replace('-', ' ')}
+	{$page.url.pathname.replace('/cms/app/', '').replace('-', ' ')}
 </Section>
 <Section
 	align="end"
@@ -19,7 +19,7 @@
 	<!-- <div class=" grid grid-flow-col  gap-2 p-10"> -->
 	<AxBtnOk
 		text="Enregistrer"
-		callback={async () => await save(megaconfig?.conf__db, store)}
+		callback={async () => await save(megaconfig?.conf__db, dataArrDumb)}
 	/>
 	<!-- </div> -->
 
@@ -38,13 +38,13 @@
 </Section>
 
 <script lang="ts">
+	import AxBtnOk from 'app/components/toucherterre/cms/frame-pages/widgets/form-inputValue/AxBtnOk.svelte';
+	import { AX_CONST__FRAME_isDebugBg } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import { page } from '$app/stores';
-	import AxBtnOk from '@app/components/catalog/toucherterre/cms/frame-pages/widgets/form-inputValue/AxBtnOk.svelte';
-	import { AX_CONST__FRAME_isDebugBg } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
-	import { save } from '@app/stores/actionsApi';
+	import { save } from 'app/stores/actionsApi';
 	import { Section } from '@smui/top-app-bar';
 	// ------------------------------------------------
 	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	export let store: T_pageItemStore[] | undefined = undefined;
+	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
 	// ------------------------------------------------
 </script>

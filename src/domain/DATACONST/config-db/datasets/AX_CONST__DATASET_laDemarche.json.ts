@@ -1,3 +1,5 @@
+import { AX_CONST__FRAME_favicon } from '../../config-uiFrame/AX_CONST__FRAME_ui';
+
 export const AX_CONST__DATASET_laDemarche: I_UI__inputValue[] = [
 	{
 		id: '0',
@@ -97,20 +99,20 @@ export const AX_CONST__DATASET_laDemarche: I_UI__inputValue[] = [
 		pos: 13,
 		tag: 'file',
 		label: 'img 1',
-		value: '/media/favicon.png'
+		value: AX_CONST__FRAME_favicon
 	},
 	{
 		id: 'img-2',
 		pos: 14,
 		tag: 'file',
 		label: 'img 2',
-		value: '/media/favicon.png'
+		value: AX_CONST__FRAME_favicon
 	},
 	{
 		id: 'img-3',
 		pos: 15,
 		tag: 'file',
 		label: 'img 3',
-		value: '/media/favicon.png'
+		value: AX_CONST__FRAME_favicon
 	}
 ];

@@ -5,8 +5,7 @@
 <!-- this is a background widget -->
 <!-- tip: scroll de la page selon overflow ici -->
 <div
-	id="layoutbg--1"
-	class="fixed inset-0 h-full w-full overflow-y-auto  bg-cover bg-fixed bg-left-bottom"
+	class="fixed   inset-0 h-full w-full overflow-y-auto bg-orange-800  bg-cover bg-fixed bg-left-bottom"
 	style="background-image: url({imgBg});
 	 border:{AX_CONST__FRAME_isDebugBorder ? '4px solid yellow' : 'none'}"
 >
@@ -17,24 +16,24 @@
 
 <!-- tuto bg: https://www.youtube.com/watch?v=ywLgqJjLUm4 -->
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { AX_CONST__FRAME_isDebugBorder } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	// import { page } from '$app/stores';
 	// -------------------------------
-	export let isAdmin = false;
-	let imgBg = 'N/A';
-	const BG = {
-		'/acceuil': { url: '/media/bg/bg-1.jpg' },
-		'/la-demarche': { url: '/media/bg/bg-2.jpg' },
-		'/blog': { url: '/media/bg/bg-3.jpg' },
-		'/event': { url: '/media/bg/bg-1.jpg' },
-		'/newsletter': { url: '/media/bg/bg-1.jpg' }
-	};
+	// export let isAdmin = false;
+	// let imgBg = 'N/A';
+	let imgBg = '/media/bg/bg-1.jpg'; // tip: do not flash
+	// const BG = {
+	// 	'/acceuil': { url: '/media/bg/bg-1.jpg' }
+	// 	// '/la-demarche': { url: '/media/bg/bg-2.jpg' },
+	// 	// '/blog': { url: '/media/bg/bg-3.jpg' },
+	// 	// '/event': { url: '/media/bg/bg-1.jpg' },
+	// 	// '/newsletter': { url: '/media/bg/bg-1.jpg' }
+	// };
 	// .....................................................
-	$: {
-		const menu: string = isAdmin ? $page.url.pathname.replace('/cms/site', '') : $page.url.pathname;
-
-		const imgUrl: string = BG[menu] ? BG[menu].url : 'N/A';
-		imgBg = imgUrl;
-		console.log('menu + BG[menu]', menu, BG[menu]);
-	}
+	// $: {
+	// const menu: string = isAdmin ? $page.url.pathname.replace('/cms/app', '') : $page.url.pathname;
+	// const imgUrl: string = BG[menu] ? BG[menu].url : 'N/A';
+	// imgBg = imgUrl;
+	// console.log('menu + BG[menu]', menu, BG[menu]);
+	// }
 </script>

@@ -51,3 +51,16 @@ export function createReduxStore(reducer) {
 		dispatch
 	};
 }
+
+// HOW TO USE
+// onMount(async () => {
+// 	axlog(dataArrDumb, $page.url.pathname, 'ACCEUIL (cms)');
+// 	// fetch data
+// 	console.debug('...');
+// 	const r = await promise; // les types MATCH donc le biding devrait etre bon
+// 	// create dataArrDumb connected to Redux & init it with data fetched (x1 time, becoz in mount)
+// 	dataArrDumb = createReduxStore(reducerStatic);
+// 	dataArrDumb.dispatch('mod-hard', r);
+// 	// console.dir(dataArrDumb);
+// 	// axlog(dataArrDumb, $page.url.pathname, 'ACCEUIL (cms)');
+// });

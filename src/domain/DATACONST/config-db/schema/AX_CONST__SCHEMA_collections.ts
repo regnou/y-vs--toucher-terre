@@ -4,19 +4,19 @@
 import { collection, CollectionReference, type DocumentData } from 'firebase/firestore';
 import { getFirebase } from '../../../../tecnologies/firebase/firebaseClient';
 // static
-export const AX_COLLECTION__acceuil =
+export const AX_CONST__SCHEMA_COLLECTIONS_acceuil =
 	createCollection<I_firestoreDoc__megaconfig_cms<I_UI__inputValue>>('acceuil');
-export const AX_COLLECTION__lademarche =
+export const AX_CONST__SCHEMA_COLLECTIONS_lademarche =
 	createCollection<I_firestoreDoc__megaconfig_cms<I_UI__inputValue>>('la-demarche');
 
 // dyn
-export const AX_COLLECTION__blog =
+export const AX_CONST__SCHEMA_COLLECTIONS_blog =
 	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__post>>('blog');
-export const AX_COLLECTION__event =
+export const AX_CONST__SCHEMA_COLLECTIONS_event =
 	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__event>>('event');
 
 // Z
-export const AX_COLLECTION__img = createCollection<any>('z-img');
+export const AX_CONST__SCHEMA_COLLECTIONS_img = createCollection<any>('z-img');
 
 // -------------------------------------------------------------
 // This is just a helper to add the type to the db responses

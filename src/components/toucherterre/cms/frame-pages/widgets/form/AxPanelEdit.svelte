@@ -46,9 +46,9 @@
 {/if}
 
 <script lang="ts">
+	import { isEntity, isEntityEvent, isEntityPost } from 'app/utils/guards';
 	import { Panel, Header, Content } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
-	import { isEntity, isEntityEvent, isEntityPost } from '@app/utils/guards';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	// -------------------------------------------------------------------
 	export let item: T_ENTITY | undefined = undefined;

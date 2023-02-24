@@ -1,10 +1,7 @@
 <!-- ######################################### -->
 <!-- POST -->
 <!-- ######################################### -->
-<div
-	id="postentry--1"
-	class="m-2"
->
+<div class="m-2">
 	<!--               -->
 	<!-- TITLE ARTICLE -->
 	<!--               -->
@@ -31,7 +28,7 @@
 </div>
 
 <script lang="ts">
-	import { AX_CONST__FRAME_isDebugBorder } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import ParagraphLeft from './ParagraphLeft.svelte';
 	import SeparatorMedium from './SeparatorMedium.svelte';
 	// --------------------------------------------

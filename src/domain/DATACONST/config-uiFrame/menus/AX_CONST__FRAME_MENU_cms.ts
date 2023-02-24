@@ -2,7 +2,7 @@
  * utilise dans 2 cas:
  * - le drawer
  * - (pas dans le header, il n y en a pas ds le CMS)
- * - la page /cms/site: pour administrer tt les pages du site
+ * - la page /cms/app: pour administrer tt les pages du site
  */
 export const AX_CONST__FRAME_MENU_cms: I_ui__menu[] = [
 	{

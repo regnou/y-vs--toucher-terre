@@ -18,8 +18,8 @@
 
 <script lang="ts">
 	import Snackbar, { Label, Actions } from '@smui/snackbar';
-	import { AX_STORE__UI_ISOPEN_snack } from '@app/stores/AX_STORE__UI_isopen';
 	import IconButton from '@smui/icon-button';
+	import { AX_STORE__UI_ISOPEN_snack } from 'app/stores/AX_STORE__UI_isopen';
 	//-------------------------------------------------------
 	// TOLERATED-BUG-TYPE
 	// let snackbar: Snackbar = null;

@@ -24,7 +24,7 @@
 <script lang="ts">
 	import Dialog, { Title, Content, Actions } from '@smui/dialog';
 	import Button, { Label } from '@smui/button';
-	import { AX_STORE__UI_ISOPEN_dialog } from '@app/stores/AX_STORE__UI_isopen';
+	import { AX_STORE__UI_ISOPEN_dialog } from 'app/stores/AX_STORE__UI_isopen';
 
 	// tip: pour controller la dialog, on passe le controler-store
 	let dialog: any = null;

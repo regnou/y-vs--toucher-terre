@@ -3,13 +3,12 @@
 <!-- comp-site: BLOG APP -->
 <!-- ####################################### -->
 {#await promise}
-	<Loader />
+	<!-- <Loader /> -->
 {:then data}
 	<!-- .................. -->
 	<!-- MAX WIDTH for APP -->
 	<!-- .................. -->
 	<main
-		id="wc-app--site-blog--1"
 		class="m-auto px-10 max-w-{AX_CONST__FRAME_maxBodyApp} {AX_CONST__FRAME_distanceFromHeader}"
 	>
 		<!-- 👮👮👮👮👮👮👮👮👮👮👮👮👮👮👮 -->
@@ -32,18 +31,18 @@
 {/await}
 
 <script lang="ts">
-	import { config__get } from '@app/domain/services/configService';
-	import { onMount } from 'svelte';
-	import Loader from '../widgets/Loader.svelte';
-	import Post from '../widgets/Post.svelte';
-	import { AX_COLLECTION__blog } from '@app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
+	import { AX_CONST__SCHEMA_COLLECTIONS_blog } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	import {
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
-	} from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { config__get } from 'app/domain/services/configService';
+	import { onMount } from 'svelte';
+	import Loader from '../widgets/Loader.svelte';
+	import Post from '../widgets/Post.svelte';
 	// --------------------------------------------------------
 	export let dataArrDumb: I_ENTITY__post[] | undefined = undefined;
-	let promise = config__get<I_ENTITY__post>(AX_COLLECTION__blog);
+	let promise = config__get<I_ENTITY__post>(AX_CONST__SCHEMA_COLLECTIONS_blog);
 	// --------------------------------------------------------
 	onMount(async () => {
 		console.debug('...');

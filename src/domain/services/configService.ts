@@ -1,4 +1,4 @@
-import { openSnack } from '@app/components/catalog/toucherterre/shared/frame/popup/openSnack';
+import { openSnack } from 'app/components/toucherterre/shared/frame/popup/openSnack';
 import { serverTimestamp, type CollectionReference } from 'firebase/firestore';
 import {
 	crud__addId,

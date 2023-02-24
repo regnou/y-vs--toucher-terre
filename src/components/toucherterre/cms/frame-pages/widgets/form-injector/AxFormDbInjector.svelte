@@ -10,7 +10,7 @@
 <!-- <div class="mb-10 text-center font-bold">SCRIPTS DB</div> -->
 <div class=" grid grid-flow-col place-items-center gap-2 p-10">
 	<AxBtnOk
-		text={'Reset page ' + $page.url.pathname.replace('/cms/site/', '')}
+		text={'Reset page ' + $page.url.pathname.replace('/cms/app/', '')}
 		callback={injectScript}
 	/>
 </div>
@@ -25,8 +25,8 @@
 
 <!-- </div> -->
 <script lang="ts">
+	import { config__add } from 'app/domain/services/configService';
 	import { page } from '$app/stores';
-	import { config__add } from '@app/domain/services/configService';
 	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
 	// ------------------------------------------
 	export let megaconfig;

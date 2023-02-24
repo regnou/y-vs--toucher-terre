@@ -34,11 +34,12 @@
 </style>
 
 <script lang="ts">
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import { page } from '$app/stores';
-	import { AX_CONST__FRAME_isDebugBorder } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
-	import { AX_STORE__UI_ISOPEN_drawer } from '@app/stores/AX_STORE__UI_isopen';
+	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
 	import { Item, Text } from '@smui/list';
 	// ------------------------------------------------
+	export let isAdmin = false;
 	export let menu: I_ui__menu | undefined = undefined;
 	// export let isDark = false;
 	// ................................................
@@ -46,7 +47,9 @@
 	$: active = $page.url.pathname;
 	// ------------------------------------------------
 	function setActive(value) {
+		if (active === value) return; // do not refresh if the same page !
 		active = value;
-		$AX_STORE__UI_ISOPEN_drawer = false;
+		// AXREMET
+		if (!isAdmin) $AX_STORE__UI_ISOPEN_drawer = false;
 	}
 </script>

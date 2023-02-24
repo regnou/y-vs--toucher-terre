@@ -5,13 +5,12 @@
 <!-- tip: MAX WIDTH FOR FRONT CONTENT        -->
 
 {#await promise}
-	<Loader />
+	<!-- <Loader /> -->
 {:then data}
 	<!-- .................. -->
 	<!-- MAX WIDTH for APP -->
 	<!-- .................. -->
 	<main
-		id="wc-app--site-acceuil--1"
 		class="m-auto space-y-5 max-w-{AX_CONST__FRAME_maxBodyApp} {AX_CONST__FRAME_distanceFromHeader}"
 	>
 		<!-- SHORTCUT --  -->
@@ -51,9 +50,6 @@
 <!-- </div> -->
 <script lang="ts">
 	// import Slider from '../Slider.svelte';
-	import Loader from '@app/components/catalog/toucherterre/app/widgets/Loader.svelte';
-	import { AX_COLLECTION__acceuil } from '@app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
-	import { config__get } from '@app/domain/services/configService';
 	import { onMount } from 'svelte';
 	import Contactcard from '../widgets/Contactcard.svelte';
 	import Hero from '../widgets/Hero.svelte';
@@ -61,17 +57,21 @@
 	import SeparatorMedium from '../widgets/SeparatorMedium.svelte';
 	import Title from '../widgets/Title.svelte';
 	import Twocol from '../widgets/Twocol.svelte';
+	import { AX_CONST__SCHEMA_COLLECTIONS_acceuil } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	import {
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
-	} from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { config__get } from 'app/domain/services/configService';
+	import Loader from '../widgets/Loader.svelte';
+
 	// ----------------------------------------------------------
 	export let dataArrDumb: I_UI__inputValue[] | undefined = undefined;
 	// --------------------------------------------------------
 	// PAGE-ROOT & INTELLIGENT
 	// --------------------------------------------------------
 	// let store: T_axStore | undefined = undefined;
-	let promise = config__get<I_UI__inputValue>(AX_COLLECTION__acceuil);
+	let promise = config__get<I_UI__inputValue>(AX_CONST__SCHEMA_COLLECTIONS_acceuil);
 	// --------------------------------------------------------
 	onMount(async () => {
 		// axlog($store, $page.url.pathname, 'ACCEUIL (app)');

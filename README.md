@@ -1,3 +1,6 @@
+<!-- @apply bg-orange-900/60; -->
+<!-- style="background-color:{isAdmin ? 'rgb(24 149 5 / 79%)' : 'rgba(130,65,31,0.8)'}; -->
+
     // ----------------------------------------------------------
     // function demo() {
     // 	const a: I_UI__inputValue = { label: 'a', value: 'b', id: 'c' };
@@ -202,7 +205,7 @@ You can preview the production build with `npm run preview`.
 		<!-- {:else} -->
 		<!-- href="javascript:void(0)" activated={active === item.menu} -->
 		<Item>
-			<a href={'/cms/site' + item.url} class="w-full">
+			<a href={'/cms/app' + item.url} class="w-full">
 				<Text>{item.page}</Text>
 			</a>
 		</Item>

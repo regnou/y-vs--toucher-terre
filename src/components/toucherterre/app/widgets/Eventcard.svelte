@@ -2,7 +2,6 @@
 <!-- EVENT -->
 <!-- ######################################### -->
 <div
-	id="ax-eventcard--1"
 	style="border:{AX_CONST__FRAME_isDebugBorder ? '1px solid blue' : 'none'}"
 	class="flex flex-col items-center  text-center  font-bold"
 >
@@ -26,7 +25,7 @@
 </div>
 
 <script lang="ts">
-	import { AX_CONST__FRAME_isDebugBorder } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import SeparatorMedium from './SeparatorMedium.svelte';
 
 	export let event: I_ENTITY__event; // it is an array

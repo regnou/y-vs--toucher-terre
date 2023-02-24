@@ -24,10 +24,10 @@ export const AX_CONST__FRAME_MENU_app: I_ui__menu[] = [
 		url: '/event',
 		title: 'Prochains rdv',
 		img: '/media/icon/icon-menu-prochains-rdv--creme.png'
-	},
-	{
-		url: '/',
-		title: 'Newsletter',
-		img: '/media/icon/icon-menu-newsletter--creme.png'
 	}
+	// {
+	// 	url: '/',
+	// 	title: 'Newsletter',
+	// 	img: '/media/icon/icon-menu-newsletter--creme.png'
+	// }
 ];

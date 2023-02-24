@@ -1,6 +1,6 @@
-import { getFirebase } from '@app/tecnology/firebase/firebaseClient';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { AX_COLLECTION__img } from '../../../domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
+import { AX_CONST__SCHEMA_COLLECTIONS_img } from '../../../domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
+import { getFirebase } from '../firebaseClient';
 import { crud__add } from './crudFirestore';
 
 async function upload(fileax) {
@@ -16,7 +16,7 @@ async function upload(fileax) {
 
 	// 1
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
-	const uid = await crud__add(AX_COLLECTION__img, { filename: fileax.name.trim() });
+	const uid = await crud__add(AX_CONST__SCHEMA_COLLECTIONS_img, { filename: fileax.name.trim() });
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
 
 	// 2

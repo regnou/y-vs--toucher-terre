@@ -1,7 +1,7 @@
 <!-- PROFILE (todo) -->
 <!-- ####################################################### -->
 
-<Framecms>
+<AxFramecms>
 	<div slot="app">
 		Profile
 		<br />
@@ -55,8 +55,8 @@
 		<br />
 		OK
 	</div>
-</Framecms>
+</AxFramecms>
 
 <script lang="ts">
-	import Framecms from '@app/components/catalog/toucherterre/cms/AxFramecms.svelte';
+	import AxFramecms from 'app/components/toucherterre/cms/AxFrameCms.svelte';
 </script>

@@ -11,7 +11,7 @@ export const AX_CONST__DATASET_acceuil: I_UI__inputValue[] = [
 		pos: 2,
 		tag: 'file',
 		label: 'hero_2',
-		value: '/media/z/subtitle-logo--inkfree.png'
+		value: '/media/icon/subtitle-logo--inkfree.png'
 	},
 	{
 		id: 'sub-hero-1',

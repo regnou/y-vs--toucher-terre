@@ -2,7 +2,7 @@
 <!-- route: HOME (cms) -->
 <!-- ####################################################### -->
 
-<Framecms>
+<AxFramecms>
 	<div slot="cms">
 		<div class="">
 			Tableau de bord
@@ -12,8 +12,8 @@
 			NB: rien a afficher pour l instant dans cet onglet.
 		</div>
 	</div>
-</Framecms>
+</AxFramecms>
 
-<script lang="ts">
-	import Framecms from '@app/components/catalog/toucherterre/cms/AxFramecms.svelte';
+<script>
+	import AxFramecms from 'app/components/toucherterre/cms/AxFrameCms.svelte';
 </script>

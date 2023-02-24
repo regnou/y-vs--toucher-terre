@@ -18,12 +18,12 @@
 			{menu.title}
 		</Text>
 	</Item> -->
+	<!-- id="header-menuitem--1" -->
 	<Button
-		variant={$page.url.pathname === menu.url ? 'raised' : 'text'}
-		id="header-menuitem--1"
 		href={menu.url}
-		class="mr-5"
+		class="mr-5 border-2 font-bold hover:bg-white/50 hover:text-orange-800"
 	>
+		<!-- <a href={menu.url}> -->
 		<Label style="">
 			<!-- .................. -->
 			<!-- tip responsive: icon desapear becoz not enought space -->
@@ -36,6 +36,7 @@
 			/>
 			{menu.title}</Label
 		>
+		<!-- </a> -->
 	</Button>
 {/if}
 
@@ -49,12 +50,17 @@
 	.uiDebug {
 		@apply border border-blue-500;
 	}
+
+	* :global(.mdc-button--raised) {
+		background: #282728 !important;
+	}
 </style>
 
 <script lang="ts">
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import { page } from '$app/stores';
-	import { AX_CONST__FRAME_isDebugBorder } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import Button, { Label } from '@smui/button';
+	import { Item } from '@smui/list';
 	// ----------------------------------------------
 	export let menu: I_ui__menu | undefined = undefined;
 	// ................................................

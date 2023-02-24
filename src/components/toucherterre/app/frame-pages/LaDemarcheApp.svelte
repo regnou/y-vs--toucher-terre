@@ -3,15 +3,12 @@
 <!-- comp-site: LA DEMARCHE APP              -->
 <!-- ####################################### -->
 {#await promise}
-	<Loader />
+	<!-- <Loader /> -->
 {:then data}
 	<!-- .................. -->
 	<!-- MAX WIDTH for APP -->
 	<!-- .................. -->
-	<main
-		id="wc-app--site-lademarche--1"
-		class="m-auto max-w-{AX_CONST__FRAME_maxBodyApp} {AX_CONST__FRAME_distanceFromHeader}"
-	>
+	<main class="m-auto max-w-{AX_CONST__FRAME_maxBodyApp} {AX_CONST__FRAME_distanceFromHeader}">
 		<!-- SHORTCUT -- array?.length -->
 		{#if dataArrDumb && dataArrDumb.length}
 			<!-- static => inputValue only ! -->
@@ -117,17 +114,17 @@
 	import Paragraph from '../widgets/Paragraph.svelte';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import Separator from '../widgets/Separator.svelte';
-	import { AX_COLLECTION__lademarche } from '@app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	import { onMount } from 'svelte';
-	import { config__get } from '@app/domain/services/configService';
 	import Loader from '../widgets/Loader.svelte';
+	import { config__get } from 'app/domain/services/configService';
+	import { AX_CONST__SCHEMA_COLLECTIONS_lademarche } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	import {
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
-	} from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
 	// --------------------------------------------------------
 	export let dataArrDumb: I_UI__inputValue[] | undefined = undefined;
-	let promise = config__get<I_UI__inputValue>(AX_COLLECTION__lademarche);
+	let promise = config__get<I_UI__inputValue>(AX_CONST__SCHEMA_COLLECTIONS_lademarche);
 	// --------------------------------------------------------
 	onMount(async () => {
 		console.debug('...');

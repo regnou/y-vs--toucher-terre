@@ -1,9 +1,9 @@
 <!-- +################################### -->
-<!-- 🛣️ route: LA DEMARCHE                   -->
+<!-- 🛣️ route: LA DEMARCHE                -->
 <!-- +################################### -->
 
 <LaDemarcheApp />
 
 <script lang="ts">
-	import LaDemarcheApp from '@app/components/catalog/toucherterre/app/frame-pages/LaDemarcheApp.svelte';
+	import LaDemarcheApp from 'app/components/toucherterre/app/frame-pages/LaDemarcheApp.svelte';
 </script>

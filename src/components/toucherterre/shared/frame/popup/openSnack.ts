@@ -2,7 +2,7 @@
 // BEREOUTH -- nothing to do with crudService
 //-------------------------------------------------------
 
-import { AX_STORE__UI_ISOPEN_snack } from '@app/stores/AX_STORE__UI_isopen';
+import { AX_STORE__UI_ISOPEN_snack } from 'app/stores/AX_STORE__UI_isopen';
 
 // hack - we want to open the snack when doing DB operations
 export const openSnack = (type: string, msg: string) => {

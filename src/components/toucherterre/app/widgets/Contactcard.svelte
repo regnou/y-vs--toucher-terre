@@ -1,5 +1,4 @@
 <div
-	id="ax-contactcard--1"
 	style="border:{AX_CONST__FRAME_isDebugBorder ? '1px solid blue' : 'none'}"
 	class="mt-5 rounded-2xl  bg-white/10 p-2"
 >
@@ -40,7 +39,7 @@
 <script lang="ts">
 	import Separator from './Separator.svelte';
 	import ContactCardItem from './ContactcardItem.svelte';
-	import { AX_CONST__FRAME_isDebugBorder } from '@app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 
 	export let title = 'N/A';
 	export let subtitle = 'N/A';
