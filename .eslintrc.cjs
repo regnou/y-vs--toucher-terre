@@ -19,20 +19,17 @@ module.exports = {
 	},
 	//  NEW - eslint ne gere pas le app.d.ts (global types)
 	globals: {
-		// GENERATOR ADMIN
-		I_megaconfig__cms: 'writable',
-		I_firestoreDocument__config: 'writable',
-		//
-		// DOMAIN
-		T_pageItemStore: 'writable',
-		T_ENTITY: 'writable',
-		I_ENTITY__event: 'writable',
+		I_DB_CONFIG: 'writable',
+		T_GLOBALS: 'writable',
+		T_GLOBAL_ENTITIES: 'writable',
+		T_GLOBAL_DTOS: 'writable',
 		I_ENTITY__post: 'writable',
-		I_UI__inputValue: 'writable',
-		I_UI__factoryItem: 'writable',
-		//
-		// UI
-		T_ui__dynvariant: 'writable',
+		I_ENTITY__event: 'writable',
+		I_ENTITY__uiinputValue: 'writable',
+		I_ENTITY: 'writable',
+		I_DTO__post: 'writable',
+		I_DTO__event: 'writable',
+		I_DTO__uiinputValue: 'writable',
 		I_ui__menu: 'writable'
 	},
 	rules: {

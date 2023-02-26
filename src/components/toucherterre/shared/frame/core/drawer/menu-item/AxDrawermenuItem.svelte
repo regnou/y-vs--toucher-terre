@@ -34,10 +34,10 @@
 </style>
 
 <script lang="ts">
-	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import { page } from '$app/stores';
-	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
 	import { Item, Text } from '@smui/list';
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
 	// ------------------------------------------------
 	export let isAdmin = false;
 	export let menu: I_ui__menu | undefined = undefined;

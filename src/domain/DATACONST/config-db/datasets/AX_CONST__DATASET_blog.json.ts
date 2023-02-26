@@ -1,22 +1,18 @@
-export const AX_CONST__DATASET_blog: I_ENTITY__post[] = [
+export const AX_CONST__DATASET_blog: I_DTO__post[] = [
 	{
+		createdAt: 1677360517,
+
 		titlePost: {
-			id: '1',
-			pos: 1,
 			tag: 'text',
 			label: 'titre',
 			value: 'Cuisinières en terre crue'
 		},
 		slug: {
-			id: '2',
-			pos: 2,
 			tag: 'text',
 			label: 'slug',
 			value: '/cuisiniere-terre-crue'
 		},
 		body: {
-			id: '3',
-			pos: 3,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -25,23 +21,19 @@ export const AX_CONST__DATASET_blog: I_ENTITY__post[] = [
 	},
 	// --------------------- 2
 	{
+		createdAt: 1677360516,
+
 		titlePost: {
-			id: '1',
-			pos: 1,
 			tag: 'text',
 			label: 'titre',
 			value: 'Charpentes réciproques'
 		},
 		slug: {
-			id: '2',
-			pos: 2,
 			tag: 'text',
 			label: 'slug',
 			value: '/charpente-reciproques'
 		},
 		body: {
-			id: '3',
-			pos: 3,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -50,23 +42,19 @@ export const AX_CONST__DATASET_blog: I_ENTITY__post[] = [
 	},
 	// --------------------- 3
 	{
+		createdAt: 1677360515,
+
 		titlePost: {
-			id: '1',
-			pos: 1,
 			tag: 'text',
 			label: 'titre',
 			value: 'Poêles de masse'
 		},
 		slug: {
-			id: '2',
-			pos: 2,
 			tag: 'text',
 			label: 'slug',
 			value: '/poele-de-masse'
 		},
 		body: {
-			id: '3',
-			pos: 3,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -75,23 +63,19 @@ export const AX_CONST__DATASET_blog: I_ENTITY__post[] = [
 	},
 	// --------------------- 4
 	{
+		createdAt: 1677360514,
+
 		titlePost: {
-			id: '1',
-			pos: 1,
 			tag: 'text',
 			label: 'titre',
 			value: 'Habitats réversibles et cabanes'
 		},
 		slug: {
-			id: '2',
-			pos: 2,
 			tag: 'text',
 			label: 'slug',
 			value: '/habitat-reversible-cabannes'
 		},
 		body: {
-			id: '3',
-			pos: 3,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -100,23 +84,19 @@ export const AX_CONST__DATASET_blog: I_ENTITY__post[] = [
 	},
 	// --------------------- 5
 	{
+		createdAt: 1677360513,
+
 		titlePost: {
-			id: '1',
-			pos: 1,
 			tag: 'text',
 			label: 'titre',
 			value: 'Enduits et arts'
 		},
 		slug: {
-			id: '2',
-			pos: 2,
 			tag: 'text',
 			label: 'slug',
 			value: '/enduit-arts'
 		},
 		body: {
-			id: '3',
-			pos: 3,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -126,7 +106,7 @@ export const AX_CONST__DATASET_blog: I_ENTITY__post[] = [
 	// ,
 	// x3 slideshows
 	// {
-	// 	id: '2',
+	//
 	// 	pos: 11,
 	// 	tag: 'file',
 	// 	label: 'Image',
@@ -134,7 +114,7 @@ export const AX_CONST__DATASET_blog: I_ENTITY__post[] = [
 	// 		'/media/gallery/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_01.jpg'
 	// },
 	// {
-	// 	id: '3',
+	//
 	// 	pos: 12,
 	// 	tag: 'file',
 	// 	label: 'Image',

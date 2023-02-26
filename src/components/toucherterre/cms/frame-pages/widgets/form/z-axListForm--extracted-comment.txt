@@ -14,7 +14,7 @@
 <!-- {/each} -->
 <!-- ============================================== -->
 <!-- {:else}
-			<AxInputAll ivItm={get(megaconfig.STORE__PAGEITEMS)[pos_pageItem]} />
+			<AxInputAll ivItm={get(_M_.STORE__PAGEITEMS)[pos_pageItem]} />
 		{/if} -->
 
 <!-- -------------------------- -->
@@ -23,7 +23,7 @@
 <!-- -------------------------- -->
 
 <!-- PANEL EDITS -->
-<!-- {#if get(megaconfig.STORE__PAGEITEMS) && get(megaconfig.STORE__PAGEITEMS).length} -->
+<!-- {#if get(_M_.STORE__PAGEITEMS) && get(_M_.STORE__PAGEITEMS).length} -->
 <!-- {#if type === 'blog' || type === 'slideshow' || type === 'staticpage'} -->
 <!-- --------- -->
 <!-- PANEL ADD -->

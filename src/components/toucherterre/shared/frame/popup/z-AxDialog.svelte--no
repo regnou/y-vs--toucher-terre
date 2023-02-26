@@ -1,0 +1,86 @@
+<!-- ######################################## -->
+<!-- DIALOG                                   -->
+<!-- ######################################## -->
+<!-- aria-labelledby="simple-title"
+	aria-describedby="simple-content" -->
+<!-- {#if $AX_STORE__UI_ISOPEN_dialog.answer}
+	<Dialog
+		bind:this={dialog}
+		id="dialog--1"
+		bind:open={$AX_STORE__UI_ISOPEN_dialog.open}
+	>
+		<Title id="simple-title">{$AX_STORE__UI_ISOPEN_dialog.title}</Title>
+		<Content id="simple-content--1">
+			{$AX_STORE__UI_ISOPEN_dialog.text}</Content
+		>
+		<Actions>
+			<Button on:click={() => ($AX_STORE__UI_ISOPEN_dialog.answer = false)}>
+				<Label>No</Label>
+			</Button>
+			<Button on:click={() => ($AX_STORE__UI_ISOPEN_dialog.answer = true)}>
+				<Label>Yes</Label>
+			</Button>
+		</Actions>
+	</Dialog>
+{/if} -->
+
+<!-- <script context="module">
+	let dialog = null; 
+
+	// export const openDialog = (title, msg) => {
+	// 	// --------------------------------------------------
+
+	// 	return new Promise((resolve, reject) => {
+	// 		// dialog.open();
+	// 		// tip: UNCOMMENT sinon c OFF - pour le moment => decommenter pour ON
+	// 		AX_STORE__UI_ISOPEN_dialog.set({
+	// 			title: title,
+	// 			text: msg,
+	// 			open: true,
+	// 			answer: 'N/A'
+	// 		});
+	// 		// dialog?.listen('MDCDialog:closed', (e) => {
+	// 		// 	if (e.detail.action === 'confirm') {
+	// 		// 		resolve();
+	// 		// 	} else {
+	// 		// 		reject();
+	// 		// 	}
+	// 		// });
+	// 	});
+	// };
+	// const elements = new Set();
+	// export function stopAll() {
+	// 	elements.forEach(element => {
+	// 		element.pause();
+	// 	});
+	// }
+// </script>
+
+<script lang="ts">
+	import Dialog, { Title, Content, Actions } from '@smui/dialog';
+	import Button, { Label } from '@smui/button';
+	import { AX_STORE__UI_ISOPEN_dialog } from 'app/stores/AX_STORE__UI_isopen';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	// tip: pour controller la dialog, on passe le controler-store
+	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+	// $: if ($AX_STORE__UI_ISOPEN_dialog.open) {
+	// 	dialog.open();
+	// 	console.log('dialog is OPEN');
+	// 	// BUG - how to stop opening ?
+	// 	// $AX_STORE__UI_ISOPEN_snack.open = false;
+	// }
+	// let dialog: any = null;
+	// let clicked = 'N/A';
+	// $: {
+	// 	$AX_STORE__UI_ISOPEN_dialog.answer = clicked;
+	// 	console.log('you have clicked: ', clicked);
+	// }
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax dialog');
+	});
+</script>
+
+
+-->

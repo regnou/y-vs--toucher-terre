@@ -1,0 +1,127 @@
+<!-- ####################################################### -->
+<!-- ####################################### -->
+<!-- PANEL ADD -->
+<!-- ####################################### -->
+{#if _M_ && _M_.conf__genericAdd}
+	<Panel
+		class="bg-green-600"
+		square
+		variant="outlined"
+		extend
+		bind:open
+	>
+		<!--  -->
+		<Header>
+			<!-- <span>AJOUTER</span> -->
+			<!-- <span slot="description">AJOUTER</span> -->
+			<span>AJOUTER</span>
+			<div slot="icon">
+				<!-- <IconButton toggle pressed={(open = !open)}>
+					<Icon class="material-icons" on>unfold_less</Icon>
+					<Icon class="material-icons">unfold_more</Icon>
+				</IconButton> -->
+				<IconButton>
+					<Icon class="material-icons">add</Icon>
+				</IconButton>
+			</div>
+		</Header>
+		<!--  -->
+		<Content class="space-y-5  bg-green-800 text-center">
+			{#each _M_.conf__genericAdd as ivItm, pos}
+				<AxInputValue
+					bind:ivItm
+					{pos}
+				/>
+			{/each}
+			<!-- <div > -->
+			<!-- class="grid grid-flow-col place-items-center gap-2 p-10" -->
+			<!-- <AxBtnCancel text="cancel" /> -->
+			<AxBtnOk
+				text="ajouter"
+				callback={add}
+			/>
+			<!-- </div> -->
+		</Content>
+	</Panel>
+{/if}
+<!-- NEW BIG LOOP FOR UNION -->
+<!-- {#if ivItm.union} -->
+<!-- content here -->
+<!-- TAB -->
+<!-- <div > -->
+<!-- <TabBar tabs={[...Array(2)].map((_v, i) => i + 1)} let:tab> -->
+<!-- <TabBar tabs={['image', 'video']} let:tab bind:activeTab>
+							<Tab
+								{tab}
+								on:click={() => {
+									activeTab = tab;
+								}}
+							>
+								<Label>{tab}</Label>
+							</Tab>
+						</TabBar> -->
+<!-- ################## -->
+<!-- BEROUT -->
+<!-- ################## -->
+<!-- {#if activeTab === 'video'}
+							<AxInputValue bind:ivItm={ivItm.union[0]} />
+						{:else if activeTab === 'image'}
+							<AxInputValue bind:ivItm={ivItm.union[1]} />
+						{/if} -->
+<!-- </div> -->
+<!-- {:else} -->
+
+<!-- {/if} -->
+<script lang="ts">
+	import { Content, Header, Panel } from '@smui-extra/accordion';
+	import IconButton, { Icon } from '@smui/icon-button';
+	// import Tab, { Label } from '@smui/tab';
+	// import TabBar from '@smui/tab-bar';
+	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
+	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
+	import { page } from '$app/stores';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
+	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	let open = false;
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- ax panel add');
+	});
+	// <!-- ######################################################### -->
+	// ADD
+	// <!-- ######################################################### -->
+	const add = () => {
+		// if (!_DAB_ || !Array.isArray(_DAB_) || !_M_ || !_M_.conf__genericAdd)
+
+		if (!_DAB_ || !_M_ || !_M_.conf__genericAdd) return;
+		// const post:T_genericItem => bon, pour l instant, on ajoute QUE DES POSTS !
+		console.debug('🌎🏎️✅ click >> on:add 1 🟡');
+		// DEEP COPY (1)
+		// const [title, slug, body] = _M_.conf__genericAdd;
+		// const post: I_ENTITY__post = { title, slug, body };
+		// DEEP COPY (2)
+		// structured tag
+
+		if (confirm("Ajouter l'article ?")) {
+			const post: I_ENTITY__post = {
+				titlePost: structuredClone(_M_.conf__genericAdd[0]),
+				slug: structuredClone(_M_.conf__genericAdd[1]),
+				body: structuredClone(_M_.conf__genericAdd[2])
+			};
+			// guard
+			// if (isEntity(store[0])) {
+			_DAB_.push(post);
+			open = false;
+			_M_.conf__genericAdd.forEach((itm: I_ENTITY__uiinputValue) => {
+				itm.value = '';
+			});
+			// attention, chaque refresh update sa vue
+			_M_ = _M_; // refresh ui : vue = ADD
+			_DAB_ = _DAB_; // refresh ui : vue = COLLECTION__EDIT
+			console.debug('🌎🏎️✅ click << on:add 2 🟨');
+			// }
+		}
+	};
+	// <!-- ######################################################### -->
+</script>

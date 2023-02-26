@@ -1,27 +1,23 @@
-export const AX_CONST__CMS_addEvent: I_UI__inputValue[] = [
+export const AX_CONST__CMS_addEvent: I_DTO__uiinputValue[] = [
 	{
-		id: '1',
 		pos: 1,
 		tag: 'text',
 		label: "titre de l'évènement",
 		value: ''
 	},
 	{
-		id: '2',
 		pos: 2,
 		tag: 'text',
 		label: "date de l'évènement",
 		value: ''
 	},
 	{
-		id: '3',
 		pos: 3,
 		tag: 'area',
 		label: 'description',
 		value: ''
 	},
 	{
-		id: '4',
 		pos: 4,
 		tag: 'file',
 		label: 'image',

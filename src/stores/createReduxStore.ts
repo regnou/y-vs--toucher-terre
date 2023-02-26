@@ -17,8 +17,8 @@ export function createReduxStore(reducer) {
 	// -----------------------------------------
 	// PROP
 	// -----------------------------------------
-	const { update, set, subscribe } = writable<T_pageItemStore[]>([]);
-	// const store = writable<T_pageItemStore[]>([]);
+	const { update, set, subscribe } = writable<I_ENTITY[]>([]);
+	// const store = writable<I_BASE_ENTITY[]>([]);
 
 	// [] => beacoz we do not want the UI to break on the #each, so array
 
@@ -54,13 +54,13 @@ export function createReduxStore(reducer) {
 
 // HOW TO USE
 // onMount(async () => {
-// 	axlog(dataArrDumb, $page.url.pathname, 'ACCEUIL (cms)');
+// 	axlog(_DAB_, $page.url.pathname, 'ACCEUIL (cms)');
 // 	// fetch data
 // 	console.debug('...');
 // 	const r = await promise; // les types MATCH donc le biding devrait etre bon
-// 	// create dataArrDumb connected to Redux & init it with data fetched (x1 time, becoz in mount)
-// 	dataArrDumb = createReduxStore(reducerStatic);
-// 	dataArrDumb.dispatch('mod-hard', r);
-// 	// console.dir(dataArrDumb);
-// 	// axlog(dataArrDumb, $page.url.pathname, 'ACCEUIL (cms)');
+// 	// create _DAB_ connected to Redux & init it with data fetched (x1 time, becoz in mount)
+// 	_DAB_ = createReduxStore(reducerStatic);
+// 	_DAB_.dispatch('mod-hard', r);
+// 	// console.dir(_DAB_);
+// 	// axlog(_DAB_, $page.url.pathname, 'ACCEUIL (cms)');
 // });

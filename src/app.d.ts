@@ -17,73 +17,65 @@ declare global {
 	// le store contient un tableau, soit de ces entities...
 	// la collection aussi, est un tableau, soit de ces entities...
 
-	// SCHEMA: UI
-	interface I_megaconfig__cms<T extends T_pageItemStore> {
-		conf__db: CollectionReference<I_firestoreDoc__megaconfig_cms<T>>;
-		conf__db_dataset: T[];
-		conf__genericAdd?: I_UI__inputValue[]; // do not add in static page...
-		// conf__store: Writable<T[]>;
-	}
-	// SCHEMA: DB
-	interface I_firestoreDoc__megaconfig_cms<T extends T_pageItemStore> {
-		pageItemsStore: T[];
-		dateCreated: any;
-		dateUpdated: any;
-	}
-
 	// ................................................
 	// DOMAIN ENTITIES
 	// ................................................
-	type T_pageItemStore = I_UI__inputValue | T_ENTITY;
-	type T_ENTITY = I_ENTITY__post | I_ENTITY__event;
+	interface I_DB_CONFIG<T extends T_GLOBAL_ENTITIES, U extends T_GLOBAL_DTOS> {
+		conf__db: CollectionReference<T>;
+		conf__db_dataset: U[]; // firebase will ADD the ID to all theses elements
+		conf__genericAdd?: I_DTO__uiinputValue[]; // it is always a form here, so iv + do not add in static page...
+	}
 
-	interface I_ENTITY__post {
-		titlePost: I_UI__inputValue;
-		slug: I_UI__inputValue; // discriminant G2
-		body: I_UI__inputValue;
+	type T_GLOBALS = T_GLOBAL_ENTITIES | T_GLOBAL_DTOS;
+	type T_GLOBAL_ENTITIES = I_ENTITY__post | I_ENTITY__event | I_ENTITY__uiinputValue;
+	type T_GLOBAL_DTOS = I_DTO__uiinputValue | I_DTO__event | I_DTO__post;
+
+	interface I_ENTITY {
+		idDoc: string;
 	}
-	interface I_ENTITY__event {
-		titleEvent: I_UI__inputValue;
-		slug: I_UI__inputValue; // discriminant G2
-		date: I_UI__inputValue;
-		body: I_UI__inputValue;
-		image: I_UI__inputValue;
+	interface I_ENTITY__post extends I_ENTITY, I_DTO__post {}
+	interface I_ENTITY__event extends I_ENTITY, I_DTO__event {}
+	interface I_ENTITY__uiinputValue extends I_ENTITY, I_DTO__uiinputValue {}
+	interface I_DTO__post {
+		titlePost: I_DTO__uiinputValue;
+		slug: I_DTO__uiinputValue;
+		body: I_DTO__uiinputValue;
+		createdAt: number; // timestamp
 	}
-	interface I_UI__inputValue extends I_UI__factoryItem {
+	interface I_DTO__event {
+		titleEvent: I_DTO__uiinputValue;
+		slug: I_DTO__uiinputValue;
+		date: I_DTO__uiinputValue;
+		body: I_DTO__uiinputValue;
+		image: I_DTO__uiinputValue;
+		createdAt: number;
+	}
+	interface I_DTO__uiinputValue {
+		pos?: number;
+		tag?: string; // si il n y a pas de tag, ca sera TYPE par default
 		label: string;
-		value: string; // discriminant G1 // the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+		value: string; // (value  = storageUrl (in the case of tag=file)
 		blobs?: any[]; // on l ajoute et puis on le supprime pour l upload
 		format?: AX_CONST__formatMedia; // TODO - enum => pour differencierimge/video du slideshow
 	}
-	interface I_UI__factoryItem {
-		id: string;
-		pos?: number;
-		tag?: string; // cf. tag (I_UI__inputValue) => le type de input = file, image, text, area, ....
-		dateCreated?: string;
-		dateEdited?: string;
-	}
-
 	// ................................................
 	// UI
 	// ................................................
 	type T_ui__dynvariant = 'modal' | 'dismissible' | undefined;
-
 	interface I_ui__menu {
 		title: string;
 		url: string;
 		img?: string; // c est l icon-img a cote du menu-name
 	}
-
 	// ................................................
 	// z
 	// ................................................
-	interface I_dto {
+	// firestore-crud use it to return a msg
+	interface I_msg {
 		msg: string;
 		data: any;
 	}
 }
-
 export {};
-
 // type Spread<Type> = { [Key in keyof Type]: Type[Key] };
-// [key: number]: I_UI__inputValue;
+// [key: number]: I_ENTITY__uiinputValue;

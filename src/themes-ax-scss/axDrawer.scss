@@ -4,5 +4,5 @@
 @use '@material/theme/theme-color';
 
 .mdc-drawer.ax-drawer-width {
-	@include mixins.width('400px');
+	@include mixins.width('450px');
 }

@@ -1,29 +1,84 @@
+<!-- https://svelte.dev/tutorial/svelte-options -->
+<!-- <svelte:options accessors={true}/> -->
 <!-- HEADER CMS -->
 <!-- ######################################################## -->
 <!-- ######################################## -->
-
-<!-- on:click={async () => {
-	await handleClick();
-}} -->
+<!-- ######################################## -->
+<!-- DIALOG                                   -->
+<!-- ######################################## -->
+<!-- aria-labelledby="simple-title"
+	aria-describedby="simple-content" -->
+<!-- AX_STORE__UI_ISOPEN_dialog.set({
+		// 			title: title,
+		// 			text: msg,
+		// 			open: true,
+		// 			answer: 'N/A'
+		// 		}); -->
+<!-- bind:this={dialog} -->
+{#if open}
+	<Dialog
+		id="dialog--1"
+		bind:open
+	>
+		<!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+		<Title id="simple-title">{title}</Title>
+		<Content id="simple-content--1">
+			{msg}</Content
+		>
+		<Actions>
+			<Button on:click={() => (open = false)}>
+				<Label>No</Label>
+			</Button>
+			<Button
+				on:click={async () => {
+					open = false;
+					await ACTION_SAVE(_M_?.conf__db, _DAB_);
+				}}
+			>
+				<Label>Yes</Label>
+			</Button>
+		</Actions>
+	</Dialog>
+{/if}
+<!-- ######################################## -->
 <Section
 	align="start"
 	style="background:{AX_CONST__FRAME_isDebugBg ? 'gray' : 'none'}"
-	class=" uppercase    underline"
+	class="     underline"
 >
-	{$page.url.pathname.replace('/cms/app/', '').replace('-', ' ')}
+	<AxDrawerMenuitem
+		menu={{
+			title: 'Toucher Terre',
+			url: AX_CONST__FRAME_URL_home,
+			img: AX_CONST__FRAME_favicon
+		}}
+	/>
+</Section>
+<Section
+	class="hidden justify-center lg:flex"
+	style="background:{AX_CONST__FRAME_isDebugBg ? 'orange' : 'none'}"
+>
+	<Title
+		class="rounded-3xl border-b border-t border-r-8 border-yellow-400 border-t-green-300 border-b-green-400 bg-black pr-2
+		">AXELO</Title
+	>
 </Section>
 <Section
 	align="end"
 	style="background:{AX_CONST__FRAME_isDebugBg ? 'green' : 'none'}"
 >
 	<!-- SAVE -->
-	<!-- <div class=" grid grid-flow-col  gap-2 p-10"> -->
-	<AxBtnOk
-		text="Enregistrer"
-		callback={async () => await save(megaconfig?.conf__db, dataArrDumb)}
-	/>
-	<!-- </div> -->
-
+	<!-- callback={async () => await ACTION_SAVE(_M_?.conf__db, _DAB_)} -->
+	<Button
+		on:click={() => {
+			open = true;
+			console.log('opened');
+			// await callback();
+		}}
+		variant="raised"
+	>
+		<Label>Enregistrer</Label>
+	</Button>
 	<!-- <a href={AX__CONST__homeUrl} rel="prefetch"> -->
 	<!-- <Fab mini> -->
 	<!-- <img src="media/ax/3.jpg" alt="" /> -->
@@ -39,18 +94,92 @@
 </Section>
 
 <script lang="ts">
-	import AxBtnOk from 'app/components/toucherterre/cms/frame-pages/widgets/form-inputValue/AxBtnOk.svelte';
-	import { AX_CONST__FRAME_isDebugBg } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
+
+	// c faux, puisque, je peux add un new item (qui n a pas d id) et du coups le tableau est fake
+	// Pour simplifier, je pose une contrainte, ca doit etre des ENTITES a chaque fois
+
+	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	let dialog: any = undefined;
+	let open = false; // dialog controler
+	const title = 'ENREGISTRER';
+	const msg = 'Etes vous sure ?';
 	import { page } from '$app/stores';
-	import { save } from 'app/stores/actionsApi';
-	import { Section } from '@smui/top-app-bar';
+	import Button, { Label } from '@smui/button';
+	import Dialog, { Actions, Content, Title } from '@smui/dialog';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
-	// ------------------------------------------------
-	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
+	// Title
+	import { Section } from '@smui/top-app-bar';
+	import { AX_CONST__FRAME_isDebugBg } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_CONST__FRAME_favicon } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { AX_CONST__FRAME_URL_home } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
+	import { config__mod } from 'app/domain/services/configService';
+	import { upload } from 'app/tecnologies/firebase/services/storageServices';
+	import { isInputValue } from 'app/utils/guards';
+	import AxDrawerMenuitem from '../drawer/menu-item/AxDrawerMenuitem.svelte';
+	$: if (dialog && open) dialog.open();
 	// ------------------------------------------------
 	onMount(() => {
 		axlog(undefined, $page.url.pathname, 'wc -- ax header cms');
 	});
+	// SAVE
+	// <!-- ######################################################### -->
+	async function ACTION_SAVE(conf__db, imuArr) {
+		// <!-- ######################################################### -->
+		if (!conf__db || !imuArr) return;
+		console.debug('🌎🏎️✅ click >> on:save 1 🟡');
+		// if (!confirm('Enregistrer les modifications ?')) return;
+		// openDialog('ENREGISTRER LES MODIFICATIONS', 'Etes vous sure ?');
+		// if (get(AX_STORE__UI_ISOPEN_dialog).answer !== 'yes') return;
+		await createStorageUrl(imuArr);
+		// tip: clean blob
+		for await (const item of imuArr) {
+			if (isInputValue(item))
+				if (item.tag === 'file' && item.blobs) {
+					// IMMUABLE MON CUL !!! TODO
+					delete item.blobs;
+				}
+		}
+		// axlog(store, $page.url.pathname, 'SAVE', false, 'DEBUG-AVANT-SAVE');
+		await config__mod(conf__db, imuArr);
+		//
+		console.debug('🌎🏎️✅ click << on:save 2 🟨');
+		return;
+		// <!-- ######################################################### -->
+		//----------------------------------------------
+		// UPLOAD STORAGE ON FIREBASE
+		//----------------------------------------------
+		async function createStorageUrl(arr) {
+			if (!arr) return;
+			//
+			// for await (const item of store) {
+			for (let ii = 0; ii < arr.length; ii++) {
+				const item = arr[ii];
+				if (isInputValue(item))
+					if (item.tag === 'file' && item.blobs) {
+						// we always just have ONE FILE
+						console.log('🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 ');
+						console.log('Uploading your image...');
+						// console.dir(item.blobs);
+						// console.debug('...');
+						// ---------------------------------------------------
+						const urlStorage = await upload(item.blobs);
+						// ---------------------------------------------------
+						// const urlStorage = await upload(item.blobs[0]);
+						// ---------------------------------------------------
+						// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+						// IMMUABLE MON CUL !!! TODO
+						item.value = urlStorage;
+						// delete item.blobs;
+						// console.log('this item has no more BLOB; ', item);
+						// item.exit = true; // hack-bad
+						// We unlink the blob now from the store
+						// delete item.blobs;
+					}
+			}
+			//
+			return;
+		}
+	}
 </script>

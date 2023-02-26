@@ -33,24 +33,16 @@
 				>menu
 			</IconButton>
 		</Section> -->
-		<!-- LOGO AXELO -->
-		{#if isLg || isXl || isXxl}
-			<Section
-				align="start"
-				style="background:{AX_CONST__FRAME_isDebugBg ? 'orange' : 'none'}"
-			>
-				<Title>AXELO</Title>
-			</Section>
-		{/if}
+
 		<!-- HEADER PLUGGED -->
-		<HeaderCms
-			bind:dataArrDumb
-			{megaconfig}
+		<!-- tip: IMMUABLE : pas de bind, car, le btn save ne fais que save l etat du store -->
+		<AxHeaderCms
+			{_DAB_}
+			{_M_}
 		/>
 	</Row>
 </TopAppBar>
-<!-- class="lg:flex lg:h-screen lg:overflow-hidden" -->
-<!-- {AX_CONST__FRAME_isMobile}: -->
+<!-- tip: LG:FLEX est vital, pour avoir l admin a cote du drawer -->
 <AutoAdjust
 	{topAppBar}
 	style=" border:{borderRes}"
@@ -64,8 +56,8 @@
 		open={$AX_STORE__UI_ISOPEN_drawer}
 	>
 		<AxDrawerCms
-			bind:dataArrDumb
-			{megaconfig}
+			bind:_DAB_
+			{_M_}
 		/>
 	</Drawer>
 	<AppContent
@@ -80,26 +72,8 @@
 </AutoAdjust>
 
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { page } from '$app/stores';
-	import Drawer, { AppContent } from '@smui/drawer';
-	import Scrim from '@smui/drawer/src/Scrim.svelte';
-	import IconButton from '@smui/icon-button';
-	import TopAppBar, { AutoAdjust, Row, Section, Title } from '@smui/top-app-bar';
-	import {
-		AX_CONST__FRAME_isDebugBg,
-		AX_CONST__FRAME_isDebugBorder,
-		AX_CONST__FRAME_isDebugResolutionmobile
-	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
-	import { AX_CONST__FRAME_isMobile } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
-	import { axlog } from 'app/utils/axLog';
-	import { onMount } from 'svelte';
-	import AxDrawerCms from '../shared/frame/core/drawer/AxDrawerCms.svelte';
-	import HeaderCms from '../shared/frame/core/header/AxHeaderCms.svelte';
-	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	// tip: this prop exists becoz it give us the ability to bind the APP-component (that will load the data), and the admin CMS that will modify them
-	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
+	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
+	export let _DAB_: T_GLOBALS[] | undefined = undefined;
 	// ............................................
 	// let variant: T_ui__dynvariant = undefined;
 	let topAppBar;
@@ -117,8 +91,19 @@
 	let isLg = matches(lg);
 	let isXl = matches(xl);
 	let isXxl = matches(xxl);
-	// ............................................
-	// <!-- .................. -->
+	import { browser } from '$app/environment';
+	import { page } from '$app/stores';
+	import Drawer, { AppContent } from '@smui/drawer';
+	import TopAppBar, { AutoAdjust, Row } from '@smui/top-app-bar';
+	import {
+		AX_CONST__FRAME_isDebugBorder,
+		AX_CONST__FRAME_isDebugResolutionmobile
+	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	import AxDrawerCms from '../shared/frame/core/drawer/AxDrawerCms.svelte';
+	import AxHeaderCms from '../shared/frame/core/header/AxHeaderCms.svelte';
 	// <!-- tip responsive: drawer & responsive RULES -->
 	// <!-- .................. -->
 	$: {
@@ -143,9 +128,9 @@
 		$AX_STORE__UI_ISOPEN_drawer = true;
 	});
 	//-------------------------------------------------------
-	const toggleOpen = () => {
-		$AX_STORE__UI_ISOPEN_drawer = !$AX_STORE__UI_ISOPEN_drawer;
-	};
+	// const toggleOpen = () => {
+	// 	$AX_STORE__UI_ISOPEN_drawer = !$AX_STORE__UI_ISOPEN_drawer;
+	// };
 	//-------------------------------------------------------
 	//press esc TO open/close drawer
 	function handleNavWithKey(e) {

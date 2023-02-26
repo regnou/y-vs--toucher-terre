@@ -2,50 +2,58 @@
 <!-- ####################################### -->
 <!-- PANEL ADD-EDIT -->
 <!-- ####################################### -->
-{#if dataArrDumb && dataArrDumb && dataArrDumb.length}
-	<Accordion
-		style="color:var(mdc-theme-text-primary-on-light)"
-		class=" space-y-5 "
-	>
+{#if _DAB_ && _DAB_ && _DAB_.length}
+	<Accordion class="  text-black ">
 		<!-- --------------- -->
 		<!-- ADD -->
 		<!-- --------------- -->
-		{#if isEntity(dataArrDumb[0])}
-			<PanelAdd {megaconfig} />
+		{#if isEntity(_DAB_[0])}
+			<PanelAdd
+				{_M_}
+				bind:_DAB_
+			/>
 		{/if}
-		<!-- --------------- -->
-		<!-- EDIT -->
-		<!-- --------------- -->
-		{#each dataArrDumb as entity, pos}
+
+		<!-- AXREMET- l id va par la ? -->
+		<!-- {#each _DAB_ as entity, pos (String(pos))} -->
+		<!-- tip - HACK - essaie de mettre un STRING (id) au lieu de entity -->
+		{#each _DAB_ as entity, pos (entity)}
 			{#if isEntity(entity)}
+				<!-- AXREMET - bind - should I bind ? if it push on the array...? -->
+				<!-- --------------- -->
+				<!-- EDIT -->
+				<!-- --------------- -->
 				<PanelEdit
-					pos_item={pos}
+					{_DAB_}
+					{pos}
 					bind:item={entity}
 				/>
 			{:else if isInputValue(entity)}
 				<!-- TODO - strange, it is inside accorden but no bug... -->
 				<!-- TODO - test alternative panel and not panel -->
-				<AxInputValue
-					{pos}
-					bind:ivItm={entity}
-				/>
+				<div class="my-5">
+					<AxInputValue
+						{pos}
+						bind:ivItm={entity}
+					/>
+				</div>
 			{/if}
 		{/each}
 	</Accordion>
 {/if}
 
 <script lang="ts">
+	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
+	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	import { page } from '$app/stores';
 	import Accordion from '@smui-extra/accordion';
+	import { axlog } from 'app/utils/axLog';
+	import { isEntity, isInputValue } from 'app/utils/guards';
+	import { onMount } from 'svelte';
+	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	import PanelAdd from './AxPanelAdd.svelte';
 	import PanelEdit from './AxPanelEdit.svelte';
-	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
-	import { isEntity, isInputValue } from 'app/utils/guards';
-	import { page } from '$app/stores';
-	import { axlog } from 'app/utils/axLog';
-	import { onMount } from 'svelte';
-	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
 	onMount(() => {
-		axlog(dataArrDumb, $page.url.pathname, 'wc -- ax panel add-edit');
+		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel add-edit');
 	});
 </script>

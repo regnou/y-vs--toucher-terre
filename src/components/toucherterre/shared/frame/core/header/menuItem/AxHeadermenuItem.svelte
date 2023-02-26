@@ -30,7 +30,7 @@
 			<!-- .................. -->
 			<img
 				class:uiDebug={AX_CONST__FRAME_isDebugBorder}
-				class="hidden h-5  w-5 {AX_CONST__FRAME_isMobile}:inline "
+				class="hidden h-5  w-5 lg:inline "
 				src={menu.img}
 				alt=""
 			/>
@@ -57,11 +57,9 @@
 </style>
 
 <script lang="ts">
-	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import { page } from '$app/stores';
 	import Button, { Label } from '@smui/button';
-	import { Item } from '@smui/list';
-	import { AX_CONST__FRAME_isMobile } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	// ----------------------------------------------
 	export let menu: I_ui__menu | undefined = undefined;
 	// ................................................

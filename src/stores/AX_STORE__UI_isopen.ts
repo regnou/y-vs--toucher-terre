@@ -8,8 +8,10 @@ export const AX_STORE__UI_ISOPEN_snack = writable({
 	open: false
 });
 
-export const AX_STORE__UI_ISOPEN_dialog = writable({
-	type: 'N/A',
-	text: 'N/A',
-	open: false
-});
+// simple modal YES / NO
+// export const AX_STORE__UI_ISOPEN_dialog = writable({
+// 	title: 'N/A',
+// 	text: 'N/A',
+// 	open: false,
+// 	answer: false
+// });

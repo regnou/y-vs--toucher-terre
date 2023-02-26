@@ -7,6 +7,7 @@
 	style="width: 100%;"
 	helperLine$style="width: 100%;"
 	bind:value={inputValue}
+	class="bg-gray-300"
 	{label}
 	textarea
 >

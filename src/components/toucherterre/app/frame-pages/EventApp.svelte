@@ -9,9 +9,9 @@
 	<!-- MAX WIDTH for APP -->
 	<!-- .................. -->
 	<main class="m-auto max-w-{AX_CONST__FRAME_maxBodyApp} {AX_CONST__FRAME_distanceFromHeader}">
-		{#if dataArrDumb && dataArrDumb.length}
+		{#if _DAB_ && _DAB_.length}
 			<LayoutGrid>
-				{#each dataArrDumb as event, ii (ii)}
+				{#each _DAB_ as event, ii (ii)}
 					<Cell spanDevices={{ desktop: 2, tablet: 4, phone: 4 }}>
 						<!-- <div class="demo-cell"> -->
 						<Eventcard bind:event />
@@ -28,25 +28,24 @@
 {/await}
 
 <script lang="ts">
-	import Eventcard from '../widgets/Eventcard.svelte';
+	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
-	import { onMount } from 'svelte';
-	import Loader from '../widgets/Loader.svelte';
-	import { config__get } from 'app/domain/services/configService';
 	import { AX_CONST__SCHEMA_COLLECTIONS_event } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	import {
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
 	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	import { page } from '$app/stores';
+	import { config__gets } from 'app/domain/services/configService';
 	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	import Eventcard from '../widgets/Eventcard.svelte';
 	// --------------------------------------------------------
-	export let dataArrDumb: I_ENTITY__event[] | undefined = undefined;
-	let promise = config__get<I_ENTITY__event>(AX_CONST__SCHEMA_COLLECTIONS_event);
+	export let _DAB_: I_ENTITY__event[] | undefined = undefined;
+	let promise = config__gets<I_ENTITY__event>(AX_CONST__SCHEMA_COLLECTIONS_event);
 	// --------------------------------------------------------
 	onMount(async () => {
 		console.debug('...');
-		dataArrDumb = await promise;
-		axlog(dataArrDumb, $page.url.pathname, 'BLOG (cms)');
+		_DAB_ = await promise;
+		axlog(_DAB_, $page.url.pathname, 'BLOG (cms)');
 	});
 </script>

@@ -124,7 +124,6 @@
 	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
 	import { AX_CONST__FRAME_URL_homeCms } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
 	import { onMount } from 'svelte';
-	import { AX_CONST__FRAME_isMobile } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
 	import { page } from '$app/stores';
 	import { axlog } from 'app/utils/axLog';
 	import {

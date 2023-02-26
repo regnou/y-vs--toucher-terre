@@ -8,10 +8,12 @@
 <!-- <div id="pageadmin-panelviewer" class="rounded-xl  p-5 text-center   "> -->
 <!-- <div class="mb-10 text-center font-bold">SCRIPTS DB</div> -->
 <div class=" grid grid-flow-col place-items-center gap-2 p-10">
-	<AxBtnOk
-		text={'Reset page ' + $page.url.pathname.replace('/cms/app/', '')}
-		callback={injectScript}
-	/>
+	<Button
+		on:click={injectScript}
+		variant="raised"
+	>
+		<Label>{'Reset page: ' + $page.url.pathname.replace('/cms/app/', '')}</Label>
+	</Button>
 </div>
 <!-- <Button
 	on:click={injectScript}
@@ -23,21 +25,22 @@
 
 <!-- </div> -->
 <script lang="ts">
-	import { config__add } from 'app/domain/services/configService';
+	export let _M_;
 	import { page } from '$app/stores';
-	import AxBtnOk from '../form-inputValue/AxBtnOk.svelte';
+	import Button, { Label } from '@smui/button';
+	import { config__adds } from 'app/domain/services/configService';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
-	// ------------------------------------------
-	export let megaconfig;
-	// ------------------------------------------
-	const injectScript = async () => {
-		console.debug('🌎🏎️✅ click >> on:inject 1 🟡');
-		if (megaconfig.conf__db_dataset)
-			await config__add(megaconfig.conf__db, megaconfig.conf__db_dataset);
-		console.debug('🌎🏎️✅ click << on:inject 2 🟨');
-	};
 	onMount(() => {
 		axlog(undefined, $page.url.pathname, 'wc -- ax form injector');
 	});
+	const injectScript = async () => {
+		console.debug('🌎🏎️✅ click >> on:inject 1 🟡');
+		if (!_M_.conf__db_dataset) return;
+
+		if (!confirm('Effacer toute les donnees et injecter DEFAULT ?')) return;
+
+		await config__adds(_M_.conf__db, _M_.conf__db_dataset);
+		console.debug('🌎🏎️✅ click << on:inject 2 🟨');
+	};
 </script>

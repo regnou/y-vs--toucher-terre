@@ -10,9 +10,9 @@
 	<!-- .................. -->
 	<main class="m-auto max-w-{AX_CONST__FRAME_maxBodyApp} {AX_CONST__FRAME_distanceFromHeader}">
 		<!-- SHORTCUT -- array?.length -->
-		{#if dataArrDumb && dataArrDumb.length}
+		{#if _DAB_ && _DAB_.length}
 			<!-- static => inputValue only ! -->
-			<!-- {#if isInputValue(dataArrDumb)} -->
+			<!-- {#if isInputValue(_DAB_)} -->
 			<!-- <div class="grid h-full w-full grid-cols-3 gap-10"> -->
 			<LayoutGrid>
 				<!-- ####################################### -->
@@ -20,16 +20,16 @@
 				<Cell span={4}>
 					<div class="space-y-5">
 						<Hero2 title="L'équipe" />
-						<Paragraph text={dataArrDumb[0].value} />
+						<Paragraph text={_DAB_[0].value} />
 						<Separator />
-						<Paragraph text={dataArrDumb[1].value} />
+						<Paragraph text={_DAB_[1].value} />
 						<Separator />
-						<Paragraph text={dataArrDumb[2].value} />
+						<Paragraph text={_DAB_[2].value} />
 						<Separator />
 						<!-- src="/media/gallery/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.jpg" -->
 						<img
 							class="m-auto"
-							src={dataArrDumb[12].value}
+							src={_DAB_[12].value}
 							alt=""
 						/>
 					</div>
@@ -46,7 +46,7 @@
 							/>
 							<img
 								class="m-auto"
-								src={dataArrDumb[13].value}
+								src={_DAB_[13].value}
 								alt=""
 							/>
 							<!-- <img
@@ -60,13 +60,13 @@
 								alt=""
 							/>
 						</div>
-						<Paragraph text={dataArrDumb[3].value} />
+						<Paragraph text={_DAB_[3].value} />
 						<Separator />
-						<Paragraph text={dataArrDumb[4].value} />
+						<Paragraph text={_DAB_[4].value} />
 						<Separator />
-						<Paragraph text={dataArrDumb[5].value} />
+						<Paragraph text={_DAB_[5].value} />
 						<Separator />
-						<Paragraph text={dataArrDumb[6].value} />
+						<Paragraph text={_DAB_[6].value} />
 						<Separator />
 					</div>
 				</Cell>
@@ -76,21 +76,21 @@
 					<div class="">
 						<Hero2 title="formule" />
 						<div class="m-5 space-y-5 rounded-md bg-white/10 p-2">
-							<Paragraph text={dataArrDumb[7].value} />
+							<Paragraph text={_DAB_[7].value} />
 							<Separator />
-							<Paragraph text={dataArrDumb[8].value} />
+							<Paragraph text={_DAB_[8].value} />
 							<Separator />
-							<Paragraph text={dataArrDumb[9].value} />
+							<Paragraph text={_DAB_[9].value} />
 							<Separator />
-							<Paragraph text={dataArrDumb[10].value} />
+							<Paragraph text={_DAB_[10].value} />
 							<Separator />
-							<Paragraph text={dataArrDumb[11].value} />
+							<Paragraph text={_DAB_[11].value} />
 						</div>
 						<Separator />
 						<!-- <div class="w-full bg-red-400"> -->
 						<img
 							class="m-auto "
-							src={dataArrDumb[14].value}
+							src={_DAB_[14].value}
 							alt=""
 						/>
 						<!-- </div> -->
@@ -110,28 +110,24 @@
 {/await}
 
 <script lang="ts">
-	import Hero2 from '../widgets/Hero2.svelte';
-	import Paragraph from '../widgets/Paragraph.svelte';
+	export let _DAB_: I_ENTITY__uiinputValue[] | undefined = undefined;
+	let promise = config__gets<I_ENTITY__uiinputValue>(AX_CONST__SCHEMA_COLLECTIONS_lademarche);
+	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
-	import Separator from '../widgets/Separator.svelte';
-	import { onMount } from 'svelte';
-	import Loader from '../widgets/Loader.svelte';
-	import { config__get } from 'app/domain/services/configService';
 	import { AX_CONST__SCHEMA_COLLECTIONS_lademarche } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	import {
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
 	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	// --------------------------------------------------------
-	export let dataArrDumb: I_UI__inputValue[] | undefined = undefined;
-	let promise = config__get<I_UI__inputValue>(AX_CONST__SCHEMA_COLLECTIONS_lademarche);
-	// --------------------------------------------------------
-	import { page } from '$app/stores';
+	import { config__gets } from 'app/domain/services/configService';
 	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	import Hero2 from '../widgets/Hero2.svelte';
+	import Paragraph from '../widgets/Paragraph.svelte';
+	import Separator from '../widgets/Separator.svelte';
 	onMount(async () => {
-		axlog(dataArrDumb, $page.url.pathname, 'BLOG (cms)');
-
+		axlog(_DAB_, $page.url.pathname, 'BLOG (cms)');
 		console.debug('...');
-		dataArrDumb = await promise;
+		_DAB_ = await promise;
 	});
 </script>

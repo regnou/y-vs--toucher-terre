@@ -3,7 +3,7 @@
 
     // ----------------------------------------------------------
     // function demo() {
-    // 	const a: I_UI__inputValue = { label: 'a', value: 'b', id: 'c' };
+    // 	const a: I_ENTITY__uiinputValue = { label: 'a', value: 'b', id: 'c' };
     // 	let post: I_ENTITY__event = { titleEvent: a, slug: a, body: a, date: a, image: a };
     // 	if (isEntityPost(post)) console.log(post.titlePost);
     // 	if (isEntityEvent(post)) console.log(post.titlePost);
@@ -224,7 +224,7 @@ You can preview the production build with `npm run preview`.
 <div id="axformedit--1">
 	<AxPanelsAddEdit
 		bind:store
-		{megaconfig}
+		{_M_}
 	/>
 </div>
 
@@ -233,7 +233,7 @@ You can preview the production build with `npm run preview`.
 <!-- ####################################### -->
 <!-- {AX__UI__CONST_isMobile} -->
 <!-- class="w-full  lg:w-72" -->
-<!-- BRANCH: I_UI__inputValue          -->
+<!-- BRANCH: I_ENTITY__uiinputValue          -->
 
 <!-- ---------------------- -->
 <!-- POUR CHAQUE PAGE-ITEM  -->
@@ -256,6 +256,6 @@ You can preview the production build with `npm run preview`.
 	import AxPanelsAddEdit from './AxPanelsAddEdit.svelte';
 
 	//----------------------------------------------
-	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	export let store: T_pageItemStore[] | undefined = undefined;
+	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
+	export let store: I_BASE_ENTITY[] | undefined = undefined;
 </script>

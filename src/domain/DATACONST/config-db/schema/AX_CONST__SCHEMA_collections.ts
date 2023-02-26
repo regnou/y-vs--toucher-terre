@@ -5,15 +5,13 @@ import { collection, CollectionReference, type DocumentData } from 'firebase/fir
 import { getFirebase } from '../../../../tecnologies/firebase/firebaseClient';
 // static
 export const AX_CONST__SCHEMA_COLLECTIONS_acceuil =
-	createCollection<I_firestoreDoc__megaconfig_cms<I_UI__inputValue>>('acceuil');
+	createCollection<I_ENTITY__uiinputValue>('acceuil');
 export const AX_CONST__SCHEMA_COLLECTIONS_lademarche =
-	createCollection<I_firestoreDoc__megaconfig_cms<I_UI__inputValue>>('la-demarche');
+	createCollection<I_ENTITY__uiinputValue>('la-demarche');
 
 // dyn
-export const AX_CONST__SCHEMA_COLLECTIONS_blog =
-	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__post>>('blog');
-export const AX_CONST__SCHEMA_COLLECTIONS_event =
-	createCollection<I_firestoreDoc__megaconfig_cms<I_ENTITY__event>>('event');
+export const AX_CONST__SCHEMA_COLLECTIONS_blog = createCollection<I_ENTITY__post>('blog');
+export const AX_CONST__SCHEMA_COLLECTIONS_event = createCollection<I_ENTITY__event>('event');
 
 // Z
 export const AX_CONST__SCHEMA_COLLECTIONS_img = createCollection<any>('z-img');

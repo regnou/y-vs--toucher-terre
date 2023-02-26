@@ -2,31 +2,31 @@
 <!-- 🛣️ route: cms-ACCEUIL -->
 <!-- ####################################################### -->
 <AxFramecms
-	bind:dataArrDumb
-	megaconfig={MEGACONFIG_CMS}
+	bind:_DAB_
+	{_M_}
 >
 	<div slot="app">
-		<AcceuilApp bind:dataArrDumb />
+		<AcceuilApp bind:_DAB_ />
 	</div>
 </AxFramecms>
 
 <script lang="ts">
+	// 🔥🔥🔥
+	const _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> = {
+		conf__db: AX_CONST__SCHEMA_COLLECTIONS_acceuil,
+		conf__db_dataset: AX_CONST__DATASET_acceuil
+	};
+	// acceuil is static
+	let _DAB_: I_ENTITY__uiinputValue[] | undefined = undefined;
+
+	import { page } from '$app/stores';
 	import AcceuilApp from 'app/components/toucherterre/app/frame-pages/AcceuilApp.svelte';
 	import AxFramecms from 'app/components/toucherterre/cms/AxFrameCms.svelte';
 	import { AX_CONST__DATASET_acceuil } from 'app/domain/DATACONST/config-db/datasets/AX_CONST__DATASET_acceuil.json';
 	import { AX_CONST__SCHEMA_COLLECTIONS_acceuil } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
-	// --------------------------------------------------------
-	let dataArrDumb: I_UI__inputValue[] | undefined = undefined;
-	// 🔥🔥🔥
-	const MEGACONFIG_CMS: I_megaconfig__cms<I_UI__inputValue> = {
-		conf__db: AX_CONST__SCHEMA_COLLECTIONS_acceuil,
-		conf__db_dataset: AX_CONST__DATASET_acceuil
-	};
-
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
 	onMount(() => {
-		axlog(dataArrDumb, $page.url.pathname, 'ACCEUIL (cms)');
+		axlog(_DAB_, $page.url.pathname, 'ACCEUIL (cms)');
 	});
 </script>

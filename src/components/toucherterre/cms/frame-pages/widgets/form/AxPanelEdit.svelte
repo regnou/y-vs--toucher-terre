@@ -8,32 +8,41 @@
 		square
 		variant="outlined"
 		extend
-		{open}
+		bind:open
 	>
-		<Header>
+		<Header class="bg-white">
 			<!-- <span slot="description"> -->
 			<!-- base guard -->
-			{#if item}
-				{#if isEntityPost(item)}
-					{item.titlePost.value}
-				{:else if isEntityEvent(item)}
-					{item.titleEvent.value}
+			<div
+				style="max-width:250px"
+				class=" "
+			>
+				{#if item}
+					{#if isEntityPost(item)}
+						{item.titlePost.value}
+					{:else if isEntityEvent(item)}
+						{item.titleEvent.value}
+					{/if}
 				{/if}
-			{/if}
+			</div>
 			<!-- </span> -->
-			<div slot="icon">
+			<div
+				slot="icon"
+				class=""
+			>
 				<!-- <IconButton toggle pressed={(open = !open)}>
 					<Icon class="material-icons" on>unfold_less</Icon>
 					<Icon class="material-icons">unfold_more</Icon>
 				</IconButton> -->
 				<!-- {#if type === 'blog' || type === 'slideshow'} -->
+				<!-- preventDefault -->
 				<IconButton on:click={del}>
 					<Icon class="material-icons">delete</Icon>
 				</IconButton>
 				<!-- {/if} -->
 			</div>
 		</Header>
-		<Content>
+		<Content class="space-y-5 bg-blue-800">
 			{#each Object.entries(item) as [key, prop], pos}
 				<AxInputValue
 					{pos}
@@ -45,36 +54,37 @@
 {/if}
 
 <script lang="ts">
-	import { isEntity, isEntityEvent, isEntityPost } from 'app/utils/guards';
-	import { Panel, Header, Content } from '@smui-extra/accordion';
-	import IconButton, { Icon } from '@smui/icon-button';
-	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
-	import { page } from '$app/stores';
-	import { axlog } from 'app/utils/axLog';
-	import { onMount } from 'svelte';
-	// -------------------------------------------------------------------
-	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
-	export let item: T_ENTITY | undefined = undefined;
-	export let pos_item: number | undefined = undefined;
+	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	export let item: T_GLOBAL_ENTITIES | undefined = undefined;
+	export let pos: number | undefined = undefined;
 	let open = false; // remettre ? export let open = type === 'staticpage' ? true : false;
+	import { page } from '$app/stores';
+	import { Content, Header, Panel } from '@smui-extra/accordion';
+	import IconButton, { Icon } from '@smui/icon-button';
+	import { axlog } from 'app/utils/axLog';
+	import { isEntity, isEntityEvent, isEntityPost } from 'app/utils/guards';
+	import { onMount } from 'svelte';
+	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	onMount(() => {
-		axlog(dataArrDumb, $page.url.pathname, 'wc -- ax panel edit');
+		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel edit');
 	});
-	// let activeTab;
-	// -------------------------------------------------------------------
+	$: console.log('>>>>>>>>>>>>>> open: ', open);
 	// DEL
-	// -------------------------------------------------------------------
+	// <!-- ######################################################### -->
 	const del = () => {
+		// <!-- ######################################################### -->
+
+		console.debug('🌎🏎️✅ click >> on:del 1 🟡', _DAB_, pos);
 		// XXX
-		if (!dataArrDumb || !Array.isArray(dataArrDumb) || !pos_item) return;
-		console.debug('🌎🏎️✅ click >> on:del 1 🟡');
+		if (!_DAB_ || !Array.isArray(_DAB_) || pos === undefined) return;
+
 		if (confirm("Supprimer l'article ?")) {
 			// guard
-			if (isEntity(dataArrDumb[pos_item])) {
-				dataArrDumb.splice(pos_item, 1);
+			if (isEntity(_DAB_[pos])) {
+				// open = false; // tip: HACK - becoz, the click on the fab will also click on the panel->it will open the panel, and if closed, wil open another panel
+				_DAB_.splice(pos, 1);
 				// refresh (can do diferently - TODO - juste genericStore)
-				dataArrDumb = dataArrDumb; // refresh ui
-				// open = false;
+				_DAB_ = _DAB_; // refresh ui
 			}
 		}
 		console.debug('🌎🏎️✅ click << on:del 2 🟨');

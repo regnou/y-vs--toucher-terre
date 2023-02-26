@@ -2,11 +2,11 @@
 <!-- route: cmd-EVENT                                        -->
 <!-- ####################################################### -->
 <AxFramecms
-	bind:dataArrDumb
-	megaconfig={MEGACONFIG_CMS}
+	bind:_DAB_
+	{_M_}
 >
 	<div slot="app">
-		<EventApp bind:dataArrDumb />
+		<EventApp bind:_DAB_ />
 	</div>
 </AxFramecms>
 
@@ -17,9 +17,9 @@
 	import { AX_CONST__DATASET_event } from 'app/domain/DATACONST/config-db/datasets/AX_CONST__DATASET_event.json';
 	import { AX_CONST__SCHEMA_COLLECTIONS_event } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	// ---------------------------------------
-	let dataArrDumb: I_ENTITY__event[] | undefined = undefined;
+	let _DAB_: I_ENTITY__event[] | undefined = undefined;
 	// 🔥🔥🔥
-	const MEGACONFIG_CMS: I_megaconfig__cms<I_ENTITY__event> = {
+	const _M_: I_DB_CONFIG<I_ENTITY__event, I_DTO__event> = {
 		conf__db: AX_CONST__SCHEMA_COLLECTIONS_event,
 		conf__db_dataset: AX_CONST__DATASET_event,
 		conf__genericAdd: AX_CONST__CMS_addEvent
@@ -30,6 +30,6 @@
 	import { onMount } from 'svelte';
 	import { axlog } from 'app/utils/axLog';
 	onMount(() => {
-		axlog(dataArrDumb, $page.url.pathname, 'EVENT (cms)');
+		axlog(_DAB_, $page.url.pathname, 'EVENT (cms)');
 	});
 </script>

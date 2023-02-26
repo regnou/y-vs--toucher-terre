@@ -9,6 +9,10 @@
 		<!--     -->
 		<!-- TXT -->
 		<!--     -->
+		<!-- class="shaped-outlined" -->
+		<!-- variant="outlined" -->
+		<!-- or -->
+		<!-- variant="filled" -->
 		<Textfield
 			variant="filled"
 			style="width: 100%;"
@@ -22,10 +26,11 @@
 		<!--          -->
 		<!-- TXT AREA -->
 		<!--          -->
-
 		<Textfield
+			helperLine$style="width: 100%;"
 			style=" width: 100%; height: 200px; "
 			textarea
+			class=" bg-gray-100"
 			bind:value={ivItm.value}
 			label={ivItm.label}
 		/>
@@ -36,27 +41,51 @@
 		<!--      -->
 		<!-- FILE -->
 		<!--      -->
-		<div class=" grid place-items-center ">
-			<!-- <div class=" ">{ivItm.label}</div> -->
-			<Axfileupload
-				bind:ivItm
-				{pos}
-			/>
-		</div>
+		<!-- <div class=" grid place-items-center "> -->
+		<!-- <div class=" ">{ivItm.label}</div> -->
+		<Axfileupload
+			bind:ivItm
+			{pos}
+		/>
+		<!-- </div> -->
 	{/if}
 {/if}
 
+<!-- <style lang="postcss">
+	* :global(.shaped-outlined .mdc-notched-outline .mdc-notched-outline__leading) {
+		border-radius: 28px 0 0 28px;
+		width: 28px;
+	}
+	* :global(.shaped-outlined .mdc-notched-outline .mdc-notched-outline__trailing) {
+		border-radius: 0 28px 28px 0;
+	}
+	* :global(.shaped-outlined .mdc-notched-outline .mdc-notched-outline__notch) {
+		max-width: calc(100% - 28px * 2);
+	}
+	*
+		:global(
+			.shaped-outlined.mdc-text-field--with-leading-icon:not(.mdc-text-field--label-floating)
+				.mdc-floating-label
+		) {
+		left: 16px;
+	}
+	* :global(.shaped-outlined + .mdc-text-field-helper-line) {
+		padding-left: 32px;
+		padding-right: 28px;
+	}
+</style> -->
+
 <!-- <div class="mb-5" /> -->
 <script lang="ts">
-	import { AX_CONST__formatMedia } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	import Textfield from '@smui/textfield';
-	import Axfileupload from './AxFileupload.svelte';
-	export let pos: number;
-	export let ivItm: I_UI__inputValue | undefined = undefined; // take a reference to the STORE
-
+	// tip: it is a DTO, it is dumb, it is just to display the informations and metas
+	export let ivItm: I_DTO__uiinputValue | undefined = undefined; // take a reference to the STORE
+	export let pos: number | undefined = undefined;
 	import { page } from '$app/stores';
+	import Textfield from '@smui/textfield';
+	import { AX_CONST__formatMedia } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
+	import Axfileupload from './AxFileupload.svelte';
 	onMount(() => {
 		axlog(undefined, $page.url.pathname, 'wc -- ax input value');
 	});

@@ -71,9 +71,9 @@
 </DataTable>
 
 <script lang="ts">
-	import DataTable, { Head, Body, Row, Cell, Label, SortValue } from '@smui/data-table';
-	import IconButton from '@smui/icon-button';
 	import { page } from '$app/stores';
+	import DataTable, { Body, Cell, Head, Label, Row, SortValue } from '@smui/data-table';
+	import IconButton from '@smui/icon-button';
 	// ----------------------------------------------
 	export let sortId;
 	export let menus: I_ui__menu[];

@@ -1,5 +1,4 @@
 import {
-	addDoc,
 	CollectionReference,
 	deleteDoc,
 	doc,
@@ -21,16 +20,16 @@ const LOG_LEVEL__ON = true;
 // ---
 // ---
 // ----------------------------------------------------------
-async function firestore__tryHelper(callback, msg: string, action: string): Promise<I_dto> {
+async function firestore__tryHelper(callback, msg: string, action: string): Promise<I_msg> {
 	try {
 		const r = await callback(msg);
 		console.debug('🚔');
 		LOG_LEVEL__ON ? console.dir(r.data) : 'no-data-??';
-		LOG_LEVEL__ON ? console.debug(`🚔🔥✅ ${action}-ED ${r.msg}`) : '';
+		LOG_LEVEL__ON ? console.debug(`🚔🔥✅ db -- ${action}-ED ${r.msg}`) : '';
 		LOG_LEVEL__ON ? console.debug('🚔') : '';
 		return r;
 	} catch (err) {
-		LOG_LEVEL__ON ? console.debug(`🚔🔥❌ ${action}-ING ${msg}`) : '';
+		LOG_LEVEL__ON ? console.debug(`🚔🔥❌ db -- ${action}-ING ${msg}`) : '';
 		if (err instanceof Error) {
 			LOG_LEVEL__ON ? console.error(err.message) : '';
 			return { msg: err.name, data: err.message };
@@ -43,7 +42,10 @@ async function firestore__tryHelper(callback, msg: string, action: string): Prom
 // --- getOne getAll
 // ---
 // ----------------------------------------------------------
-export const crud__getId = async <T>(col: CollectionReference<T>, id: string): Promise<I_dto> => {
+export const crud__getId = async <T extends T_GLOBAL_ENTITIES>(
+	col: CollectionReference<T>,
+	id: string
+): Promise<I_msg> => {
 	// [41;93;4m red-yellow ++
 	// [45;97;4m violet
 	// [47;30;4m  gris
@@ -65,29 +67,11 @@ export const crud__getId = async <T>(col: CollectionReference<T>, id: string): P
 };
 // ----------------------------------------------------------
 // ---
-// --- add hard
-// ---
-// ----------------------------------------------------------
-export const crud__addId = async <T>(col: CollectionReference<T>, id: string, data) => {
-	// LIGHT LOG
-	const msg = `\x1B[45;97;4m ${col.id.toUpperCase()} \x1B[m\x1B[105;97;4m ${id}\x1B[m`;
-	// HEAVY LOG
-	// 	const msg = `\x1B[45;97;4m ${col.id.toUpperCase()} \x1B[m \x1B[105;97;4m ${id}\x1B[m
-	// \x1B[105;97;4m${JSON.stringify(data, null, 2)} \x1B[m`;
-	const callback = async () => {
-		await setDoc<T>(doc<T>(col, id), { ...data }); // data as any
-		return { msg, data: data };
-	};
-	// --- end
-	return await firestore__tryHelper(callback, msg, 'ADDid');
-};
-// ----------------------------------------------------------
-// ---
 // --- mod soft --> juste merge the change
 // ---
 // ----------------------------------------------------------
 // serverTimestamp()
-export const crud__modSoft = async <T>(col, id: string, data) => {
+export const crud__modSoft = async <T extends T_GLOBAL_ENTITIES>(col, id: string, data) => {
 	// LIGHT LOG
 	// purple
 	const msg = `\x1B[45;97;4m ${col.id.toUpperCase()} \x1B[m\x1B[105;97;4m ${id}\x1B[m`;
@@ -104,33 +88,50 @@ export const crud__modSoft = async <T>(col, id: string, data) => {
 };
 // ----------------------------------------------------------
 // ---
+// --- add hard
+// ---
+// ----------------------------------------------------------
+// il faut creer l id et l ajouter a l item
+export const crud__addId = async <T extends T_GLOBAL_ENTITIES>(
+	col: CollectionReference<T>,
+	id: string,
+	data
+) => {
+	// LIGHT LOG
+	const msg = `\x1B[45;97;4m ${col.id.toUpperCase()} \x1B[m\x1B[105;97;4m ${id}\x1B[m`;
+	// HEAVY LOG
+	// 	const msg = `\x1B[45;97;4m ${col.id.toUpperCase()} \x1B[m \x1B[105;97;4m ${id}\x1B[m
+	// \x1B[105;97;4m${JSON.stringify(data, null, 2)} \x1B[m`;
+	const callback = async () => {
+		await setDoc<T>(doc<T>(col, id), { ...data }); // data as any
+		return { msg, data: data };
+	};
+	// --- end
+	return await firestore__tryHelper(callback, msg, 'ADDid');
+};
+
+// ----------------------------------------------------------
+// ---
 // --- add update delete
 // ---
 // ----------------------------------------------------------
-export const crud__add = async <T>(col: CollectionReference<T>, data: T) => {
+export const crud__add = async <T extends T_GLOBAL_ENTITIES>(
+	col: CollectionReference<T>,
+	data: any
+) => {
 	// LIGHT LOG
 	// \x1B[m\x1B[105;97;4m ${id}\x1B[m
 	const msg = `\x1B[45;97;4m ${col.id.toUpperCase()}`;
 
 	const callback = async () => {
+		const docRef = doc(col); // Add a new document with a generated id
 		const entity = {
-			dateCreated: serverTimestamp(),
+			idDoc: docRef,
 			dateUpdated: serverTimestamp(),
 			...data
 		};
-		// ---
-		// add also the id generated !
-		const docRef = await addDoc<T>(col, entity);
-		// msg = `${msg} ${docRef.id}`;
-		// const entityWithId = {
-		// 	...entity,
-		// 	id: docRef.id
-		// };
-		// todo - attention tu refais requete coté CLIENT !
-		// await modSoft(col, docRef.id, entityWithId);
-		// ---
+		await setDoc(docRef, data);
 		return { msg, data: docRef.id };
-		// return docRef.id;
 	};
 	// ---
 	return await firestore__tryHelper(callback, msg, 'ADDnew');

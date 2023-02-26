@@ -1,20 +1,17 @@
-export const AX_CONST__DATASET_acceuil: I_UI__inputValue[] = [
+export const AX_CONST__DATASET_acceuil: I_DTO__uiinputValue[] = [
 	{
-		id: 'hero_1',
 		pos: 1,
 		tag: 'file',
 		label: 'hero_1',
 		value: '/media/logo-01.png'
 	},
 	{
-		id: 'hero_2',
 		pos: 2,
 		tag: 'file',
 		label: 'hero_2',
 		value: '/media/icon/subtitle-logo--inkfree.png'
 	},
 	{
-		id: 'sub-hero-1',
 		pos: 3,
 		tag: 'text',
 		label: 'sub hero 1',
@@ -22,7 +19,6 @@ export const AX_CONST__DATASET_acceuil: I_UI__inputValue[] = [
 			'Cuisiniere en terre, poele de masse, charpentes reciproques, habitats reversibles & cabanes, enduits naturels, arts'
 	},
 	{
-		id: 'sub-hero-2',
 		pos: 4,
 		tag: 'area',
 		label: 'sub hero 2',
@@ -38,35 +34,30 @@ export const AX_CONST__DATASET_acceuil: I_UI__inputValue[] = [
 				<br/>"
 	},
 	{
-		id: 'contact-1',
 		pos: 5,
 		tag: 'text',
 		label: 'contact 1',
 		value: 'Contact'
 	},
 	{
-		id: 'contact-2',
 		pos: 6,
 		tag: 'text',
 		label: 'contact 2',
 		value: 'renseignements et inscriptions'
 	},
 	{
-		id: 'contact-3',
 		pos: 7,
 		tag: 'text',
 		label: 'contact 3',
 		value: 'toucherterre@gozmail.net'
 	},
 	{
-		id: 'contact-4',
 		pos: 8,
 		tag: 'text',
 		label: 'contact 4',
 		value: 'toucher terre'
 	},
 	{
-		id: 'contact-5',
 		pos: 9,
 		tag: 'text',
 		label: 'contact 5',

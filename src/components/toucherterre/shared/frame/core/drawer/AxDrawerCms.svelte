@@ -3,13 +3,21 @@
 <!-- ######################################## -->
 
 <Content class="    bg-red-200">
-	<Subheader>Revenir sur le site</Subheader>
+	<!-- <Subheader>Revenir sur le site</Subheader>
 	<Separator />
 	<AxDrawermenuItem
 		menu={{ title: 'APP', url: AX_CONST__FRAME_URL_home, img: AX_CONST__FRAME_favicon }}
-	/>
+	/> -->
+
 	<!-- ................. -->
-	<Subheader>Editer le contenu du site</Subheader>
+	<Subheader>
+		Aller sur la page: <a
+			rel="noreferrer"
+			target="_blank"
+			href="/{$page.url.pathname.replace('/cms/app/', '')}"
+			>{$page.url.pathname.replace('/cms/app/', '').replace('-', ' ').toUpperCase()}</a
+		>
+	</Subheader>
 	<Separator />
 	<TabBar
 		tabs={['page', 'editer', 'config']}
@@ -37,8 +45,8 @@
 		<!-- ................. -->
 		<div class="p-5">
 			<AxPanelsAddEdit
-				bind:dataArrDumb
-				{megaconfig}
+				bind:_DAB_
+				{_M_}
 			/>
 		</div>
 		<!-- ................. -->
@@ -46,7 +54,7 @@
 		<!-- ---------------------------------- -->
 		<!-- CONFIG -->
 		<!-- ---------------------------------- -->
-		<AxFormDbInjector {megaconfig} />
+		<AxFormDbInjector {_M_} />
 	{/if}
 	<!-- <Separator /> -->
 	<!-- <Group> -->
@@ -93,24 +101,21 @@
 
 <!-- style="background:var(--mdc-theme-text-primary-on-background);" -->
 <script lang="ts">
-	import AxFormDbInjector from 'app/components/toucherterre/cms/frame-pages/widgets/form-injector/AxFormDbInjector.svelte';
-	import AxPanelsAddEdit from 'app/components/toucherterre/cms/frame-pages/widgets/form/AxPanelsAddEdit.svelte';
-	import { AX_CONST__FRAME_MENU_cms } from 'app/domain/DATACONST/config-uiFrame/menus/AX_CONST__FRAME_MENU_cms';
-	import { Content, Header, Title } from '@smui/drawer';
+	import { page } from '$app/stores';
+	import { Content } from '@smui/drawer';
 	import List, { Subheader } from '@smui/list';
 	import Separator from '@smui/list/src/Separator.svelte';
 	import Tab, { Label } from '@smui/tab';
 	import TabBar from '@smui/tab-bar';
-	import DrawerMenuItem from './menu-item/AxDrawerMenuitem.svelte';
-	import { AX_CONST__FRAME_URL_home } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
-	import AxDrawermenuItem from './menu-item/AxDrawerMenuitem.svelte';
-	import { AX_CONST__FRAME_favicon } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	import { page } from '$app/stores';
+	import AxFormDbInjector from 'app/components/toucherterre/cms/frame-pages/widgets/form-injector/AxFormDbInjector.svelte';
+	import AxPanelsAddEdit from 'app/components/toucherterre/cms/frame-pages/widgets/form/AxPanelsAddEdit.svelte';
+	import { AX_CONST__FRAME_MENU_cms } from 'app/domain/DATACONST/config-uiFrame/menus/AX_CONST__FRAME_MENU_cms';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
+	import DrawerMenuItem from './menu-item/AxDrawerMenuitem.svelte';
 	// ------------------------------------------------
-	export let megaconfig: I_megaconfig__cms<T_pageItemStore> | undefined = undefined;
-	export let dataArrDumb: T_pageItemStore[] | undefined = undefined;
+	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
+	export let _DAB_: T_GLOBALS[] | undefined = undefined;
 	let active = 'page'; // page | form
 	// ------------------------------------------------
 	// $: console.log('active', active);

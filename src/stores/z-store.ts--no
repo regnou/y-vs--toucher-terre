@@ -16,8 +16,8 @@
 // export const STORE__EVENT = writable<I_ENTITY__event[]>(/* -- */ [] /* -- */);
 
 // static
-// export const STORE__acceuil = writable<I_UI__inputValue[]>(/* -- */ [] /* -- */);
-// export const STORE__lademarche = writable<I_UI__inputValue[]>(/* -- */ [] /* -- */);
+// export const STORE__acceuil = writable<I_ENTITY__uiinputValue[]>(/* -- */ [] /* -- */);
+// export const STORE__lademarche = writable<I_ENTITY__uiinputValue[]>(/* -- */ [] /* -- */);
 // store-user
 
 // export const STORE__REDUX = STORE_BLOG;

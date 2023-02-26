@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let pos: number = 0;
-	export let ivItm: I_UI__inputValue | undefined = undefined; // we have to dynamically add a field, that is the blob UPLOADED
+	export let ivItm: I_ENTITY__uiinputValue | undefined = undefined; // we have to dynamically add a field, that is the blob UPLOADED
 	// to upload binary
 	// let imgFromElement: string | ArrayBuffer | null | undefined = undefined; // cf type FileReader
 	let imgFromElement;
