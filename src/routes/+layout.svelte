@@ -33,7 +33,7 @@
 	// MEGA ROOT LAYOUT
 	//#######################################################
 	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'ROOT-LAYOUT');
+		axlog(undefined, $page.url.pathname, '------- ROOT-LAYOUT ------');
 	});
 	//#######################################################
 </script>

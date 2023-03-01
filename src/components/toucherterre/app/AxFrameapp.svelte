@@ -32,7 +32,6 @@
 	border:{AX_CONST__FRAME_isDebugBorder ? '4px solid red' : 'none'}"
 		>
 			<Row>
-				<!-- HAMBURGER - fait partis du chassi -->
 				<!-- .................. -->
 				<!-- tip responsive: icon desapear becoz not enought space -->
 				<!-- .................. -->
@@ -40,12 +39,14 @@
 					style="background:{AX_CONST__FRAME_isDebugBg ? 'blue' : 'none'}"
 					class="bg-blue-200 lg:hidden"
 				>
+					<!-- HAMBURGER - fait partis du chassi -->
 					<IconButton
 						class="material-icons"
 						on:click={toggleOpen}
 						>menu
 					</IconButton>
 				</Section>
+
 				<!-- LOGO client -->
 				<Section style="background:{AX_CONST__FRAME_isDebugBg ? 'orange' : 'none'}">
 					<!-- <Title> -->
@@ -58,7 +59,7 @@
 					>
 						<img
 							class="h-10 w-10"
-							src="/media/favicon.png"
+							src={AX_CONST__FRAME_favicon}
 							alt=""
 						/>
 						{#if isXxl}
@@ -83,29 +84,9 @@
 </LayoutBg1>
 
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { page } from '$app/stores';
-	import Drawer, { AppContent } from '@smui/drawer';
-	import Scrim from '@smui/drawer/src/Scrim.svelte';
-	import IconButton from '@smui/icon-button';
-	import TopAppBar, { AutoAdjust, Row, Section } from '@smui/top-app-bar';
-	import {
-		AX_CONST__FRAME_isDebugBg,
-		AX_CONST__FRAME_isDebugBorder,
-		AX_CONST__FRAME_isDebugResolutionmobile
-	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
-	import { AX_CONST__FRAME_URL_home } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
-	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
-	import { axlog } from 'app/utils/axLog';
-	import { onMount } from 'svelte';
-	import AxDrawerApp from '../shared/frame/core/drawer/AxDrawerApp.svelte';
-	import HeaderApp from '../shared/frame/core/header/AxHeaderApp.svelte';
-	import LayoutBg1 from './AxLayoutbg1.svelte';
-	// ............................................
 	// let variant: T_ui__dynvariant = 'modal';
 	let topAppBar;
 	let borderRes = '0px solid black';
-	// ............................................
 	const xs = '(max-width: 639px)';
 	const sm = '(min-width: 640px) and (max-width: 767px)';
 	const md = '(min-width: 768px) and (max-width: 1023px)';
@@ -118,7 +99,33 @@
 	let isLg = matches(lg);
 	let isXl = matches(xl);
 	let isXxl = matches(xxl);
-	// ............................................
+	import { browser } from '$app/environment';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+	import Drawer, { AppContent } from '@smui/drawer';
+	import Scrim from '@smui/drawer/src/Scrim.svelte';
+	import IconButton from '@smui/icon-button';
+	import TopAppBar, { AutoAdjust, Row, Section } from '@smui/top-app-bar';
+	import {
+		AX_CONST__FRAME_isDebugBg,
+		AX_CONST__FRAME_isDebugBorder,
+		AX_CONST__FRAME_isDebugResolutionmobile
+	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { AX_CONST__FRAME_favicon } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
+	import { AX_CONST__FRAME_URL_home } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
+	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
+	import { axlog } from 'app/utils/axLog';
+	import { onMount } from 'svelte';
+	import AxDrawerApp from '../shared/frame/core/drawer/AxDrawerApp.svelte';
+	import HeaderApp from '../shared/frame/core/header/AxHeaderApp.svelte';
+	import LayoutBg1 from './AxLayoutbg1.svelte';
+
+	//-------------------------------------------------------
+	onMount(() => {
+		axlog(undefined, $page.url.pathname, 'wc -- axFrame APP');
+		// $AX_STORE__UI_ISOPEN_drawer = false;
+	});
+	//-------------------------------------------------------
 	// <!-- .................. -->
 	// <!-- tip responsive: drawer & responsive RULES -->
 	// <!-- .................. -->
@@ -138,11 +145,6 @@
 				? '10px solid cyan'
 				: '0px solid black';
 	}
-	//-------------------------------------------------------
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- axFrame APP');
-		$AX_STORE__UI_ISOPEN_drawer = false;
-	});
 	//-------------------------------------------------------
 	const toggleOpen = () => {
 		$AX_STORE__UI_ISOPEN_drawer = !$AX_STORE__UI_ISOPEN_drawer;

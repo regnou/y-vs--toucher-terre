@@ -9,7 +9,7 @@ export const axlog = (
 	hiLevel = false,
 	verb = 'MOUNT'
 ) => {
-	console.debug('🚔');
+	console.debug('🚔 🎤🎤 ');
 
 	console.dir(data);
 
@@ -29,5 +29,5 @@ export const axlog = (
 		\x1B[43;30;4m${JSON.stringify(data, null, 2)} \x1B[m\n`
 		);
 	}
-	console.debug('🚔\n');
+	// console.debug('🚔\n');
 };

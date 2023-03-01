@@ -56,11 +56,33 @@ export function createReduxStore(reducer) {
 // onMount(async () => {
 // 	axlog(_DAB_, $page.url.pathname, 'ACCEUIL (cms)');
 // 	// fetch data
-// 	console.debug('...');
+// 	console.debug('🐶...');
 // 	const r = await promise; // les types MATCH donc le biding devrait etre bon
 // 	// create _DAB_ connected to Redux & init it with data fetched (x1 time, becoz in mount)
 // 	_DAB_ = createReduxStore(reducerStatic);
 // 	_DAB_.dispatch('mod-hard', r);
 // 	// console.dir(_DAB_);
 // 	// axlog(_DAB_, $page.url.pathname, 'ACCEUIL (cms)');
+// });
+
+// onMount(async () => {
+// 	// axlog($store, $page.url.pathname, 'ACCEUIL (app)');
+// 	// console.debug('🐶...');
+// 	// const r = await promise; // les types MATCH donc le bding devrait etre bon
+// 	// store = createReduxStore(reducerStatic);
+// 	// store.dispatch('mod-hard', r);
+// 	// // hack
+// 	// _DAB_ = $store;
+// 	// axlog($store, $page.url.pathname, 'ACCEUIL (app)');
+// 	//
+// 	//
+// 	axlog(_DAB_, $page.url.pathname, 'ACCEUIL (app)');
+// 	console.debug('🐶...');
+// 	// const r = await promise; // les types MATCH donc le bding devrait etre bon
+// 	// store = createReduxStore(reducerStatic);
+// 	// store.dispatch('mod-hard', r);
+// 	// hack
+// 	_DAB_ = await promise;
+// 	// _DAB_ = $store;
+// 	// axlog($store, $page.url.pathname, 'ACCEUIL (app)');
 // });

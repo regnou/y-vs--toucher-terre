@@ -2,17 +2,10 @@ export const AX_CONST__DATASET_blog: I_DTO__post[] = [
 	{
 		createdAt: 1677360517,
 
-		titlePost: {
-			tag: 'text',
-			label: 'titre',
-			value: 'Cuisinières en terre crue'
-		},
-		slug: {
-			tag: 'text',
-			label: 'slug',
-			value: '/cuisiniere-terre-crue'
-		},
+		titlePost: { pos: 0, tag: 'text', label: 'titre', value: 'Cuisinières en terre crue' },
+		slug: { pos: 1, tag: 'text', label: 'slug', value: '/cuisiniere-terre-crue' },
 		body: {
+			pos: 2,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -23,17 +16,10 @@ export const AX_CONST__DATASET_blog: I_DTO__post[] = [
 	{
 		createdAt: 1677360516,
 
-		titlePost: {
-			tag: 'text',
-			label: 'titre',
-			value: 'Charpentes réciproques'
-		},
-		slug: {
-			tag: 'text',
-			label: 'slug',
-			value: '/charpente-reciproques'
-		},
+		titlePost: { pos: 0, tag: 'text', label: 'titre', value: 'Charpentes réciproques' },
+		slug: { pos: 1, tag: 'text', label: 'slug', value: '/charpente-reciproques' },
 		body: {
+			pos: 2,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -44,17 +30,10 @@ export const AX_CONST__DATASET_blog: I_DTO__post[] = [
 	{
 		createdAt: 1677360515,
 
-		titlePost: {
-			tag: 'text',
-			label: 'titre',
-			value: 'Poêles de masse'
-		},
-		slug: {
-			tag: 'text',
-			label: 'slug',
-			value: '/poele-de-masse'
-		},
+		titlePost: { pos: 0, tag: 'text', label: 'titre', value: 'Poêles de masse' },
+		slug: { pos: 1, tag: 'text', label: 'slug', value: '/poele-de-masse' },
 		body: {
+			pos: 2,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -65,17 +44,10 @@ export const AX_CONST__DATASET_blog: I_DTO__post[] = [
 	{
 		createdAt: 1677360514,
 
-		titlePost: {
-			tag: 'text',
-			label: 'titre',
-			value: 'Habitats réversibles et cabanes'
-		},
-		slug: {
-			tag: 'text',
-			label: 'slug',
-			value: '/habitat-reversible-cabannes'
-		},
+		titlePost: { pos: 0, tag: 'text', label: 'titre', value: 'Habitats réversibles et cabanes' },
+		slug: { pos: 1, tag: 'text', label: 'slug', value: '/habitat-reversible-cabannes' },
 		body: {
+			pos: 2,
 			tag: 'area',
 			label: 'corps',
 			value:
@@ -86,17 +58,10 @@ export const AX_CONST__DATASET_blog: I_DTO__post[] = [
 	{
 		createdAt: 1677360513,
 
-		titlePost: {
-			tag: 'text',
-			label: 'titre',
-			value: 'Enduits et arts'
-		},
-		slug: {
-			tag: 'text',
-			label: 'slug',
-			value: '/enduit-arts'
-		},
+		titlePost: { pos: 0, tag: 'text', label: 'titre', value: 'Enduits et arts' },
+		slug: { pos: 1, tag: 'text', label: 'slug', value: '/enduit-arts' },
 		body: {
+			pos: 2,
 			tag: 'area',
 			label: 'corps',
 			value:

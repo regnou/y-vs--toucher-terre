@@ -111,7 +111,10 @@
 
 <script lang="ts">
 	export let _DAB_: I_ENTITY__uiinputValue[] | undefined = undefined;
-	let promise = config__gets<I_ENTITY__uiinputValue>(AX_CONST__SCHEMA_COLLECTIONS_lademarche);
+	let promise = ConfigServices.getInstance().config__getsSorted<I_ENTITY__uiinputValue>(
+		AX_CONST__SCHEMA_COLLECTIONS_lademarche
+	);
+	// ...............
 	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import { AX_CONST__SCHEMA_COLLECTIONS_lademarche } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
@@ -119,15 +122,15 @@
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
 	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	import { config__gets } from 'app/domain/services/configService';
+	import { ConfigServices } from 'app/domain/services/ConfigServices';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	import Hero2 from '../widgets/Hero2.svelte';
 	import Paragraph from '../widgets/Paragraph.svelte';
 	import Separator from '../widgets/Separator.svelte';
 	onMount(async () => {
-		axlog(_DAB_, $page.url.pathname, 'BLOG (cms)');
-		console.debug('...');
+		axlog(_DAB_, $page.url.pathname, 'LA-DEMARCHE (cms)');
+		console.debug('🐶...');
 		_DAB_ = await promise;
 	});
 </script>

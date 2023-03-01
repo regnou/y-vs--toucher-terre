@@ -84,8 +84,7 @@ export function getFirebase() {
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	function connectToEmulators({ FIRESTORE }: any) {
 		//i f (location.hostname === 'localhost') {
-		console.debug('🚔🔥✅ 🟢🟢🟢🟢🟢🟢🟢🟢 USING > LOCAL-EMULATOR ');
-		console.debug('🚔🔥✅ 🟢🟢🟢🟢🟢🟢🟢🟢 FIRESTORE ');
+		console.debug('🚔🔥✅ 🟢🟢🟢   USING > LOCAL-EMULATOR FIRESTORE ');
 		// --- pour local
 		connectFirestoreEmulator(FIRESTORE, 'localhost', 8080);
 		// --- todo

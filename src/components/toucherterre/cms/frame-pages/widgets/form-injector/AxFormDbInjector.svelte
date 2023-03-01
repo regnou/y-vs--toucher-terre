@@ -28,7 +28,7 @@
 	export let _M_;
 	import { page } from '$app/stores';
 	import Button, { Label } from '@smui/button';
-	import { config__adds } from 'app/domain/services/configService';
+	import { ConfigServices } from 'app/domain/services/ConfigServices';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	onMount(() => {
@@ -40,7 +40,10 @@
 
 		if (!confirm('Effacer toute les donnees et injecter DEFAULT ?')) return;
 
-		await config__adds(_M_.conf__db, _M_.conf__db_dataset);
+		await ConfigServices.getInstance().clearCollection(_M_.conf__db);
+
+		await ConfigServices.getInstance().config__adds(_M_.conf__db, _M_.conf__db_dataset);
+		// ...............
 		console.debug('🌎🏎️✅ click << on:inject 2 🟨');
 	};
 </script>

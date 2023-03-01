@@ -81,7 +81,7 @@
 		"firebase": "^9.17.1",
 		"firelordjs": "^2.3.6",
 		"googleapis": "^111.0.0",
-		"libphonenumber-js": "^1.10.20",
+		"libphonenumber-js": "^1.10.21",
 		"minimist": "^1.2.8",
 		"svelte-material-ui": "^7.0.0-beta.0"
 	},
@@ -138,11 +138,11 @@
 		"smui-theme": "^6.2.0",
 		"@playwright/test": "^1.31.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.8.3",
-		"@typescript-eslint/eslint-plugin": "^5.53.0",
-		"@typescript-eslint/parser": "^5.53.0",
+		"@sveltejs/kit": "^1.8.8",
+		"@typescript-eslint/eslint-plugin": "^5.54.0",
+		"@typescript-eslint/parser": "^5.54.0",
 		"autoprefixer": "^10.4.13",
-		"eslint": "^8.34.0",
+		"eslint": "^8.35.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"husky": "^8.0.3",
@@ -157,7 +157,7 @@
 		"tslib": "^2.5.0",
 		"typescript": "^4.9.5",
 		"vite": "^4.1.4",
-		"vitest": "^0.28.5"
+		"vitest": "^0.29.2"
 	},
 	"type": "module"
 }

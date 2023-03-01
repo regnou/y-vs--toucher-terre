@@ -7,6 +7,9 @@
 <!-- tip responsive: header desapear becoz not enought space -->
 <!-- border-2 to debug (bg can not work ?) -->
 <!-- .................. -->
+<!-- ######################################## -->
+<!-- DIALOGn cf cms -->
+<!-- ######################################## -->
 <Section
 	style="background:{AX_CONST__FRAME_isDebugBg ? 'greenyellow' : 'none'}"
 	class="hidden justify-center   lg:flex"

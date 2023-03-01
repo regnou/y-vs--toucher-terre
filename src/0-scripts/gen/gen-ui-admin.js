@@ -13,7 +13,7 @@ const write = async (path, str) => {
 		// const promise = writeFile("./toto.txt", data, { signal });
 		// Abort the request before the promise settles.
 		// controller.abort();
-		console.debug('...');
+		console.debug('🐶...');
 		await promise;
 		// $$$ LOG
 		console.debug('🚔ALFRED REPORT');

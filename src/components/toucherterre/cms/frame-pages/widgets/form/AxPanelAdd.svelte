@@ -78,12 +78,13 @@
 <!-- {/if} -->
 <script lang="ts">
 	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
-	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
 	let open = false;
 	import { page } from '$app/stores';
 	import { Content, Header, Panel } from '@smui-extra/accordion';
 	import Button, { Label } from '@smui/button';
 	import IconButton, { Icon } from '@smui/icon-button';
+	import { ConfigServices } from 'app/domain/services/ConfigServices';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
@@ -94,7 +95,7 @@
 	// TODO- et pour add les events, c louche ?
 	// BEN OUI, il faut un TYPE ! cf, tag ? je pe savoir le type avec le PREMIER ELEMENT DUDATAARRDUMP, si il a titlePost ou titleEvent ...
 	// <!-- ######################################################### -->
-	const add = () => {
+	const add = async () => {
 		// <!-- ######################################################### -->
 		// if (!_DAB_ || !Array.isArray(_DAB_) || !_M_ || !_M_.conf__genericAdd)
 		if (!_DAB_ || !_M_ || !_M_.conf__genericAdd) return;
@@ -102,9 +103,9 @@
 		console.debug('🌎🏎️✅ click >> on:add 1 🟡');
 		if (confirm("Ajouter l'entité ?")) {
 			// create a doc, get a reference on it
+
 			// TODO - je n ai pas reussi a le type, et c post ou event
-			const post: I_ENTITY__post = {
-				idDoc: 'MUST-INIT',
+			const post: I_DTO__post = {
 				titlePost: structuredClone(_M_.conf__genericAdd[0]),
 				slug: structuredClone(_M_.conf__genericAdd[1]),
 				body: structuredClone(_M_.conf__genericAdd[2]),
@@ -123,8 +124,11 @@
 				// createdAt: serverTimestamp().toMillis()
 				// https://www.rowy.io/blog/firestore-timestamp
 			};
-			// guard
-			_DAB_.push(post);
+			// we must add it in the DB, before the UI
+
+			const postId = await ConfigServices.getInstance().config__add(_M_.conf__db, post);
+			const post2 = { ...post, idDoc: postId };
+			_DAB_.push(post2);
 			// tip: reset form
 			_M_.conf__genericAdd.forEach((itm) => {
 				itm.value = '';
@@ -132,7 +136,7 @@
 			// attention, chaque refresh update sa vue
 			// _M_ = _M_; // refresh ui : vue = ADD
 			_DAB_ = _DAB_; // refresh ui : vue = COLLECTION__EDIT
-			console.debug('🌎🏎️✅ click << on:add 2 🟨');
+			console.debug('🌎🏎️✅ click << on:add 2 🟨, _DAB_', _DAB_);
 		}
 	};
 	// <!-- ######################################################### -->

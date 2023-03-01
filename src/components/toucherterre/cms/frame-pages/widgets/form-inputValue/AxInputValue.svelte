@@ -26,11 +26,12 @@
 		<!--          -->
 		<!-- TXT AREA -->
 		<!--          -->
+		<!-- helperLine$style="width: 100%;"
+		 " -->
 		<Textfield
-			helperLine$style="width: 100%;"
-			style=" width: 100%; height: 200px; "
+			style=" height: 200px;"
 			textarea
-			class=" bg-gray-100"
+			class="w-full border-8 border-gray-100 bg-gray-100   outline-gray-100 hover:bg-gray-200 focus:bg-gray-500 "
 			bind:value={ivItm.value}
 			label={ivItm.label}
 		/>

@@ -13,7 +13,8 @@
 		".vscode/settings.json": true,
 		".firebase": true,
 		"media": true,
-		"z-doc": true
+		"z-doc": true,
+		"yarn.lock": true
 		// "lib": true
 	},
 	// --- file explorer

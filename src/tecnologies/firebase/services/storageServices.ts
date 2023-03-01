@@ -1,7 +1,7 @@
+import { ConfigServices } from 'app/domain/services/ConfigServices';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { AX_CONST__SCHEMA_COLLECTIONS_img } from '../../../domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 import { getFirebase } from '../firebaseClient';
-import { crud__add } from './crudFirestore';
 
 async function upload(fileax) {
 	// return new Promise(async function (resolve, reject) {
@@ -16,7 +16,10 @@ async function upload(fileax) {
 
 	// 1
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
-	const uid = await crud__add(AX_CONST__SCHEMA_COLLECTIONS_img, { filename: fileax.name.trim() });
+	console.debug('🐶...');
+	const uid = await ConfigServices.getInstance().crud__addNew(AX_CONST__SCHEMA_COLLECTIONS_img, {
+		filename: fileax.name.trim()
+	});
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
 
 	// 2
@@ -24,6 +27,7 @@ async function upload(fileax) {
 	// Create a storage reference from our storage service
 	const storageRef = ref(STORAGE, YOUR_STORAGE_PATH);
 	// 'file' comes from the Blob or File API
+	console.debug('🐶...');
 	const snap = await uploadBytes(storageRef, fileax);
 	const downloadURL = await getDownloadURL(snap.ref);
 
@@ -87,6 +91,7 @@ async function download(storagePath) {
 	// const storageRef = ref(STORAGE, file);
 	const { STORAGE } = getFirebase();
 	const storageRef = ref(STORAGE, storagePath);
+	console.debug('🐶...');
 	await getDownloadURL(storageRef);
 }
 

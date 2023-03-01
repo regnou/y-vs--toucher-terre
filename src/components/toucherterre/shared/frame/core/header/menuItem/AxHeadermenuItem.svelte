@@ -19,9 +19,15 @@
 		</Text>
 	</Item> -->
 	<!-- id="header-menuitem--1" -->
+	<!-- activated={active === menu.url} -->
 	<Button
 		href={menu.url}
-		class="mr-5 border-2 font-bold hover:bg-white/50 hover:text-orange-800"
+		class="{active === menu.url
+			? 'bg-white/10'
+			: ''} mr-5 border-2 font-bold hover:bg-white/50 hover:text-orange-800"
+		on:click={() => {
+			setActive(menu?.url);
+		}}
 	>
 		<!-- <a href={menu.url}> -->
 		<Label style="">
@@ -40,12 +46,6 @@
 	</Button>
 {/if}
 
-<!-- on:click={() => {
-	if (menu) setActive(menu.url);
-}} -->
-<!-- activated={active === menu.url} -->
-
-<!-- </Item> -->
 <style lang="postcss">
 	.uiDebug {
 		@apply border border-blue-500;
@@ -57,16 +57,14 @@
 </style>
 
 <script lang="ts">
+	export let menu: I_ui__menu | undefined = undefined;
+	let active: string | undefined = undefined;
 	import { page } from '$app/stores';
 	import Button, { Label } from '@smui/button';
 	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
-	// ----------------------------------------------
-	export let menu: I_ui__menu | undefined = undefined;
-	// ................................................
-	let active = $page.url.pathname;
 	$: active = $page.url.pathname;
-	// ------------------------------------------------
-	// function setActive(value) {
-	// 	active = value;
-	// }
+	function setActive(value) {
+		active = value;
+		console.log('current active: ', active);
+	}
 </script>

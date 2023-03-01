@@ -41,18 +41,37 @@
 	</Dialog>
 {/if}
 <!-- ######################################## -->
+<!-- LOGO CLIENT -->
 <Section
 	align="start"
 	style="background:{AX_CONST__FRAME_isDebugBg ? 'gray' : 'none'}"
-	class="     underline"
+	class="underline"
 >
-	<AxDrawerMenuitem
+	<!-- class="m-auto flex w-max items-center lg:m-0  " -->
+	<a
+		on:click={() => {
+			$AX_STORE__UI_ISOPEN_drawer = false;
+		}}
+		class=" flex w-max items-center  "
+		href={AX_CONST__FRAME_URL_home}
+	>
+		<img
+			class="h-10 w-10"
+			src={AX_CONST__FRAME_favicon}
+			alt=""
+		/>
+		<!-- {#if isXxl} -->
+		<div class="ml-2">Toucher Terre</div>
+		<!-- {/if} -->
+	</a>
+
+	<!-- <AxDrawerMenuitem
 		menu={{
 			title: 'Toucher Terre',
 			url: AX_CONST__FRAME_URL_home,
 			img: AX_CONST__FRAME_favicon
 		}}
-	/>
+	/> -->
 </Section>
 <Section
 	class="hidden justify-center lg:flex"
@@ -99,7 +118,7 @@
 	// c faux, puisque, je peux add un new item (qui n a pas d id) et du coups le tableau est fake
 	// Pour simplifier, je pose une contrainte, ca doit etre des ENTITES a chaque fois
 
-	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
 	let dialog: any = undefined;
 	let open = false; // dialog controler
 	const title = 'ENREGISTRER';
@@ -114,10 +133,11 @@
 	import { AX_CONST__FRAME_isDebugBg } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
 	import { AX_CONST__FRAME_favicon } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
 	import { AX_CONST__FRAME_URL_home } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_urls';
-	import { config__mod } from 'app/domain/services/configService';
 	import { upload } from 'app/tecnologies/firebase/services/storageServices';
 	import { isInputValue } from 'app/utils/guards';
 	import AxDrawerMenuitem from '../drawer/menu-item/AxDrawerMenuitem.svelte';
+	import { AX_STORE__UI_ISOPEN_drawer } from 'app/stores/AX_STORE__UI_isopen';
+	import { ConfigServices } from 'app/domain/services/ConfigServices';
 	$: if (dialog && open) dialog.open();
 	// ------------------------------------------------
 	onMount(() => {
@@ -142,7 +162,7 @@
 				}
 		}
 		// axlog(store, $page.url.pathname, 'SAVE', false, 'DEBUG-AVANT-SAVE');
-		await config__mod(conf__db, imuArr);
+		await ConfigServices.getInstance().config__adds(conf__db, imuArr);
 		//
 		console.debug('🌎🏎️✅ click << on:save 2 🟨');
 		return;
@@ -162,7 +182,7 @@
 						console.log('🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 ');
 						console.log('Uploading your image...');
 						// console.dir(item.blobs);
-						// console.debug('...');
+						// console.debug('🐶...');
 						// ---------------------------------------------------
 						const urlStorage = await upload(item.blobs);
 						// ---------------------------------------------------

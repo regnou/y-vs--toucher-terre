@@ -51,8 +51,8 @@ declare global {
 		createdAt: number;
 	}
 	interface I_DTO__uiinputValue {
-		pos?: number;
-		tag?: string; // si il n y a pas de tag, ca sera TYPE par default
+		pos: number;
+		tag: string; // si il n y a pas de tag, ca sera TYPE par default
 		label: string;
 		value: string; // (value  = storageUrl (in the case of tag=file)
 		blobs?: any[]; // on l ajoute et puis on le supprime pour l upload

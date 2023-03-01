@@ -28,6 +28,11 @@
 {/await}
 
 <script lang="ts">
+	export let _DAB_: I_ENTITY__event[] | undefined = undefined;
+	let promise = ConfigServices.getInstance().config__gets<I_ENTITY__event>(
+		AX_CONST__SCHEMA_COLLECTIONS_event
+	);
+	// ...............
 	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import { AX_CONST__SCHEMA_COLLECTIONS_event } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
@@ -35,17 +40,13 @@
 		AX_CONST__FRAME_distanceFromHeader,
 		AX_CONST__FRAME_maxBodyApp
 	} from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
-	import { config__gets } from 'app/domain/services/configService';
+	import { ConfigServices } from 'app/domain/services/ConfigServices';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	import Eventcard from '../widgets/Eventcard.svelte';
-	// --------------------------------------------------------
-	export let _DAB_: I_ENTITY__event[] | undefined = undefined;
-	let promise = config__gets<I_ENTITY__event>(AX_CONST__SCHEMA_COLLECTIONS_event);
-	// --------------------------------------------------------
 	onMount(async () => {
-		console.debug('...');
+		axlog(_DAB_, $page.url.pathname, 'EVENT (cms)');
+		console.debug('🐶...');
 		_DAB_ = await promise;
-		axlog(_DAB_, $page.url.pathname, 'BLOG (cms)');
 	});
 </script>

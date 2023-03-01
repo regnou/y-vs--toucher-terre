@@ -13,10 +13,7 @@
 		<Header class="bg-white">
 			<!-- <span slot="description"> -->
 			<!-- base guard -->
-			<div
-				style="max-width:250px"
-				class=" "
-			>
+			<div class="">
 				{#if item}
 					{#if isEntityPost(item)}
 						{item.titlePost.value}
@@ -42,7 +39,7 @@
 				<!-- {/if} -->
 			</div>
 		</Header>
-		<Content class="space-y-5 bg-blue-800">
+		<Content class=" bg-blue-800">
 			{#each Object.entries(item) as [key, prop], pos}
 				<AxInputValue
 					{pos}
@@ -54,7 +51,7 @@
 {/if}
 
 <script lang="ts">
-	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
 	export let item: T_GLOBAL_ENTITIES | undefined = undefined;
 	export let pos: number | undefined = undefined;
 	let open = false; // remettre ? export let open = type === 'staticpage' ? true : false;
@@ -68,7 +65,7 @@
 	onMount(() => {
 		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel edit');
 	});
-	$: console.log('>>>>>>>>>>>>>> open: ', open);
+	// $: console.log('>>>>>>>>>>>>>> open: ', open);
 	// DEL
 	// <!-- ######################################################### -->
 	const del = () => {

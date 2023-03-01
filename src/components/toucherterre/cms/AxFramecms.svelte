@@ -73,7 +73,7 @@
 
 <script lang="ts">
 	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
-	export let _DAB_: T_GLOBALS[] | undefined = undefined;
+	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
 	// ............................................
 	// let variant: T_ui__dynvariant = undefined;
 	let topAppBar;
@@ -127,10 +127,6 @@
 		axlog(undefined, $page.url.pathname, 'wc -- axFrame CMS');
 		$AX_STORE__UI_ISOPEN_drawer = true;
 	});
-	//-------------------------------------------------------
-	// const toggleOpen = () => {
-	// 	$AX_STORE__UI_ISOPEN_drawer = !$AX_STORE__UI_ISOPEN_drawer;
-	// };
 	//-------------------------------------------------------
 	//press esc TO open/close drawer
 	function handleNavWithKey(e) {
