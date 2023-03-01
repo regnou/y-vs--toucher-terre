@@ -81,13 +81,13 @@
 	// tip: it is a DTO, it is dumb, it is just to display the informations and metas
 	export let ivItm: I_DTO__uiinputValue | undefined = undefined; // take a reference to the STORE
 	export let pos: number | undefined = undefined;
+	onMount(() => {
+		axlog({ ivItm, pos }, $page.url.pathname, 'wc -- ax input value', false, 'MOUNT', true);
+	});
 	import { page } from '$app/stores';
 	import Textfield from '@smui/textfield';
 	import { AX_CONST__formatMedia } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_ui';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	import Axfileupload from './AxFileupload.svelte';
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax input value');
-	});
 </script>

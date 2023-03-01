@@ -31,11 +31,15 @@
 {/await}
 
 <script lang="ts">
-	export let _DAB_: I_ENTITY__post[] | undefined = undefined;
-	let promise = ConfigServices.getInstance().config__gets<I_ENTITY__post>(
+	let promise = ConfigServices.getInstance().config__getAllCollection<I_ENTITY__post>(
 		AX_CONST__SCHEMA_COLLECTIONS_blog
 	);
-	// ...............
+	export let _DAB_: I_ENTITY__post[] | undefined = undefined;
+	onMount(async () => {
+		axlog(_DAB_, $page.url.pathname, '****** BLOG ******', false, 'MOUNT', true);
+		console.debug('🚔 🏎️🐶 ... -- blog');
+		_DAB_ = await promise;
+	});
 	import { page } from '$app/stores';
 	import { AX_CONST__SCHEMA_COLLECTIONS_blog } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	import {
@@ -46,25 +50,12 @@
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	import Post from '../widgets/Post.svelte';
-	onMount(async () => {
-		axlog(_DAB_, $page.url.pathname, 'BLOG (cms)');
-		console.debug('🐶...');
-		_DAB_ = await promise;
-	});
 	// TODO - do it elsewhere ?
 	const IMU_sort = (mutable__arr: I_ENTITY__post[]) => {
-		console.log('IMU_sort says: arrSorted', mutable__arr);
 		mutable__arr.sort((a, b) => {
 			return a.createdAt >= b.createdAt ? -1 : 1;
 		});
-		console.log('IMU_sort says: arrSorted', mutable__arr);
+		// console.debug('react-ui >> IMU_sort says: arrSorted', mutable__arr);
 		return mutable__arr;
-		// return arrSorted;
-
-		// const arrSorted = mutable__arr.sort((a, b) => {
-		// 	return a.createdAt >= b.createdAt ? -1 : 1;
-		// });
-		// console.log('arrSorted', arrSorted);
-		// return arrSorted;
 	};
 </script>

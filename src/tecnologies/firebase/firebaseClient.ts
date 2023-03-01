@@ -17,19 +17,19 @@ import { getStorage } from 'firebase/storage';
 // getFirebase(); //todo ?Export firestore incase we need to access it directly
 
 export function getFirebase() {
-	// console.debug('🚔🔥');
+	// console.debug('🚔 🔥');
 	const services = initializeServices();
 	if (!services.isConfigured) {
-		console.debug('🚔🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
-		console.debug('🚔🔥✅ 🎉  Initializing FIREBASE <-- [1st time] ');
-		console.debug('🚔🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
+		console.debug('🚔 🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
+		console.debug('🚔 🔥✅ 🎉  Initializing FIREBASE <-- [1st time] ');
+		console.debug('🚔 🔥✅ 🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉');
 		// initAllCol(services.FIRESTORE); // todo ???
 		//////////////////////////////////
 		if (dev) {
 			connectToEmulators(services); // actuellement en local  // 🟢  COMMENT
 		} else {
-			console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
-			console.debug('🚔🔥✅ 🟠🟠🟠🟠🟠🟠🟠  FIRESTORE '); // 🟢  UN-COMMENT
+			console.debug('🚔 🔥✅ 🟠🟠🟠🟠🟠🟠🟠  USING > PRODUCTION '); // 🟢 UN-COMMENT
+			console.debug('🚔 🔥✅ 🟠🟠🟠🟠🟠🟠🟠  FIRESTORE '); // 🟢  UN-COMMENT
 		}
 		// enableMultiTabIndexedDbPersistence(services.firestore)
 	}
@@ -84,12 +84,12 @@ export function getFirebase() {
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	function connectToEmulators({ FIRESTORE }: any) {
 		//i f (location.hostname === 'localhost') {
-		console.debug('🚔🔥✅ 🟢🟢🟢   USING > LOCAL-EMULATOR FIRESTORE ');
+		console.debug('🚔 🔥✅ 🟢🟢🟢   USING > LOCAL-EMULATOR FIRESTORE ');
 		// --- pour local
 		connectFirestoreEmulator(FIRESTORE, 'localhost', 8080);
 		// --- todo
 		// connectAuthEmulator(AUTH, 'http://localhost:9099');
-		// } e lse { console.debug('🚔🟥🟥 oooooooooo USING PRODUCTION oooooooooo 🟥🟥');
+		// } e lse { console.debug('🚔 🟥🟥 oooooooooo USING PRODUCTION oooooooooo 🟥🟥');
 	}
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 }

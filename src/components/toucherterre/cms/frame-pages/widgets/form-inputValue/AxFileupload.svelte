@@ -12,7 +12,6 @@ mx-auto
 my-2
 h-44
 max-w-xs
-
 overflow-hidden
 rounded-xl
 border-2
@@ -44,7 +43,6 @@ hover:bg-black/30
 		h-44
 		cursor-pointer
 		rounded-lg
-	
 		"
 	/>
 	<!-- <div class="relative"> -->
@@ -75,6 +73,12 @@ hover:bg-black/30
 	<!-- </div> -->
 </div>
 
+<!-- // $: console.debug('label', ivItm?.label.replaceAll(' ', '_'));
+// to upload binary
+// let imgFromElement: string | ArrayBuffer | null | undefined = undefined; // cf type FileReader
+// let hasUploaded_aLocalImg = false;
+// TOLERATED BUG TYPE
+// let files: any | null = null; -->
 <style lang="postcss">
 	.megacenter {
 		@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform;
@@ -84,17 +88,14 @@ hover:bg-black/30
 <script lang="ts">
 	export let ivItm: I_DTO__uiinputValue | undefined = undefined; // we have to dynamically add a field, that is the blob UPLOADED
 	export let pos: number | undefined = undefined;
+	let imgFromElement;
+	onMount(() => {
+		axlog({ ivItm, pos }, $page.url.pathname, 'wc -- ax file upload', false, 'MOUNT', true);
+	});
 	import { page } from '$app/stores';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
-	// $: console.log('label', ivItm?.label.replaceAll(' ', '_'));
-	$: console.log('imgFromElement', imgFromElement);
-	// to upload binary
-	// let imgFromElement: string | ArrayBuffer | null | undefined = undefined; // cf type FileReader
-	let imgFromElement;
-	// let hasUploaded_aLocalImg = false;
-	// TOLERATED BUG TYPE
-	// let files: any | null = null;
+	$: console.debug('imgFromElement', imgFromElement);
 	// -----------------------------------------
 	// UPLOADED IMG
 	// -----------------------------------------
@@ -105,9 +106,9 @@ hover:bg-black/30
 		reader.onload = (e) => {
 			imgFromElement = e.target?.result;
 			if (ivItm) {
-				console.log('imgFromElement::::', imgFromElement);
+				console.debug('imgFromElement::::', imgFromElement);
 				ivItm.value = imgFromElement;
-				console.log('blob file added', image, 'ivItm', ivItm);
+				console.debug('blob file added', image, 'ivItm', ivItm);
 				// step 1 - we add the file to the blob, so we update it to the storage when the user will click on SAVE
 				// EROR HERE
 				// ivItm.blobs = files;
@@ -115,7 +116,4 @@ hover:bg-black/30
 			}
 		};
 	};
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax file uplad');
-	});
 </script>

@@ -1,8 +1,9 @@
 /**
  * Utilise dans 2 cas:
- * - le drawer (app)
- * - le header (app)
- */
+ * - le drawer - app
+ * - le header -- app
+ *
+ **/
 
 export const AX_CONST__FRAME_MENU_app: I_ui__menu[] = [
 	{

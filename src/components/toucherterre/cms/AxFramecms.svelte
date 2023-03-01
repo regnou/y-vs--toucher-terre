@@ -91,6 +91,10 @@
 	let isLg = matches(lg);
 	let isXl = matches(xl);
 	let isXxl = matches(xxl);
+	onMount(() => {
+		axlog(_DAB_, $page.url.pathname, '# wc -- ax FRAME', false, 'MOUNT', true);
+		$AX_STORE__UI_ISOPEN_drawer = true;
+	});
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import Drawer, { AppContent } from '@smui/drawer';
@@ -123,10 +127,7 @@
 				: '0px solid black';
 	}
 	//-------------------------------------------------------
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- axFrame CMS');
-		$AX_STORE__UI_ISOPEN_drawer = true;
-	});
+
 	//-------------------------------------------------------
 	//press esc TO open/close drawer
 	function handleNavWithKey(e) {

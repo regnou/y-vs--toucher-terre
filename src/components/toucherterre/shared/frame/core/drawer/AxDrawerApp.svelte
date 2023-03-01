@@ -29,6 +29,10 @@
 </Content>
 
 <script lang="ts">
+	onMount(() => {
+		axlog('🍃', $page.url.pathname, 'wc -- ax drawer app', false, 'MOUNT', true);
+	});
+
 	import { page } from '$app/stores';
 	import { Content } from '@smui/drawer';
 	import List, { Subheader } from '@smui/list';
@@ -42,8 +46,4 @@
 		default as AxDrawerMenuItem,
 		default as AxDrawermenuItem
 	} from './menu-item/AxDrawerMenuitem.svelte';
-
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax drawer app');
-	});
 </script>

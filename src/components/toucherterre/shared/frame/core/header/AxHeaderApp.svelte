@@ -70,6 +70,9 @@
 </Section>
 
 <script lang="ts">
+	onMount(() => {
+		axlog('🍃', $page.url.pathname, 'wc -- ax header app', false, 'MOUNT', true);
+	});
 	import { page } from '$app/stores';
 	import Fab from '@smui/fab';
 	import { Icon } from '@smui/icon-button';
@@ -91,7 +94,4 @@
 	// 		doSearch();
 	// 	}
 	// }
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax header app');
-	});
 </script>

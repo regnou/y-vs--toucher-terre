@@ -111,10 +111,15 @@
 
 <script lang="ts">
 	export let _DAB_: I_ENTITY__uiinputValue[] | undefined = undefined;
-	let promise = ConfigServices.getInstance().config__getsSorted<I_ENTITY__uiinputValue>(
-		AX_CONST__SCHEMA_COLLECTIONS_lademarche
-	);
-	// ...............
+	let promise =
+		ConfigServices.getInstance().config__getAllCollections_Sorted<I_ENTITY__uiinputValue>(
+			AX_CONST__SCHEMA_COLLECTIONS_lademarche
+		);
+	onMount(async () => {
+		axlog(_DAB_, $page.url.pathname, '****** LA-DEMARCHE ******', false, 'MOUNT', true);
+		console.debug('🚔 🏎️🐶 ... -- lademarche');
+		_DAB_ = await promise;
+	});
 	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
 	import { AX_CONST__SCHEMA_COLLECTIONS_lademarche } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
@@ -128,9 +133,4 @@
 	import Hero2 from '../widgets/Hero2.svelte';
 	import Paragraph from '../widgets/Paragraph.svelte';
 	import Separator from '../widgets/Separator.svelte';
-	onMount(async () => {
-		axlog(_DAB_, $page.url.pathname, 'LA-DEMARCHE (cms)');
-		console.debug('🐶...');
-		_DAB_ = await promise;
-	});
 </script>

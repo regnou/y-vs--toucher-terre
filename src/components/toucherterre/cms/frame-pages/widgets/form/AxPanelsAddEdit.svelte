@@ -16,7 +16,9 @@
 		<!-- AXREMET- l id va par la ? -->
 		<!-- {#each _DAB_ as entity, pos (String(pos))} -->
 		<!-- tip - HACK - essaie de mettre un STRING (id) au lieu de entity -->
+
 		{#each _DAB_ as entity, pos (entity.idDoc)}
+			<!-- {@debug entity} -->
 			<!-- {#if isEntity(entity)} -->
 			<!-- AXREMET - 
 				<!-- ####################################### -->
@@ -45,6 +47,9 @@
 <script lang="ts">
 	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
 	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
+	onMount(() => {
+		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel add-edit', false, 'MOUNT', true);
+	});
 	import { page } from '$app/stores';
 	import Accordion from '@smui-extra/accordion';
 	import { axlog } from 'app/utils/axLog';
@@ -53,7 +58,9 @@
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
 	import PanelAdd from './AxPanelAdd.svelte';
 	import PanelEdit from './AxPanelEdit.svelte';
-	onMount(() => {
-		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel add-edit');
-	});
+	$: {
+		console.debug('################');
+		console.dir(_DAB_);
+		console.debug('################');
+	}
 </script>

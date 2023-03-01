@@ -5,8 +5,8 @@
     // function demo() {
     // 	const a: I_ENTITY__uiinputValue = { label: 'a', value: 'b', id: 'c' };
     // 	let post: I_ENTITY__event = { titleEvent: a, slug: a, body: a, date: a, image: a };
-    // 	if (isEntityPost(post)) console.log(post.titlePost);
-    // 	if (isEntityEvent(post)) console.log(post.titlePost);
+    // 	if (isEntityPost(post)) console.debug(post.titlePost);
+    // 	if (isEntityEvent(post)) console.debug(post.titlePost);
     // 	// ----------------
     // 	function getSmallPet(): Animal {
     // 		const a: Animal = { swim: () => 'a' }; // secret fish at dyn time
@@ -60,12 +60,12 @@ const dispatch = createEventDispatcher();
     	<!-- // const dispatch = createEventDispatcher();
 
 // onMount(() => {
-// console.debug('🚔-- onMount');
+// console.debug('🚔 -- onMount');
 // dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
 // });
 
 // afterUpdate(() => {
-// console.debug('🚔-- afterUpdate');
+// console.debug('🚔 -- afterUpdate');
 // // dispatch('updateBg', { name: '/media/bg/bg-2.jpg' });
 // }); -->
 
@@ -77,8 +77,8 @@ const dispatch = createEventDispatcher();
     	// 		// const urlStorage = await upload(fileList[0]);
 
     	// 		$store[i].iv = urlStorage;
-    	// 		console.debug('🚔UPDATE FINAL : ', $store[i].iv, ' -- ', urlStorage);
-    	// 		console.debug('🚔________________________________');
+    	// 		console.debug('🚔 UPDATE FINAL : ', $store[i].iv, ' -- ', urlStorage);
+    	// 		console.debug('🚔 ________________________________');
     	// 	}
     	// });
 
@@ -87,7 +87,7 @@ const dispatch = createEventDispatcher();
     // let hhh = 'N/A';
     // $: {
     // 	hhh = 'h-[calc(100vh-theme(' + hh + '))]';
-    // 	console.debug('🚔ici:', hhh);
+    // 	console.debug('🚔 ici:', hhh);
     // }
     // TODO - dj mike, met l interpolation
 

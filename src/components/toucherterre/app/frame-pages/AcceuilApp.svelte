@@ -48,10 +48,15 @@
 <!-- </div> -->
 <script lang="ts">
 	export let _DAB_: I_ENTITY__uiinputValue[] | undefined = undefined;
-	let promise = ConfigServices.getInstance().config__getsSorted<I_ENTITY__uiinputValue>(
-		AX_CONST__SCHEMA_COLLECTIONS_acceuil
-	);
-	// ...............
+	let promise =
+		ConfigServices.getInstance().config__getAllCollections_Sorted<I_ENTITY__uiinputValue>(
+			AX_CONST__SCHEMA_COLLECTIONS_acceuil
+		);
+	onMount(async () => {
+		axlog(_DAB_, $page.url.pathname, '****** ACCEUIL ******', false, 'MOUNT', true);
+		console.debug('🚔 🏎️🐶 ... -- acceuil');
+		_DAB_ = await promise;
+	});
 	// import Slider from '../Slider.svelte';
 	import { page } from '$app/stores';
 	import { AX_CONST__SCHEMA_COLLECTIONS_acceuil } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
@@ -68,9 +73,4 @@
 	import SeparatorMedium from '../widgets/SeparatorMedium.svelte';
 	import Title from '../widgets/Title.svelte';
 	import Twocol from '../widgets/Twocol.svelte';
-	onMount(async () => {
-		axlog(_DAB_, $page.url.pathname, 'ACCEUIL (app)');
-		console.debug('🐶...');
-		_DAB_ = await promise;
-	});
 </script>

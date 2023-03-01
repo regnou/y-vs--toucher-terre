@@ -20,6 +20,6 @@
 	import { onMount } from 'svelte';
 	import { axlog } from 'app/utils/axLog';
 	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'HOME-APP (cms)');
+		axlog('🍃', $page.url.pathname, 'HOME-APP ');
 	});
 </script>

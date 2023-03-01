@@ -16,7 +16,7 @@ async function upload(fileax) {
 
 	// 1
 	// 		 HERE, create a unique ID for the img, or it will be erased !!!
-	console.debug('🐶...');
+	console.debug('🚔 🐶🔥 ...');
 	const uid = await ConfigServices.getInstance().crud__addNew(AX_CONST__SCHEMA_COLLECTIONS_img, {
 		filename: fileax.name.trim()
 	});
@@ -27,13 +27,13 @@ async function upload(fileax) {
 	// Create a storage reference from our storage service
 	const storageRef = ref(STORAGE, YOUR_STORAGE_PATH);
 	// 'file' comes from the Blob or File API
-	console.debug('🐶...');
+	console.debug('🚔 🐶🔥 ...');
 	const snap = await uploadBytes(storageRef, fileax);
 	const downloadURL = await getDownloadURL(snap.ref);
 
 	//
 	console.debug('-----------------------------------------');
-	console.debug('🚔 Upload finished: downloadURL/urlStorage: ', downloadURL, 'fileax', fileax);
+	console.debug('🚔  Upload finished: downloadURL/urlStorage: ', downloadURL, 'fileax', fileax);
 	console.debug('-----------------------------------------');
 	return downloadURL;
 
@@ -91,7 +91,7 @@ async function download(storagePath) {
 	// const storageRef = ref(STORAGE, file);
 	const { STORAGE } = getFirebase();
 	const storageRef = ref(STORAGE, storagePath);
-	console.debug('🐶...');
+	console.debug('🚔 🐶🔥...');
 	await getDownloadURL(storageRef);
 }
 

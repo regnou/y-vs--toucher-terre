@@ -13,13 +13,13 @@ const write = async (path, str) => {
 		// const promise = writeFile("./toto.txt", data, { signal });
 		// Abort the request before the promise settles.
 		// controller.abort();
-		console.debug('🐶...');
+		console.debug('🚔 🐶...');
 		await promise;
 		// $$$ LOG
-		console.debug('🚔ALFRED REPORT');
-		console.debug('🚔☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕\n');
-		console.debug('🚔(1) FILE IS WRITTEN: \n', path);
-		console.debug('🚔\n☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕');
+		console.debug('🚔 ALFRED REPORT');
+		console.debug('🚔 ☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕\n');
+		console.debug('🚔 (1) FILE IS WRITTEN: \n', path);
+		console.debug('🚔 \n☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕');
 	} catch (err) {
 		// When a request is aborted - err is an AbortError
 		console.error(err);
@@ -39,8 +39,8 @@ function generate(dir, x, y) {
 	const tpl = TPL_UIADMIN.replaceAll('XXX', XXX).replaceAll('YYY', YYY);
 
 	// step 3
-	console.debug('🚔DEBUG > ', tpl);
-	console.debug('🚔DEBUG > ', fileToCreate1);
+	console.debug('🚔 DEBUG > ', tpl);
+	console.debug('🚔 DEBUG > ', fileToCreate1);
 	write(fileToCreate1, tpl);
 
 	// step 4

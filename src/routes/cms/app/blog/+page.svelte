@@ -11,7 +11,7 @@
 </AxFramecms>
 
 <script lang="ts">
-	// 🔥🔥🔥
+	// 🔥🔥🔥 DYN
 	const _M_: I_DB_CONFIG<I_ENTITY__post, I_DTO__post> = {
 		conf__db: AX_CONST__SCHEMA_COLLECTIONS_blog,
 		conf__db_dataset: AX_CONST__DATASET_blog,
@@ -27,6 +27,6 @@
 	import { onMount } from 'svelte';
 	import { axlog } from 'app/utils/axLog';
 	onMount(() => {
-		axlog(_DAB_, $page.url.pathname, 'BLOG (cms)');
+		axlog(_DAB_, $page.url.pathname, 'BLOG ');
 	});
 </script>

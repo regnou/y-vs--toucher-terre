@@ -3,23 +3,23 @@
 //-----------------------------------------------------------
 export const isInputValues = (test: T_GLOBALS[], log = false): test is I_ENTITY__uiinputValue[] => {
 	const r = isInputValue(test[0]);
-	log ? console.log('isInputValues? : ', r) : '';
+	log ? console.debug('isInputValues? : ', r) : '';
 	return r;
 };
 
 export const isInputValue = (test: T_GLOBALS, log = false): test is I_ENTITY__uiinputValue => {
 	const r = (test as I_ENTITY__uiinputValue).value !== undefined;
-	log ? console.log('isInputValue? : ', r) : '';
+	log ? console.debug('isInputValue? : ', r) : '';
 	return r;
 };
 export const isEntityEvent = (test: T_GLOBALS, log = false): test is I_ENTITY__event => {
 	const r = (test as I_ENTITY__event).titleEvent !== undefined;
-	log ? console.log('isEntityEvent? : ', r) : '';
+	log ? console.debug('isEntityEvent? : ', r) : '';
 	return r;
 };
 export const isEntityPost = (test: T_GLOBALS, log = false): test is I_ENTITY__post => {
 	const r = (test as I_ENTITY__post).titlePost !== undefined;
-	log ? console.log('isEntityPost? : ', r) : '';
+	log ? console.debug('isEntityPost? : ', r) : '';
 	return r;
 };
 
@@ -28,6 +28,6 @@ export const isEntity = (test: T_GLOBALS, log = false): test is T_GLOBAL_ENTITIE
 	// if (test.idDoc)
 
 	// 	const r = 'idDoc' in test;
-	log ? console.log('isEntity ?', r) : '';
+	log ? console.debug('isEntity ?', r) : '';
 	return r;
 };

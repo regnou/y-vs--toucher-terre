@@ -1,0 +1,137 @@
+				// && data.pageItemsStore
+					// console.dir(data.pageItemsStore);
+					// tip: qd le loader s arrete et que ca s affiche alors c OK !
+					// openSnack('firestore', `🧞‍♂️ [ loaded ] ${col.id.toUpperCase()} ✅`);
+	
+	
+		// console.debug(doc.data());
+					// console.debug(doc.id);
+					// const { data } = await this.crud__getId<T>(col, id);
+				
+				
+						// if ('idDoc' in entity2)
+
+			// if (entity.idDoc === 'MUST-INIT')
+			// BEFORE i use mod
+			// await this.crud__modSoft<T>(col, entity2.idDoc, entity2);
+			// tip -- NOW i do not use it => SHOULD REPLACE EVERYTHING
+
+	
+	
+	
+			// const entity2 = { ...entity, dateUpdated: serverTimestamp() };
+				// if ('idDoc' in entity)
+				// 	// if (isEntity(entityOrDto))
+				// 	// if (entity.idDoc === 'MUST-INIT')
+				// 	await this.crud__modSoft<T>(col, entity2.idDoc, entity2);
+				// // CRUD MOD-SOFT (MERGE) + T must be of type ENTITY !
+				// //
+				// else await this.crud__add<T>(col, entity2); // CRUD ADD NEW (and tag it)
+	
+	
+	
+		// // . . . . . . . . . . . . . . . . . . . .
+	// PAS DE SYSTEME optimise de 'tu changes juste les chps qui ont changés)
+	// // this add WILL merge with the existing doc
+	// private config__mod = async <T extends T_GLOBAL_ENTITIES>(
+	// 	// . . . . . . . . . . . . . . . . . . . .
+	// 	col: CollectionReference<T>,
+	// 	data: T
+	// ) => {
+	// 	const id = AX__CONST__DB_idRootDoc;
+	// 	try {
+	// 		const entity = {
+	// 			// OBSOLETE !!!!!!!!!!!!!!!!!!!!!
+	// 			pageItemsStore: data,
+	// 			dateUpdated: serverTimestamp()
+	// 		};
+	// 		await this.crud__modSoft<T>(col, id, entity);
+	// 		openSnack('firestore', `🧞‍♂️ [ saved ] ${col.id.toUpperCase()} ✅`);
+	// 	} catch (error) {
+	// 		openSnack('firestore', `🧞‍♂️ [ saved ] ${col.id.toUpperCase()} ❌`);
+	// 	}
+	// };
+
+
+// . . . . . . . . . . . . . . . . . . . .
+// -- gets
+//  const pageService_dbGetIds = async <T>(col) => {
+// 	try {
+// 		const r = await firestore__gets<T>(col);
+// 		openSnack('firestore', `🚔🧞‍♂️✅ (🔥+🏎️) GET (all) ... ${col.id.toUpperCase()}`);
+// 		return r;
+// 	} catch (error) {
+// 		openSnack('firestore', `🚔🧞‍♂️❌ (🔥+🏎️) GET (all) ... ${col.id.toUpperCase()}`);
+// 	}
+// };
+// . . . . . . . . . . . . . . . . . . . .
+// -- post
+// this add WILL replace totally the existing doc
+//  const serviceDb_add = async (col, data) => {
+// 	try {
+// 		// todo - attention, on modifie la source !!!
+// 		// ---
+// 		const r = await firestore__add(col, data);
+// 		openSnack('firestore', `🚔🧞‍♂️✅ (🔥+🏎️) ADD (hard) > ${col.id.toUpperCase()}`);
+// 		return r;
+// 	} catch (error) {
+// 		openSnack('firestore', `🚔🧞‍♂️❌ (🔥+🏎️) ADD (hard) > ${col.id.toUpperCase()}`);
+// 		return [];
+// 	}
+// };
+// . . . . . . . . . . . . . . . . . . . .
+//  const serviceDb_del = async (col) => {
+// 	console.debug(col);
+// 	// try {
+// 	// 	const data = (await firestore__gets<T_pageItem>(col)) || [];
+// 	// 	data.forEach(async (itm) => {
+// 	// 		await firestore__del(col, itm.id);
+// 	// 	});
+// 	// 	openSnack('firestore', `🚔🧞‍♂️✅ (🔥+🏎️) DEL (all) > ${col.id.toUpperCase()}`);
+// 	// } catch (error) {
+// 	// 	openSnack('firestore', `🚔🧞‍♂️❌ (🔥+🏎️) DEL (all) > ${col.id.toUpperCase()}`);
+// 	// return undefined;
+// 	// }
+// };
+// ################## TO DEL
+// ################## TO DEL
+// ################## TO DEL
+// ################## TO DEL
+// ################## TO DEL
+// ################## TO DEL
+//  OLD model
+// const id = AX__CONST__DB_idRootDoc;
+// try {
+// 	const entity = {
+// 		pageItemsStore: arr,
+// 		dateCreated: serverTimestamp(),
+// 		dateUpdated: serverTimestamp()
+// 	};
+// 	await this.crud__addId<T>(col, id, entity);
+// 	openSnack('firestore', `🧞‍♂️ [ injected ]  ${col.id.toUpperCase()} ! ✅`);
+// } catch (error) {
+// 	openSnack('firestore', `🧞‍♂️ [ injected ]  ${col.id.toUpperCase()} ! ❌`);
+// }
+//
+//
+// const id = AX__CONST__DB_idRootDoc;
+// try {
+// 	const { data } = await this.crud__getId<T>(col, id);
+// 	if (data) {
+// 		// && data.pageItemsStore
+// 		console.dir(data.pageItemsStore);
+// 		console.debug('🧞‍♂️✅ CONVERT-ED 🔥 -> 🏎️\n🚔');
+// 		// OK - qd le loader s arrete et que ca s affiche alors c OK !
+// 		// openSnack('firestore', `🧞‍♂️ [ loaded ] ${col.id.toUpperCase()} ✅`);
+// 		return data.pageItemsStore;
+// 	} else {
+// 		openSnack(
+// 			'firestore',
+// 			`🧞‍♂️${col.id.toUpperCase()} / ${id} loaded NO DATA (you could inject them) ! ✅`
+// 		);
+// 		return []; // => have UI working
+// 	}
+// } catch (error) {
+// 	openSnack('firestore', `🧞‍♂️ ❌ [ loaded ] GETid <<< ${col.id.toUpperCase()} / ${id} ❌`);
+// 	return []; //  => have UI working
+// }

@@ -29,9 +29,14 @@
 
 <script lang="ts">
 	export let _DAB_: I_ENTITY__event[] | undefined = undefined;
-	let promise = ConfigServices.getInstance().config__gets<I_ENTITY__event>(
+	let promise = ConfigServices.getInstance().config__getAllCollection<I_ENTITY__event>(
 		AX_CONST__SCHEMA_COLLECTIONS_event
 	);
+	onMount(async () => {
+		axlog(_DAB_, $page.url.pathname, '****** EVENT ******', false, 'MOUNT', true);
+		console.debug('🚔 🏎️🐶 ... -- event');
+		_DAB_ = await promise;
+	});
 	// ...............
 	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
@@ -44,9 +49,4 @@
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	import Eventcard from '../widgets/Eventcard.svelte';
-	onMount(async () => {
-		axlog(_DAB_, $page.url.pathname, 'EVENT (cms)');
-		console.debug('🐶...');
-		_DAB_ = await promise;
-	});
 </script>

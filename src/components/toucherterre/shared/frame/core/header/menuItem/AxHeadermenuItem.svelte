@@ -5,7 +5,7 @@
 	<!-- <Item
 		href={menu.url}
 		on:click={() => {
-			console.log('menu.url', menu ? menu.url : '');
+			console.debug('menu.url', menu ? menu.url : '');
 		}}
 	>
 		<img
@@ -65,6 +65,6 @@
 	$: active = $page.url.pathname;
 	function setActive(value) {
 		active = value;
-		console.log('current active: ', active);
+		console.debug('current active: ', active);
 	}
 </script>

@@ -12,16 +12,12 @@
 <!-- </svelte:head> -->
 <script lang="ts">
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
-	// CSS (themes for all the app)
-	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import 'app/app.postcss';
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import '@splidejs/splide/css'; // splide - Default theme
 	// import '@splidejs/splide/css/skyblue'; // or other themes
 	// import '@splidejs/splide/css/sea-green'; // or other themes
 	// import '@splidejs/splide/css/core'; // or only core styles
-	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
-	//
 	//. . . . . . . . . . . . . . . . . . . . . . . . . . . .
 	import { onMount } from 'svelte';
 	import { axlog } from '../utils/axLog';
@@ -33,7 +29,7 @@
 	// MEGA ROOT LAYOUT
 	//#######################################################
 	onMount(() => {
-		axlog(undefined, $page.url.pathname, '------- ROOT-LAYOUT ------');
+		axlog('🍃', $page.url.pathname, '############################# ROOT-LAYOUT');
 	});
 	//#######################################################
 </script>

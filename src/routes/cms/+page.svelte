@@ -1,5 +1,5 @@
 <!-- ####################################################### -->
-<!-- route: HOME (cms) -->
+<!-- route: HOME-->
 <!-- ####################################################### -->
 <AxFramecms>
 	<div slot="cms">
@@ -19,6 +19,6 @@
 	import { onMount } from 'svelte';
 	import { axlog } from 'app/utils/axLog';
 	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'HOME (cms)');
+		axlog('🍃', $page.url.pathname, 'HOME ');
 	});
 </script>

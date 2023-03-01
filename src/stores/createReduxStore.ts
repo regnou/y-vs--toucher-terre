@@ -26,7 +26,7 @@ export function createReduxStore(reducer) {
 		// eslint-disable-next-line
 		// @ts-ignore
 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__.connect();
-	console.log('FIRST INIT: tool : ', devTools);
+	console.debug('FIRST INIT: tool : ', devTools);
 
 	// -----------------------------------------
 	// METHOD - writable sort, becoz, we call this dispatch method from outside the component
@@ -54,20 +54,20 @@ export function createReduxStore(reducer) {
 
 // HOW TO USE
 // onMount(async () => {
-// 	axlog(_DAB_, $page.url.pathname, 'ACCEUIL (cms)');
+// 	axlog(_DAB_, $page.url.pathname, 'ACCEUIL ');
 // 	// fetch data
-// 	console.debug('🐶...');
+// 	console.debug('🚔 🐶...');
 // 	const r = await promise; // les types MATCH donc le biding devrait etre bon
 // 	// create _DAB_ connected to Redux & init it with data fetched (x1 time, becoz in mount)
 // 	_DAB_ = createReduxStore(reducerStatic);
 // 	_DAB_.dispatch('mod-hard', r);
 // 	// console.dir(_DAB_);
-// 	// axlog(_DAB_, $page.url.pathname, 'ACCEUIL (cms)');
+// 	// axlog(_DAB_, $page.url.pathname, 'ACCEUIL ');
 // });
 
 // onMount(async () => {
 // 	// axlog($store, $page.url.pathname, 'ACCEUIL (app)');
-// 	// console.debug('🐶...');
+// 	// console.debug('🚔 🐶...');
 // 	// const r = await promise; // les types MATCH donc le bding devrait etre bon
 // 	// store = createReduxStore(reducerStatic);
 // 	// store.dispatch('mod-hard', r);
@@ -77,7 +77,7 @@ export function createReduxStore(reducer) {
 // 	//
 // 	//
 // 	axlog(_DAB_, $page.url.pathname, 'ACCEUIL (app)');
-// 	console.debug('🐶...');
+// 	console.debug('🚔 🐶...');
 // 	// const r = await promise; // les types MATCH donc le bding devrait etre bon
 // 	// store = createReduxStore(reducerStatic);
 // 	// store.dispatch('mod-hard', r);

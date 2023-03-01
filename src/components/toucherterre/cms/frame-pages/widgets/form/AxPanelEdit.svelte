@@ -55,6 +55,9 @@
 	export let item: T_GLOBAL_ENTITIES | undefined = undefined;
 	export let pos: number | undefined = undefined;
 	let open = false; // remettre ? export let open = type === 'staticpage' ? true : false;
+	onMount(() => {
+		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel edit', false, 'MOUNT', true);
+	});
 	import { page } from '$app/stores';
 	import { Content, Header, Panel } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
@@ -62,10 +65,8 @@
 	import { isEntity, isEntityEvent, isEntityPost } from 'app/utils/guards';
 	import { onMount } from 'svelte';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
-	onMount(() => {
-		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel edit');
-	});
-	// $: console.log('>>>>>>>>>>>>>> open: ', open);
+
+	// $: console.debug('>>>>>>>>>>>>>> open: ', open);
 	// DEL
 	// <!-- ######################################################### -->
 	const del = () => {

@@ -16,12 +16,18 @@
 
 <!-- tuto bg: https://www.youtube.com/watch?v=ywLgqJjLUm4 -->
 <script lang="ts">
-	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
-	// import { page } from '$app/stores';
-	// -------------------------------
-	// export let isAdmin = false;
-	// let imgBg = 'N/A';
 	let imgBg = '/media/bg/bg-1.jpg'; // tip: do not flash
+	// --------------------------------------------------------------------------
+	onMount(() => {
+		axlog('🍃', $page.url.pathname, 'wc -- axLayoutBg', false, 'MOUNT', true);
+		// $AX_STORE__UI_ISOPEN_drawer = false;
+	});
+
+	import { AX_CONST__FRAME_isDebugBorder } from 'app/domain/DATACONST/config-uiFrame/AX_CONST__FRAME_debug';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { axlog } from 'app/utils/axLog';
+	// -------------------------------
 	// const BG = {
 	// 	'/acceuil': { url: '/media/bg/bg-1.jpg' }
 	// 	// '/la-demarche': { url: '/media/bg/bg-2.jpg' },
@@ -29,11 +35,10 @@
 	// 	// '/event': { url: '/media/bg/bg-1.jpg' },
 	// 	// '/newsletter': { url: '/media/bg/bg-1.jpg' }
 	// };
-	// .....................................................
 	// $: {
 	// const menu: string = isAdmin ? $page.url.pathname.replace('/cms/app', '') : $page.url.pathname;
 	// const imgUrl: string = BG[menu] ? BG[menu].url : 'N/A';
 	// imgBg = imgUrl;
-	// console.log('menu + BG[menu]', menu, BG[menu]);
+	// console.debug('menu + BG[menu]', menu, BG[menu]);
 	// }
 </script>

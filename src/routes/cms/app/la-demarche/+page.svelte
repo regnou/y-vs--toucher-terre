@@ -13,12 +13,12 @@
 </AxFramecms>
 
 <script lang="ts">
-	let _DAB_: I_ENTITY__uiinputValue[] | undefined = undefined;
-	// 🔥🔥🔥
+	// 🔥🔥🔥 STATIC
 	const _M_: I_DB_CONFIG<I_ENTITY__uiinputValue, I_DTO__uiinputValue> = {
 		conf__db: AX_CONST__SCHEMA_COLLECTIONS_lademarche,
 		conf__db_dataset: AX_CONST__DATASET_laDemarche
 	};
+	let _DAB_: I_ENTITY__uiinputValue[] | undefined = undefined;
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { axlog } from 'app/utils/axLog';
@@ -27,6 +27,6 @@
 	import { AX_CONST__DATASET_laDemarche } from 'app/domain/DATACONST/config-db/datasets/AX_CONST__DATASET_laDemarche.json';
 	import { AX_CONST__SCHEMA_COLLECTIONS_lademarche } from 'app/domain/DATACONST/config-db/schema/AX_CONST__SCHEMA_collections';
 	onMount(() => {
-		axlog(_DAB_, $page.url.pathname, 'LA DEMARCHE (cms)');
+		axlog(_DAB_, $page.url.pathname, 'LA DEMARCHE ');
 	});
 </script>

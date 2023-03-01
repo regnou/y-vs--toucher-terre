@@ -80,6 +80,10 @@
 	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
 	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
 	let open = false;
+	onMount(() => {
+		axlog(_DAB_, $page.url.pathname, 'wc -- ax panel add', false, 'MOUNT', true);
+	});
+
 	import { page } from '$app/stores';
 	import { Content, Header, Panel } from '@smui-extra/accordion';
 	import Button, { Label } from '@smui/button';
@@ -88,9 +92,6 @@
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
 	import AxInputValue from '../form-inputValue/AxInputValue.svelte';
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax panel add');
-	});
 	// ADD
 	// TODO- et pour add les events, c louche ?
 	// BEN OUI, il faut un TYPE ! cf, tag ? je pe savoir le type avec le PREMIER ELEMENT DUDATAARRDUMP, si il a titlePost ou titleEvent ...

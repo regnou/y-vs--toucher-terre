@@ -99,8 +99,11 @@
 	let isLg = matches(lg);
 	let isXl = matches(xl);
 	let isXxl = matches(xxl);
+	onMount(() => {
+		axlog('🍃', $page.url.pathname, 'wc -- # axFrame #', false, 'MOUNT', true);
+	});
 	import { browser } from '$app/environment';
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	// import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Drawer, { AppContent } from '@smui/drawer';
 	import Scrim from '@smui/drawer/src/Scrim.svelte';
@@ -119,13 +122,6 @@
 	import AxDrawerApp from '../shared/frame/core/drawer/AxDrawerApp.svelte';
 	import HeaderApp from '../shared/frame/core/header/AxHeaderApp.svelte';
 	import LayoutBg1 from './AxLayoutbg1.svelte';
-
-	//-------------------------------------------------------
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- axFrame APP');
-		// $AX_STORE__UI_ISOPEN_drawer = false;
-	});
-	//-------------------------------------------------------
 	// <!-- .................. -->
 	// <!-- tip responsive: drawer & responsive RULES -->
 	// <!-- .................. -->

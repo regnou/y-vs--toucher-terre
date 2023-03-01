@@ -84,5 +84,5 @@
 	import SeparatorMedium from './SeparatorMedium.svelte';
 
 	export let event: I_ENTITY__event; // it is an array
-	$: console.log(event);
+	$: console.debug(event);
 </script>

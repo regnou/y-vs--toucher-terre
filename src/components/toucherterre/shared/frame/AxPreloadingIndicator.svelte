@@ -62,7 +62,7 @@
 	import { page } from '$app/stores';
 	import { axlog } from 'app/utils/axLog';
 	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- preloading-indicator');
+		axlog('🍃', $page.url.pathname, 'wc -- preloading-indicator');
 
 		visible = true;
 		function next() {

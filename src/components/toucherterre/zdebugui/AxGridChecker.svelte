@@ -77,7 +77,7 @@
 	let oh = 0;
 	// !!
 	// $: {
-	// console.debug('🚔debug screen : ', iw, ih, ow, oh); !!!!!
+	// console.debug('🚔 debug screen : ', iw, ih, ow, oh); !!!!!
 	// arrw = new Array(iw);
 	// arrh = new Array(ih);
 	// }

@@ -64,7 +64,6 @@
 		<div class="ml-2">Toucher Terre</div>
 		<!-- {/if} -->
 	</a>
-
 	<!-- <AxDrawerMenuitem
 		menu={{
 			title: 'Toucher Terre',
@@ -91,7 +90,7 @@
 	<Button
 		on:click={() => {
 			open = true;
-			console.log('opened');
+			console.debug('opened');
 			// await callback();
 		}}
 		variant="raised"
@@ -114,15 +113,18 @@
 
 <script lang="ts">
 	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
-
 	// c faux, puisque, je peux add un new item (qui n a pas d id) et du coups le tableau est fake
 	// Pour simplifier, je pose une contrainte, ca doit etre des ENTITES a chaque fois
-
 	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
+	//
 	let dialog: any = undefined;
 	let open = false; // dialog controler
 	const title = 'ENREGISTRER';
 	const msg = 'Etes vous sure ?';
+	//
+	onMount(() => {
+		axlog(_DAB_, $page.url.pathname, 'wc -- ax HEADER', false, 'MOUNT', true);
+	});
 	import { page } from '$app/stores';
 	import Button, { Label } from '@smui/button';
 	import Dialog, { Actions, Content, Title } from '@smui/dialog';
@@ -140,9 +142,6 @@
 	import { ConfigServices } from 'app/domain/services/ConfigServices';
 	$: if (dialog && open) dialog.open();
 	// ------------------------------------------------
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax header cms');
-	});
 	// SAVE
 	// <!-- ######################################################### -->
 	async function ACTION_SAVE(conf__db, imuArr) {
@@ -179,10 +178,10 @@
 				if (isInputValue(item))
 					if (item.tag === 'file' && item.blobs) {
 						// we always just have ONE FILE
-						console.log('🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 ');
-						console.log('Uploading your image...');
+						console.debug('🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 ');
+						console.debug('Uploading your image...');
 						// console.dir(item.blobs);
-						// console.debug('🐶...');
+						// console.debug('🚔 🐶...');
 						// ---------------------------------------------------
 						const urlStorage = await upload(item.blobs);
 						// ---------------------------------------------------
@@ -192,7 +191,7 @@
 						// IMMUABLE MON CUL !!! TODO
 						item.value = urlStorage;
 						// delete item.blobs;
-						// console.log('this item has no more BLOB; ', item);
+						// console.debug('this item has no more BLOB; ', item);
 						// item.exit = true; // hack-bad
 						// We unlink the blob now from the store
 						// delete item.blobs;

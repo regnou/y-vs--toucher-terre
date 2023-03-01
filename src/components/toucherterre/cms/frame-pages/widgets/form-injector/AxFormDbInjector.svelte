@@ -26,21 +26,22 @@
 <!-- </div> -->
 <script lang="ts">
 	export let _M_;
+	onMount(() => {
+		axlog('🍃', $page.url.pathname, 'wc -- ax form injector', false, 'MOUNT', true);
+	});
 	import { page } from '$app/stores';
 	import Button, { Label } from '@smui/button';
 	import { ConfigServices } from 'app/domain/services/ConfigServices';
 	import { axlog } from 'app/utils/axLog';
 	import { onMount } from 'svelte';
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax form injector');
-	});
+
 	const injectScript = async () => {
 		console.debug('🌎🏎️✅ click >> on:inject 1 🟡');
 		if (!_M_.conf__db_dataset) return;
 
 		if (!confirm('Effacer toute les donnees et injecter DEFAULT ?')) return;
 
-		await ConfigServices.getInstance().clearCollection(_M_.conf__db);
+		await ConfigServices.getInstance().crud__clearCollection(_M_.conf__db);
 
 		await ConfigServices.getInstance().config__adds(_M_.conf__db, _M_.conf__db_dataset);
 		// ...............

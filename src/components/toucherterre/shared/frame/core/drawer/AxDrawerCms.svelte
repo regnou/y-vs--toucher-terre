@@ -115,6 +115,10 @@
 	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
 	export let _DAB_: T_GLOBAL_ENTITIES[] | undefined = undefined;
 	let active = 'page'; // page | form | inject
+	onMount(() => {
+		axlog(_DAB_, $page.url.pathname, 'wc -- ax DRAWER', false, 'MOUNT', true);
+	});
+
 	import { page } from '$app/stores';
 	import { Content, Header, Title } from '@smui/drawer';
 	import List, { Subheader } from '@smui/list';
@@ -129,7 +133,4 @@
 	import { isEntityEvent, isEntityPost } from 'app/utils/guards';
 	import { onMount } from 'svelte';
 	import DrawerMenuItem from './menu-item/AxDrawerMenuitem.svelte';
-	onMount(() => {
-		axlog(undefined, $page.url.pathname, 'wc -- ax Frame CMS');
-	});
 </script>
