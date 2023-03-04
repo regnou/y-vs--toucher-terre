@@ -13,12 +13,13 @@
 	</div>
 </AxFramecms>
 
-<script>
-	import AxFramecms from 'app/components/toucherterre/cms/AxFrameCms.svelte';
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
-	import { axlog } from 'app/utils/axLog';
+<script lang="ts">
 	onMount(() => {
-		axlog('🍃', $page.url.pathname, 'HOME ');
+		axlog($AX_STORE__CONTENT, $page.url.pathname, 'HOME ');
 	});
+	import { page } from '$app/stores';
+	import AxFramecms from 'app/components/toucherterre/cms-frame/AxFrameCms.svelte';
+	import { axlog } from 'app/lib/utils/axLog';
+	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { onMount } from 'svelte';
 </script>

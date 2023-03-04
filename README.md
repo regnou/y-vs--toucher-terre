@@ -205,7 +205,7 @@ You can preview the production build with `npm run preview`.
 		<!-- {:else} -->
 		<!-- href="javascript:void(0)" activated={active === item.menu} -->
 		<Item>
-			<a href={'/cms/app' + item.url} class="w-full">
+			<a href={'/cms/dyn' + item.url} class="w-full">
 				<Text>{item.page}</Text>
 			</a>
 		</Item>
@@ -224,7 +224,7 @@ You can preview the production build with `npm run preview`.
 <div id="axformedit--1">
 	<AxPanelsAddEdit
 		bind:store
-		{_M_}
+		{$AX_STORE__CONTENT__DB}
 	/>
 </div>
 
@@ -256,6 +256,6 @@ You can preview the production build with `npm run preview`.
 	import AxPanelsAddEdit from './AxPanelsAddEdit.svelte';
 
 	//----------------------------------------------
-	export let _M_: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
+	export let $AX_STORE__CONTENT__DB: I_DB_CONFIG<T_GLOBAL_ENTITIES, T_GLOBAL_DTOS> | undefined = undefined;
 	export let store: I_BASE_ENTITY[] | undefined = undefined;
 </script>

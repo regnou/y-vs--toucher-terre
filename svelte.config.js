@@ -9,9 +9,9 @@ const config = {
 			routes: 'src/routes',
 			ui: 'src/components/toucherterre',
 			stores: 'src/stores',
-			tecnologies: 'src/tecnologies',
-			utils: 'src/utils',
-			domain: 'src/domain'
+			lib: 'src/lib',
+			libfirebase: 'src/lib/firebase',
+			libutils: 'src/lib/utils'
 		},
 
 		// adapter: adapter()

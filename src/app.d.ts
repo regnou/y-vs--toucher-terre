@@ -21,36 +21,36 @@ declare global {
 	// DOMAIN ENTITIES
 	// ................................................
 	interface I_DB_CONFIG<T extends T_GLOBAL_ENTITIES, U extends T_GLOBAL_DTOS> {
-		conf__db: CollectionReference<T>;
-		conf__db_dataset: U[]; // firebase will ADD the ID to all theses elements
-		conf__genericAdd?: I_DTO__uiinputValue[]; // it is always a form here, so iv + do not add in static page...
+		collection: CollectionReference<T>;
+		dataset: U[]; // firebase will ADD the ID to all theses elements
+		formAdd: I_DTO__uiInputValue[]; // it is always a form here, so iv + do not add in static page...
 	}
 
 	type T_GLOBALS = T_GLOBAL_ENTITIES | T_GLOBAL_DTOS;
 	type T_GLOBAL_ENTITIES = I_ENTITY__post | I_ENTITY__event | I_ENTITY__uiinputValue;
-	type T_GLOBAL_DTOS = I_DTO__uiinputValue | I_DTO__event | I_DTO__post;
+	type T_GLOBAL_DTOS = I_DTO__uiInputValue | I_DTO__event | I_DTO__post;
 
 	interface I_ENTITY {
 		idDoc: string;
 	}
 	interface I_ENTITY__post extends I_ENTITY, I_DTO__post {}
 	interface I_ENTITY__event extends I_ENTITY, I_DTO__event {}
-	interface I_ENTITY__uiinputValue extends I_ENTITY, I_DTO__uiinputValue {}
+	interface I_ENTITY__uiinputValue extends I_ENTITY, I_DTO__uiInputValue {}
 	interface I_DTO__post {
-		titlePost: I_DTO__uiinputValue;
-		slug: I_DTO__uiinputValue;
-		body: I_DTO__uiinputValue;
+		titlePost: I_DTO__uiInputValue;
+		slug: I_DTO__uiInputValue;
+		body: I_DTO__uiInputValue;
 		createdAt: number; // timestamp
 	}
 	interface I_DTO__event {
-		titleEvent: I_DTO__uiinputValue;
-		slug: I_DTO__uiinputValue;
-		date: I_DTO__uiinputValue;
-		body: I_DTO__uiinputValue;
-		image: I_DTO__uiinputValue;
+		titleEvent: I_DTO__uiInputValue;
+		slug: I_DTO__uiInputValue;
+		date: I_DTO__uiInputValue;
+		body: I_DTO__uiInputValue;
+		image: I_DTO__uiInputValue;
 		createdAt: number;
 	}
-	interface I_DTO__uiinputValue {
+	interface I_DTO__uiInputValue {
 		pos: number;
 		tag: string; // si il n y a pas de tag, ca sera TYPE par default
 		label: string;
@@ -58,6 +58,7 @@ declare global {
 		blobs?: any[]; // on l ajoute et puis on le supprime pour l upload
 		format?: AX_CONST__formatMedia; // TODO - enum => pour differencierimge/video du slideshow
 	}
+
 	// ................................................
 	// UI
 	// ................................................

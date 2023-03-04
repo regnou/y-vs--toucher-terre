@@ -7,11 +7,12 @@
 
 <script lang="ts">
 	onMount(() => {
-		axlog('🍃', $page.url.pathname, '### LAYOUT (app-only) ###');
+		axlog($AX_STORE__CONTENT, $page.url.pathname, '### LAYOUT (app-only) ###');
 	});
 	import { page } from '$app/stores';
-	import AxFrameapp from 'app/components/toucherterre/app/AxFrameapp.svelte';
-	import { axlog } from 'app/utils/axLog';
+	import AxFrameapp from 'app/components/toucherterre/app-frame/AxFrameApp.svelte';
+	import { axlog } from 'app/lib/utils/axLog';
+	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
 	import { onMount } from 'svelte';
 
 	// beforeNavigate(() => {

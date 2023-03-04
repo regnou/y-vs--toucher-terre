@@ -29,8 +29,9 @@ module.exports = {
 		I_ENTITY: 'writable',
 		I_DTO__post: 'writable',
 		I_DTO__event: 'writable',
-		I_DTO__uiinputValue: 'writable',
-		I_ui__menu: 'writable'
+		I_DTO__uiInputValue: 'writable',
+		I_ui__menu: 'writable',
+		T_ui__dynvariant: 'writable'
 	},
 	rules: {
 		// 'require-await': 'error',

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- ----------------------------------------------------- -->
+		<!-- SEO -->
+		<!-- ----------------------------------------------------- -->
+		<meta charset="utf-8" />
+		<!-- should use ICO -->
+		<link
+			rel="icon"
+			href="/media/favicon.png"
+		/>
+		<!-- ----------------------------------------------------- -->
+		<!-- <link rel="icon" href="../wp-display/favicomatic/favicon.ico" /> -->
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<!-- ----------------------------------------------------- -->
+		<!-- THEME -->
+		<!-- ----------------------------------------------------- -->
+		<meta
+			name="color-scheme"
+			content="light dark"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+		/>
+		<!-- ----------------------------------------------------- -->
+		<!-- SMUI -->
+		<!-- ----------------------------------------------------- -->
+		<link
+			rel="stylesheet"
+			href="../smui.css?v=4"
+		/>
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.0fdad69e.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.2016f78f.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.f4f77daf.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.77d7a4c8.js">
+	</head>
+	<body>
+		<div>
+			<script>
+				{
+					__sveltekit_lmwlfj = {
+						env: {},
+						assets: new URL("..", location.href).pathname.replace(/^\/$/, ''),
+						element: document.currentScript.parentElement
+					};
+
+					Promise.all([
+						import("../_app/immutable/entry/start.0fdad69e.js"),
+						import("../_app/immutable/entry/app.77d7a4c8.js")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_lmwlfj.element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

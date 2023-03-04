@@ -75,17 +75,13 @@
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-background)"
 	/>
-	<div style="color:var(--mdc-theme-text-primary-on-background)">
-		--mdc-theme-text-primary-on-background
-	</div>
+	<div style="color:var(--mdc-theme-text-primary-on-background)">--mdc-theme-text-primary-on-background</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-primary-on-background)"
 	/>
 
-	<div style="color:var(--mdc-theme-text-secondary-on-background)">
-		--mdc-theme-text-secondary-on-background
-	</div>
+	<div style="color:var(--mdc-theme-text-secondary-on-background)">--mdc-theme-text-secondary-on-background</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-secondary-on-background)"
@@ -94,25 +90,19 @@
 	<!--  -->
 	<div class="border-none p-5">Z</div>
 	<div class="" />
-	<div style="color:var(--mdc-theme-text-disabled-on-background)">
-		--mdc-theme-text-disabled-on-background
-	</div>
+	<div style="color:var(--mdc-theme-text-disabled-on-background)">--mdc-theme-text-disabled-on-background</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-disabled-on-background)"
 	/>
 
-	<div style="color:var(--mdc-theme-text-hint-on-background)">
-		--mdc-theme-text-hint-on-background
-	</div>
+	<div style="color:var(--mdc-theme-text-hint-on-background)">--mdc-theme-text-hint-on-background</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-hint-on-background)"
 	/>
 
-	<div style="color:var(--mdc-theme-text-icon-on-background)">
-		--mdc-theme-text-icon-on-background
-	</div>
+	<div style="color:var(--mdc-theme-text-icon-on-background)">--mdc-theme-text-icon-on-background</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-icon-on-background)"
@@ -121,9 +111,7 @@
 	<!-- LIGHT -->
 	<div class="border-none p-5">light</div>
 	<div class="" />
-	<div style="color:var(--mdc-theme-text-secondary-on-light)">
-		--mdc-theme-text-secondary-on-light
-	</div>
+	<div style="color:var(--mdc-theme-text-secondary-on-light)">--mdc-theme-text-secondary-on-light</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-secondary-on-light)"
@@ -135,9 +123,7 @@
 		style="background:var(--mdc-theme-text-hint-on-light)"
 	/>
 
-	<div style="color:var(--mdc-theme-text-disabled-on-light)">
-		--mdc-theme-text-disabled-on-light
-	</div>
+	<div style="color:var(--mdc-theme-text-disabled-on-light)">--mdc-theme-text-disabled-on-light</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-disabled-on-light)"
@@ -170,9 +156,7 @@
 		style="background:var(--mdc-theme-text-primary-on-dark)"
 	/>
 
-	<div style="color:var(--mdc-theme-text-secondary-on-dark)">
-		--mdc-theme-text-secondary-on-dark
-	</div>
+	<div style="color:var(--mdc-theme-text-secondary-on-dark)">--mdc-theme-text-secondary-on-dark</div>
 	<div
 		class="h-10 w-10"
 		style="background:var(--mdc-theme-text-secondary-on-dark"
