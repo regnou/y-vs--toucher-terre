@@ -51,7 +51,6 @@
 	import { SERVICE__getAllCollections_Sorted } from 'app/stores/AX_BASE3__STORE_SERVICES';
 	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
 	import { onDestroy, onMount } from 'svelte';
-
 	import { AX_CONST__DATASET__event } from 'app/0-config/db/datasets/AX_CONST__DATASET_event.json';
 	import Eventcard from '../widgets/Eventcard.svelte';
 	import { AX_CONST__DB_COLLECTION__event } from 'app/0-config/db/firebase/AX_CONST__dbColletions';

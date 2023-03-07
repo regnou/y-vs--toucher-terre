@@ -6,7 +6,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/1.jpg'
+			value: '/media/content/images/prochains-rdv/1.jpg'
 		},
 
 		titleEvent: {
@@ -42,7 +42,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/2.jpg'
+			value: '/media/content/images/prochains-rdv/2.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -77,7 +77,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/3.jpg'
+			value: '/media/content/images/prochains-rdv/3.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -112,7 +112,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/4.jpg'
+			value: '/media/content/images/prochains-rdv/4.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -147,7 +147,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/5.jpg'
+			value: '/media/content/images/prochains-rdv/5.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -182,7 +182,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/6.jpg'
+			value: '/media/content/images/prochains-rdv/6.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -218,7 +218,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/7.jpg'
+			value: '/media/content/images/prochains-rdv/7.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -254,7 +254,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/8.jpg'
+			value: '/media/content/images/prochains-rdv/8.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -290,7 +290,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/8.jpg'
+			value: '/media/content/images/prochains-rdv/8.jpg'
 		},
 		titleEvent: {
 			pos: 1,
@@ -325,7 +325,7 @@ export const AX_CONST__DATASET__event: I_DTO__event[] = [
 			pos: 4,
 			tag: 'file',
 			label: 'image',
-			value: '/media/gallery/prochains-rdv/10.jpg'
+			value: '/media/content/images/prochains-rdv/10.jpg'
 		},
 		titleEvent: {
 			pos: 1,

@@ -102,25 +102,13 @@
 	{/if}
 </main>
 <!-- {:catch error} -->
-<!-- <p style="">{error.message}</p> -->
 
-<!-- // export let $AX_STORE__CONTENT: I_ENTITY__uiinputValue[] | undefined = undefined;
-// let promise
-// $AX_STORE__CONTENT = await SERVICE__getAllCollections_Sorted<I_ENTITY__uiinputValue>(AX_CONST__TEC_FIREBASE_DB__lademarche, true);
-// 🔥🔥🔥 STATIC
-// const $AX_STORE__CONTENT__DB: I_DB_CONFIG<I_ENTITY__uiinputValue, I_DTO__uiinputValue> = {
-// 	conf__db: AX_CONST__TEC_FIREBASE_DB__lademarche,
-// 	conf__db_dataset: AX_CONST__DB_DATASET_JSON__laDemarche
-// };
-// let $AX_STORE__CONTENT: I_ENTITY__uiinputValue[] | undefined = undefined; -->
+<!-- <p style="">{error.message}</p> -->
 <script lang="ts">
 	//
 	onMount(async () => {
-		// init
-		// prom
 		console.debug('🚔 🏎️🐶 ... -- lademarche-app');
 		await ACTION__getallSorted<I_ENTITY__uiinputValue>(AX_CONST__DB_COLLECTION__lademarche, AX_CONST__DATASET__lademarche, []);
-		// log
 		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ****** LA-DEMARCHE_APP ******', false, 'MOUNT', true);
 	});
 

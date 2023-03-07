@@ -21,7 +21,7 @@
 // 	// '/newsletter': { url: '/media/bg/bg-1.jpg' }
 // };
 // $: {
-// const menu: string = isAdmin ? $page.url.pathname.replace('/cms/dyn', '') : $page.url.pathname;
+// const menu: string = isAdmin ? $page.url.pathname.replace('/cms', '') : $page.url.pathname;
 // const imgUrl: string = BG[menu] ? BG[menu].url : 'N/A';
 // imgBg = imgUrl;
 // console.debug('menu + BG[menu]', menu, BG[menu]);
@@ -36,7 +36,7 @@
 		// $AX_STORE__UI_ISOPEN_drawer = false;
 	});
 	import { page } from '$app/stores';
-	import { AX_CONST__FRAME__contentDir, AX_CONST__FRAME__frameDir } from 'app/0-config/frame/AX_CONST__FRAME';
+	import { AX_CONST__FRAME__frameDir } from 'app/0-config/frame/AX_CONST__FRAME';
 	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/frame/AX_CONST__FRAME__debug';
 	import { axlog } from 'app/lib/utils/axLog';
 	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';

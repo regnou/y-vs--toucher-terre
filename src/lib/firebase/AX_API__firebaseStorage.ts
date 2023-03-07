@@ -2,6 +2,7 @@
 // upload
 // ----------------------------------------------------------------------------
 async function upload(fileax) {
+	console.debug('🟢 Uploading your image...');
 	// return new Promise(async function (resolve, reject) {
 	// const metadata = {
 	// 	contentType: ['image/jpeg', 'image/png']

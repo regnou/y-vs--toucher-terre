@@ -3,7 +3,8 @@
 <!-- ######################################## -->
 <!-- on:SMUISnackbar:closed={handleClosedStacked} -->
 <!-- tip-SASS: we use custom sass functions  -->
-<Snackbar
+
+<!-- <Snackbar
 	bind:this={snackbar}
 	timeoutMs={4000}
 	class={'ax-snack-' + $AX_STORE__FRAME_snack.type}
@@ -15,8 +16,7 @@
 			title="Dismiss">close</IconButton
 		>
 	</Actions>
-</Snackbar>
-
+</Snackbar> -->
 <script lang="ts">
 	// TOLERATED-BUG-TYPE
 	// let snackbar: Snackbar = null;

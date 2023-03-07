@@ -8,22 +8,25 @@
 	<p>...waiting</p>
 {:then data} -->
 <main class="m-auto max-w-{AX_CONST__FRAME__maxBodyApp} {AX_CONST__FRAME__distanceFromHeader}">
-	<!-- <main class="m-auto px-10 pb-20 max-w-{AX_CONST__FRAME__maxBodyApp} {AX_CONST__FRAME__distanceFromHeader}"> -->
-	<!-- 👮👮👮👮👮👮👮👮👮👮👮👮👮👮👮 -->
-	{#if $AX_STORE__CONTENT.length && isEntityPosts($AX_STORE__CONTENT)}
-		<!-- {#if isEntityPost(store)} -->
-		<!-- {#each IMU_sort($AX_STORE__CONTENT) as post} -->
-		{#each $AX_STORE__CONTENT as post}
-			<Post {post} />
-			<!-- {:else} -->
-			<!-- SLIDESHOW - todo AFTER -->
-			<!-- <div class="col-span-4 grid grid-rows-3 place-items-center">
-					<Slider imgs={[store[i].iv]} /> </div> -->
-		{/each}
-		<!-- {/if} -->
-		<!-- {:else}
-			{openSnack('error', `❌ [ page-data ] UNDEFINED or NO-DATA ❌`)} -->
-	{/if}
+	<Twocol>
+		<div>
+			<!-- <main class="m-auto px-10 pb-20 max-w-{AX_CONST__FRAME__maxBodyApp} {AX_CONST__FRAME__distanceFromHeader}"> -->
+			<!-- 👮👮👮👮👮👮👮👮👮👮👮👮👮👮👮 -->
+			{#if $AX_STORE__CONTENT.length && isEntityPosts($AX_STORE__CONTENT)}
+				{#each $AX_STORE__CONTENT as post}
+					<Post {post} />
+				{/each}
+			{/if}
+		</div>
+		<div
+			id="slider--1"
+			class="  "
+		>
+			<Slider arr={GALLERY_A} />
+			<Slider arr={GALLERY_B} />
+			<Slider arr={GALLERY_C} />
+		</div>
+	</Twocol>
 </main>
 <!-- {:catch error}
 	<p style="color: red">{error.message}</p>
@@ -72,4 +75,7 @@
 	import { AX_CONST__DB_COLLECTION__blog } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
 	import { AX_CONST__FORM_ADD__post } from 'app/0-config/db/uiAdd/AX_CONST__FORM_ADD__post.json';
 	import { ACTION__getallSorted } from 'app/stores/AX_BASE2__STORE_ACTIONS';
+	import Twocol from '../widgets/Twocol.svelte';
+	import Slider from '../widgets/Slider.svelte';
+	import { GALLERY_A, GALLERY_B, GALLERY_C } from 'app/0-config/db/datasets/AX_CONST__DATASET_slideshow_local';
 </script>

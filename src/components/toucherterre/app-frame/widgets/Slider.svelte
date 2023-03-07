@@ -1,11 +1,6 @@
-<Splide aria-label="My Favorite Images">
-	<!-- {#each items as itm} -->
-	<!-- "https://www.youtube.com/embed/dLmiog2KqpA" -->
-	<!-- tip: must put size or it will be original size -->
-	<SplideSlide class="h-56">
-		<!-- {#if itm.format && itm.format === 'video'} -->
-		<!-- width="560"
-		height="315" -->
+<!-- "https://www.youtube.com/embed/dLmiog2KqpA" -->
+<!-- tip: must put size or it will be original size -->
+<!-- <SplideSlide class="h-56">
 		<div>
 			<iframe
 				width="450"
@@ -17,19 +12,38 @@
 				allowfullscreen
 			/>
 		</div>
-		<!-- <img
-				class="m-auto h-56 object-cover"
-				src={AX_CONST__FRAME__frameDir + 'logo-01.png'}
-				alt=""
-			/> -->
-		<!-- {:else}
+	</SplideSlide> -->
+<!-- <Splide aria-label="My Favorite Images"> -->
+<Splide
+	hasTrack={false}
+	options={{
+		// rewind: true,
+		// width: 800,
+		// gap: '1rem'
+	}}
+>
+	<Button
+		class="splide__toggle "
+		type="button"
+	>
+		<span class="splide__toggle__play">Play</span>
+		<span class="splide__toggle__pause">Pause</span>
+	</Button>
+
+	<SplideTrack>
+		{#each arr as img}
+			<SplideSlide>
 				<img
-					src={ivItem.inputValues[1].iv}
-					alt={ivItem.inputValues[0].iv}
-				/> -->
-		<!-- {/if} -->
-	</SplideSlide>
-	<!-- {/each} -->
+					class="m-auto h-56 object-cover"
+					src={img}
+					alt=""
+				/>
+			</SplideSlide>
+		{/each}
+	</SplideTrack>
+	<!-- <div class="splide__progress">
+		<div class="splide__progress__bar" />
+	</div> -->
 </Splide>
 
 <!-- <section class="splide" aria-label="Splide Basic HTML Example">
@@ -48,12 +62,13 @@
 	</div>
 </section> -->
 <script lang="ts">
-	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-	import { post_s1 } from 'app/0-config/db/datasets/AX_CONST__SLIDESHOW_LOCA';
+	import Button from '@smui/button';
+	import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
 	import { AX_CONST__FRAME__contentDir, AX_CONST__FRAME__frameDir } from 'app/0-config/frame/AX_CONST__FRAME';
 	// --------------------------------------------------------
 	// --------------------------------------------------------
-	export let items = post_s1;
+	export let arr: string[] = [];
+	// GALLERY_A
 	// c la structure
 	// inputValues: [
 	// 				{

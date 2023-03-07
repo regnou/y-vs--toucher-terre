@@ -4,7 +4,7 @@
 
 import { AX_CONST__DB_COLLECTION__blog } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
 import { upload } from 'app/lib/firebase/AX_API__firebaseStorage';
-import { isEntityEvents, isEntityInputValue, isEntityNotIv, isEntityPosts } from 'app/lib/utils/guards';
+import { isEntityEvent, isEntityEvents, isEntityInputValue, isEntityNotIv, isEntityPosts } from 'app/lib/utils/guards';
 import { get } from 'svelte/store';
 import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from './AX_BASE1__STORE_CONTENT';
 import { SERVICE__add, SERVICE__adds, SERVICE__getAllCollections_Sorted } from './AX_BASE3__STORE_SERVICES';
@@ -151,14 +151,21 @@ export const ACTION__save = async () => {
 	// openDialog('ENREGISTRER LES MODIFICATIONS', 'Etes vous sure ?');
 	// if (get(AX_STORE__UI_ISOPEN_dialog).answer !== 'yes') return;
 	await createStorageUrl(get(AX_STORE__CONTENT));
+	//
 	// tip: clean blob
-	for await (const item of get(AX_STORE__CONTENT)) {
-		if (isEntityInputValue(item))
-			if (item.tag === 'file' && item.blobs) {
-				// IMMUABLE MON CUL !!! TODO
-				delete item.blobs;
-			}
-	}
+	// for await (const item of get(AX_STORE__CONTENT)) {
+	// 	if (isEntityInputValue(item)) {
+	// 		if (item.tag === 'file' && item.blobs) {
+	// 			// IMMUABLE MON OEIL !!! TODO
+	// 			delete item.blobs;
+	// 		}
+	// 	} else if (isEntityEvent(item)) {
+	// 		if (item.image.tag === 'file' && item.image.blobs) {
+	// 			// IMMUABLE MON OEIL !!! TODO
+	// 			delete item.image.blobs;
+	// 		}
+	// 	}
+	// }
 	// axlog(store, $page.url.pathname, 'SAVE', false, 'DEBUG-AVANT-SAVE');
 	await SERVICE__adds(get(AX_STORE__CONTENT_DB)!.collection, get(AX_STORE__CONTENT));
 	//
@@ -167,36 +174,42 @@ export const ACTION__save = async () => {
 	//----------------------------------------------
 	// UPLOAD STORAGE ON FIREBASE
 	//----------------------------------------------
-	async function createStorageUrl(arr) {
-		if (!arr) return;
+	async function createStorageUrl(arr: T_GLOBAL_ENTITIES[]) {
+		// if (!arr) return;
 		//
 		// for await (const item of store) {
+
 		for (let ii = 0; ii < arr.length; ii++) {
+			// for (let item of arr) {
 			const item = arr[ii];
-			if (isEntityInputValue(item))
+			let urlStorage = 'N/A';
+			// we always just have ONE FILE
+
+			// STATIC
+			if (isEntityInputValue(item, false)) {
 				if (item.tag === 'file' && item.blobs) {
-					// we always just have ONE FILE
-					console.debug('🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 🟢 ');
-					console.debug('Uploading your image...');
-					// console.dir(item.blobs);
-					// console.debug('🚔 🐶...');
-					// ---------------------------------------------------
 					// TODO - A EVITER, CA DEVRAIT ALLER DS COUCHER SERVICE, CAR PLUS PROCHE DB
-					const urlStorage = await upload(item.blobs);
-					// ---------------------------------------------------
-					// const urlStorage = await upload(item.blobs[0]);
-					// ---------------------------------------------------
+					urlStorage = await upload(item.blobs);
 					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
-					// IMMUABLE MON CUL !!! TODO
+					// IMMUABLE MON OEIL !!! TODO
 					item.value = urlStorage;
-					// delete item.blobs;
-					// console.debug('this item has no more BLOB; ', item);
-					// item.exit = true; // hack-bad
-					// We unlink the blob now from the store
-					// delete item.blobs;
+					delete item.blobs;
 				}
+			}
+			// DYN
+			else if (isEntityEvent(item, false)) {
+				// console.log('>>>>>>> entity is event');
+				if (item.image.tag === 'file' && item.image.blobs) {
+					// TODO - A EVITER, CA DEVRAIT ALLER DS COUCHER SERVICE, CAR PLUS PROCHE DB
+					urlStorage = await upload(item.image.blobs);
+					// the inputValue of a file-type-inputValue item is the STORAGE url on firebase storage
+					// IMMUABLE MON OEIL !!! TODO
+					item.image.value = urlStorage;
+					delete item.image.blobs;
+				}
+			}
 		}
-		//
+
 		return;
 	}
 };

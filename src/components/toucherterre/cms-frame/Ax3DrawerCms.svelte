@@ -8,12 +8,13 @@
 			class="hover:bg-black hover:text-white"
 			rel="noreferrer"
 			target="_blank"
-			href="/{$page.url.pathname.replace('/cms/dyn/', '')}">{$page.url.pathname.replace('/cms/dyn/', '').replace('-', ' ').toUpperCase()}</a
+			href="/{$page.url.pathname.replace('/cms/', '')}">{$page.url.pathname.replace('/cms/', '').replace('-', ' ').toUpperCase()}</a
 		>
 		-
 	</Title>
+	<!-- , 'inject' -->
 	<TabBar
-		tabs={['page', 'edit-add', 'inject']}
+		tabs={['page', 'edit-add']}
 		let:tab
 		bind:active
 		class="mt-5"
@@ -31,23 +32,24 @@
 		<List class="m-2 bg-white">
 			{#each AX_CONST__FRAME_MENU__cms as menu (menu.title)}
 				<!-- isDark={true} -->
-				<DrawerMenuItem menu={{ title: menu.title, url: `/cms/dyn${menu.url}`, img: menu.img }} />
+				<DrawerMenuItem menu={{ title: menu.title, url: `/cms${menu.url}`, img: menu.img }} />
 			{/each}
 		</List>
 	{:else if active === 'edit-add'}
-		<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
-		<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
-		<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
 		<!-- ................. -->
 		<!-- EDIT-ADD  -->
 		<!-- ................. -->
 		{#if $AX_STORE__CONTENT && $AX_STORE__CONTENT.length}
-			<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴 DYN-PAGE 🌴🌴🌴🌴🌴🌴🌴🌴 -->
+			<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
+			<!-- 🌴 DYN-PAGE 🌴🌴🌴🌴🌴🌴🌴🌴 -->
+			<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
 			<!-- il faut voire la nature du $AX_STORE__CONTENT -->
 			{#if isEntityEvents($AX_STORE__CONTENT) || isEntityPosts($AX_STORE__CONTENT)}
-				<AxPanelsAddEdit />
+				<AxForm_AddEdit />
 			{:else if isEntityInputValues($AX_STORE__CONTENT)}
-				<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴 STATIC-PAGE 🌴🌴🌴🌴🌴🌴🌴🌴 -->
+				<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
+				<!-- 🌴  STATIC-PAGE 🌴🌴🌴🌴🌴🌴🌴🌴 -->
+				<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
 				<!-- tip: possibilite de le mettre ds un pannel -->
 				<!-- <Content class="space-y-5 bg-blue-800"> -->
 				<!-- {#each Object.entries(item) as [key, prop], pos} -->
@@ -56,14 +58,12 @@
 				{/each}
 			{/if}
 		{/if}
-		<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
-		<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
-		<!-- 🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴🌴 -->
-	{:else if active === 'inject'}
+		<!-- NO FOR PROD  -->
+		<!-- {:else if active === 'inject'} -->
 		<!-- ................. -->
 		<!-- INJECT  -->
 		<!-- ................. -->
-		<AxFormDbInjector />
+		<!-- <AxFormDbInjector /> -->
 	{/if}
 </Content>
 <!-- <Separator /> -->
@@ -72,10 +72,10 @@
 <!-- <Separator />
 	<Subheader>Pages</Subheader>
 	<Separator /> -->
-<!-- <DrawerMenuItem url={'/cms/dyn'} menu={'Toutes les pages'} /> -->
+<!-- <DrawerMenuItem url={'/cms'} menu={'Toutes les pages'} /> -->
 <!-- QUICK LINKS PAGES EDIT -->
 <!-- <DrawerMenuItem href={'/site/post-new'} text={'Ajouter'} /> -->
-<!-- <DrawerMenuItem href={'/cms/dyn-tag'} text={'Catégories'} /> -->
+<!-- <DrawerMenuItem href={'/cms-tag'} text={'Catégories'} /> -->
 <!-- <Accordeon /> -->
 <!-- <Separator /> -->
 <!-- <Subheader tag="h6">Comptes</Subheader> -->
@@ -116,13 +116,13 @@
 	import List from '@smui/list';
 	import Tab, { Label } from '@smui/tab';
 	import TabBar from '@smui/tab-bar';
-	import AxFormDbInjector from 'app/components/toucherterre/cms-frame/widgets/form-injector/AxFormDbInjector.svelte';
-	import AxInputValue from 'app/components/toucherterre/cms-frame/widgets/form-inputValue/AxInputValue.svelte';
+	import AxFormDbInjector from 'ui/cms-frame/form-injector/AxForm__DbInjector.svelte';
+	import AxInputValue from 'ui/cms-frame/widgets/AxInputValue.svelte';
 	import { AX_CONST__FRAME_MENU__cms } from 'app/0-config/frame/AX_CONST__FRAME_MENU__cms.json';
 	import { axlog } from 'app/lib/utils/axLog';
 	import { isEntityEvents, isEntityPosts, isEntityInputValues } from 'app/lib/utils/guards';
 	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
 	import { onMount } from 'svelte';
 	import DrawerMenuItem from '../shared-frame-widgets/AxDrawerMenuitem.svelte';
-	import AxPanelsAddEdit from './widgets/form-addEdit/AxPanels_AddEdit.svelte';
+	import AxForm_AddEdit from 'ui/cms-frame/form-addEdit/AxForm_AddEdit.svelte';
 </script>

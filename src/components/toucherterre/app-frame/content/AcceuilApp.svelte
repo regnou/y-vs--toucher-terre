@@ -27,9 +27,9 @@
 			/>
 			<div
 				id="slider--1"
-				class="grid place-items-center border-4 border-white "
+				class="  "
 			>
-				<Slider />
+				<Slider arr={GALLERY_A} />
 			</div>
 		</Twocol>
 	{/if}
@@ -65,5 +65,5 @@
 	import { AX_CONST__DB_COLLECTION__acceuil } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
 	import { ACTION__getallSorted } from 'app/stores/AX_BASE2__STORE_ACTIONS';
 	import Slider from '../widgets/Slider.svelte';
-	import { post_s1 } from 'app/0-config/db/datasets/AX_CONST__SLIDESHOW_LOCA';
+	import { GALLERY_A } from 'app/0-config/db/datasets/AX_CONST__DATASET_slideshow_local';
 </script>
