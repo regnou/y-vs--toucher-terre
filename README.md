@@ -18,11 +18,13 @@
 
 ### 1) FEATURES
 
-1. 0-ALIAS / zshrc: Advanced ZSH-plugins (Fuzzy autocomplete + Rust-plugins) (header (import libs), body (configure libs), footer => )
-2. 2-BK-CONF: (dotfiles, VCcode, ITerm, Fonts...) Synced with your home's dotfiles via ln (so you can backup on git your conf easily)
-3. 3-FULL-RESTORE: Bootstrap a new Mac Setup
+1. Design System with Material (SMUI)
+2. Typescript
+3. Firebase (free hosting and firestore quotas)
+4. App shell with 2 layouts (app + cms)
 
 ### 2) SETUP
 
-<!-- '/Users/axelo/0gh/0-cosmos/src/3-FUL-RESTORE/A--re-install-11-janv.sh' -->
-<!-- '/Users/axelo/0gh/0-cosmos/src/3-FUL-RESTORE/B--re-config-11-janv.sh' -->
+npm run dev
+npm run build
+npm run deploy
