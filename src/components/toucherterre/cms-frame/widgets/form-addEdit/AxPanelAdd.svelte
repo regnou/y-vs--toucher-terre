@@ -25,7 +25,7 @@
 		<!-- ------------------------------ -->
 		<!-- WE GET THE ANSWER OF THE USER in arrFormAdd -->
 		<Content class="space-y-5  bg-green-800 text-center">
-			{#each $AX_STORE__CONTENT_DB.formAdd as ivItm, pos}
+			{#each $AX_STORE__CONTENT_DB.formAdd as ivItm}
 				<AxInputValue bind:ivItm />
 			{/each}
 			<Button
@@ -67,11 +67,11 @@
 <!-- </div> -->
 <script lang="ts">
 	let open = false;
+	//
 	onMount(() => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- ax panel add', false, 'MOUNT', true);
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ax panel add', false, 'MOUNT', true);
 	});
-	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
-	import { AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
 	import { page } from '$app/stores';
 	import { Content, Header, Panel } from '@smui-extra/accordion';
 	import Button, { Label } from '@smui/button';

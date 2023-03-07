@@ -6,7 +6,7 @@
 	<div class="place-body-center grid grid-flow-col">
 		<img
 			class="h-8 self-center justify-self-end"
-			src="/media/icon/icon-contact-decom--creme.png"
+			src={AX_CONST__FRAME__frameDir + 'icon/icon-contact-decom--creme.png'}
 			alt=""
 		/>
 		<div class="m-auto text-4xl">
@@ -14,7 +14,7 @@
 		</div>
 		<img
 			class="h-8 rotate-180  self-center justify-self-start"
-			src="/media/icon/icon-contact-decom--creme.png"
+			src={AX_CONST__FRAME__frameDir + 'icon/icon-contact-decom--creme.png'}
 			alt=""
 		/>
 	</div>
@@ -24,22 +24,23 @@
 	<Separator />
 	<ContactCardItem
 		name={mail}
-		img="/media/icon/icon-contact-mail.png"
+		img={AX_CONST__FRAME__frameDir + 'icon/icon-contact-mail.png'}
 	/>
 	<ContactCardItem
 		name={fb}
-		img="/media/icon/icon-contact-fb.png"
+		img={AX_CONST__FRAME__frameDir + 'icon/icon-contact-fb.png'}
 	/>
 	<ContactCardItem
 		name={tel}
-		img="/media/icon/icon-contact-tel.png"
+		img={AX_CONST__FRAME__frameDir + 'icon/icon-contact-tel.png'}
 	/>
 </div>
 
 <script lang="ts">
 	import Separator from './Separator.svelte';
 	import ContactCardItem from './ContactcardItem.svelte';
-	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/config-frame/AX_CONST__FRAME__debug';
+	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/frame/AX_CONST__FRAME__debug';
+	import { AX_CONST__FRAME__frameDir } from 'app/0-config/frame/AX_CONST__FRAME';
 
 	export let title = 'N/A';
 	export let subtitle = 'N/A';

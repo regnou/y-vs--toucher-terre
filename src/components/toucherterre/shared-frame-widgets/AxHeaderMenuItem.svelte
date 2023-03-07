@@ -39,11 +39,14 @@
 <script lang="ts">
 	export let menu: I_ui__menu | undefined = undefined;
 	let active: string | undefined = undefined;
+	//
 	$: active = $page.url.pathname;
+	//
 	function setActive(value) {
 		active = value;
 	}
+	//
 	import { page } from '$app/stores';
 	import Button, { Label } from '@smui/button';
-	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/config-frame/AX_CONST__FRAME__debug';
+	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/frame/AX_CONST__FRAME__debug';
 </script>

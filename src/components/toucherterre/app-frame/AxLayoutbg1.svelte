@@ -29,15 +29,16 @@
 
 <!-- tuto bg: https://www.youtube.com/watch?v=ywLgqJjLUm4 -->
 <script lang="ts">
-	let imgBg = '/media/bg/bg-1.jpg'; // tip: do not flash
+	let imgBg = AX_CONST__FRAME__frameDir + 'bg/bg-1.jpg'; // tip: do not flash
 	//
 	onMount(() => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- ax LayoutBg', false, 'MOUNT', true);
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ax LayoutBg', false, 'MOUNT', true);
 		// $AX_STORE__UI_ISOPEN_drawer = false;
 	});
 	import { page } from '$app/stores';
-	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/config-frame/AX_CONST__FRAME__debug';
+	import { AX_CONST__FRAME__contentDir, AX_CONST__FRAME__frameDir } from 'app/0-config/frame/AX_CONST__FRAME';
+	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/frame/AX_CONST__FRAME__debug';
 	import { axlog } from 'app/lib/utils/axLog';
-	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
 	import { onMount } from 'svelte';
 </script>

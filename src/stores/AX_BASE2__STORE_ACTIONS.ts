@@ -2,13 +2,22 @@
 // TODO - pas de crud_db call dans cette couche
 // TODO - c est SERVICE qui bind la couche STORE avec la couche DB
 
-import { AX_CONST__DB_COLLECTION__blog } from 'app/0-config/config-db/firebase/AX_CONST__DB_COLLECTIONS';
+import { AX_CONST__DB_COLLECTION__blog } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
 import { upload } from 'app/lib/firebase/AX_API__firebaseStorage';
 import { isEntityEvents, isEntityInputValue, isEntityNotIv, isEntityPosts } from 'app/lib/utils/guards';
 import { get } from 'svelte/store';
 import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from './AX_BASE1__STORE_CONTENT';
-import { SERVICE__add, SERVICE__adds } from './AX_BASE3__STORE_SERVICES';
+import { SERVICE__add, SERVICE__adds, SERVICE__getAllCollections_Sorted } from './AX_BASE3__STORE_SERVICES';
 import { crud__clearCollection } from './AX_BASE4__STORE_CRUD';
+
+export const ACTION__getallSorted = async <T extends T_GLOBAL_ENTITIES>(collection, dataset, formAdd) => {
+	AX_STORE__CONTENT.set(await SERVICE__getAllCollections_Sorted<T>(collection, true));
+	AX_STORE__CONTENT_DB.set({
+		collection,
+		dataset,
+		formAdd
+	});
+};
 
 export const ACTION__addEntity = async () => {
 	console.debug('🌎🏎️✅ click >> on:add 1 🟡');
@@ -25,7 +34,7 @@ export const ACTION__addEntity = async () => {
 	if (isEntityPosts(get(AX_STORE__CONTENT))) {
 		const post: I_DTO__post = {
 			titlePost: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[0]) ?? error,
-			slug: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[1]) ?? error,
+			// slug: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[1]) ?? error,
 			body: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[2]) ?? error,
 			createdAt: Date.now() // dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
 			//
@@ -39,7 +48,7 @@ export const ACTION__addEntity = async () => {
 	} else if (isEntityEvents(get(AX_STORE__CONTENT))) {
 		const event: I_DTO__event = {
 			titleEvent: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[0]) ?? error,
-			slug: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[1]) ?? error,
+			// slug: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[1]) ?? error,
 			body: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[2]) ?? error,
 			date: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[3]) ?? error,
 			image: structuredClone(get(AX_STORE__CONTENT_DB)?.formAdd[4]) ?? error,
@@ -117,18 +126,24 @@ export const ACTION__del = async (pos) => {
 	}
 	console.debug('🌎🏎️✅ click << on:del 2 🟨');
 };
-export const ACTION__inject = async () => {
-	if (get(AX_STORE__CONTENT_DB) || get(AX_STORE__CONTENT_DB)?.collection) {
+export const ACTION__inject = async <T extends T_GLOBAL_ENTITIES>() => {
+	if (!get(AX_STORE__CONTENT_DB) || !get(AX_STORE__CONTENT_DB)?.collection) {
 		console.debug('ERROR: collection is undef');
 		return;
 	}
 	console.debug('🌎🏎️✅ click >> on:inject 1 🟡');
 	if (!confirm('Effacer toute les donnees et injecter DEFAULT ?')) return;
 
+	// DB ops
 	await crud__clearCollection(get(AX_STORE__CONTENT_DB)!.collection);
 	await SERVICE__adds(get(AX_STORE__CONTENT_DB)!.collection, get(AX_STORE__CONTENT_DB)!.dataset);
+
+	// UI ops -- hack refresh
+	AX_STORE__CONTENT.set(await SERVICE__getAllCollections_Sorted(get(AX_STORE__CONTENT_DB)!.collection, true));
+
 	console.debug('🌎🏎️✅ click << on:inject 2 🟨');
 };
+
 export const ACTION__save = async () => {
 	if (!get(AX_STORE__CONTENT_DB)?.collection || !get(AX_STORE__CONTENT)) return;
 	console.debug('🌎🏎️✅ click >> on:save 1 🟡');

@@ -58,5 +58,5 @@
 </AxFramecms>
 
 <script lang="ts">
-	import AxFramecms from 'app/components/toucherterre/cms-frame/AxFrameCms.svelte';
+	import AxFramecms from 'app/components/toucherterre/cms-frame/Ax1FrameCms.svelte';
 </script>

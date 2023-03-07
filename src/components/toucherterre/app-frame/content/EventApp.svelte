@@ -33,30 +33,27 @@
 // let $AX_STORE__CONTENT: I_ENTITY__event[] | undefined = undefined; -->
 <script lang="ts">
 	onMount(async () => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- ****** EVENT_APP ******', false, 'MOUNT', true);
-		console.debug('🚔 🏎️🐶 ... -- event');
-		$AX_STORE__CONTENT = await SERVICE__getAllCollections_Sorted<I_ENTITY__event>(AX_CONST__DB_COLLECTION__event);
-		$AX_STORE__CONTENT_DB = {
-			collection: AX_CONST__DB_COLLECTION__event,
-			dataset: AX_CONST__DATASET__event,
-			formAdd: AX_CONST__FORM_ADD__event
-		};
+		console.debug('🚔 🏎️🐶 ... -- event-app');
+		await ACTION__getallSorted<I_ENTITY__event>(AX_CONST__DB_COLLECTION__event, AX_CONST__DATASET__event, AX_CONST__FORM_ADD__event);
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ****** EVENT_APP ******', false, 'MOUNT', true);
 	});
 	onDestroy(() => {
+		console.log('destroy -------------------------------');
 		$AX_STORE__CONTENT = [];
 		$AX_STORE__CONTENT_DB = undefined;
 	});
 	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
-	import { AX_CONST__FORM_ADD__event } from 'app/0-config/config-db/uiAdd/AX_CONST__FORM_ADD__event.json';
-	import { AX_CONST__FRAME__distanceFromHeader, AX_CONST__FRAME__maxBodyApp } from 'app/0-config/config-frame/AX_CONST__FRAME';
+	import { AX_CONST__FORM_ADD__event } from 'app/0-config/db/uiAdd/AX_CONST__FORM_ADD__event.json';
+	import { AX_CONST__FRAME__distanceFromHeader, AX_CONST__FRAME__maxBodyApp } from 'app/0-config/frame/AX_CONST__FRAME';
 	import { axlog } from 'app/lib/utils/axLog';
 	import { isEntityEvents } from 'app/lib/utils/guards';
 	import { SERVICE__getAllCollections_Sorted } from 'app/stores/AX_BASE3__STORE_SERVICES';
 	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
 	import { onDestroy, onMount } from 'svelte';
 
-	import { AX_CONST__DATASET__event } from 'app/0-config/config-db/datasets/AX_CONST__DATASET_event.json';
+	import { AX_CONST__DATASET__event } from 'app/0-config/db/datasets/AX_CONST__DATASET_event.json';
 	import Eventcard from '../widgets/Eventcard.svelte';
-	import { AX_CONST__DB_COLLECTION__event } from 'app/0-config/config-db/firebase/AX_CONST__DB_COLLECTIONS';
+	import { AX_CONST__DB_COLLECTION__event } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
+	import { ACTION__getallSorted } from 'app/stores/AX_BASE2__STORE_ACTIONS';
 </script>

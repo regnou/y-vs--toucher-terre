@@ -38,7 +38,7 @@
 					<div class="grid grid-flow-col place-items-center">
 						<img
 							class="h-24 justify-self-end "
-							src="/media/icon/icon-contact-decom--creme.png"
+							src={AX_CONST__FRAME__frameDir + 'icon/icon-contact-decom--creme.png'}
 							alt=""
 						/>
 						<img
@@ -53,7 +53,7 @@
 						/> -->
 						<img
 							class="h-24 rotate-180 justify-self-start"
-							src="/media/icon/icon-contact-decom--creme.png"
+							src={AX_CONST__FRAME__frameDir + 'icon/icon-contact-decom--creme.png'}
 							alt=""
 						/>
 					</div>
@@ -116,32 +116,28 @@
 <script lang="ts">
 	//
 	onMount(async () => {
-		// log
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- ****** LA-DEMARCHE_APP ******', false, 'MOUNT', true);
 		// init
 		// prom
-		console.debug('🚔 🏎️🐶 ... -- lademarche');
-		$AX_STORE__CONTENT = await SERVICE__getAllCollections_Sorted<I_ENTITY__uiinputValue>(AX_CONST__DB_COLLECTION__lademarche, true);
-
-		$AX_STORE__CONTENT_DB = {
-			collection: AX_CONST__DB_COLLECTION__lademarche,
-			dataset: AX_CONST__DATASET__laDemarche,
-			formAdd: [] // no hay
-		};
+		console.debug('🚔 🏎️🐶 ... -- lademarche-app');
+		await ACTION__getallSorted<I_ENTITY__uiinputValue>(AX_CONST__DB_COLLECTION__lademarche, AX_CONST__DATASET__lademarche, []);
+		// log
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ****** LA-DEMARCHE_APP ******', false, 'MOUNT', true);
 	});
 
 	onDestroy(() => {
+		console.log('destroy -------------------------------');
 		$AX_STORE__CONTENT = [];
 		$AX_STORE__CONTENT_DB = undefined;
 	});
 	import { page } from '$app/stores';
 	import LayoutGrid, { Cell } from '@smui/layout-grid';
-	import { AX_CONST__DATASET__laDemarche } from 'app/0-config/config-db/datasets/AX_CONST__DATASET_laDemarche.json';
-	import { AX_CONST__DB_COLLECTION__lademarche } from 'app/0-config/config-db/firebase/AX_CONST__DB_COLLECTIONS';
-	import { AX_CONST__FRAME__distanceFromHeader, AX_CONST__FRAME__maxBodyApp } from 'app/0-config/config-frame/AX_CONST__FRAME';
+	import { AX_CONST__DATASET__lademarche } from 'app/0-config/db/datasets/AX_CONST__DATASET_lademarche.json';
+	import { AX_CONST__DB_COLLECTION__lademarche } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
+	import { AX_CONST__FRAME__distanceFromHeader, AX_CONST__FRAME__frameDir, AX_CONST__FRAME__maxBodyApp } from 'app/0-config/frame/AX_CONST__FRAME';
 	import { axlog } from 'app/lib/utils/axLog';
 	import { isEntityInputValues } from 'app/lib/utils/guards';
 	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { ACTION__getallSorted } from 'app/stores/AX_BASE2__STORE_ACTIONS';
 	import { SERVICE__getAllCollections_Sorted } from 'app/stores/AX_BASE3__STORE_SERVICES';
 	import { onDestroy, onMount } from 'svelte';
 	import Hero2 from '../widgets/Hero2.svelte';

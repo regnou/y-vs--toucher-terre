@@ -37,12 +37,14 @@
 <script lang="ts">
 	export let menu: I_ui__menu | undefined = undefined;
 	let active = $page.url.pathname;
+	//
 	$: active = $page.url.pathname;
+	//
 	function setActive(value) {
 		if (active === value) return; // do not refresh if the same page !
 		active = value;
 	}
 	import { page } from '$app/stores';
 	import { Item, Text } from '@smui/list';
-	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/config-frame/AX_CONST__FRAME__debug';
+	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/frame/AX_CONST__FRAME__debug';
 </script>

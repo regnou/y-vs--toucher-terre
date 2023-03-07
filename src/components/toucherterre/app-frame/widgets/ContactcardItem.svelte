@@ -19,5 +19,5 @@
 <script lang="ts">
 	export let name = 'N/A';
 	export let img = 'N/A';
-	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/config-frame/AX_CONST__FRAME__debug';
+	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/frame/AX_CONST__FRAME__debug';
 </script>

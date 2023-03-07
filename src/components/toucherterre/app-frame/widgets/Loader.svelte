@@ -7,5 +7,5 @@
 </div>
 
 <script lang="ts">
-	import { AX_CONST__FRAME__favicon } from 'app/0-config/config-frame/AX_CONST__FRAME';
+	import { AX_CONST__FRAME__favicon } from 'app/0-config/frame/AX_CONST__FRAME';
 </script>

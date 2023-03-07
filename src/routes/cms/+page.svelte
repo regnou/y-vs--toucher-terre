@@ -15,11 +15,12 @@
 
 <script lang="ts">
 	onMount(() => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'HOME ');
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'HOME ');
 	});
 	import { page } from '$app/stores';
-	import AxFramecms from 'app/components/toucherterre/cms-frame/AxFrameCms.svelte';
+	import AxFramecms from 'app/components/toucherterre/cms-frame/Ax1FrameCms.svelte';
 	import { axlog } from 'app/lib/utils/axLog';
-	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
+
 	import { onMount } from 'svelte';
 </script>

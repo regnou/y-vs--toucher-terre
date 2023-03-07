@@ -97,7 +97,7 @@ async function download(storagePath) {
 
 export { download, upload };
 
-import { AX_CONST__DB_COLLECTION__img } from 'app/0-config/config-db/firebase/AX_CONST__DB_COLLECTIONS';
+import { AX_CONST__DB_COLLECTION__img } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { crud__addNew } from '../../stores/AX_BASE4__STORE_CRUD';
 import { getFirebase } from './AX_API__firebaseClient';

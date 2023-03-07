@@ -1,0 +1,76 @@
+export const acceuil_s1 = [];
+
+export const post_s1 = [
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_01.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_02.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_03.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_04.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_05.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_06.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_07.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_08.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_09.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_10.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_11.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_12.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_13.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_14.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_15.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_16.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_17.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_18.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_19.jpg',
+	'media/content/slideshow/realisations-creations/charpente-reciproque/toucher-terre-realisations-creations-charpente-reciproque-gallerie_20.jpg'
+];
+export const post_s2 = [
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_01.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_02.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_03.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_04.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_05.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_06.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_07.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_08.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_09.jpg',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_10.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_11.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_12.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_13.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_14.jpg',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_15.jpg',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_16.jpg',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_17.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_18.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_19.JPG',
+	'media/content/slideshow/realisations-creations/cuisiniere-terre-crue/toucher-terre-realisations-creations-cuisiniere-terre-crue-rocketstove_20.JPG'
+];
+export const post_s3 = [
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_01.jpg',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_02.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_03.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_04.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_05.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_06.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_07.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_08.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_09.JPG',
+	'media/content/slideshow/realisations-creations/enduits-arts/toucher-terre-realisations-creations-enduits-arts-gallerie_10.jpg'
+];
+
+export const acceuil_s3 = [];
+
+// images,
+// "/media/content/images/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_01.jpg",
+// "/media/content/images/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_02.jpg",
+// "/media/content/images/la-demarche/cuisiniere-terre-crue-rocketstove-enduits-habitats-reversibles-poele-de-masse_03.jpg",
+// // ,
+// "media/content/images/prochains-rdv/1.jpg",
+// "media/content/images/prochains-rdv/2.jpg",
+// "media/content/images/prochains-rdv/3.jpg",
+// "media/content/images/prochains-rdv/4.jpg",
+// "media/content/images/prochains-rdv/5.jpg",
+// "media/content/images/prochains-rdv/6.jpg",
+// "media/content/images/prochains-rdv/7.jpg",
+// "media/content/images/prochains-rdv/8.jpg",
+// "media/content/images/prochains-rdv/9.jpg",
+// "media/content/images/prochains-rdv/10.jpg",

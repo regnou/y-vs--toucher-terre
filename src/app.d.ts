@@ -1,4 +1,6 @@
+import { AX_CONST__FRAME__formatMedia } from 'app/0-config/frame/AX_CONST__FRAME';
 import type { CollectionReference } from 'firebase/firestore';
+
 declare global {
 	// ###############################################
 	// namespace
@@ -38,13 +40,13 @@ declare global {
 	interface I_ENTITY__uiinputValue extends I_ENTITY, I_DTO__uiInputValue {}
 	interface I_DTO__post {
 		titlePost: I_DTO__uiInputValue;
-		slug: I_DTO__uiInputValue;
+		// slug: I_DTO__uiInputValue;
 		body: I_DTO__uiInputValue;
 		createdAt: number; // timestamp
 	}
 	interface I_DTO__event {
 		titleEvent: I_DTO__uiInputValue;
-		slug: I_DTO__uiInputValue;
+		// slug: I_DTO__uiInputValue;
 		date: I_DTO__uiInputValue;
 		body: I_DTO__uiInputValue;
 		image: I_DTO__uiInputValue;
@@ -56,8 +58,12 @@ declare global {
 		label: string;
 		value: string; // (value  = storageUrl (in the case of tag=file)
 		blobs?: any[]; // on l ajoute et puis on le supprime pour l upload
-		format?: AX_CONST__formatMedia; // TODO - enum => pour differencierimge/video du slideshow
+		format?: AX_CONST__FRAME__formatMedia.video | AX_CONST__FRAME__formatMedia.image; // TODO - enum => pour differencierimge/video du slideshow
 	}
+
+	// enum VideoOrImage {
+
+	//   }
 
 	// ................................................
 	// UI

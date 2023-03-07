@@ -51,28 +51,25 @@
 	 -->
 <script lang="ts">
 	onMount(async () => {
-		console.debug('🚔 🏎️🐶 ... -- blog');
-		$AX_STORE__CONTENT = await SERVICE__getAllCollections_Sorted<I_ENTITY__post>(AX_CONST__DB_COLLECTION__blog, true);
-		$AX_STORE__CONTENT_DB = {
-			collection: AX_CONST__DB_COLLECTION__blog,
-			dataset: AX_CONST__DATASET__blog,
-			formAdd: AX_CONST__FORM_ADD__post
-		};
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- ****** BLOG_APP ******', false, 'MOUNT-ED', true);
+		console.debug('🚔 🏎️🐶 ... -- blog-app');
+		await ACTION__getallSorted<I_ENTITY__post>(AX_CONST__DB_COLLECTION__blog, AX_CONST__DATASET__post, AX_CONST__FORM_ADD__post);
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ****** BLOG_APP ******', false, 'MOUNT', true);
 	});
 	onDestroy(() => {
+		console.log('destroy -------------------------------');
 		$AX_STORE__CONTENT = [];
 		$AX_STORE__CONTENT_DB = undefined;
 	});
 	import { page } from '$app/stores';
-	import { AX_CONST__DATASET__blog } from 'app/0-config/config-db/datasets/AX_CONST__DATASET_blog.json';
-	import { AX_CONST__FRAME__distanceFromHeader, AX_CONST__FRAME__maxBodyApp } from 'app/0-config/config-frame/AX_CONST__FRAME';
+	import { AX_CONST__DATASET__post } from 'app/0-config/db/datasets/AX_CONST__DATASET_post.json';
+	import { AX_CONST__FRAME__distanceFromHeader, AX_CONST__FRAME__maxBodyApp } from 'app/0-config/frame/AX_CONST__FRAME';
 	import { axlog } from 'app/lib/utils/axLog';
 	import { isEntityPosts } from 'app/lib/utils/guards';
 	import { SERVICE__getAllCollections_Sorted } from 'app/stores/AX_BASE3__STORE_SERVICES';
 	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
 	import { onDestroy, onMount } from 'svelte';
 	import Post from '../widgets/Post.svelte';
-	import { AX_CONST__DB_COLLECTION__blog } from 'app/0-config/config-db/firebase/AX_CONST__DB_COLLECTIONS';
-	import { AX_CONST__FORM_ADD__post } from 'app/0-config/config-db/uiAdd/AX_CONST__FORM_ADD__post.json';
+	import { AX_CONST__DB_COLLECTION__blog } from 'app/0-config/db/firebase/AX_CONST__dbColletions';
+	import { AX_CONST__FORM_ADD__post } from 'app/0-config/db/uiAdd/AX_CONST__FORM_ADD__post.json';
+	import { ACTION__getallSorted } from 'app/stores/AX_BASE2__STORE_ACTIONS';
 </script>

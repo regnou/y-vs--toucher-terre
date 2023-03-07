@@ -40,7 +40,7 @@
 	// axlog({ ivItm, pos }, $page.url.pathname, 'wc -- ax input value', false, 'MOUNT', true);
 	// });
 	import Textfield from '@smui/textfield';
-	import { AX_CONST__FRAME__formatMedia } from 'app/0-config/config-frame/AX_CONST__FRAME';
+	import { AX_CONST__FRAME__formatMedia } from 'app/0-config/frame/AX_CONST__FRAME';
 	// import { onMount } from 'svelte';
 	import Axfileupload from './AxFileupload.svelte';
 </script>

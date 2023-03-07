@@ -77,15 +77,17 @@
 	// let sort: keyof PageMenus = 'id';
 	let sort = sortId;
 	let sortDirection: Lowercase<keyof typeof SortValue> = 'ascending';
-
+	//
 	onMount(() => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- ax table');
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ax table', false, 'MOUNT', true);
 	});
+	//
 	import { page } from '$app/stores';
 	import DataTable, { Body, Cell, Head, Label, Row, SortValue } from '@smui/data-table';
 	import IconButton from '@smui/icon-button';
 	import { axlog } from 'app/lib/utils/axLog';
-	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
+
 	import { onMount } from 'svelte';
 	// ----------------------------------------------
 	// if (typeof fetch !== 'undefined') {

@@ -7,12 +7,13 @@
 
 <script lang="ts">
 	onMount(() => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, '### LAYOUT (app-only) ###');
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, '### LAYOUT (app-only) ###');
 	});
 	import { page } from '$app/stores';
-	import AxFrameapp from 'app/components/toucherterre/app-frame/AxFrameApp.svelte';
+	import AxFrameapp from 'app/components/toucherterre/app-frame/Ax1FrameApp.svelte';
 	import { axlog } from 'app/lib/utils/axLog';
-	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
+
 	import { onMount } from 'svelte';
 
 	// beforeNavigate(() => {

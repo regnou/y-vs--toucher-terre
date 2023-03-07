@@ -26,7 +26,7 @@
 
 <script lang="ts">
 	import SeparatorMedium from './SeparatorMedium.svelte';
-	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/config-frame/AX_CONST__FRAME__debug';
+	import { AX_CONST__FRAME__isDebugBorder } from 'app/0-config/frame/AX_CONST__FRAME__debug';
 
 	export let event: I_ENTITY__event; // it is an array
 </script>

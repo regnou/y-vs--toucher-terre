@@ -17,7 +17,7 @@ export const axlog = (
 		// LIGHT LOG
 		// yellow - \x1B[103;30;4m ${axEnv} \x1B[m\x1B[107;93;4m
 		// red
-		console.debug(`🚔 🏎️✅ NOT-USING -- -- -- -- -- -- -- 	 ${verb}-ED\x1B[41;97;4m${axEnv}\x1B[m\x1B[107;30;4m${pagename}\x1B[m`);
+		console.debug(`🚔 🏎️✅ NOT-USING -- -- -- -- -- -- -- 	 ${verb}--ED\x1B[41;97;4m${axEnv}\x1B[m\x1B[107;30;4m${pagename}\x1B[m`);
 	} else {
 		if (isOrange)
 			// HEAVY LOG
@@ -25,9 +25,9 @@ export const axlog = (
 			// RED - cms
 			// yellow - wc
 			// W\x1B[m \x1B[107;34;4m
-			console.debug(`🚔 🏎️✅ ${verb}-ED ${axEnv === 'APP' ? '\x1B[44;97;4m' : '\x1B[41;30;4m'} ${axEnv} \x1B[m\x1B[43;30;4m ${pagename} \x1B[m `); // \x1B[43;30;4m ${JSON.stringify(data, null, 2)} \x1B[m
+			console.debug(`🚔 🏎️✅ ${verb}--ED ${axEnv === 'APP' ? '\x1B[44;97;4m' : '\x1B[41;30;4m'} ${axEnv} \x1B[m\x1B[43;30;4m ${pagename} \x1B[m `); // \x1B[43;30;4m ${JSON.stringify(data, null, 2)} \x1B[m
 		// HEAVY LOG
-		else console.debug(`🚔 🏎️✅ ${verb}-ED ${axEnv === 'APP' ? '\x1B[44;97;4m' : '\x1B[41;30;4m'} ${axEnv} \x1B[m\x1B[107;31;4m ${pagename} \x1B[m `); // \x1B[43;30;4m ${JSON.stringify(data, null, 2)} \x1B[m
+		else console.debug(`🚔 🏎️✅ ${verb}--ED ${axEnv === 'APP' ? '\x1B[44;97;4m' : '\x1B[41;30;4m'} ${axEnv} \x1B[m\x1B[107;31;4m ${pagename} \x1B[m `); // \x1B[43;30;4m ${JSON.stringify(data, null, 2)} \x1B[m
 	}
 	// console.debug('🚔 \n');
 };

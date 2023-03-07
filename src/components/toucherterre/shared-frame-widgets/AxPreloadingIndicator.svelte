@@ -57,18 +57,24 @@
 <script lang="ts">
 	let p = 0;
 	let visible = false;
+	//
 	onMount(() => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- preloading-indicator', false, 'MOUNT', true);
 		visible = true;
+
 		function next() {
 			p += 0.1;
 			const remaining = 1 - p;
 			if (remaining > 0.15) setTimeout(next, 500 / remaining);
 		}
+
 		setTimeout(next, 250);
+
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- preloading-indicator', false, 'MOUNT', true);
 	});
+	//
 	import { page } from '$app/stores';
 	import { axlog } from 'app/lib/utils/axLog';
-	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
+
 	import { onMount } from 'svelte';
 </script>

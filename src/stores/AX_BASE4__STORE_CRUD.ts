@@ -12,10 +12,10 @@ const firestore__tryHelper = async (callback, msg: string, action: string): Prom
 		const r = await callback(msg);
 		console.debug('🚔 🔥🎤');
 		LOG_LEVEL__ON ? console.dir(r.data) : 'db-log-level--off';
-		LOG_LEVEL__ON ? console.debug(`🚔 🔥✅ db -- ${action}-ED ${r.msg}`) : '';
+		LOG_LEVEL__ON ? console.debug(`🚔 🔥✅ db -- ${action}--ED ${r.msg}`) : '';
 		return r;
 	} catch (err) {
-		LOG_LEVEL__ON ? console.debug(`🚔 🔥❌ db -- ${action}-ING ${msg}`) : '';
+		LOG_LEVEL__ON ? console.debug(`🚔 🔥❌ db -- ${action}--ING ${msg}`) : '';
 		if (err instanceof Error) {
 			console.debug(err.message);
 			console.debug(err.name);
@@ -40,7 +40,7 @@ export const crud__getAllCollection = async <T extends T_GLOBAL_ENTITIES>(col: C
 		}
 		return { msg, data: arr };
 	};
-	return await firestore__tryHelper(callback, msg, 'GETallCollection');
+	return await firestore__tryHelper(callback, msg, 'GET-allCollection-Sort');
 };
 
 export const crud__getId = async <T extends T_GLOBAL_ENTITIES>(col: CollectionReference<T>, id: string): Promise<I_msg> => {
@@ -52,7 +52,7 @@ export const crud__getId = async <T extends T_GLOBAL_ENTITIES>(col: CollectionRe
 		const data = document.data(); // ceci retourne TOUTES les key:val du document
 		return { msg, data: data };
 	};
-	return await firestore__tryHelper(callback, msg, 'GETid');
+	return await firestore__tryHelper(callback, msg, 'GET-id');
 };
 
 export const crud__addId = async <T extends T_GLOBAL_ENTITIES>(col: CollectionReference<T>, id: string, data) => {
@@ -61,7 +61,7 @@ export const crud__addId = async <T extends T_GLOBAL_ENTITIES>(col: CollectionRe
 		await setDoc<T>(doc<T>(col, id), { ...data });
 		return { msg, data: data };
 	};
-	return await firestore__tryHelper(callback, msg, 'ADDid');
+	return await firestore__tryHelper(callback, msg, 'ADD-id');
 };
 
 export const crud__addNew = async <T extends T_GLOBAL_ENTITIES>(col: CollectionReference<T>, data: any) => {
@@ -77,7 +77,7 @@ export const crud__addNew = async <T extends T_GLOBAL_ENTITIES>(col: CollectionR
 		await setDoc(docRef, entity);
 		return { msg, data: docRef.id };
 	};
-	return await firestore__tryHelper(callback, msg, 'ADDnew');
+	return await firestore__tryHelper(callback, msg, 'ADD-new');
 };
 
 // TODO - faire en form callback pour gestion error => DANGEROUS TO PUT THIS CLIENT SITDE

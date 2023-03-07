@@ -87,7 +87,7 @@ export function getFirebase() {
 	}
 }
 import { dev } from '$app/environment';
-import { AX_CONST__FIREBASE__client } from 'app/0-config/config-db/firebase/AX_CONST__FIREBASE_CLIENT.json';
+import { AX_CONST__FIREBASE__client } from 'app/0-config/db/firebase/AX_CONST__firebaseClient.json';
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { connectFirestoreEmulator, initializeFirestore } from 'firebase/firestore';

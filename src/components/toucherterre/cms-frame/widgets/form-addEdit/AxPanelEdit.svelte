@@ -61,15 +61,17 @@
 	export let pos = 0;
 	export let entity: T_GLOBAL_ENTITIES | undefined = undefined; // must bind
 	let open = false; // remettre ? export let open = type === 'staticpage' ? true : false;
+	//
 	onMount(() => {
-		axlog($AX_STORE__CONTENT, $page.url.pathname, 'wc -- ax panel edit', false, 'MOUNT', true);
+		axlog({ data: $AX_STORE__CONTENT, db: $AX_STORE__CONTENT_DB }, $page.url.pathname, 'wc -- ax panel edit', false, 'MOUNT', true);
 	});
 	import { page } from '$app/stores';
 	import { Content, Header, Panel } from '@smui-extra/accordion';
 	import IconButton, { Icon } from '@smui/icon-button';
 	import { axlog } from 'app/lib/utils/axLog';
 	import { isEntityEvent, isEntityPost } from 'app/lib/utils/guards';
-	import { AX_STORE__CONTENT } from 'app/stores/AX_BASE1__STORE_CONTENT';
+	import { AX_STORE__CONTENT, AX_STORE__CONTENT_DB } from 'app/stores/AX_BASE1__STORE_CONTENT';
+
 	import { ACTION__del } from 'app/stores/AX_BASE2__STORE_ACTIONS';
 	import { onMount } from 'svelte';
 	import AxInputValue from '../../widgets/form-inputValue/AxInputValue.svelte';

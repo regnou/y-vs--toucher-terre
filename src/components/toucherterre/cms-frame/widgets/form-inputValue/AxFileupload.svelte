@@ -68,8 +68,9 @@ hover:bg-black/30
 <script lang="ts">
 	export let ivItm: I_DTO__uiInputValue | undefined = undefined; // we have to dynamically add a field, that is the blob UPLOADED
 	let imgFromElement;
+	//
 	onMount(() => {
-		axlog(ivItm, $page.url.pathname, 'wc -- ax file upload', false, 'MOUNT', true);
+		// axlog(ivItm, $page.url.pathname, 'wc -- ax file upload', false, 'MOUNT', true);
 	});
 	import { page } from '$app/stores';
 	import { axlog } from 'app/lib/utils/axLog';
