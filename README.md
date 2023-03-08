@@ -4,11 +4,14 @@
 
 `COMPANY`
 
-> <http://www.web-agency.app>
+ <http://www.web-agency.app>
 
 `RESUME`
 
-> <https://cv-regnoult-axel.web.app>
+<https://cv-regnoult-axel.web.app>
+
+`LINKEDIN`
+<https://www.linkedin.com/in/regnou/>
 
 ![logo](https://github.com/regnou/wa1-cosmos/blob/main/z-doc/z-img/genesis.webp)
 
