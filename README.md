@@ -3,11 +3,9 @@
 ## [ web-agency-sveltekit-SPA-starterKit ]
 
 `COMPANY`
-
  <http://www.web-agency.app>
 
 `RESUME`
-
 <https://cv-regnoult-axel.web.app>
 
 `LINKEDIN`
